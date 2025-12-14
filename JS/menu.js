@@ -1,5 +1,5 @@
 
-"use strict";
+//"use strict";
 let menuIcon=document.querySelector("#menuIcon");
 
 menuIcon.onclick=function(){
