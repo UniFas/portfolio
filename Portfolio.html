@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francis Santos Portfolio</title>
+  <link rel="shortcut icon" href="images/2.png" type="image/x-icon">
+  <link rel="stylesheet" href="CssStuff/normalize.css">
+  <link rel="stylesheet" href="CssStuff/styles.css"> <!-- Add this -->
+</head>
+
+<body>
+  <!-- General Header aplied to all  -->
+  <header id="header">
+    <div id="logo">
+      <a href="index.html">
+        <img src="images/2_transparent.png" alt="logo">
+      </a>
+    </div>
+    <h1 id="site-title">Francisco Santos | Portfolio</h1>
+     <div id="menuIcon">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="Portfolio.html" id="nav-portfolio" class="sel">Portfolio</a></li>
+        <li><a href="resumecv.html" id="nav-about">Resume/CV</a></li>
+        <li><a href="devlogs.html" id="nav-devlog">Devlogs</a></li>
+        <li><a href="contact.html" id="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Portefolio Core -->
+   <section id="portfolio-core">
+
+  <h2>Portfolio</h2>
+
+  <div class="pc-grid">
+
+    <!-- Gameplay -->
+    <div class="pc-card">
+      <img src="images/Portefolio/pb_Controler.jpg" alt="Gameplay Icon">
+      <h3>Gameplay Design</h3>
+      <p>Mechanics, player interactions, systems, and gameplay loops that I’ve designed.</p>
+      <a class="pc-btn" href="Portefolio_SubSection/Port_SubSections_GD.html">View Work</a>
+    </div>
+
+    <!-- Systems -->
+    <div class="pc-card">
+      <img src="images/Portefolio/pb_Gears.jpg" alt="Systems Icon">
+      <h3>Horror Systems & Tension Design</h3>
+      <p>I know how to craft fear, pacing, tension, and player vulnerability.</p>
+      <a class="pc-btn" href="Portefolio_SubSection/Port_SubSections_SD.html">View Work</a>
+    </div>
+
+    <!-- Narrative -->
+    <div class="pc-card">
+      <img src="images/Portefolio/pb_Quil.jpg" alt="Narrative Icon">
+      <h3>Narrative & Quest Design</h3>
+      <p>Quest flows, branching dialogue, narrative structures, and worldbuilding documents.</p>
+      <a class="pc-btn" href="Portefolio_SubSection/Port_SubSections_ND.html">View Work</a>
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- para fazzer slide show supostamente -->
+  <section id="portfolio" class="portfolio-section">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ue5">Unreal Engine 5</button>
+      <button class="filter-btn" data-filter="unity">Unity</button>
+      <button class="filter-btn" data-filter="pixel">Pixel Art</button>
+      <button class="filter-btn" data-filter="cpp">C++</button>
+      <button class="filter-btn" data-filter="narrative">Narrative Design</button>
+      <button class="filter-btn" data-filter="level">Level Design</button>
+    </div>
+
+    <!-- Portfolio Grid -->
+    <div class="portfolio-grid">
+
+      <div class="project-card ue5">
+        <img src="images/GT_astralon_thubnail.png" alt="Astralon: Alien Assault">
+        <div class="overlay">
+          <h4>Astralon: Alien Assault</h4>
+          <!-- depois  para o site -->
+          <a href="https://unifasdev.itch.io/astralon-alien-assault" class="view-btn">View More</a>
+        </div>
+      </div>
+
+      <div class="project-card unity level narrative">
+        <img src="images/GT_rr_thumbnail.png" alt="Rhythms of Revolution">
+        <div class="overlay">
+          <h4>Rhythms of Revolution</h4>
+          <!-- depois  para o site -->
+          <a href="https://unifasdev.itch.io/rhythms-of-revolution" class="view-btn">View More</a>
+        </div>
+      </div>
+
+      <div class="project-card ue5 level">
+        <img src="images/GT_dawnbreaker_thubnail.png" alt="Dawnbreaker">
+        <div class="overlay">
+          <h4>Dawnbreaker</h4>
+          <!-- depois  para o site -->
+          <a href="dawnbreaker.html" class="view-btn">View More</a>
+        </div>
+      </div>
+
+      <div class="project-card level ue5 narrative">
+        <img src="images/GT_trappedwithit_thubnail.png" alt="Trapped With It">
+        <div class="overlay">
+          <h4>Trapped With It</h4>
+          <!-- depois  para o site -->
+          <a href="https://unifasdev.itch.io/trapped-with-it-bacon" class="view-btn">View More</a>
+        </div>
+      </div>
+
+      <div class="project-card level unity pixel narrative">
+        <img src="images/GT_poppy_thumbnail.png" alt="Poppy NOT the Popcorn">
+        <div class="overlay">
+          <h4>Poppy NOT The Popcorn!</h4>
+          <!-- depois  para o site -->
+          <a href="https://unifasdev.itch.io/poppy-not-the-popcorn" class="view-btn">View More</a>
+        </div>
+      </div>
+
+      <div class="project-card ue5">
+        <img src="images/GT_dawnofthedamned_thubnail.png" alt="Dawn of the Damned">
+        <div class="overlay">
+          <h4>Dawn of the Damned</h4>
+          <!-- depois  para o site -->
+          <a href="https://unifasdev.itch.io/dawn-damned" class="view-btn">View More</a>
+        </div>
+      </div>
+
+      <div class="project-card ue5">
+        <img src="images/GT_bombcase_thubnail.png" alt="Bomb Case!">
+        <div class="overlay">
+          <h4>Bomb Case!</h4>
+          <!-- depois  para o site -->
+          <a href="https://unifasdev.itch.io/bombcase" class="view-btn">View More</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Script of the grid flitering -->
+  <script>
+    // Filtering Logic
+    const buttons = document.querySelectorAll('.filter-btn');
+    const projects = document.querySelectorAll('.project-card');
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+        projects.forEach(project => {
+          if (filter === 'all' || project.classList.contains(filter)) {
+            project.style.display = 'block';
+            setTimeout(() => project.classList.add('visible'), 10);
+          } else {
+            project.classList.remove('visible');
+            setTimeout(() => project.style.display = 'none', 300);
+          }
+        });
+      });
+    });
+    buttons[0].click();
+  </script>
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <div id="social-links">
+        <!-- linkedin -->
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
+          <img src="images/socialmedia_linkedin_logo.png" alt="linkedin">
+        </a>
+        <!-- IndieBD -->
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
+          <img src="images/socialmedia_indiedb_logo.png" alt="IndieDB">
+        </a>
+        <!-- Ithchio -->
+        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
+          <img src="images/socialmedia_itchio_logo.png" alt="Itchio">
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/unifasdraws" target="_blank" title="Instagram">
+          <img src="images/socialmedia_instagram_logo.png" alt="Instagram">
+        </a>
+        <!-- Artstation -->
+        <a href="https://www.artstation.com/unifasdraws" target="_blank" title="ArtStation">
+          <img src="images/socialmedia_artstation_logo.png" alt="ArtStation">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+
+</html>

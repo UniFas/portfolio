@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francis Santos | Portfolio</title>
+  <link rel="shortcut icon" href="images/2.png" type="image/x-icon" />
+  <link rel="stylesheet" href="CssStuff/normalize.css" />
+  <link rel="stylesheet" href="CssStuff/styles.css" />
+</head>
+
+<body>
+    <!-- General Header aplied to all  -->
+  <header id="header">
+    <div id="logo">
+      <a href="index.html">
+        <img src="images/2_transparent.png" alt="logo">
+      </a>
+    </div>
+    <h1 id="site-title">Francisco Santos | Portfolio</h1>
+     <div id="menuIcon">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="Index.html" id="nav-home" class="sel">Home</a></li>
+        <li><a href="Portfolio.html" id="nav-portfolio">Portfolio</a></li>
+        <li><a href="resumecv.html" id="nav-about">Resume/CV</a></li>
+        <li><a href="Devlogs.html" id="nav-devlog">Devlogs</a></li>
+        <li><a href="contact.html" id="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- === About Section === -->
+
+  <section id="about-me">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="images/profilePick.jpg" alt="Francis Santos Portrait">
+      </div>
+
+      <div class="about-text">
+        <h2>Who Am I?</h2>
+        <p>
+          Hey there! I'm <strong>Francis Santos</strong> a game developer and storyteller currently studying
+          <strong>Game Design in Leiria, Portugal</strong>.
+          My passion lies in crafting experiences that blend narrative depth, atmosphere, and a touch of the surreal.
+        </p>
+
+        <p>
+          My goal? To create interconnected worlds where games and stories echo each other
+          where what you play, read, and feel all contribute to a larger universe.
+          I focus on indie development, strong art direction, and experimental mechanics.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- === Hero Slideshow Section === -->
+  <section class="hero-slider">
+    <div class="slide active" style="background-image: url('images/BTQ_LogoSoFar.png');">
+      <div class="slide-content">
+        <h2>Beneath the Questline</h2>
+        <p>Check out my Devlogs!</p>
+        <a href="Devlogs.html" class="view-btn">View Devlogs</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('images/Portefolio/PGD_Section/echoSC_4.png');">
+      <div class="slide-content">
+        <h2>Echo Location Mechanic Showcase</h2>
+        <p>check out!</p>
+        <a href="PagesInsideGD_Section/P_SS_GD_EchoSystem.html" class="view-btn">View Project</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('images/Portefolio/PSD_Section/caseStudie.png');">
+      <div class="slide-content">
+        <h2>Horror Design Case Studies</h2>
+        <p>Analyzing iconic horror games through a system-design viewpoint</p>
+        <a href="PagesInsideHorrorSystemsDesign_Section/P_SS_SD_CaseStudie.html" class="view-btn">View</a>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('images/Portefolio/PND_Section/Village.jpg');">
+      <div class="slide-content">
+        <h2>Quest Fantasy Design</h2>
+        <p></p>
+        <a href="PagesInsideNarrativeDesign_Section/P_SS_ND_QuestDesignSick.html" class="view-btn">View</a>
+      </div>
+    </div>
+
+    <!-- Optional navigation dots -->
+    <div class="slider-dots"></div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <div id="social-links">
+        <!-- linkedin -->
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
+          <img src="images/socialmedia_linkedin_logo.png" alt="linkedin">
+        </a>
+        <!-- IndieBD -->
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
+          <img src="images/socialmedia_indiedb_logo.png" alt="IndieDB">
+        </a>
+        <!-- Ithchio -->
+        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
+          <img src="images/socialmedia_itchio_logo.png" alt="Itchio">
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/unifasdraws" target="_blank" title="Instagram">
+          <img src="images/socialmedia_instagram_logo.png" alt="Instagram">
+        </a>
+        <!-- Artstation -->
+        <a href="https://www.artstation.com/unifasdraws" target="_blank" title="ArtStation">
+          <img src="images/socialmedia_artstation_logo.png" alt="ArtStation">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // === Hero Slider Logic ===
+    const slides = document.querySelectorAll(".slide");
+    const dotsContainer = document.querySelector(".slider-dots");
+    let current = 0;
+
+    // Create navigation dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement("span");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".dot");
+
+    function goToSlide(index) {
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("active");
+      current = index;
+      slides[current].classList.add("active");
+      dots[current].classList.add("active");
+    }
+
+    function nextSlide() {
+      goToSlide((current + 1) % slides.length);
+    }
+
+    setInterval(nextSlide, 6000); // Change every 6 seconds
+  </script>
+
+
+
+  <script src="js/menu.js"></script>
+</body>
+
+</html>

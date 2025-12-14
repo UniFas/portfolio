@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francis Santos Portfolio</title>
+  <link rel="shortcut icon" href="images/2.png" type="image/x-icon">
+  <link rel="stylesheet" href="CssStuff/normalize.css">
+  <link rel="stylesheet" href="CssStuff/styles.css">
+</head>
+
+<body>
+  <!-- General Header aplied to all  -->
+  <header id="header">
+    <div id="logo">
+      <a href="index.html">
+        <img src="images/2_transparent.png" alt="logo">
+      </a>
+    </div>
+    <h1 id="site-title">Francisco Santos | Portfolio</h1>
+     <div id="menuIcon">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="Index.html" id="nav-home">Home</a></li>
+        <li><a href="Portfolio.html" id="nav-portfolio">Portfolio</a></li>
+        <li><a href="resumecv.html" id="nav-about">Resume/CV</a></li>
+        <li><a href="Devlogs.html" id="nav-devlog">Devlogs</a></li>
+        <li><a href="contact.html" id="nav-contact" class="sel">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="contact-section">
+      <h2>Contact Me</h2>
+      <p id="contact-intro">
+        Got a collaboration idea, game dev question, or just want to say hi?
+        Feel free to drop me a message, I’m always up for connecting with other developers and creatives!
+      </p>
+
+      <!-- CONTACT FORM -->
+      <!-- With this line getting the form from formspree! -->
+      <form id="contact-form" action="https://formspree.io/f/mkgpwnad" method="POST">
+        <fieldset>
+          <legend>Let’s get in touch</legend>
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Write your message here..." required></textarea>
+          </div>
+        </fieldset>
+
+
+        <div class="button-group">
+          <input type="submit" value="Send Message">
+          <input type="reset" value="Clear Form">
+        </div>
+      </form>
+
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <div id="social-links">
+        <!-- linkedin -->
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
+          <img src="images/socialmedia_linkedin_logo.png" alt="linkedin">
+        </a>
+        <!-- IndieBD -->
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
+          <img src="images/socialmedia_indiedb_logo.png" alt="IndieDB">
+        </a>
+        <!-- Ithchio -->
+        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
+          <img src="images/socialmedia_itchio_logo.png" alt="Itchio">
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/unifasdraws" target="_blank" title="Instagram">
+          <img src="images/socialmedia_instagram_logo.png" alt="Instagram">
+        </a>
+        <!-- Artstation -->
+        <a href="https://www.artstation.com/unifasdraws" target="_blank" title="ArtStation">
+          <img src="images/socialmedia_artstation_logo.png" alt="ArtStation">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+
+</html>

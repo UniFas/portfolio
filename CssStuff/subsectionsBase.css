@@ -1,0 +1,853 @@
+:root {
+  --neon-green: #00ff88;
+  --neon-blue: #00eaff;
+  --bg-dark: #0a0a0a;
+  --text-light: #f5f5f5;
+  --accent-dark: #121212;
+  --myGrey: #909090;
+}
+
+/* ===============================
+   FIXED BACK BUTTON (TOP LEFT)
+   =============================== */
+
+.gd-back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    padding: 10px 18px;
+    background: rgba(0, 255, 120, 0.12);
+    border: 1px solid rgba(0, 255, 120, 0.4);
+
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+
+    backdrop-filter: blur(6px);
+    transition: 0.25s ease;
+    z-index: 9999; /* stays above all content */
+}
+
+.gd-back-btn:hover {
+    background: rgba(0, 255, 120, 0.25);
+    border-color: rgba(0, 255, 120, 0.7);
+    transform: translateX(-4px);
+    box-shadow: 0 0 12px rgba(0, 255, 120, 0.35);
+}
+
+
+
+
+/* ===============================
+   PROJECT PAGE BASE LAYOUT
+   =============================== */
+
+
+
+.gd-project-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 80px auto;
+    color: #fff;
+}
+
+.gd-project-title {
+    font-size: 2.6em;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(0,255,120,0.3);
+}
+
+/* ===============================
+   VIDEO EMBED
+   =============================== */
+
+.gd-video-container {
+    width: 100%;
+    aspect-ratio: 16/9; /* Makes it responsive */
+    margin: 30px 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0,255,120,0.25);
+    background: #000; /* Nice fallback before loading */
+}
+
+/* Video full size inside container */
+.gd-video-container .gd-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps video visually nice */
+}
+
+
+/* ===============================
+   DESCRIPTION
+   =============================== */
+
+.gd-description {
+    margin: 20px 0 40px 0;
+    line-height: 1.6;
+    opacity: 0.9;
+    font-size: 1.15em;
+}
+/* ===============================
+   IMAGE GALLERY – PREMIUM STYLE
+   =============================== */
+
+.gd-image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    width: 95%;
+    margin: auto;
+}
+
+/* Image styling */
+.Screenshot-img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(0,255,120,0.12);
+    box-shadow: 0 0 10px rgba(0,255,120,0.05);
+    transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        opacity 0.25s ease;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.Screenshot-img:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: rgba(0,255,160,0.4);
+    box-shadow: 0 0 18px rgba(0,255,120,0.25);
+    opacity: 1;
+}
+
+/* Responsive fix for very wide screens */
+@media (min-width: 1600px) {
+    .gd-image-gallery {
+        gap: 35px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+
+/* Gallery container */
+.gd-image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Normal image */
+.Screenshot-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Expanded image */
+.Screenshot-img.expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.1);
+  width: auto;             /* Keeps aspect ratio */
+  height: 80vh;            /* MAX height */
+  max-width: 90vw;         /* MAX width */
+  z-index: 9999;
+  border-radius: 14px;
+  box-shadow: 0 0 30px rgba(0,255,0,0.4);
+}
+
+/* Optional: dark background fade */
+.expanded::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+/* ===============================
+   INDIE DB PROMO PANEL 
+   =============================== */
+
+.indiedb-panel.pro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background: linear-gradient(135deg, 
+                rgba(255,255,255,0.03), 
+                rgba(0,255,120,0.05));
+    border: 1px solid rgba(0,255,120,0.18);
+
+    padding: 22px 28px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+
+    transition: 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.indiedb-panel.pro:hover {
+    border-color: rgba(0,255,120,0.45);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 0 22px rgba(0,255,120,0.12);
+}
+
+/* --- Icon --- */
+.indiedb-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: rgba(0,255,120,0.08);
+    border-radius: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.35s ease;
+}
+
+.indiedb-panel.pro:hover .indiedb-icon-wrapper {
+    background: rgba(0,255,120,0.15);
+}
+
+.indiedb-icon-wrapper img {
+    width: 55px;
+    opacity: 0.9;
+}
+
+/* --- Text Content --- */
+.indiedb-content {
+    flex: 1;
+}
+
+.indiedb-content h3 {
+    margin: 0;
+    font-size: 1.45em;
+    font-weight: 600;
+}
+
+.indiedb-content p {
+    margin: 6px 0 0 0;
+    opacity: 0.75;
+    font-size: 0.95em;
+    line-height: 1.4em;
+}
+
+/* --- Arrow --- */
+.indiedb-arrow {
+    font-size: 2rem;
+    opacity: 0.6;
+    transition: 0.35s ease;
+}
+
+.indiedb-panel.pro:hover .indiedb-arrow {
+    opacity: 1;
+    transform: translateX(6px);
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 700px) {
+    .indiedb-panel.pro {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .indiedb-arrow {
+        display: none;
+    }
+}
+
+.gd-section-text {
+    color: #e7e7e7;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 60px;
+}
+
+.gd-section-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.gd-section-text h3 {
+    margin-top: 35px;
+    font-size: 1.4rem;
+    color: #8affc1;
+}
+
+.gd-section-text h4 {
+    margin-top: 15px;
+    font-size: 1.15rem;
+    color: #62ff9b;
+}
+
+.gd-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+.gd-table th, .gd-table td {
+    border: 1px solid rgba(0,255,120,0.2);
+    padding: 10px 15px;
+}
+
+.gd-table th {
+    background: rgba(0,255,120,0.1);
+}
+
+
+/* ================================
+   TEXT + IMAGE SIDE-BY-SIDE BLOCK
+   ================================ */
+
+.gd-text-image-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(0,255,120,0.15);
+    border-radius: 14px;
+    transition: 0.3s ease;
+}
+
+/* Text part */
+.gd-text-side {
+    flex: 1;
+}
+
+.gd-text-side h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #00ff88;
+}
+
+.gd-text-side p {
+    line-height: 1.5;
+    opacity: 0.85;
+    margin-bottom: 12px;
+}
+
+/* Image side */
+.gd-image-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.gd-image-side img {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,255,120,0.25);
+    transition: 0.3s ease;
+}
+
+.gd-image-side img:hover {
+    transform: scale(1.03);
+    border-color: rgba(0,255,120,0.45);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .gd-text-image-block {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .gd-image-side {
+        order: -1; /* Image first on small screens if you want */
+    }
+}
+
+
+/* ================================
+   section on the echo level
+   ================================ */
+
+/* Section wrapper */
+.echo-breakdown-section {
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Side-by-side block */
+.echo-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Text side */
+.echo-text {
+    flex: 1 1 500px;
+    color: #e5e5e5;
+}
+
+/* Big title */
+.echo-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: #8aff99;
+    margin-bottom: 18px;
+}
+
+/* Section subtitle */
+.echo-subtitle {
+    font-size: 1.5rem;
+    color: #a6ffb0;
+    margin-bottom: 14px;
+    font-weight: 600;
+}
+
+/* Image side */
+.echo-image {
+    flex: 1 1 450px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #0f0f0f;
+    border: 2px solid #2b2b2b;
+}
+
+/* Image hover animation */
+.echo-image img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+    pointer-events: none;
+}
+
+.echo-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Ripple effect */
+.echo-image::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    transform: translate(-50%, -50%);
+    background: rgba(125, 255, 155, 0.25);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.echo-image:hover::after {
+    animation: echoRipple 0.9s ease-out;
+}
+
+@keyframes echoRipple {
+    0% {
+        width: 0px;
+        height: 0px;
+        opacity: 0.45;
+    }
+    80% {
+        opacity: 0.1;
+    }
+    100% {
+        width: 600px;
+        height: 600px;
+        opacity: 0;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .echo-block {
+        flex-direction: column;
+    }
+    .echo-title {
+        font-size: 2rem;
+    }
+    .echo-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+.gd-image-side.multi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+
+
+/* Reference */
+
+.references {
+    list-style: none;        /* Remove default bullets */
+    padding-left: 0;         /* Remove left padding */
+    font-family: Arial, sans-serif;
+}
+
+.references li {
+    margin-bottom: 10px;     /* Space between items */
+}
+
+.references a {
+    text-decoration: none;   /* Remove underline */
+    color: #1a73e8;          /* Clean link color */
+    position: relative;
+    transition: color 0.3s;
+}
+
+.references a:hover {
+    color: #0b47a1;          /* Darker on hover */
+}
+
+.references a::after {
+    content: "↗";            /* Arrow for new tab links */
+    font-size: 0.8em;
+    color: #555;
+    margin-left: 4px;
+    transition: color 0.3s;
+}
+
+.references a:hover::after {
+    color: #0b47a1;          /* Arrow color matches hover */
+}
+
+/* ---------------------------------------
+   Global Layout || narration section
+---------------------------------------- */
+.gd-project-page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    animation: fadeIn 0.6s ease;
+}
+
+/* ---------------------------------------
+   Section Styling
+---------------------------------------- */
+.section {
+    margin-bottom: 40px;
+    padding: 20px;
+    border-radius: 14px;
+    background: var(--accent-dark);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    animation: slideUp 0.5s ease;
+}
+
+.section h2 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* ---------------------------------------
+   Chips (Tools, Genre, Scope)
+---------------------------------------- */
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chip {
+    padding: 6px 14px;
+    background: var(--accent-dark);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-light);
+    transition: 0.2s ease;
+}
+
+.chip:hover {
+    background: var(--accent-dark);
+}
+
+/* ---------------------------------------
+   Character List
+---------------------------------------- */
+.character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+}
+
+.char {
+    padding: 14px;
+    background: var(--accent-dark);
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    transition: transform .25s ease, box-shadow .25s ease;
+    cursor: pointer;
+}
+
+/* Hover zoom animation */
+.char:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ---------------------------------------
+   Flowchart Preview
+---------------------------------------- */
+.flowchart-preview {
+    width: 100%;
+    max-width: 600px; /* optional, keeps it from being too wide */
+    margin: 0 auto;
+    border: 2px dashed #cbd5e1;
+    border-radius: 14px;
+    background: var(--bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: 0.25s ease;
+}
+
+.flowchart-preview:hover {
+    background: #f1f5f9;
+    transform: scale(1.01);
+}
+
+.flowchart-preview img {
+    width: auto;
+    height: 100%;
+    max-height: 350px; /* keeps vertical size in check */
+    object-fit: contain; /* preserves aspect ratio */
+    border-radius: 10px;
+}
+
+
+/* ---------------------------------------
+   Buttons
+---------------------------------------- */
+.btn {
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--myGrey);
+    color: white;
+}
+.btn-primary:hover {
+    background: var(--neon-green);
+}
+
+.btn-ghost {
+   background: var(--myGrey);
+    color: white;
+}
+
+.btn-ghost:hover {
+    background: var(--neon-green);
+}
+
+/* PDF Viewer Container */
+.pdf-viewer {
+    margin-top: 40px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    padding: 20px;
+    animation: fade-in 0.6s ease forwards;
+}
+
+/* PDF Frame */
+#pdf-frame {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 8px;
+    background: #1a1a1a;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+
+/* ===== Project Hero ===== */
+.project-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 5%;
+    background: #0a0a0a;
+    border-bottom: 1px solid #00ff88;
+    animation: fadeIn 1s ease-out;
+}
+
+.project-hero-content h1 {
+    font-size: 2.8rem;
+    color: #00ff88;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.project-hero-content p {
+    max-width: 500px;
+    margin-top: 10px;
+    opacity: 0.9;
+}
+
+.project-hero-img {
+    width: 260px;
+    height: auto;
+    filter: drop-shadow(0 0 12px #00ff88);
+}
+
+
+
+
+/* ===== Main Content ===== */
+.project-content {
+    width: 80%;
+    margin: auto;
+    padding: 50px 0;
+}
+
+.project-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: #00ff88;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+/* Core Loop Image */
+.coreloop-img {
+    display: block;           /* Make image a block element so margin auto works */
+    width: 25%;
+    max-width: 650px;
+    margin: 20px auto 0 auto; /* Top 20px, centered horizontally */
+    filter: drop-shadow(0 0 8px #00ff8855);
+    transition: filter 0.3s ease, transform 0.3s ease; /* Smooth animation */
+}
+
+/* Hover effect */
+.coreloop-img:hover {
+    filter: drop-shadow(0 0 20px #00ff88); /* Stronger glow */
+    transform: scale(1.05);                /* Slight zoom for effect */
+}
+
+/* Neon list */
+.neon-list li {
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 2px solid #00ff88;
+    opacity: 0.9;
+}
+
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+    #pdf-frame {
+        height: 400px;
+    }
+}
+
+.pdf-fallback {
+    padding: 40px;
+    text-align: center;
+    background: var(--bg-elevated);
+    border-radius: 12px;
+}
+/* Container centers its content */
+.button-container {
+    display: flex;
+    justify-content: center; /* Horizontal center */
+    margin-top: 40px;        /* Space from content above */
+}
+
+/* Button style */
+.gdd-button {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #00ff88;
+    background-color: #111;
+    border: 2px solid #00ff88;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px #00ff8855;
+}
+
+/* Hover effect */
+.gdd-button:hover {
+    background-color: #00ff88;
+    color: #111;
+    box-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88aa;
+    transform: scale(1.05);
+}
+
+
+/* FOOTER */
+#footer {
+  background-color: #0d0d0d;
+  color: #e0e0e0;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  border-top: 1px solid #333;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#social-links {
+  display: flex;
+  gap: 20px;
+}
+
+#social-links a img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#social-links a:hover img {
+  transform: scale(1.2);
+  filter: brightness(1.2) invert(0.8);
+}

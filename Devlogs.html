@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Francis Santos Portfolio</title>
+  <link rel="shortcut icon" href="images/2.png" type="image/x-icon">
+  <link rel="stylesheet" href="CssStuff/normalize.css">
+  <link rel="stylesheet" href="CssStuff/styles.css"> <!-- Add this -->
+</head>
+
+<body>
+  <header id="header">
+    <div id="logo">
+      <a href="index.html">
+        <img src="images/2_transparent.png" alt="logo">
+      </a>
+    </div>
+    <h1 id="site-title">Francisco Santos | Portfolio</h1>
+
+    <div id="menuIcon">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html" id="nav-home">Home</a></li>
+        <li><a href="Portfolio.html" id="nav-portfolio">Portfolio</a></li>
+        <li><a href="resumecv.html" id="nav-about">Resume/CV</a></li>
+        <li><a href="devlogs.html" id="nav-devlog" class="sel">Devlogs</a></li>
+        <li><a href="contact.html" id="nav-contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<a href="https://www.indiedb.com/games/beneath-the-questline" 
+   class="indiedb-rank-showcase" 
+   target="_blank">
+
+    <!-- LEFT: INDIEDB RANK IMAGE -->
+    <img class="rank-img-big" 
+         src="https://button.indiedb.com/popularity/medium/games/88043.png" 
+         alt="BTQ IndieDB Rank">
+
+    <!-- MIDDLE: TEXT BLOCK -->
+    <div class="rank-info">
+        <h2>IndieDB Popularity Ranking</h2>
+        <p class="desc">
+            <strong>Beneath the Questline</strong> is currently rising in the IndieDB popularity charts!  
+            Click to follow the game, track ranking updates, and see posts from development.
+        </p>
+    </div>
+
+    <!-- RIGHT: GAME LOGO -->
+    <img class="btq-logo" 
+         src="images/BTQ_LogoSoFar.png" 
+         alt="Beneath the Questline Logo">
+</a>
+
+  <main id="devlogs-page">
+    <section id="devlogs-intro">
+      <h2>Devlogs</h2>
+      <p>
+        Follow my latest development updates directly from
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank">IndieDB</a>.
+        These are my three most recent posts:
+      </p>
+    </section>
+
+    <section id="devlogs-feed">
+      <p>Loading latest devlogs...</p>
+    </section>
+  </main>
+
+  <script>
+    /*
+      Robust IndieDB RSS loader with multiple proxy fallbacks.
+      Paste this at the bottom of your Devlogs page (before </body>).
+    */
+
+    (async function loadIndieDBDevlogs() {
+      const feedUrl = "https://www.indiedb.com/members/unifasdraws/articles/feed";
+      const feedContainer = document.getElementById("devlogs-feed");
+
+      // List of CORS proxies to try (ordered). If one fails, we try the next.
+      const proxies = [
+        (u) => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
+        (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`, // alt endpoint
+        (u) => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(u)}`, // rss2json (works often)
+        (u) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}` // codetabs proxy (last resort)
+      ];
+
+      function showError(msg) {
+        feedContainer.innerHTML = `<p style="color:#ff8b8b">⚠️ ${msg}</p>`;
+        console.warn("Devlogs feed error:", msg);
+      }
+
+      // Try each proxy until one returns usable content
+      let xmlString = null;
+      for (const proxy of proxies) {
+        try {
+          const url = proxy(feedUrl);
+          const res = await fetch(url);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+          // Some proxies return JSON with payload in a field (AllOrigins / rss2json), others return raw XML
+          const ct = res.headers.get("content-type") || "";
+          if (ct.includes("application/json") || ct.includes("text/plain")) {
+            const json = await res.json().catch(() => null);
+            // AllOrigins: { contents: "<rss>..." }
+            if (json && json.contents) {
+              xmlString = json.contents;
+            } else if (json && json.items && Array.isArray(json.items)) {
+              // rss2json response (already JSON): synthesize xml-like structure below
+              // We'll convert items into simple objects for rendering below
+              xmlString = null; // signal we have JSON form
+              // Inject a helper object for rss2json path:
+              window.__rss2json_items = json.items;
+            } else {
+              // fallback - try to read as text
+              const txt = await res.text().catch(() => null);
+              if (txt && txt.trim().startsWith("<")) xmlString = txt;
+            }
+          } else {
+            // raw XML
+            xmlString = await res.text();
+          }
+
+          // if we have xmlString or rss2json items, break and process
+          if (xmlString || window.__rss2json_items) {
+            break;
+          }
+        } catch (err) {
+          console.warn("Proxy failed:", err);
+          // try next proxy
+        }
+      }
+
+      if (!xmlString && !window.__rss2json_items) {
+        showError("Could not load IndieDB feed. Try again later or open the page through an HTTP server (not file://).");
+        return;
+      }
+
+      // Helper: sanitize HTML -> text (strip tags)
+      function stripHtml(html) {
+        const tmp = document.createElement("div");
+        tmp.innerHTML = html || "";
+        return tmp.textContent || tmp.innerText || "";
+      }
+
+      // Build cards
+      feedContainer.innerHTML = "";
+      try {
+        // are we calling the item localy ?
+        let items = [];
+
+        if (window.__rss2json_items) {
+          // rss2json path: already JSON items
+          items = window.__rss2json_items;
+        } else {
+          // Parse XML string
+          const parser = new DOMParser();
+          const xml = parser.parseFromString(xmlString, "text/xml");
+          // get items (rss) ver com a stora este codigo:
+          const xmlItems = xml.querySelectorAll("item");
+          // ver se é o "push" que esta a dar problemas
+          xmlItems.forEach(x => items.push(x));
+        }
+
+        if (!items.length) {
+          showError("No posts found in the IndieDB feed.");
+          return;
+        }
+
+        // Render up to 6 items (3 by default — change limit variable if you want more)
+        const limit = 6;
+        for (let i = 0; i < Math.min(limit, items.length); i++) {
+          const it = items[i];
+
+          // For rss2json items (JSON) the fields are different
+          let title, link, description, pubDate, imageUrl;
+          if (typeof it === "object" && it.title && (it.link || it.url)) {
+            // rss2json item object
+            title = it.title;
+            link = it.link || it.url;
+            description = it.description || it.content || it.content_snippet || "";
+            pubDate = it.pubDate || it.pubDate || "";
+            // try enclosure or thumbnail fields
+            imageUrl = it.thumbnail || (it.enclosure && it.enclosure.link) || null;
+          } else {
+            // XML item
+            title = it.querySelector("title") ? it.querySelector("title").textContent : "Untitled";
+            link = it.querySelector("link") ? it.querySelector("link").textContent : "#";
+            description = it.querySelector("description") ? it.querySelector("description").textContent : "";
+            pubDate = it.querySelector("pubDate") ? it.querySelector("pubDate").textContent : "";
+            // extract img src from description HTML
+            const m = description.match(/<img[^>]+src=["']([^"']+)["']/i);
+            imageUrl = m ? m[1] : null;
+          }
+
+          // fallback placeholder image if no thumbnail
+          if (!imageUrl) {
+            imageUrl = "images/placeholder.png";
+          }
+
+          const cleanDesc = stripHtml(description).trim();
+          const shortDesc = cleanDesc.length > 220 ? cleanDesc.slice(0, 220) + "…" : cleanDesc;
+
+          const card = document.createElement("div");
+          card.className = "devlog-card";
+          card.innerHTML = `
+        <a href="${link}" target="_blank" rel="noopener noreferrer">
+          <img src="${imageUrl}" alt="${title} thumbnail" class="devlog-thumb">
+          <div class="devlog-content">
+            <h3>${title}</h3>
+            <p>${shortDesc}</p>
+            <span class="read-more">Read More →</span>
+          </div>
+        </a>
+      `;
+
+          feedContainer.appendChild(card);
+        }
+      } catch (err) {
+        console.error("Failed to build devlog cards:", err);
+        showError("Error parsing IndieDB feed. Check browser console for details.");
+      } finally {
+        // cleanup temporary helper
+        delete window.__rss2json_items;
+      }
+    })();
+  </script>
+
+  <!-- Footer Section -->
+  <footer id="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <div id="social-links">
+        <!-- linkedin -->
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
+          <img src="images/socialmedia_linkedin_logo.png" alt="linkedin">
+        </a>
+        <!-- IndieBD -->
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
+          <img src="images/socialmedia_indiedb_logo.png" alt="IndieDB">
+        </a>
+        <!-- Ithchio -->
+        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
+          <img src="images/socialmedia_itchio_logo.png" alt="Itchio">
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/unifasdraws" target="_blank" title="Instagram">
+          <img src="images/socialmedia_instagram_logo.png" alt="Instagram">
+        </a>
+        <!-- Artstation -->
+        <a href="https://www.artstation.com/unifasdraws" target="_blank" title="ArtStation">
+          <img src="images/socialmedia_artstation_logo.png" alt="ArtStation">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/menu.js"></script>
+</body>
+
+</html>

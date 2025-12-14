@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horror Tension System – Francis Santos</title>
+  <link rel="shortcut icon" href="../images/2.png" type="../image/x-icon">
+  <link rel="stylesheet" href="../CssStuff/normalize.css" />
+  <link rel="stylesheet" href="../CssStuff/subsectionsBase.css" />
+  <link rel="stylesheet" href="../CssStuff/horrorSDpagesDesign.css" />
+</head>
+
+<body>
+  <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="gd-back-btn">⟵ Back</a>
+
+  <div class="hsd-container">
+    <h1 class="glitch" data-text="Horror Tension System">Horror Tension System</h1>
+    <p class="subtitle vhs-effect">Designing adaptive fear, dynamic tension, and psychological horror systems.</p>
+
+    <br>
+    <!-- FEATURED CARDS -->
+    <div class="example-grid">
+      <a class="example-card" href="#fi-overview">
+        <img src="../images/Portefolio/PSD_Section/icon_fear.png" class="icon" />
+        <h3>Fear Escalation System</h3>
+        <p>How BTQ tracks & evolves tension dynamically.</p>
+      </a>
+      <a class="example-card" href="#action-values">
+        <img src="../images/Portefolio/PSD_Section/icon_graph.png" class="icon" />
+        <h3>Player-Driven Tension</h3>
+        <p>Fear values tied to movement, light, noise & gaze.</p>
+      </a>
+      <a class="example-card" href="#flowchart">
+        <img src="../images/Portefolio/PSD_Section/icon_flowchart.png" class="icon" />
+        <h3>System Flowchart</h3>
+        <p>AAA-style tension orchestration logic.</p>
+      </a>
+    </div>
+
+    <!-- FEAR INDEX OVERVIEW -->
+    <section class="fear-section">
+      <section class="fear-section">
+        <h2 id="fi-overview" class="section-title glitch-sm" data-text="Fear Index Overview">Fear Index Overview</h2>
+        <p class="fade-in">The Fear Index (0–100) dynamically represents perceived threat. It grows based on light
+          exposure, noise, movement intensity, and gaze-based attention.</p>
+
+        <!-- CENTERED FEAR INDEX GRAPH -->
+        <div class="center" style="margin:20px 0;">
+          <img src="../images/Portefolio/PSD_Section/Fear Index Table .png"
+            style="max-width:600px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
+        </div>
+
+        <!-- MONSTER STATES IMAGE -->
+        <div class="center" style="margin:20px 0;">
+          <img src="../images/Portefolio/PSD_Section/BTQ_monsterFlowCharts.png"
+            style="max-width:600px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
+        </div>
+
+
+        <!-- ACTION VALUES -->
+        <h2 id="action-values" class="section-title glitch-sm" data-text="Player Action Values">Player Action Values
+        </h2>
+        <table class="vhs-scan">
+          <tr>
+            <th>Action</th>
+            <th>Fear +</th>
+            <th>Duration</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td>Walk</td>
+            <td>0</td>
+            <td>-</td>
+            <td>Safe state</td>
+          </tr>
+          <tr>
+            <td>Run</td>
+            <td>+2/sec</td>
+            <td>Active</td>
+            <td>Tension ramps gradually</td>
+          </tr>
+          <tr>
+            <td>Use Light</td>
+            <td>+1/sec</td>
+            <td>Active</td>
+            <td>Attracts monster</td>
+          </tr>
+          <tr>
+            <td>Stay in Dark</td>
+            <td>+3/5 sec</td>
+            <td>Passive</td>
+            <td>Fear of unknown</td>
+          </tr>
+          <tr>
+            <td>Look at Monster</td>
+            <td>+15</td>
+            <td>3 sec</td>
+            <td>High intensity</td>
+          </tr>
+          <tr>
+            <td>Make Noise</td>
+            <td>+20</td>
+            <td>Instant</td>
+            <td>Trigger moment</td>
+          </tr>
+        </table>
+
+        <!-- SCENARIO EXAMPLE WITH SPACE FOR MONSTER IMAGE -->
+        <h2 class="section-title glitch-sm" data-text="Scenario Example">Scenario Example</h2>
+
+        <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-top:10px;">
+          <div style="flex:1;min-width:260px;">
+            <p class="fade-in">Player runs → Fear reaches 60 → Monster blocks corridor → Player hides → Fear drops →
+              Monster retreats.
+              This creates peaks followed by controlled relief.
+            </p>
+          </div>
+
+          <div style="flex:1;min-width:260px;">
+            <img src="../images/Portefolio/PSD_Section/1stQ_M_v3_v4.png"
+              style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
+          </div>
+        </div>
+
+        <!-- PLAYER TYPE GRAPHS -->
+        <h2 class="section-title glitch-sm" data-text="Player Tension Profiles">Player Tension Profiles</h2>
+
+        <div class="curve-gallery">
+          <div class="curve-card"><img src="../images/Portefolio/PSD_Section/FI_p_graph_Average.png" />
+            <p>Average Player</p>
+          </div>
+          <div class="curve-card"><img src="../images/Portefolio/PSD_Section/FI_p_graph_careful.png" />
+            <p>Careful Player</p>
+          </div>
+          <div class="curve-card"><img src="../images/Portefolio/PSD_Section/FI_p_graph_recklesse.png" />
+            <p>Reckless Player</p>
+          </div>
+        </div>
+
+        <!-- FEAR RECOVERY -->
+        <h2 class="section-title glitch-sm" data-text="Fear Recovery">Fear Recovery</h2>
+        <table class="vhs-scan">
+          <tr>
+            <th>Condition</th>
+            <th>FI Change</th>
+            <th>Type</th>
+            <th>Notes</th>
+          </tr>
+          <tr>
+            <td>Safe Light</td>
+            <td>-1/sec</td>
+            <td>Passive</td>
+            <td>Calming effect</td>
+          </tr>
+          <tr>
+            <td>Hiding</td>
+            <td>-15</td>
+            <td>Instant</td>
+            <td>Reset mechanic</td>
+          </tr>
+          <tr>
+            <td>Silence</td>
+            <td>-5/10 sec</td>
+            <td>Passive</td>
+            <td>Requires stillness</td>
+          </tr>
+          <tr>
+            <td>Safe Zones</td>
+            <td>-3/sec</td>
+            <td>Area-based</td>
+            <td>Monster can't follow</td>
+          </tr>
+        </table>
+
+        <div class="center" style="margin:20px 0;">
+          <img src="../images/Portefolio/PSD_Section/Fear Index Table (Before vs After Recovery System).png"
+            style="max-width:600px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
+        </div>
+
+        <!-- FLOWCHART -->
+        <h2 id="flowchart" class="section-title glitch-sm" data-text="System Flowchart">System Flowchart</h2>
+        <img src="../images/Portefolio/PSD_Section/BTQ_FE_FlowChart.png" class="flowchart-img fade-in" />
+
+        <!-- BUTTON WITH MONSTER IMAGE SPACE -->
+        <div style="display:flex;justify-content:center;gap:20px;margin-top:60px;flex-wrap:wrap;">
+
+          <img src="../images/Portefolio/PSD_Section/1stQ_M_v1_v2.png"
+            style="max-width:220px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
+
+          <a href="../Documents/Horror Tension System.pdf" class="example-card" target="_blank"
+            rel="noopener noreferrer" style="padding:18px 30px;font-size:1.1rem;max-width:260px;">
+            Horror Tension Systems →
+          </a>
+        </div>
+
+  </div>
+
+  <footer id="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <div id="social-links">
+        <!-- linkedin -->
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
+          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
+        </a>
+        <!-- IndieBD -->
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
+          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+        </a>
+        <!-- Ithchio -->
+        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
+          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/unifasdraws" target="_blank" title="Instagram">
+          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+        </a>
+        <!-- Artstation -->
+        <a href="https://www.artstation.com/unifasdraws" target="_blank" title="ArtStation">
+          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>

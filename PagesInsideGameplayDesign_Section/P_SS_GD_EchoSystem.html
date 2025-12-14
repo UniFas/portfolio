@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francis Santos Portfolio</title>
+    <link rel="shortcut icon" href="../images/2.png" type="../image/x-icon">
+    <link rel="stylesheet" href="../CssStuff/normalize.css">
+    <link rel="stylesheet" href="../CssStuff/subsectionsBase.css">
+</head>
+
+<body>
+    <section class="gd-project-page">
+
+        <a href="../Portefolio_SubSection/Port_SubSections_GD.html" class="gd-back-btn">⟵ Back</a>
+
+        <section class="gd-section-text">
+
+            <h1 class="gd-project-title">Echo Mechanic – Gameplay Design Breakdown</h1>
+
+            <h2 class="gd-title">Echolocation Mechanic, Prototype Breakdown</h2>
+
+            <p class="gd-subtitle">
+                Class Project | Horror Systems & Accessibility Design
+            </p>
+
+            <p>
+                This prototype explores a third-person echolocation Mechanic designed to replace
+                traditional audio-based navigation in a horror environment. The project investigates
+                how visual sound cues can reinforce spatial awareness, tension, and accessibility,
+                specifically for players who are deaf or hard of hearing.
+            </p>
+
+            <h3>Design Intent</h3>
+            <p>
+                Modern horror heavily relies on sound, tension cues, navigation hints, enemy
+                signaling. This project challenges that convention by designing a protagonist
+                who cannot hear, shifting sensory responsibility entirely to the player through
+                <strong>visible sound waves</strong>.
+            </p>
+
+            <p>
+                The goal was two-fold:
+                <br>
+                • Design a horror experience that remains functional without relying on audio
+                <br>
+                • Explore accessible systems that can scale from indie production to classroom prototyping
+            </p>
+
+            <div class="gd-text-image-block">
+
+                <div class="gd-text-side">
+                    <h3>Creative Inspiration</h3>
+                    <p>
+                        The core idea draws influence from characters like <em>Muteba Gizenga</em> (Kengan Ashura)
+                        and <em>Daredevil</em>, both relying on sensorial compensation to map their surroundings.
+                        Translating this concept into gameplay required building a stylized, readable
+                        interpretation of “visual hearing.”
+                    </p>
+
+                    <p>
+                        Additional inspiration comes from <em>A Quiet Place</em>. While the franchise features
+                        creatures that hunt using sound, this project intentionally inverts the dynamic:
+                        monsters here are <strong>deaf and hyper-visual</strong>, while the player lacks hearing
+                        but uses echolocation. Both sides operate with sensory limitations, creating a unique
+                        tension model through asymmetric information.
+                    </p>
+                </div>
+
+                <div class="gd-image-side multi">
+                    <img src="../images/Portefolio/PGD_Section/kegan_dd.jpg">
+                    <img src="../images/Portefolio/PGD_Section/dayone.jpg">
+                </div>
+            </div>
+ 
+            <!-- Description -->
+            <p class="gd-description">
+                Echo Mechanic showcases a mechanic built around sound propagation, using spatial detection to reveal the
+                environment dynamically.
+                This page breaks down the concept, design challenges, and the implementation insights behind it.
+            </p>
+
+            <h3>Mechanic Breakdown</h3>
+
+            <h4>Player Echolocation</h4>
+
+            <ul>
+                <li>Expanding pulse with controlled radius</li>
+                <li>Temporarily reveals geometry</li>
+                <li>Encourages deliberate timing and spatial memory</li>
+            </ul>
+
+            <h4>Enemy “Danger Pulse”</h4>
+            <ul>
+                <li>Uses the same core mechanic, re-engineered for threats</li>
+                <li>Distinct timing rhythm</li>
+                <li>Separate color and intensity profiles</li>
+                <li>Creates a clear visual language between “guidance” and “danger”</li>
+            </ul>
+
+            <h4>Objective Guidance: Elevator Global Pulse</h4>
+            <p>
+                To direct players toward the level goal, the elevator emits a slow, long-range
+                global pulse:
+            </p>
+            <ul>
+                <li>Reveals direction in timed intervals</li>
+                <li>Supports navigation without hand-holding</li>
+                <li>Preserves tension by avoiding constant visibility</li>
+            </ul>
+
+
+<section id="levelDe_echoBreakdown" class="echo-breakdown-section">
+
+    <!-- Block 1 -->
+    <div class="echo-block">
+        <div class="echo-text">
+            <h3 class="echo-title">Level Design Breakdown</h3>
+            <h4 class="echo-subtitle">Objective</h4>
+            <p>
+                Design a tall, labyrinth-style environment where echolocation is the player’s primary navigation tool.
+                The layout encourages deliberate pathfinding, forcing the player to rely on timed pulses rather than
+                static visibility. Long corridors, angled passages, and sharp intersections amplify disorientation
+                and reward careful rhythm-based scanning.
+            </p>
+        </div>
+
+        <div class="echo-image">
+            <img src="../images/Portefolio/PGD_Section/levelMap.png" alt="Level Layout Map">
+        </div>
+    </div>
+
+    <!-- Block 2 -->
+    <div class="echo-block">
+        <div class="echo-text">
+            <h4 class="echo-subtitle">Enemy Teleportation Nodes (Placement Rationale)</h4>
+
+            <p>
+                To reinforce paranoia and sustain unpredictable tension, enemy teleportation nodes were strategically
+                placed throughout key intersections and transitional spaces. These moments force the player to commit
+                to direction with limited visibility, creating unpredictability and preventing route memorization.
+            </p>
+        </div>
+
+        <div class="echo-image">
+            <img src="../images/Portefolio/PGD_Section/levelMap_enemySpawn.png" alt="Enemy Spawn Map">
+        </div>
+    </div>
+
+    <!-- Block 3 -->
+    <div class="echo-block">
+        <div class="echo-text">
+            <p>
+                Additional teleport nodes were placed near the elevator objective to heighten pressure as the player
+                approaches safety. This ensures the final stretch stays tense and reinforces the idea that
+                echolocation remains essential until the last moment.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+
+
+            <br>
+
+            <h4>Challenges & Solutions</h4>
+
+            <table class="gd-table">
+                <tr>
+                    <th>Challenge</th>
+                    <th>Solution</th>
+                </tr>
+                <tr>
+                    <td>Sound must guide layout readability</td>
+                    <td>Long corridors, arcs, and angled intersection shapes</td>
+                </tr>
+                <tr>
+                    <td>Visual clutter kills clarity</td>
+                    <td>Minimalistic geometry with simplified silhouettes</td>
+                </tr>
+                <tr>
+                    <td>Pacing variation was needed</td>
+                    <td>Alternated narrow passages with small open pockets</td>
+                </tr>
+                <tr>
+                    <td>Guidance must not remove tension</td>
+                    <td>Obstructions placed to ensure pulse dependence</td>
+                </tr>
+            </table>
+
+            <h3>Conclusion</h3>
+            <p>
+                This prototype shows how accessibility and horror design can reinforce each other.
+                By removing the player's ability to hear, the experience leans into a different
+                type of tension, one built on timed reveals, limited information, and visual
+                danger cues.
+                <br><br>
+                It reinforces a simple principle:
+                <strong>Accessibility can be a source of innovation.</strong>
+            </p>
+
+            <h3>References</h3>
+            <ul class="references">
+                <li><a href="https://leahybaker.com/deaf_access/" target="_blank" rel="noopener noreferrer">
+                        Morgan L. Baker » <em>Deaf Accessibility in Video Games</em>
+                    </a></li>
+                <li><a href="https://journals.sagepub.com/doi/10.1177/1555412020971500" target="_blank"
+                        rel="noopener noreferrer">
+                        Mark Brown & Sky LaRell Anderson (2021) » <em>Designing for Disability</em>
+                    </a></li>
+                <li><a href="https://www.youtube.com/watch?v=TFLWaTG0NTM&list=PLTfs_z6ynNvtHKxZbR3x339ufniFF3qFt&index=7"
+                        target="_blank" rel="noopener noreferrer">
+                        Horror theory studies on sound, tension, and atmospheric design
+                    </a></li>
+                <li><a href="https://www.youtube.com/watch?v=bUq_VjgQYbw" target="_blank" rel="noopener noreferrer">
+                        Horror Research: learning from past horror games what to avoid
+                    </a></li>
+                <li><a href="https://www.youtube.com/watch?v=vSKtTBjSBg0&list=PLBmUf9wMed_cgtWallwLs404ODo4nSL7C"
+                        target="_blank" rel="noopener noreferrer">
+                        Extra Credits » <em>The Uncanny & Lasting Horror</em>
+                    </a></li>
+            </ul>
+
+            <h3>Screenshot</h3>
+        </section>
+        <!-- Images Section -->
+        <div class="gd-image-gallery">
+            <img src="../images/Portefolio/PGD_Section/echoSC_1.png" alt="Echo Image 1" class="Screenshot-img">
+            <img src="../images/Portefolio/PGD_Section/echoSC_2.png" alt="Echo Image 2" class="Screenshot-img">
+            <img src="../images/Portefolio/PGD_Section/echoSC_3.png" alt="Echo Image 3" class="Screenshot-img">
+            <img src="../images/Portefolio/PGD_Section/echoSC_4.png" alt="Echo Image 4" class="Screenshot-img">
+            <img src="../images/Portefolio/PGD_Section/echoSC_5.png" alt="Echo Image 5" class="Screenshot-img">
+        </div>
+
+        <!-- IndieDB Promo -->
+        <a href="https://www.indiedb.com/members/unifasdraws/blogs/unlocked-echolocation-mechanic-prototype"
+            target="_blank" class="indiedb-panel pro">
+
+            <div class="indiedb-icon-wrapper">
+                <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+            </div>
+
+            <div class="indiedb-content">
+                <h3>See More on IndieDB</h3>
+                <p>Exclusive devlogs, prototype showcases, and behind-the-scenes breakdowns.</p>
+            </div>
+
+            <div class="indiedb-arrow">
+                ➜
+            </div>
+        </a>
+
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+            <div id="social-links">
+                <!-- linkedin -->
+                <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
+                    <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
+                </a>
+                <!-- IndieBD -->
+                <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
+                    <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+                </a>
+                <!-- Ithchio -->
+                <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
+                    <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/unifasdraws" target="_blank" title="Instagram">
+                    <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+                </a>
+                <!-- Artstation -->
+                <a href="https://www.artstation.com/unifasdraws" target="_blank" title="ArtStation">
+                    <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Java Scripts Getting the images bigger Section -->
+    <script>
+        document.querySelectorAll('.Screenshot-img').forEach(img => {
+            img.addEventListener('click', () => {
+                img.classList.toggle('expanded');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

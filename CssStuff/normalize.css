@@ -1,0 +1,39 @@
+/* Remove default margins, paddings, and box sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set base font and background for the document */
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background-color: #111;
+  color: #f2f2f2;
+}
+
+/* Make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remove link underlines and inherit color */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset list styles */
+ul {
+  list-style: none;
+}
+
+/* Ensure buttons and inputs inherit font */
+button, input, textarea {
+  font-family: inherit;
+  border: none;
+  outline: none;
+}
