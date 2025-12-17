@@ -1295,18 +1295,28 @@ input[type="reset"]:hover {
 
 
 /* Phones & narrow devices */
-@media (max-width: 600px) {
+@media (max-width: 760px) {
   /* --- HEADER --- */
+  header{
+    position:relative;
+  }
   #menuIcon {
     display: block;
     cursor: pointer;
+
   }
 
   #navbar {
-    width: 100%;
+  
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease;
+    position: absolute;
+    right:0px;
+    z-index:999;
+    top:70px;
+    background-color: rgba(89, 86, 86, 0.5);
+
   }
 
   #navbar ul {
