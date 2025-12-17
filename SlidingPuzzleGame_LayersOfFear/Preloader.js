@@ -16,8 +16,8 @@ export default class Preloader extends Phaser.Scene
         this.load.image('pic2', 'LayersOfFear_2.png');
         this.load.image('pic3', 'LayersOfFear_3.png');
 
-        this.load.audio('move','Audio_Victory.mp3');
-        this.load.audio('win', 'Audio_Whoosh.mp3');
+        this.load.audio('move','Audio_Whoosh.mp3');
+        this.load.audio('win', 'Audio_Victory.mp3');
     }
 
     create ()
