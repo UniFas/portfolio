@@ -20,7 +20,7 @@
         <div class="section">
             <h2 class="section-title">Quick facts</h2>
             <div class="meta chips-row">
-                <div class="chip">Tools: Notion, Figma</div>
+                <div class="chip">Tools: Excalidraw, Figma</div>
                 <div class="chip">Genre: Fantasy RPG</div>
                 <div class="chip">Scope: Mid-level quest</div>
                 <div class="chip">Systems: Inventory, HP, Hostility</div>
@@ -38,22 +38,44 @@
     <div class="section design-pillars">
         <h2 class="section-title">Design Pillars</h2>
         <ul class="pillar-list">
-            <li><strong>Consequences That Echo</strong> — every choice returns later in emotional or mechanical form.</li>
-            <li><strong>Fear Through Uncertainty</strong> — infection, distrust, and ambiguity build tension.</li>
-            <li><strong>Moral Pressure</strong> — push the player into uncomfortable decisions without forcing a “good path.”</li>
+            <li><strong>Consequences That Echo</strong> > every choice returns later in emotional or mechanical form.</li>
+            <li><strong>Fear Through Uncertainty</strong> > infection, distrust, and ambiguity build tension.</li>
+            <li><strong>Moral Pressure</strong> > push the player into uncomfortable decisions without forcing a “good path.”</li>
         </ul>
     </div>
 
-    <!-- Target Emotions -->
-    <div class="section target-emotions">
-        <h2 class="section-title">Target Emotions</h2>
-        <ul class="emotion-list">
-            <li>Urgency — villagers are dying as time passes.</li>
-            <li>Dread — environmental cues and unpredictable NPC reactions.</li>
-            <li>Responsibility — the cure depends on player action.</li>
-            <li>Paranoia — hostility shifts based on past choices.</li>
-        </ul>
+  <!-- Target Emotions -->
+<div class="section target-emotions">
+    <h2 class="section-title">Target Emotions</h2>
+
+    <div class="emotion-grid">
+
+        <div class="emotion-card">
+            <img src="../images/Portefolio/PND_Section/qds_narrative_te_urgency.jpg" alt="Urgency emotion visual">
+            <h3>Urgency</h3>
+            <p>Villagers are dying as time passes.</p>
+        </div>
+
+        <div class="emotion-card">
+            <img src="../images/Portefolio/PND_Section/qds_narrative_te_dread.jpg" alt="Dread emotion visual">
+            <h3>Dread</h3>
+            <p>Environmental cues and unpredictable NPC reactions.</p>
+        </div>
+
+        <div class="emotion-card">
+            <img src="../images/Portefolio/PND_Section/qds_narrative_te_responsibility.jpg" alt="Responsibility emotion visual">
+            <h3>Responsibility</h3>
+            <p>The cure depends entirely on player action.</p>
+        </div>
+
+        <div class="emotion-card">
+            <img src="../images/Portefolio/PND_Section/qds_narrative_te_paranoia.jpg" alt="Paranoia emotion visual">
+            <h3>Paranoia</h3>
+            <p>Hostility shifts based on past choices.</p>
+        </div>
+
     </div>
+</div>
 
     <!-- Characters -->
     <div class="section characters">
@@ -139,40 +161,43 @@
     </iframe>
 </div>
 
-    <!-- Endings -->
-    <div class="section endings">
-        <h2 class="section-title">Endings Overview</h2>
-        <ul class="ending-list">
-            <li><strong>Village Saved</strong> — cure succeeds; villagers remember your choices.</li>
-            <li><strong>Bittersweet Survival</strong> — incomplete cure; several villagers die.</li>
-            <li><strong>Village Collapse</strong> — cure abandoned or misused; total failure.</li>
-            <li><strong>Player Death</strong> — infection overtakes the player.</li>
-        </ul>
-    </div>
+   <!-- Endings -->
+<div class="section endings">
+    <h2 class="section-title">Endings Overview</h2>
+    <img src="../images/Portefolio/PND_Section/qds_narrative_end_happyvilage.jpg" alt="Endings Overview Illustration" class="section-image-right">
+    <ul class="ending-list">
+        <li><strong>Village Saved</strong> > cure succeeds; villagers remember your choices.</li>
+        <li><strong>Bittersweet Survival</strong> > incomplete cure; several villagers die.</li>
+        <li><strong>Village Collapse</strong> > cure abandoned or misused; total failure.</li>
+        <li><strong>Player Death</strong> > infection overtakes the player.</li>
+    </ul>
+</div>
 
-    <!-- Implementation Notes -->
-    <div class="section implementation-notes">
-        <h2 class="section-title">Implementation Notes</h2>
-        <ul class="notes-list">
-            <li>Quest state machine handles infection, hostility, and cure progression.</li>
-            <li>Branching dialogue uses Boolean flags for major player decisions.</li>
-            <li>Combat triggers only after hostility threshold is reached.</li>
-            <li>Environmental hazards controlled through collision volumes.</li>
-            <li>Blueprint scripting recommended for real-time village state updates.</li>
-        </ul>
-    </div>
+<!-- Implementation Notes -->
+<div class="section implementation-notes">
+    <h2 class="section-title">Implementation Notes</h2>
+    <img src="../images/Portefolio/PND_Section/qds_narrative_end_right.jpg" alt="Implementation Notes Illustration" class="section-image-right">
+    <ul class="notes-list">
+        <li>Quest state machine handles infection, hostility, and cure progression.</li>
+        <li>Branching dialogue uses Boolean flags for major player decisions.</li>
+        <li>Combat triggers only after hostility threshold is reached.</li>
+        <li>Environmental hazards controlled through collision volumes.</li>
+        <li>Blueprint scripting recommended for real-time village state updates.</li>
+    </ul>
+</div>
 
-    <!-- Takeaways -->
-    <div class="section design-takeaways">
-        <h2 class="section-title">Design Takeaways</h2>
-        <ul class="takeaway-list">
-            <li>Branching must remain tightly scoped to avoid narrative overload.</li>
-            <li>NPC morality works best when directly reflecting player choice.</li>
-            <li>Infection mechanics enhance tension when tied to pacing.</li>
-            <li>Refusal paths must remain engaging to preserve agency.</li>
-            <li>Clear documentation ensures smooth team integration.</li>
-        </ul>
-    </div>
+<!-- Takeaways -->
+<div class="section design-takeaways">
+    <h2 class="section-title">Design Takeaways</h2>
+    <img src="../images/Portefolio/PND_Section/qds_narrative_end_takeaway.jpg" alt="Design Takeaways Illustration" class="section-image-right">
+    <ul class="takeaway-list">
+        <li>Branching must remain tightly scoped to avoid narrative overload.</li>
+        <li>NPC morality works best when directly reflecting player choice.</li>
+        <li>Infection mechanics enhance tension when tied to pacing.</li>
+        <li>Refusal paths must remain engaging to preserve agency.</li>
+        <li>Clear documentation ensures smooth team integration.</li>
+    </ul>
+</div>
 
     <!-- Downloads -->
     <div class="section downloads">
