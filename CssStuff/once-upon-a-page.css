@@ -1,0 +1,529 @@
+/* =========================================================
+   once-upon-a-page.css
+   Case-study page for "Once Upon a Page".
+   Palette locked to the site's neon-cyberportfolio system.
+   Signature idea: the case study reads like the game itself —
+   page by page. A top scroll-progress bar + "PG. 0X" eyebrow
+   tags carry that through the whole page.
+   ========================================================= */
+
+:root{
+ --bg:#0a0a0a;
+ --surface:#121212;
+ --surface-raised:#171717;
+ --neon:#00ff88;
+ --neon-border:rgba(0,255,136,.18);
+ --neon-border-strong:rgba(0,255,136,.45);
+ --neon-glow:rgba(0,255,136,.35);
+ --text:#f4f4f4;
+ --muted:#9c9c9c;
+ --muted-2:#6c6c6c;
+ --radius:16px;
+ --container:min(1120px,92%);
+ --font-mono:'JetBrains Mono', monospace;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ background:var(--bg);
+ color:var(--text);
+ font-family:'Poppins',sans-serif;
+ line-height:1.7;
+ -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--neon);outline-offset:3px}
+
+/* ---------- type scale ---------- */
+h1,h2,h3{font-weight:700;line-height:1.15;margin:0 0 1rem;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,3vw,2.35rem)}
+h3{font-size:1.05rem;margin-bottom:.6rem}
+p{margin:0 0 1rem;color:var(--text);max-width:62ch}
+strong{color:var(--text)}
+
+/* ---------- scroll progress bar (signature) ---------- */
+.oup-progress{
+ position:fixed;
+ top:0;left:0;
+ height:3px;
+ width:0%;
+ background:var(--neon);
+ box-shadow:0 0 12px var(--neon-glow);
+ z-index:1000;
+ transition:width .1s linear;
+}
+
+/* ---------- page-tag eyebrow ("PG. 0X · LABEL") ---------- */
+.page-tag{
+ display:inline-flex;
+ align-items:center;
+ gap:.6rem;
+ font-family:var(--font-mono);
+ font-size:.72rem;
+ letter-spacing:.14em;
+ text-transform:uppercase;
+ color:var(--neon);
+ margin-bottom:1rem;
+}
+.page-tag .num{
+ display:inline-block;
+ padding:.15rem .5rem;
+ border:1px solid var(--neon-border-strong);
+ border-radius:5px;
+ background:rgba(0,255,136,.07);
+}
+
+/* ---------- layout shells ---------- */
+.oup-section,.oup-hero,.project-cta,.oup-footer,.meta-bar{
+ width:var(--container);
+ margin-inline:auto;
+}
+.oup-section{padding:6.5rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.dark-section{
+ background:linear-gradient(180deg,#101010,#0b0b0b);
+ padding-inline:clamp(1.25rem,4vw,2.5rem);
+ border-radius:var(--radius);
+}
+
+/* ---------- back button ---------- */
+.gd-back-btn{
+ position:fixed;
+ left:24px;top:34px;
+ z-index:999;
+ padding:.7rem 1.1rem;
+ font-size:.85rem;
+ border:1px solid var(--neon-border);
+ border-radius:10px;
+ background:rgba(10,10,10,.7);
+ backdrop-filter:blur(8px);
+ transition:.25s;
+}
+.gd-back-btn:hover{background:rgba(0,255,136,.14);border-color:var(--neon-border-strong)}
+
+/* ---------- hero ---------- */
+.oup-hero{
+ min-height:92vh;
+ display:grid;
+ grid-template-columns:1.05fr .95fr;
+ align-items:center;
+ gap:4rem;
+ padding:9rem 0 4rem;
+}
+.oup-tags{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.75rem}
+.oup-tag{
+ padding:.4rem .85rem;
+ border-radius:999px;
+ border:1px solid var(--neon-border);
+ color:var(--neon);
+ background:rgba(0,255,136,.05);
+ font-size:.78rem;
+ font-family:var(--font-mono);
+ letter-spacing:.02em;
+}
+.oup-hero h1{
+ font-size:clamp(2.7rem,5.6vw,4.4rem);
+ margin:.1rem 0 1.1rem;
+ text-shadow:0 0 26px rgba(0,255,136,.22);
+}
+.hero-subtitle{font-size:1.15rem;color:var(--neon);margin-bottom:1.4rem;font-weight:400;max-width:44ch}
+.oup-hero p{max-width:52ch}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem}
+
+.oup-btn-filled,.view-btn{
+ display:inline-flex;align-items:center;gap:.5rem;
+ padding:.85rem 1.5rem;
+ border-radius:10px;
+ font-weight:600;font-size:.95rem;
+ transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;
+}
+.oup-btn-filled{
+ background:var(--neon);color:#04140c;
+ box-shadow:0 0 16px rgba(0,255,136,.28);
+}
+.oup-btn-filled:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(0,255,136,.5)}
+.view-btn{border:1px solid var(--neon);color:var(--neon)}
+.view-btn:hover{background:rgba(0,255,136,.1);transform:translateY(-2px)}
+
+.oup-hero-image{position:relative}
+.oup-hero-image img{
+ border-radius:20px;
+ border:1px solid var(--neon-border);
+ box-shadow:0 24px 64px rgba(0,0,0,.55);
+ transition:transform .5s ease;
+}
+.oup-hero-image:hover img{transform:scale(1.02)}
+.hero-image-caption{
+ margin-top:.85rem;
+ font-family:var(--font-mono);
+ font-size:.72rem;
+ color:var(--muted-2);
+ letter-spacing:.03em;
+}
+
+/* ---------- meta / spec strip ---------- */
+.meta-bar{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:space-between;
+ gap:1.5rem 2rem;
+ padding:2.1rem 0 4.5rem;
+ border-bottom:1px solid rgba(255,255,255,.06);
+}
+.meta-item{display:flex;flex-direction:column;gap:.3rem;min-width:110px}
+.meta-item .k{
+ font-family:var(--font-mono);
+ font-size:.68rem;
+ letter-spacing:.12em;
+ text-transform:uppercase;
+ color:var(--muted-2);
+}
+.meta-item .v{font-weight:600;font-size:.98rem;color:var(--text)}
+
+/* ---------- generic section content ---------- */
+.section-container{display:grid;gap:2.75rem}
+.split-layout{grid-template-columns:.85fr 1.15fr;align-items:start;gap:3.5rem}
+
+/* ---------- role cards (icon + text) ---------- */
+.role-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+ gap:1.25rem;
+}
+.role-card{
+ background:var(--surface);
+ border:1px solid var(--neon-border);
+ border-radius:var(--radius);
+ padding:1.6rem 1.5rem;
+ transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.role-card:hover{
+ transform:translateY(-5px);
+ border-color:var(--neon-border-strong);
+ background:var(--surface-raised);
+}
+.role-icon{
+ width:34px;height:34px;
+ color:var(--neon);
+ margin-bottom:.9rem;
+}
+.role-card p{margin-bottom:0;font-size:.92rem}
+
+/* ---------- 03 — prototype layout ---------- */
+
+.prototype-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    margin-top:40px;
+}
+
+.prototype-content p{
+    margin-bottom:20px;
+}
+
+/* the whole card is a link, so it needs display:block —
+   an <a> is inline by default and will otherwise ignore
+   width/overflow/position rules meant for the block below */
+.prototype-card{
+    display:block;
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    border:1px solid rgba(0,255,136,.2);
+    transition:transform .35s ease, box-shadow .35s ease;
+    cursor:pointer;
+}
+
+.prototype-card img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.prototype-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 20px 40px rgba(0,0,0,.45);
+}
+
+.play-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    background:rgba(0,0,0,.55);
+    opacity:0;
+    transition:opacity .3s ease;
+    pointer-events:none; /* clicks pass through to the <a> underneath */
+}
+
+.prototype-card:hover .play-overlay,
+.prototype-card:focus-visible .play-overlay{
+    opacity:1;
+}
+
+.play-button{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:var(--neon-green);
+    color:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.7rem;
+    font-weight:bold;
+    transition:transform .3s ease;
+}
+
+.prototype-card:hover .play-button{
+    transform:scale(1.08);
+}
+
+.play-overlay span{
+    color:white;
+    font-weight:600;
+    font-size:.95rem;
+}
+
+@media (max-width:900px){
+    .prototype-layout{
+        grid-template-columns:1fr;
+    }
+}
+
+/* ---------- devlog link card ---------- */
+
+.devlog-link{
+    display:flex;
+    align-items:flex-start;
+    gap:1rem;
+    padding:1.15rem 1.4rem;
+    margin-top:2rem;
+    border:1px solid var(--neon-border, rgba(0,255,136,.18));
+    border-radius:14px;
+    background:var(--surface, #151515);
+    transition:transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.devlog-link:hover{
+    transform:translateY(-3px);
+    border-color:var(--neon-border-strong, rgba(0,255,136,.45));
+    background:var(--surface-raised, #1c1c1c);
+}
+
+.devlog-icon{
+    width:24px;
+    height:24px;
+    color:var(--neon-green, #00ff88);
+    flex-shrink:0;
+    margin-top:.15rem;
+}
+
+.devlog-link strong{
+    display:block;
+    margin-bottom:.3rem;
+    font-size:.98rem;
+    color:#fff;
+}
+
+.devlog-sub{
+    display:block;
+    color:var(--neon-green, #00ff88);
+    font-size:.83rem;
+    font-family:var(--font-mono, monospace);
+}
+
+/* ---------- story / quote ---------- */
+.story-layout{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.story-image img{border-radius:var(--radius);border:1px solid var(--neon-border)}
+blockquote{
+ border-left:3px solid var(--neon);
+ padding:.2rem 0 .2rem 1.1rem;
+ margin:1.6rem 0 0;
+ color:#dedede;font-style:italic;font-size:1.02rem;
+}
+
+/* ---------- gallery ---------- */
+.gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.gallery-grid figure{margin:0}
+.gallery-grid img{
+ height:260px;width:100%;object-fit:cover;
+ border-radius:14px;border:1px solid var(--neon-border);
+ transition:transform .4s ease;
+}
+.gallery-grid figure:hover img{transform:scale(1.04)}
+.gallery-grid figcaption{margin-top:.7rem;color:var(--muted);font-size:.88rem}
+
+/* ---------- achievement ring ---------- */
+.achievement-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:3.5rem;align-items:center}
+.ring-wrap{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.oup-ring{width:190px;height:190px;transform:rotate(-90deg)}
+.oup-ring circle{fill:none;stroke-width:9}
+.oup-ring .track{stroke:rgba(255,255,255,.08)}
+.oup-ring .fill{
+ stroke:var(--neon);
+ stroke-linecap:round;
+ stroke-dasharray:502.4;
+ stroke-dashoffset:502.4;
+ filter:drop-shadow(0 0 8px rgba(0,255,136,.5));
+ transition:stroke-dashoffset 1.5s cubic-bezier(.16,1,.3,1);
+}
+.oup-reveal.in-view .oup-ring .fill{stroke-dashoffset:0}
+.ring-label{text-align:center}
+.ring-label .num{
+ display:block;font-family:var(--font-mono);
+ font-size:1.9rem;font-weight:700;color:var(--neon);
+ text-shadow:0 0 14px rgba(0,255,136,.4);
+}
+.ring-label .cap{font-size:.78rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.achievement-layout > div:last-child img{
+ border-radius:var(--radius);border:1px solid var(--neon-border);margin-top:1.4rem;
+}
+
+/* ---------- final CTA ---------- */
+.project-cta{text-align:center;padding:6rem 0}
+.project-cta .cta-card{
+ padding:3.5rem 2.5rem;
+ border-radius:24px;
+ border:1px solid var(--neon-border);
+ background:radial-gradient(circle at 50% 0%,rgba(0,255,136,.08),rgba(255,255,255,.015));
+}
+.project-cta p{max-width:520px;margin:.75rem auto 2rem;color:var(--muted)}
+
+/* ---------- footer ---------- */
+.oup-footer{
+ display:flex;justify-content:space-between;align-items:center;
+ padding:2.25rem 0 4.5rem;color:var(--muted-2);font-size:.85rem;
+}
+.oup-footer p{margin:0;color:var(--muted-2)}
+
+/* ---------- scroll reveal ---------- */
+.oup-reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.oup-reveal.in-view{opacity:1;transform:translateY(0)}
+.oup-stagger > *{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+.oup-stagger.in-view > *{opacity:1;transform:translateY(0)}
+.oup-stagger.in-view > *:nth-child(1){transition-delay:.04s}
+.oup-stagger.in-view > *:nth-child(2){transition-delay:.11s}
+.oup-stagger.in-view > *:nth-child(3){transition-delay:.18s}
+.oup-stagger.in-view > *:nth-child(4){transition-delay:.25s}
+.oup-stagger.in-view > *:nth-child(5){transition-delay:.32s}
+.oup-stagger.in-view > *:nth-child(6){transition-delay:.39s}
+
+@media (prefers-reduced-motion: reduce){
+ html{scroll-behavior:auto}
+ .oup-reveal,.oup-stagger > *,.oup-ring .fill{transition:none!important;opacity:1!important;transform:none!important}
+ .oup-progress{transition:none!important}
+}
+
+@media (max-width:900px){
+ .oup-hero,.split-layout,.story-layout,.achievement-layout{grid-template-columns:1fr}
+ .oup-hero-image{order:-1}
+ .gallery-grid{grid-template-columns:1fr}
+ .meta-bar{justify-content:flex-start}
+ .oup-footer{flex-direction:column;gap:1rem;text-align:center}
+ .gd-back-btn{top:20px;left:16px;padding:.6rem .9rem;font-size:.8rem}
+}
+
+/* ===============================
+   INDIE DB PROMO PANEL 
+   =============================== */
+
+.indiedb-panel.pro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+
+    background: linear-gradient(135deg, 
+                rgba(255,255,255,0.03), 
+                rgba(0,255,120,0.05));
+    border: 1px solid rgba(0,255,120,0.18);
+
+    padding: 22px 28px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: white;
+
+    transition: 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.indiedb-panel.pro:hover {
+    border-color: rgba(0,255,120,0.45);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 0 22px rgba(0,255,120,0.12);
+}
+
+/* --- Icon --- */
+.indiedb-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: rgba(0,255,120,0.08);
+    border-radius: 14px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.35s ease;
+}
+
+.indiedb-panel.pro:hover .indiedb-icon-wrapper {
+    background: rgba(0,255,120,0.15);
+}
+
+.indiedb-icon-wrapper img {
+    width: 55px;
+    opacity: 0.9;
+}
+
+/* --- Text Content --- */
+.indiedb-content {
+    flex: 1;
+}
+
+.indiedb-content h3 {
+    margin: 0;
+    font-size: 1.45em;
+    font-weight: 600;
+}
+
+.indiedb-content p {
+    margin: 6px 0 0 0;
+    opacity: 0.75;
+    font-size: 0.95em;
+    line-height: 1.4em;
+}
+
+/* --- Arrow --- */
+.indiedb-arrow {
+    font-size: 2rem;
+    opacity: 0.6;
+    transition: 0.35s ease;
+}
+
+.indiedb-panel.pro:hover .indiedb-arrow {
+    opacity: 1;
+    transform: translateX(6px);
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 700px) {
+    .indiedb-panel.pro {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .indiedb-arrow {
+        display: none;
+    }
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Once Upon a Page</title>
+  <link rel="shortcut icon" href="../images/2.png" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../CssStuff/normalize.css">
+  <link rel="stylesheet" href="../CssStuff/styles.css">
+  <link rel="stylesheet" href="../CssStuff/once-upon-a-page.css">
+</head>
+<body>
+
+<div class="oup-progress" id="oupProgress"></div>
+
+<a href="../Portfolio.html" class="gd-back-btn">← Back to Portfolio</a>
+
+<!-- =====================================================
+HERO
+====================================================== -->
+<header class="oup-hero oup-reveal">
+
+  <div class="oup-hero-content">
+
+    <div class="oup-tags">
+      <span class="oup-tag">Lead Programmer</span>
+      <span class="oup-tag">Unity 6</span>
+      <span class="oup-tag">C#</span>
+      <span class="oup-tag">Steam Release</span>
+    </div>
+
+    <h1>Once Upon a Page</h1>
+
+    <p class="hero-subtitle">Bringing a child's imagination to life through interactive storybooks.</p>
+
+    <p>
+      Once Upon a Page is a cozy educational puzzle game developed by a
+      seven-person international team at KAMK University of Applied Sciences.
+      As Lead Programmer, I helped prototype the game, architected the
+      gameplay systems, implemented Steam integration, and guided the
+      transition from Unreal Engine 5 to Unity.
+    </p>
+
+
+    <div class="hero-buttons">
+      <a class="oup-btn-filled" href="https://store.steampowered.com/app/4379640/_Once_Upon_a_Page/" target="_blank" rel="noopener">Play Demo</a>
+    </div>
+
+  </div>
+
+  <div class="oup-hero-image">
+    <img src="../images/Portefolio/PGD_Section/OnceUponPage/gameplay_book_scene.png" alt="Once Upon a Page gameplay — a hand-drawn sketchbook scene brought to life in 3D">
+    <p class="hero-image-caption">In-engine screenshot — sketchbook spread coming to life</p>
+  </div>
+
+</header>
+
+<!-- =====================================================
+SPEC STRIP
+====================================================== -->
+<div class="meta-bar oup-reveal">
+  <div class="meta-item"><span class="k">Engine</span><span class="v">Unreal Engine 5 → Unity 6</span></div>
+  <div class="meta-item"><span class="k">Language</span><span class="v">C#</span></div>
+  <div class="meta-item"><span class="k">Platform</span><span class="v">Windows PC</span></div>
+  <div class="meta-item"><span class="k">Team</span><span class="v">7 Developers</span></div>
+  <div class="meta-item"><span class="k">Genre</span><span class="v">Educational Puzzle</span></div>
+  <div class="meta-item"><span class="k">Release</span><span class="v">Steam Demo</span></div>
+</div>
+
+<!-- =====================================================
+PROJECT OVERVIEW — pg. 01
+====================================================== -->
+<section id="overview" class="oup-section oup-reveal">
+  <div class="section-container">
+    <div>
+      <p class="page-tag"><span class="num">Pg. 01</span> Overview</p>
+      <h2>A storybook where every drawing becomes reality.</h2>
+      <p>
+        Players solve interactive storybook puzzles by dragging illustrated
+        cards onto the page. Every object transforms from a hand-drawn sketch
+        into a fully realized 3D object, encouraging experimentation without
+        punishment. Instead of failing, incorrect combinations produce
+        playful reactions, making exploration part of the learning
+        experience.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+MY ROLE — pg. 02
+====================================================== -->
+<section class="oup-section dark-section oup-reveal">
+  <div class="section-container split-layout">
+
+    <div>
+      <p class="page-tag"><span class="num">Pg. 02</span> My Role</p>
+      <h2>Lead Programmer</h2>
+      <p>
+        My responsibility was designing and implementing the game's core
+        gameplay systems while ensuring the programming team maintained a
+        scalable and maintainable codebase throughout development.
+      </p>
+    </div>
+
+    <div class="role-grid oup-stagger">
+
+      <div class="role-card">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="14" height="10" rx="2"/><path d="M7 6V4.8A1.8 1.8 0 0 1 8.8 3h10.4A1.8 1.8 0 0 1 21 4.8v10.4a1.8 1.8 0 0 1-1.8 1.8H18"/></svg>
+        <h3>Gameplay Systems</h3>
+        <p>Created the card interaction framework that powers every puzzle inside the storybook.</p>
+      </div>
+
+      <div class="role-card">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5V5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 19.5Zm0 0A2.5 2.5 0 0 0 6.5 22H20"/></svg>
+        <h3>Level Management</h3>
+        <p>Built the complete page transition system that animates books opening, closing, and changing between levels.</p>
+      </div>
+
+      <div class="role-card">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v6M12 15v6"/></svg>
+        <h3>Steam Integration</h3>
+        <p>Implemented all Steam achievements using Facepunch.Steamworks.</p>
+      </div>
+
+      <div class="role-card">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10v4h3l5 4V6l-5 4H3Z"/><path d="M17 9a4 4 0 0 1 0 6M19.5 7a7.5 7.5 0 0 1 0 10"/></svg>
+        <h3>Audio Systems</h3>
+        <p>Solved runtime audio spawning issues by redesigning how object events were triggered.</p>
+      </div>
+
+      <div class="role-card">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <h3>Prototype</h3>
+        <p>Created the original Unreal Engine 5 Blueprint prototype before leading the transition into Unity.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+EARLY DEVELOPMENT — pg. 03
+====================================================== -->
+<section class="oup-section oup-reveal">
+
+    <div class="section-container">
+
+        <p class="page-tag">
+            <span class="num">Pg. 03</span>
+            Early Development
+        </p>
+
+        <div class="prototype-layout">
+
+            <!-- LEFT -->
+            <div class="prototype-content">
+
+                <h2>The First Playable Prototype</h2>
+
+                <p>
+                    Every project starts with a proof of concept.
+                    Before production moved to Unity, I prototyped the game's
+                    core card interaction system in Unreal Engine 5 using
+                    Blueprints. This prototype explored how illustrated cards
+                    could be dragged onto the page, transforming simple drawings
+                    into interactive objects and validating the project's central
+                    gameplay mechanic.
+                </p>
+
+                <p>
+                    Although the final game was developed in Unity, this early
+                    prototype established the interaction flow and gameplay
+                    foundation that carried through to the shipped Steam release.
+                </p>
+
+            </div>
+
+            <!-- RIGHT -->
+            
+                class="prototype-card"
+                href="https://youtu.be/ZOkvNNrDt7c"
+                target="_blank"
+                rel="noopener">
+
+                <img
+                    src="https://img.youtube.com/vi/ZOkvNNrDt7c/hqdefault.jpg"
+                    alt="Early Unreal Engine prototype">
+
+                <div class="play-overlay">
+                    <div class="play-button">▶</div>
+                    <span>Watch on YouTube</span>
+                </div>
+            </a>
+
+        </div>
+
+        
+            class="devlog-link"
+            href="https://www.indiedb.com/members/unifasdraws/blogs/putting-our-cards-on-the-table-the-card-manifestation-system"
+            target="_blank"
+            rel="noopener">
+
+            <svg class="devlog-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M4 19.5V5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 19.5Zm0 0A2.5 2.5 0 0 0 6.5 22H20"/>
+                <path d="M8 7h8M8 11h5"/>
+            </svg>
+
+            <span>
+                <strong>Putting Our Cards on the Table</strong>
+                <span class="devlog-sub">Read the complete IndieDB development log →</span>
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+ADAPTING FOR THE TEAM — pg. 04
+====================================================== -->
+<section class="oup-section dark-section oup-reveal">
+  <div class="story-layout">
+
+    <div class="story-image">
+      <img src="../images/Portefolio/PGD_Section/OnceUponPage/04_gameplay.png" alt="Gameplay">
+    </div>
+
+    <div class="story-content">
+      <p class="page-tag"><span class="num">Pg. 04</span> Development</p>
+      <h2>Adapting for the Team</h2>
+      <p>
+        I began the project by prototyping the core gameplay systems in Unreal Engine 5, 
+        establishing the foundation for the card-based interaction mechanics. As development 
+        progressed, the team decided to continue production in Unity to better align with 
+        everyone's experience and accelerate development. As Lead Programmer, I guided the transition, 
+        rebuilding systems in Unity and ensuring the project maintained momentum all the way to its Steam release.
+      </p>
+      <blockquote>"The game mattered more than the engine."</blockquote>
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+VISUAL STYLE — pg. 05
+====================================================== -->
+<section class="oup-section oup-reveal">
+  <div class="section-container">
+    <p class="page-tag"><span class="num">Pg. 05</span> Visual Style</p>
+    <h2>Inspired by Children's Sketchbooks</h2>
+    <p>Every environment begins as a pencil drawing before transforming into a living 3D scene.</p>
+
+    <div class="gallery-grid oup-stagger">
+      <figure>
+        <img src="../images/Portefolio/PGD_Section/OnceUponPage/visual_style_sheep.png" alt="Hand-drawn wireframe sheep texture">
+        <figcaption>Hand-drawn Sheep</figcaption>
+      </figure>
+      <figure>
+        <img src="../images/Portefolio/PGD_Section/OnceUponPage/visual_style_chickens.png" alt="Hand-drawn wireframe chickens texture">
+        <figcaption>Barnyard Chickens</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+STEAM ACHIEVEMENTS — pg. 06
+====================================================== -->
+<section class="oup-section dark-section oup-reveal">
+  <div class="achievement-layout">
+
+    <div class="ring-wrap">
+      <svg class="oup-ring" viewBox="0 0 200 200">
+        <circle class="track" cx="100" cy="100" r="80"></circle>
+        <circle class="fill" cx="100" cy="100" r="80"></circle>
+      </svg>
+      <div class="ring-label">
+        <span class="num" id="oupRingNum">0 / 7</span>
+        <span class="cap">Achievements Implemented</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="page-tag"><span class="num">Pg. 06</span> Steam Integration</p>
+      <h2>Every Achievement Works</h2>
+      <p>
+        Using Facepunch.Steamworks, I implemented every achievement from
+        scratch. The documentation required significantly more research than
+        the official tutorials, but the final implementation shipped
+        successfully in the Steam demo.
+      </p>
+      <img src="../images/Portefolio/PGD_Section/OnceUponPage/once_upon_a_page_steamachivements.png" alt="Steam achievements panel showing 7 of 7 unlocked">
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================
+CTA — pg. 07
+====================================================== -->
+<section class="project-cta oup-reveal">
+  <div class="cta-card">
+    <p class="page-tag" style="justify-content:center"><span class="num">Pg. 07</span> Play</p>
+    <h2>Play Once Upon a Page</h2>
+    <p style="margin-inline:auto">Experience the card mechanics and storybook world yourself.</p>
+    <a class="oup-btn-filled" href="https://store.steampowered.com/app/4379640/_Once_Upon_a_Page/" target="_blank" rel="noopener">View on Steam</a>
+  </div>
+</section>
+
+<footer class="oup-footer">
+  <p>Once Upon a Page • Francisco Santos • 2026</p>
+  <a href="../Portfolio.html" class="view-btn">Back to Portfolio</a>
+</footer>
+
+<!-- IndieDB Promo -->
+        <a href="https://www.indiedb.com/members/unifasdraws"
+            target="_blank" class="indiedb-panel pro">
+
+            <div class="indiedb-icon-wrapper">
+                <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+            </div>
+
+            <div class="indiedb-content">
+                <h3>See More on IndieDB</h3>
+                <p>Exclusive devlogs, prototype showcases, and behind-the-scenes breakdowns.</p>
+            </div>
+
+            <div class="indiedb-arrow">
+                ➜
+            </div>
+        </a>
+
+<script src="once-upon-a-page.js"></script>
+
+</body>
+</html>

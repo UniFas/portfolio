@@ -965,6 +965,183 @@ section h2 {
   transform: scale(1);
 }
 
+/* ==========================================
+   GAME JAMS
+========================================== */
+
+.gamejam-section{
+
+    margin-top:5rem;
+
+}
+
+.gamejam-title{
+
+    font-size:2rem;
+
+    margin-bottom:1.8rem;
+
+    color:var(--text-light);
+
+    text-align:center;
+
+}
+
+.gamejam-subtitle{
+
+    text-align:center;
+
+    color:var(--myGrey);
+
+    max-width:650px;
+
+    margin:0 auto 2.5rem;
+
+    line-height:1.7;
+
+}
+
+/* Grid */
+
+.gamejam-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:1.25rem;
+
+}
+
+/* Card */
+
+.gamejam-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:14px;
+
+    aspect-ratio:16 / 9;
+
+    cursor:pointer;
+
+    border:1px solid rgba(255,255,255,.06);
+
+    box-shadow:0 0 18px rgba(0,255,136,.08);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+}
+
+/* Image */
+
+.gamejam-card img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:transform .45s ease;
+
+}
+
+/* Overlay */
+
+.gamejam-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:.75rem;
+
+    background:rgba(0,0,0,.72);
+
+    opacity:0;
+
+    transition:opacity .3s ease;
+
+}
+
+.gamejam-overlay h4{
+
+    color:white;
+
+    font-size:1.2rem;
+
+    text-shadow:0 0 10px rgba(0,255,136,.4);
+
+}
+
+.gamejam-overlay span{
+
+    color:var(--neon-green);
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
+
+/* Hover */
+
+.gamejam-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,255,136,.35);
+
+    box-shadow:
+
+        0 18px 45px rgba(0,0,0,.45),
+
+        0 0 20px rgba(0,255,136,.18);
+
+}
+
+.gamejam-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.gamejam-card:hover .gamejam-overlay{
+
+    opacity:1;
+
+}
+
+/* Mobile */
+
+@media(max-width:700px){
+
+    .gamejam-grid{
+
+        grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+
+    }
+
+}
+
 /* ================================
    PORTFOLIO “CORE” – CLEAN NEON STYLE
    ================================ */
