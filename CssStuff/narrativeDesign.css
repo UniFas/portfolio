@@ -1,0 +1,2246 @@
+/* =========================================================
+   NARRATIVE DESIGN PROJECT PAGE
+   Francis Santos | UniFasDev
+========================================================= */
+
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --bg-dark: #070909;
+    --bg-section: #0c1010;
+    --bg-card: #101616;
+
+    --green: #00ff88;
+    --green-soft: rgba(0, 255, 136, 0.15);
+
+    --white: #f5f5f5;
+    --text: #b7b7b7;
+    --text-dark: #777;
+
+    --border: rgba(0, 255, 136, 0.18);
+
+    --max-width: 1400px;
+
+}
+
+
+/* =========================================================
+   BASE
+========================================================= */
+
+body {
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(0, 255, 136, 0.05),
+            transparent 35%
+        ),
+        var(--bg-dark);
+
+    color: var(--white);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   MAIN PROJECT CONTAINER
+========================================================= */
+
+.gd-project-page {
+
+    width: 100%;
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.gd-back-btn {
+
+    position: relative;
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 2rem auto 0;
+
+    max-width: var(--max-width);
+
+    padding: 0 2rem;
+
+    color: var(--green);
+
+    font-family: monospace;
+
+    font-size: 0.9rem;
+
+    letter-spacing: 0.08em;
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.gd-back-btn:hover {
+
+    color: var(--white);
+
+    transform: translateX(-5px);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.project-hero {
+
+    max-width: var(--max-width);
+
+    min-height: 650px;
+
+    margin: 0 auto;
+
+    padding: 6rem 3rem;
+
+    display: flex;
+
+    align-items: center;
+
+    position: relative;
+
+}
+
+
+/* Decorative vertical line */
+
+.project-hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 3rem;
+
+    top: 0;
+
+    width: 1px;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--green),
+            transparent
+        );
+
+    opacity: 0.35;
+
+}
+
+
+/* Decorative glow */
+
+.project-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -200px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    filter: blur(180px);
+
+    opacity: 0.04;
+
+    pointer-events: none;
+
+}
+
+
+.project-hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 950px;
+
+    margin-left: 3rem;
+
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.project-eyebrow {
+
+    margin: 0 0 1.5rem;
+
+    color: var(--green);
+
+    font-family: monospace;
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.25em;
+
+}
+
+
+.project-hero h1 {
+
+    margin: 0;
+
+    font-size: clamp(
+        4rem,
+        8vw,
+        8rem
+    );
+
+    font-weight: 900;
+
+    line-height: 0.9;
+
+    letter-spacing: -0.05em;
+
+}
+
+
+.project-hero h1 span {
+
+    color: var(--green);
+
+}
+
+
+.project-intro {
+
+    max-width: 700px;
+
+    margin-top: 2rem;
+
+    color: var(--text);
+
+    font-size: 1.15rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   PROJECT META
+========================================================= */
+
+.project-meta {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 1rem;
+
+    margin-top: 3rem;
+
+    max-width: 850px;
+
+}
+
+
+.project-meta div {
+
+    padding:
+
+        1rem
+        1.2rem;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    border-left:
+        2px solid var(--green);
+
+}
+
+
+.project-meta span {
+
+    display: block;
+
+    margin-bottom: 0.3rem;
+
+    color: var(--text-dark);
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+.project-meta strong {
+
+    color: var(--white);
+
+    font-size: 0.9rem;
+
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.project-section {
+
+    max-width: var(--max-width);
+
+    margin: 0 auto;
+
+    padding:
+        7rem 3rem;
+
+}
+
+
+.dark-section {
+
+    max-width: none;
+
+    padding-left: max(
+        3rem,
+        calc((100vw - var(--max-width)) / 2 + 3rem)
+    );
+
+    padding-right: max(
+        3rem,
+        calc((100vw - var(--max-width)) / 2 + 3rem)
+    );
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b1110,
+            #080b0b
+        );
+
+    border-top:
+        1px solid rgba(255,255,255,0.03);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.03);
+
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 1.5rem;
+
+    margin-bottom: 4rem;
+
+}
+
+
+.section-number {
+
+    color: var(--green);
+
+    font-family: monospace;
+
+    font-size: 0.9rem;
+
+    font-weight: bold;
+
+}
+
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-size: clamp(
+        2rem,
+        4vw,
+        3.5rem
+    );
+
+    line-height: 1;
+
+    letter-spacing: -0.03em;
+
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+.project-text {
+
+    max-width: 750px;
+
+}
+
+
+.project-text p {
+
+    margin:
+        0 0 1.5rem;
+
+    color: var(--text);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+}
+
+
+.project-text strong {
+
+    color: var(--white);
+
+}
+
+
+/* =========================================================
+   SPLIT LAYOUT
+========================================================= */
+
+.split-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 420px) 1fr;
+
+    gap: 4rem;
+
+    align-items: start;
+
+}
+
+
+.project-label {
+
+    color: var(--green) !important;
+
+    font-family: monospace;
+
+    font-size: 0.75rem !important;
+
+    font-weight: bold;
+
+    letter-spacing: 0.2em;
+
+}
+
+
+.project-text h3 {
+
+    margin:
+        0 0 1.5rem;
+
+    font-size: 2rem;
+
+    line-height: 1.2;
+
+}
+
+
+/* =========================================================
+   PROJECT MEDIA
+========================================================= */
+
+.project-media {
+
+    position: sticky;
+    top: 6rem;
+
+}
+
+
+.project-media img {
+
+    display: block;
+
+    width: 100%;
+
+    aspect-ratio: 3 / 4;
+
+    object-fit: cover;
+
+    background: #050505;
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease;
+
+}
+
+.project-media img:hover {
+
+    transform: translateY(-5px);
+
+    border-color:
+        rgba(0,255,136,0.5);
+
+}
+
+
+.media-caption {
+
+    margin-top: 1rem;
+
+    color: var(--text-dark);
+
+    font-family: monospace;
+
+    font-size: 0.75rem;
+
+}
+
+
+/* =========================================================
+   SKILL TAGS
+========================================================= */
+
+.skill-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.6rem;
+
+    margin:
+        2rem 0;
+
+}
+
+
+.skill-tags span {
+
+    padding:
+        0.45rem 0.8rem;
+
+    color: var(--green);
+
+    background:
+        rgba(0,255,136,0.06);
+
+    border:
+        1px solid rgba(0,255,136,0.2);
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.05em;
+
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.project-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding:
+        1rem 1.4rem;
+
+    background: var(--green);
+
+    color: #050505;
+
+    text-decoration: none;
+
+    font-family: monospace;
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.08em;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+
+}
+
+
+.project-button span {
+
+    font-size: 1.2rem;
+
+}
+
+
+.project-button:hover {
+
+    background: var(--white);
+
+    transform:
+        translateX(5px);
+
+}
+
+
+/* =========================================================
+   FEEDBACK GRID
+========================================================= */
+
+.feedback-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1.5rem;
+
+}
+
+
+.feedback-card {
+
+    padding: 2rem;
+
+    background:
+        var(--bg-card);
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.feedback-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(0,255,136,0.35);
+
+}
+
+
+.feedback-number {
+
+    display: block;
+
+    margin-bottom: 1.5rem;
+
+    color: var(--green);
+
+    font-family: monospace;
+
+    font-size: 0.8rem;
+
+}
+
+
+.feedback-card h3 {
+
+    margin:
+        0 0 1rem;
+
+    font-size: 1.4rem;
+
+}
+
+
+.feedback-card p {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   REVISION NOTE
+========================================================= */
+
+.revision-note {
+
+    margin-top: 3rem;
+
+    padding:
+        2rem 2.5rem;
+
+    background:
+        rgba(0,255,136,0.04);
+
+    border-left:
+        3px solid var(--green);
+
+}
+
+
+.revision-note strong {
+
+    color: var(--green);
+
+    font-family: monospace;
+
+    font-size: 0.8rem;
+
+    letter-spacing: 0.1em;
+
+}
+
+
+.revision-note p {
+
+    margin:
+        0.8rem 0 0;
+
+    color: var(--text);
+
+}
+
+
+/* =========================================================
+   DESIGN GRID
+========================================================= */
+
+.design-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 1rem;
+
+}
+
+
+.design-card {
+
+    min-height: 260px;
+
+    padding: 2rem;
+
+    background:
+        var(--bg-card);
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+
+}
+
+
+.design-card:hover {
+
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(0,255,136,0.35);
+
+}
+
+
+.design-icon {
+
+    display: block;
+
+    margin-bottom: 3rem;
+
+    color: var(--green);
+
+    font-family: monospace;
+
+    font-size: 0.8rem;
+
+}
+
+
+.design-card h3 {
+
+    margin:
+        0 0 1rem;
+
+    font-size: 1.2rem;
+
+}
+
+
+.design-card p {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 0.85rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.process-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto 1fr auto 1fr;
+
+    align-items: center;
+
+    gap: 1.5rem;
+
+}
+
+
+.process-step {
+
+    padding: 2rem;
+
+    min-height: 180px;
+
+    background:
+        var(--bg-card);
+
+    border:
+        1px solid rgba(255,255,255,0.05);
+
+}
+
+
+.process-step.active {
+
+    border-color:
+        var(--green);
+
+    box-shadow:
+        0 0 30px
+        rgba(0,255,136,0.05);
+
+}
+
+
+.process-step > span {
+
+    color: var(--green);
+
+    font-family: monospace;
+
+    font-weight: bold;
+
+}
+
+
+.process-step h3 {
+
+    margin:
+        1rem 0;
+
+}
+
+
+.process-step p {
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 0.85rem;
+
+}
+
+
+.process-arrow {
+
+    color: var(--green);
+
+    font-size: 2rem;
+
+}
+
+
+.centered-text {
+
+    margin:
+        4rem auto 0;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   GDD
+========================================================= */
+
+.gdd-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 5rem;
+
+    align-items: center;
+
+}
+
+
+.gdd-preview {
+
+    position: relative;
+
+    padding: 1rem;
+
+    background:
+        #050505;
+
+    border:
+        1px solid var(--border);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+
+}
+
+
+.gdd-preview::before {
+
+    content: "GDD";
+
+    position: absolute;
+
+    top: -12px;
+    left: 20px;
+
+    padding:
+        0.3rem 0.7rem;
+
+    background:
+        var(--green);
+
+    color: #050505;
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+    font-weight: bold;
+
+}
+
+
+.gdd-preview img {
+
+    display: block;
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   LEARNING GRID
+========================================================= */
+
+.learning-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 1px;
+
+    background:
+        rgba(0,255,136,0.15);
+
+}
+
+
+.learning-item {
+
+    padding: 2.5rem;
+
+    background:
+        var(--bg-section);
+
+}
+
+
+.learning-item strong {
+
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: var(--white);
+
+    font-size: 1.2rem;
+
+}
+
+
+.learning-item p {
+
+    margin: 0;
+
+    color: var(--text);
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.project-cta {
+
+    position: relative;
+
+    max-width: var(--max-width);
+
+    margin: 5rem auto;
+
+    padding:
+        6rem 3rem;
+
+    text-align: center;
+
+    border:
+        1px solid rgba(0,255,136,0.2);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,255,136,0.08),
+            transparent 60%
+        );
+
+}
+
+
+.project-cta p {
+
+    margin: 0 0 1rem;
+
+    color: var(--green);
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.2em;
+
+}
+
+
+.project-cta h2 {
+
+    margin:
+        0 0 2rem;
+
+    font-size:
+        clamp(2rem, 5vw, 4rem);
+
+    line-height: 1;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+#footer {
+
+    padding:
+        3rem 2rem;
+
+    background:
+        #050606;
+
+    border-top:
+        1px solid rgba(255,255,255,0.05);
+
+}
+
+
+.footer-content {
+
+    max-width:
+        var(--max-width);
+
+    margin:
+        0 auto;
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 2rem;
+
+}
+
+
+.footer-content p {
+
+    margin: 0;
+
+    color:
+        var(--text-dark);
+
+    font-size:
+        0.8rem;
+
+}
+
+
+#social-links {
+
+    display: flex;
+
+    gap: 1rem;
+
+}
+
+
+#social-links a {
+
+    display: flex;
+
+    width: 35px;
+    height: 35px;
+
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+
+#social-links img {
+
+    width: 22px;
+    height: 22px;
+
+    object-fit: contain;
+
+}
+
+
+#social-links a:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .project-meta {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .split-layout,
+    .gdd-layout {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 3rem;
+
+    }
+
+
+    .design-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .feedback-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .process-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .process-arrow {
+
+        transform:
+            rotate(90deg);
+
+        text-align: center;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .project-hero {
+
+        min-height: auto;
+
+        padding:
+            5rem 1.5rem;
+
+    }
+
+
+    .project-hero::before {
+
+        left: 1rem;
+
+    }
+
+
+    .project-hero-content {
+
+        margin-left: 1rem;
+
+    }
+
+
+    .project-hero h1 {
+
+        font-size:
+            clamp(3rem, 15vw, 5rem);
+
+    }
+
+
+    .project-intro {
+
+        font-size: 1rem;
+
+    }
+
+
+    .project-meta {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .project-section {
+
+        padding:
+            5rem 1.5rem;
+
+    }
+
+
+    .dark-section {
+
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+
+    }
+
+
+    .section-heading {
+
+        gap: 0.8rem;
+
+        margin-bottom: 2.5rem;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .design-grid,
+    .learning-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .project-cta {
+
+        margin:
+            3rem 1rem;
+
+        padding:
+            4rem 1.5rem;
+
+    }
+
+
+    .footer-content {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+}
+
+/* =========================================================
+   AI TEXT RPG / CREATOR STUDIO
+========================================================= */
+
+.ai-rpg-section {
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 7rem 3rem;
+
+    color: #f1eee8;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ai-rpg-header {
+
+    max-width: 850px;
+
+    margin-bottom: 5rem;
+
+}
+
+
+.ai-rpg-eyebrow {
+
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: #d9a441;
+
+    font-family: monospace;
+
+    font-size: 0.75rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.25em;
+
+}
+
+
+.ai-rpg-header h2 {
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(3rem, 7vw, 6rem);
+
+    line-height: 0.95;
+
+    color: #f4f1eb;
+
+}
+
+
+.ai-rpg-header > p {
+
+    max-width: 700px;
+
+    margin-top: 2rem;
+
+    color: #aaa5a0;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.05rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   INTRODUCTION
+========================================================= */
+
+.ai-rpg-introduction {
+
+    display: grid;
+
+    grid-template-columns: 1.3fr 0.7fr;
+
+    gap: 6rem;
+
+    align-items: center;
+
+    margin-bottom: 8rem;
+
+}
+
+
+.ai-rpg-label {
+
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: #d9a441;
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.18em;
+
+}
+
+
+.ai-rpg-intro-text h3 {
+
+    margin: 0 0 1.5rem;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    line-height: 1.05;
+
+}
+
+
+.ai-rpg-intro-text p {
+
+    max-width: 760px;
+
+    margin: 0 0 1.3rem;
+
+    color: #aaa5a0;
+
+    font-family: Georgia, serif;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   QUOTE / HIGHLIGHT
+========================================================= */
+
+.ai-rpg-highlight {
+
+    position: relative;
+
+    padding: 3rem;
+
+    background: #171514;
+
+    border: 1px solid #2c2926;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.25);
+
+}
+
+
+.highlight-mark {
+
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: #d9a441;
+
+    font-family: Georgia, serif;
+
+    font-size: 5rem;
+
+    line-height: 0.5;
+
+}
+
+
+.ai-rpg-highlight p {
+
+    margin: 0 0 1.5rem;
+
+    color: #eee9e1;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.25rem;
+
+    line-height: 1.6;
+
+}
+
+
+.highlight-source {
+
+    color: #77736f;
+
+    font-family: monospace;
+
+    font-size: 0.65rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CREATIONS HEADER
+========================================================= */
+
+.ai-rpg-creations {
+
+    margin-bottom: 8rem;
+
+}
+
+
+.ai-rpg-section-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    gap: 3rem;
+
+    padding-bottom: 2rem;
+
+    margin-bottom: 1.5rem;
+
+    border-bottom: 1px solid #292624;
+
+}
+
+
+.ai-rpg-section-title h3 {
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 2.5rem;
+
+}
+
+
+.ai-rpg-section-title > p {
+
+    max-width: 450px;
+
+    margin: 0;
+
+    color: #85817d;
+
+    font-family: Georgia, serif;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   ADVENTURE LIST
+========================================================= */
+
+.adventure-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+}
+
+
+.adventure-card {
+
+    display: grid;
+
+    grid-template-columns: 80px 1fr;
+
+    gap: 2rem;
+
+    padding: 1.2rem;
+
+    background: #171514;
+
+    border: 1px solid #2c2926;
+
+    border-radius: 17px;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.adventure-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #4b443d;
+
+    background: #1b1917;
+
+}
+
+
+/* =========================================================
+   ADVENTURE IMAGE
+========================================================= */
+
+.adventure-image {
+
+    width: 80px;
+
+    height: 80px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background: #22201e;
+
+}
+
+
+.adventure-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+
+}
+
+
+.adventure-card:hover .adventure-image img {
+
+    transform: scale(1.08);
+
+}
+
+
+/* =========================================================
+   ADVENTURE CONTENT
+========================================================= */
+
+.adventure-content {
+
+    min-width: 0;
+
+}
+
+
+.adventure-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    margin-bottom: 0.4rem;
+
+}
+
+
+.adventure-number {
+
+    color: #6e6964;
+
+    font-family: monospace;
+
+    font-size: 0.65rem;
+
+}
+
+
+.adventure-tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 0.4rem;
+
+}
+
+
+.adventure-tags span {
+
+    padding:
+        0.18rem 0.55rem;
+
+    background: #090909;
+
+    border-radius: 20px;
+
+    color: #817b75;
+
+    font-family: monospace;
+
+    font-size: 0.6rem;
+
+}
+
+
+.adventure-content h4 {
+
+    margin: 0 0 0.3rem;
+
+    color: #eee9e1;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.15rem;
+
+}
+
+
+.adventure-content p {
+
+    max-width: 900px;
+
+    margin: 0 0 0.8rem;
+
+    color: #aaa5a0;
+
+    font-family: Georgia, serif;
+
+    font-size: 0.9rem;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================================
+   PLAY BUTTON
+========================================================= */
+
+.adventure-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.5rem;
+
+    color: #d9a441;
+
+    font-family: monospace;
+
+    font-size: 0.65rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.08em;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.adventure-button span {
+
+    font-size: 0.9rem;
+
+}
+
+
+.adventure-button:hover {
+
+    color: #f3c567;
+
+    transform: translateX(4px);
+
+}
+
+
+/* =========================================================
+   ANALYSIS
+========================================================= */
+
+.ai-rpg-analysis {
+
+    padding: 6rem 0;
+
+    border-top: 1px solid #292624;
+
+    border-bottom: 1px solid #292624;
+
+}
+
+
+.ai-rpg-analysis-header {
+
+    max-width: 800px;
+
+    margin-bottom: 4rem;
+
+}
+
+
+.ai-rpg-analysis-header h3 {
+
+    margin: 0 0 1.5rem;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+    line-height: 1.05;
+
+}
+
+
+.ai-rpg-analysis-header p {
+
+    margin: 0;
+
+    color: #99948e;
+
+    font-family: Georgia, serif;
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   ANALYSIS GRID
+========================================================= */
+
+.analysis-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 1px;
+
+    background: #302c28;
+
+    border: 1px solid #302c28;
+
+}
+
+
+.analysis-card {
+
+    min-height: 240px;
+
+    padding: 2.5rem;
+
+    background: #11100f;
+
+    transition:
+        background 0.3s ease;
+
+}
+
+
+.analysis-card:hover {
+
+    background: #181614;
+
+}
+
+
+.analysis-number {
+
+    display: block;
+
+    margin-bottom: 3rem;
+
+    color: #d9a441;
+
+    font-family: monospace;
+
+    font-size: 0.7rem;
+
+}
+
+
+.analysis-card h4 {
+
+    margin: 0 0 1rem;
+
+    color: #eee9e1;
+
+    font-family: Georgia, serif;
+
+    font-size: 1.4rem;
+
+}
+
+
+.analysis-card p {
+
+    max-width: 550px;
+
+    margin: 0;
+
+    color: #918c86;
+
+    font-family: Georgia, serif;
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   TAKEAWAY
+========================================================= */
+
+.ai-rpg-takeaway {
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.6fr;
+
+    gap: 6rem;
+
+    align-items: center;
+
+    padding: 8rem 0 4rem;
+
+}
+
+
+.takeaway-content {
+
+    max-width: 800px;
+
+}
+
+
+.takeaway-content h3 {
+
+    margin: 0 0 1.5rem;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(2.2rem, 5vw, 4rem);
+
+    line-height: 1;
+
+}
+
+
+.takeaway-content p {
+
+    margin: 0 0 1.3rem;
+
+    color: #9c9791;
+
+    font-family: Georgia, serif;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   CREATE / PLAY / ANALYSE
+========================================================= */
+
+.takeaway-mark {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.5rem;
+
+    padding-left: 3rem;
+
+    border-left: 1px solid #3a3530;
+
+}
+
+
+.takeaway-mark span {
+
+    color: #ddd7cf;
+
+    font-family: monospace;
+
+    font-size: clamp(1rem, 2vw, 1.5rem);
+
+    font-weight: bold;
+
+    letter-spacing: 0.12em;
+
+}
+
+
+.takeaway-mark span:nth-child(2) {
+
+    color: #d9a441;
+
+}
+
+
+.takeaway-mark span:nth-child(3) {
+
+    color: #77716a;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .ai-rpg-introduction {
+
+        grid-template-columns: 1fr;
+
+        gap: 3rem;
+
+    }
+
+
+    .ai-rpg-takeaway {
+
+        grid-template-columns: 1fr;
+
+        gap: 3rem;
+
+    }
+
+
+    .ai-rpg-section-title {
+
+        flex-direction: column;
+
+        align-items: start;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .ai-rpg-section {
+
+        padding: 5rem 1.2rem;
+
+    }
+
+
+    .adventure-card {
+
+        grid-template-columns: 60px 1fr;
+
+        gap: 1rem;
+
+        padding: 0.8rem;
+
+    }
+
+
+    .adventure-image {
+
+        width: 60px;
+
+        height: 60px;
+
+    }
+
+
+    .adventure-content p {
+
+        font-size: 0.8rem;
+
+    }
+
+
+    .analysis-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .analysis-card {
+
+        min-height: auto;
+
+    }
+
+
+    .ai-rpg-highlight {
+
+        padding: 2rem;
+
+    }
+
+
+    .takeaway-mark {
+
+        padding-left: 1.5rem;
+
+    }
+
+}

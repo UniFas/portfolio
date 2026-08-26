@@ -965,6 +965,291 @@ section h2 {
   transform: scale(1);
 }
 
+/* ---------- 3D Portfolio Banner ---------- */
+
+.portfolio-3d-banner {
+    position: relative;
+    max-width: 1400px;
+    min-height: 320px;
+    margin: 6rem auto;
+    padding: 4rem 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(255, 102, 0, 0.14),
+            transparent 35%
+        ),
+        #090909;
+
+    border: 1px solid rgba(255, 102, 0, 0.25);
+
+    box-shadow:
+        0 0 40px rgba(255, 102, 0, 0.05);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* ---------- Hover Effect ---------- */
+
+.portfolio-3d-banner:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255, 102, 0, 0.65);
+
+    box-shadow:
+        0 15px 50px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(255, 102, 0, 0.1);
+}
+
+
+/* ---------- Content ---------- */
+
+.portfolio-3d-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+
+.portfolio-3d-label {
+    display: block;
+
+    margin-bottom: 1rem;
+
+    color: #ff6600;
+
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 0.3em;
+}
+
+
+/* ---------- Title ---------- */
+
+.portfolio-3d-content h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 900;
+
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+}
+
+
+.portfolio-3d-content h2 span {
+    color: #ff6600;
+}
+
+
+/* ---------- Description ---------- */
+
+.portfolio-3d-content p {
+    max-width: 520px;
+
+    margin: 1.5rem 0 2rem;
+
+    color: #999999;
+
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* ---------- Button ---------- */
+
+.portfolio-3d-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    padding: 1rem 1.6rem;
+
+    color: #ffffff;
+    background: #ff6600;
+
+    text-decoration: none;
+
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+
+    letter-spacing: 0.08em;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.portfolio-3d-button span {
+    font-size: 1.3rem;
+
+    transition: transform 0.25s ease;
+}
+
+
+.portfolio-3d-button:hover {
+    background: #ffffff;
+    color: #090909;
+
+    transform: translateX(5px);
+}
+
+
+.portfolio-3d-button:hover span {
+    transform: translateX(5px);
+}
+
+
+/* ---------- Decorative Elements ---------- */
+
+.portfolio-3d-decoration {
+    position: absolute;
+
+    right: -80px;
+    top: 50%;
+
+    width: 500px;
+    height: 500px;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+}
+
+
+/* Orange Circle */
+
+.orange-circle {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: 40px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: 1px solid rgba(255, 102, 0, 0.25);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 80px rgba(255, 102, 0, 0.08);
+}
+
+
+.orange-circle::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 30px;
+
+    border: 1px solid rgba(255, 102, 0, 0.15);
+
+    border-radius: 50%;
+}
+
+
+/* Orange Line */
+
+.orange-line {
+    position: absolute;
+
+    width: 500px;
+    height: 1px;
+
+    right: -80px;
+    top: 50%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 102, 0, 0.7)
+    );
+
+    transform: rotate(-35deg);
+}
+
+
+/* Technical Grid */
+
+.orange-grid {
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    right: 70px;
+    top: 100px;
+
+    opacity: 0.2;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 102, 0, 0.3) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 102, 0, 0.3) 1px,
+            transparent 1px
+        );
+
+    background-size: 25px 25px;
+
+    transform: perspective(400px) rotateY(-20deg);
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 768px) {
+
+    .portfolio-3d-banner {
+        min-height: auto;
+
+        margin: 4rem 1rem;
+        padding: 3rem 2rem;
+    }
+
+    .portfolio-3d-content {
+        max-width: 100%;
+    }
+
+    .portfolio-3d-content h2 {
+        font-size: 3.5rem;
+    }
+
+    .portfolio-3d-content p {
+        font-size: 0.95rem;
+    }
+
+    .portfolio-3d-decoration {
+        right: -250px;
+        opacity: 0.5;
+    }
+
+}
+
 /* ==========================================
    GAME JAMS
 ========================================== */
@@ -1146,186 +1431,450 @@ section h2 {
    PORTFOLIO “CORE” – CLEAN NEON STYLE
    ================================ */
 
+/* ---------- Portfolio banner (scoped to .portfolio-banner) ---------- */
+
+.portfolio-banner{
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.portfolio-banner *{
+  box-sizing: border-box;
+}
+
+.portfolio-banner__link{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+
+  height: 140px;
+  padding: 0 40px 0 0;
+  margin: 0;
+
+  border-radius: 16px;
+  overflow: hidden;
+  isolation: isolate;
+
+  text-decoration: none !important;
+  color: #f3f1ee;
+
+  background: radial-gradient(120% 160% at 0% 50%, #1c1108 0%, #0b0805 55%),
+              linear-gradient(100deg, #120b06 0%, #0b0805 100%);
+  border: 1px solid rgba(238,123,53,0.18);
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.portfolio-banner__link:hover,
+.portfolio-banner__link:visited,
+.portfolio-banner__link:active{
+  text-decoration: none !important;
+  color: #f3f1ee;
+}
+
+.portfolio-banner__link:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+  border-color: rgba(238,123,53,0.4);
+}
+
+.portfolio-banner__link:focus-visible{
+  outline: 2px solid #ee7b35;
+  outline-offset: 3px;
+}
+
+.portfolio-banner__link::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(120% 120% at 15% 50%, black, transparent 75%);
+  z-index: 0;
+}
+
+.portfolio-banner__link::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(238,123,53,0.16), transparent);
+  transform: skewX(-20deg);
+  transition: left 700ms ease;
+  z-index: 1;
+}
+
+.portfolio-banner__link:hover::after{
+  left: 130%;
+}
+
+/* ---------- Logo, clipped into an angled panel ---------- */
+
+.portfolio-banner__logo-wrap{
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+
+  width: 150px;
+  height: 100%;
+  max-width: none;
+
+  background: rgba(238,123,53,0.06);
+  clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
+}
+
+.portfolio-banner__logo{
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+
+  clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
+
+  filter: drop-shadow(0 0 16px rgba(238,123,53,0.4));
+  transition: transform 400ms ease;
+}
+
+.portfolio-banner__link:hover .portfolio-banner__logo{
+  transform: scale(1.06);
+}
+
+/* ---------- Copy ---------- */
+
+.portfolio-banner__content{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.portfolio-banner__eyebrow{
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ee7b35;
+  line-height: 1.2;
+}
+
+.portfolio-banner__text{
+  display: block;
+  font-family: 'Anton', 'Arial Narrow', sans-serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: #f3f1ee;
+}
+
+/* ---------- Arrow ---------- */
+
+.portfolio-banner__arrow{
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: #ee7b35;
+
+  color: #0b0805;
+
+  transition: transform 300ms ease, background 300ms ease;
+}
+
+.portfolio-banner__arrow svg{
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.portfolio-banner__link:hover .portfolio-banner__arrow{
+  transform: translateX(6px);
+  background: #f7943f;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 560px){
+  .portfolio-banner__link{
+    height: 120px;
+    padding-right: 20px;
+    gap: 16px;
+  }
+  .portfolio-banner__logo-wrap{
+    width: 100px;
+  }
+  .portfolio-banner__eyebrow{
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .portfolio-banner__link,
+  .portfolio-banner__logo,
+  .portfolio-banner__arrow,
+  .portfolio-banner__link::after{
+    transition: none;
+  }
+}
+
+
+/* ---------- Portfolio Core / Skill Projects ---------- */
+
 .portfolio-core {
-    width: 90%;
-    max-width: 1200px;
-    margin: 60px auto;
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
 }
 
-/* Each individual panel */
+
+/* ---------- Back Button ---------- */
+
+.gd-back-btn {
+    grid-column: 1 / -1;
+
+    display: inline-block;
+    width: fit-content;
+
+    margin-bottom: 1rem;
+
+    color: #00ff88;
+    text-decoration: none;
+
+    font-family: monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+
+    transition: 0.25s ease;
+}
+
+.gd-back-btn:hover {
+    color: #ffffff;
+    transform: translateX(-5px);
+}
+
+
+/* ---------- Project Card ---------- */
+
+.portfolio-core > a {
+    display: block;
+
+    color: inherit;
+    text-decoration: none;
+
+    aspect-ratio: 1 / 1;
+}
+
+
+/* ---------- Square Card ---------- */
+
 .core-panel {
-    background: rgba(255, 255, 255, 0.03);  /* Soft glassy box */
-    border: 1px solid rgba(0, 255, 140, 0.25); /* subtle neon border */
-    padding: 28px;
-    border-radius: 14px;
-    text-align: center;
-    transition: 0.3s ease;
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #0a0a0a;
+
+    border: 1px solid rgba(0, 255, 136, 0.18);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-/* Hover effect — clean neon */
+
+/* ---------- Card Hover ---------- */
+
 .core-panel:hover {
     transform: translateY(-8px);
-    box-shadow: 0 0 18px rgba(0, 255, 140, 0.25);
-    border-color: rgba(0, 255, 140, 0.55);
+
+    border-color: #00ff88;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(0, 255, 136, 0.12);
 }
 
-/* Image wrapper */
+
+/* ---------- Image ---------- */
+
 .core-img-wrapper {
-    width: 100%;
-    height: 180px;
-    border-radius: 12px;
+    position: absolute;
+
+    inset: 0;
+
     overflow: hidden;
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: 0.3s ease;
 }
 
-/* Subtle neon tint on hover */
-.core-panel:hover .core-img-wrapper {
-    border-color: rgba(0, 255, 140, 0.55);
-    box-shadow: 0 0 12px rgba(0, 255, 140, 0.25);
-}
 
 .core-img-wrapper img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
 }
 
-/* Title */
+
+/* ---------- Image Hover ---------- */
+
+.core-panel:hover .core-img-wrapper img {
+    transform: scale(1.08);
+
+    filter: brightness(0.65);
+}
+
+
+/* ---------- Dark Gradient ---------- */
+
+.core-panel::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.95) 0%,
+            rgba(0, 0, 0, 0.65) 35%,
+            rgba(0, 0, 0, 0.05) 75%
+        );
+
+    pointer-events: none;
+}
+
+
+/* ---------- Project Title ---------- */
+
 .core-title {
-    margin-top: 18px;
-    font-size: 1.4em;
-    font-weight: 600;
+    position: absolute;
+
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 5.5rem;
+
+    z-index: 2;
+
+    margin: 0;
+
     color: #ffffff;
-    transition: 0.3s ease;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    line-height: 1.2;
 }
 
-/* Title neon highlight on hover */
-.core-panel:hover .core-title {
-    color: #00ff8c;
-    text-shadow: 0 0 8px rgba(0, 255, 140, 0.5);
-}
 
-/* Description / hook */
+/* ---------- Project Description ---------- */
+
 .core-hook {
-    margin-top: 8px;
-    opacity: 0.85;
-    line-height: 1.4;
-    font-size: 0.95em;
+    position: absolute;
+
+    left: 1.5rem;
+    right: 1.5rem;
+    bottom: 1.5rem;
+
+    z-index: 2;
+
+    margin: 0;
+
+    color: #bdbdbd;
+
+    font-size: 0.85rem;
+    line-height: 1.5;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
 }
 
 
+/* ---------- Green Accent ---------- */
 
+.core-title::before {
+    content: "";
 
+    display: block;
 
+    width: 35px;
+    height: 3px;
 
+    margin-bottom: 0.7rem;
 
-
-
-/* CONTACT PAGE */
-#contact-section {
-  max-width: 700px;
-  margin: 60px auto;
-  padding: 40px;
-  background-color: rgba(10, 10, 10, 0.85);
-  border: 1px solid #00ff80;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 255, 128, 0.15);
-  color: #e0e0e0;
-}
-
-#contact-section h2 {
-  text-align: center;
-  font-size: 2em;
-  color: #00ff80;
-  text-shadow: 0 0 10px rgba(0, 255, 128, 0.5);
-  margin-bottom: 10px;
-}
-
-#contact-intro {
-  text-align: center;
-  font-size: 1.1em;
-  margin-bottom: 30px;
-}
-
-fieldset {
-  border: 1px solid #00ff80;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 25px;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-legend {
-  color: #00ff80;
-  font-weight: bold;
-  text-shadow: 0 0 8px rgba(0, 255, 128, 0.6);
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
-}
-
-label {
-  margin-bottom: 5px;
-  color: #00ff80;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-  background-color: #0a0a0a;
-  border: 1px solid #333;
-  border-radius: 6px;
-  color: #e0e0e0;
-  padding: 10px;
-  font-size: 1em;
-  transition: border 0.3s, box-shadow 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-  border: 1px solid #00ff80;
-  box-shadow: 0 0 10px rgba(0, 255, 128, 0.3);
-  outline: none;
-}
-
-.checkbox-group label {
-  margin-right: 15px;
-}
-
-.button-group {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-input[type="submit"],
-input[type="reset"] {
-  background-color: transparent;
-  border: 1px solid #00ff80;
-  color: #00ff80;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-  background-color: #00ff80;
-  color: #0a0a0a;
-  box-shadow: 0 0 10px rgba(0, 255, 128, 0.5);
+    background: #00ff88;
 }
 
 
+/* ---------- Tablet ---------- */
+
+@media (max-width: 900px) {
+
+    .portfolio-core {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 600px) {
+
+    .portfolio-core {
+        grid-template-columns: 1fr;
+
+        padding: 0 1rem;
+    }
+
+    .portfolio-core > a {
+        aspect-ratio: 1 / 1;
+    }
+
+    .core-title {
+        font-size: 1.2rem;
+    }
+
+    .core-hook {
+        font-size: 0.8rem;
+    }
+
+}
 
 /* FOOTER */
 #footer {

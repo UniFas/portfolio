@@ -2,12 +2,16 @@
 <html lang="en">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Francis Santos Portfolio</title>
   <link rel="shortcut icon" href="images/2.png" type="image/x-icon">
   <link rel="stylesheet" href="CssStuff/normalize.css">
-  <link rel="stylesheet" href="CssStuff/styles.css"> <!-- Add this -->
+  <link rel="stylesheet" href="CssStuff/styles.css"> 
+  
 </head>
 
 <body>
@@ -36,7 +40,7 @@
   </header>
 
   <!-- Portefolio Core -->
-   <section id="portfolio-core">
+<section id="portfolio-core">
 
   <h2>Portfolio</h2>
 
@@ -174,8 +178,6 @@
     </div>
   </section>
 
-
-
     <!-- ==========================================
 GAME JAMS
 ========================================== -->
@@ -239,7 +241,33 @@ GAME JAMS
 
 </section>
 
- 
+<br>
+
+ <!-- ---------- 3D Portfolio Banner ---------- -->
+
+<section class="portfolio-banner">
+  <a href="https://your-3d-portfolio-url.com"
+     class="portfolio-banner__link"
+     target="_blank"
+     rel="noopener"
+     aria-label="Check my 3D art and game development portfolio">
+
+    <span class="portfolio-banner__logo-wrap">
+      <img src="../Project_Portfolio/images/logo_v4.png" alt="" class="portfolio-banner__logo">
+    </span>
+
+    <span class="portfolio-banner__content">
+      <span class="portfolio-banner__eyebrow">Francis Santos, 3D art &amp; game dev</span>
+      <span class="portfolio-banner__text">View 3D Portfolio</span>
+    </span>
+
+    <span class="portfolio-banner__arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </a>
+</section>
 
   <!-- Script of the grid flitering -->
   <script>
