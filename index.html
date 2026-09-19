@@ -1,183 +1,1934 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Francis Santos | Portfolio</title>
+
+  <title>Francis Santos | Horror Systems & Tension Design</title>
+
+  <meta
+    name="description"
+    content="Francis Santos is a game designer and developer focused on horror systems, player control, tension design, and atmospheric interactive experiences."
+  />
+
+  <meta name="theme-color" content="#080b09" />
+
   <link rel="shortcut icon" href="images/2.png" type="image/x-icon" />
   <link rel="stylesheet" href="CssStuff/normalize.css" />
   <link rel="stylesheet" href="CssStuff/styles.css" />
+
+  <style>
+    /* =========================================
+       DESIGN SYSTEM
+    ========================================= */
+
+    :root {
+      --bg: #080b09;
+      --bg-soft: #101511;
+      --bg-card: #121914;
+
+      --green: #00ff88;
+      --green-dim: #00c96b;
+
+      --text: #f2f5f2;
+      --muted: #a1aaa3;
+      --border: rgba(255, 255, 255, 0.1);
+
+      --max-width: 1200px;
+      --section-space: 110px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+
+      background:
+        radial-gradient(
+          ellipse at 80% 10%,
+          rgba(0, 255, 136, 0.055),
+          transparent 40%
+        ),
+        radial-gradient(
+          ellipse at 10% 60%,
+          rgba(0, 255, 136, 0.025),
+          transparent 45%
+        );
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 5px;
+    }
+
+    .container {
+      width: min(100% - 48px, var(--max-width));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding-block: var(--section-space);
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+
+      margin-bottom: 18px;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 26px;
+      height: 2px;
+      background: var(--green);
+    }
+
+    .section-heading {
+      max-width: 750px;
+      margin-bottom: 18px;
+
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+    }
+
+    .section-description {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .green {
+      color: var(--green);
+    }
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    #header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 82px;
+      padding: 0 max(24px, calc((100% - var(--max-width)) / 2));
+
+      background: rgba(8, 11, 9, 0.9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    #logo img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+    }
+
+    #navbar ul {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #navbar a {
+      position: relative;
+
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+
+      transition: color 0.2s ease;
+    }
+
+    #navbar a:hover,
+    #navbar a.sel {
+      color: var(--green);
+    }
+
+    #navbar a.sel::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+
+      height: 2px;
+      background: var(--green);
+    }
+
+    #menuIcon {
+      display: none;
+      cursor: pointer;
+    }
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .hero {
+      position: relative;
+      min-height: 680px;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(8, 11, 9, 1) 0%,
+          rgba(8, 11, 9, 0.96) 38%,
+          rgba(8, 11, 9, 0.62) 68%,
+          rgba(8, 11, 9, 0.35) 100%
+        ),
+        linear-gradient(
+          0deg,
+          var(--bg) 0%,
+          transparent 35%,
+          rgba(8, 11, 9, 0.2) 100%
+        ),
+        url("images/Portefolio/PND_Section/Village.jpg")
+        center / cover no-repeat;
+
+      opacity: 0.75;
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+
+      opacity: 0.12;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+
+      width: min(100% - 48px, var(--max-width));
+      margin-inline: auto;
+
+      padding-block: 100px;
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      color: #c1ccc4;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      margin-bottom: 30px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.65);
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 0 0 26px;
+
+      font-size: clamp(2.9rem, 7.5vw, 6.5rem);
+      line-height: 0.99;
+      letter-spacing: -0.065em;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--green);
+    }
+
+    .hero-description {
+      max-width: 610px;
+      margin-bottom: 34px;
+
+      color: #c1cbc3;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.8;
+    }
+
+    .hero-description strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+
+      margin-bottom: 42px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+
+      min-height: 52px;
+      padding: 0 24px;
+
+      border: 1px solid transparent;
+      border-radius: 5px;
+
+      font-size: 0.9rem;
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: #041109;
+      background: var(--green);
+    }
+
+    .btn-primary:hover {
+      background: #5dffb2;
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--green);
+      background: rgba(0, 255, 136, 0.06);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+
+      color: #a1aaa3;
+      font-size: 0.8rem;
+    }
+
+    .hero-tags span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-tags span:not(:last-child)::after {
+      content: "/";
+      color: var(--green);
+      opacity: 0.7;
+    }
+
+    /* =========================================
+       QUICK CREDENTIAL STRIP
+    ========================================= */
+
+    .proof-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      background: #0d120f;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .proof-item {
+      padding: 30px 24px;
+      text-align: center;
+    }
+
+    .proof-item + .proof-item {
+      border-left: 1px solid var(--border);
+    }
+
+    .proof-item strong {
+      display: block;
+      margin-bottom: 5px;
+
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .proof-item span {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    /* =========================================
+       FEATURED PROJECTS
+    ========================================= */
+
+    .projects-section {
+      background: var(--bg);
+    }
+
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+
+      margin-bottom: 45px;
+    }
+
+    .projects-header .section-description {
+      margin-bottom: 0;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .text-link:hover {
+      color: #7dffbd;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+
+      transition:
+        border-color 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: rgba(0, 255, 136, 0.5);
+      transform: translateY(-5px);
+    }
+
+    .project-image {
+      position: relative;
+      height: 280px;
+      overflow: hidden;
+      background: #151b17;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      transition: transform 0.5s ease;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.045);
+    }
+
+    .project-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: linear-gradient(
+        0deg,
+        rgba(8, 11, 9, 0.6),
+        transparent 65%
+      );
+
+      pointer-events: none;
+    }
+
+    .project-number {
+      position: absolute;
+      z-index: 1;
+      top: 16px;
+      left: 16px;
+
+      padding: 6px 10px;
+
+      background: rgba(8, 11, 9, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .project-content {
+      padding: 26px;
+    }
+
+    .project-type {
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      margin-bottom: 10px;
+    }
+
+    .project-content h3 {
+      margin: 0 0 12px;
+
+      font-size: 1.55rem;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+    }
+
+    .project-content p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      margin-bottom: 24px;
+    }
+
+    .project-meta span {
+      padding: 5px 9px;
+
+      border: 1px solid var(--border);
+      border-radius: 3px;
+
+      color: #c0c9c2;
+      font-size: 0.72rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      color: var(--green);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .project-link span {
+      transition: transform 0.2s ease;
+    }
+
+    .project-link:hover span {
+      transform: translateX(5px);
+    }
+
+    /* =========================================
+       DESIGN PHILOSOPHY
+    ========================================= */
+
+    .philosophy-section {
+      position: relative;
+      background: #0d120f;
+      border-block: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .philosophy-section::before {
+      content: "TENSION";
+      position: absolute;
+      right: -25px;
+      bottom: -80px;
+
+      color: rgba(255, 255, 255, 0.018);
+      font-size: clamp(8rem, 22vw, 20rem);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 1;
+
+      pointer-events: none;
+    }
+
+    .philosophy-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .philosophy-quote {
+      max-width: 900px;
+      margin: 35px 0;
+
+      font-size: clamp(1rem, 2.5vw, 2rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.055em;
+    }
+
+    .philosophy-quote span {
+      color: var(--green);
+    }
+
+    .philosophy-description {
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .design-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+
+      margin-top: 55px;
+    }
+
+    .pillar {
+      padding: 25px;
+
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    .pillar-number {
+      display: block;
+      margin-bottom: 20px;
+
+      color: var(--green);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .pillar h3 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+    }
+
+    .pillar p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.8;
+    }
+
+    /* =========================================
+       ABOUT
+    ========================================= */
+
+    .about-section {
+      background: var(--bg);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .about-image {
+      position: relative;
+      max-width: 390px;
+    }
+
+    .about-image::before {
+      content: "";
+      position: absolute;
+      inset: 15px -15px -15px 15px;
+
+      border: 1px solid var(--green);
+      border-radius: 5px;
+      opacity: 0.5;
+    }
+
+    .about-image img {
+      position: relative;
+      z-index: 1;
+
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+
+      border-radius: 5px;
+      background: var(--bg-soft);
+      filter: saturate(0.8);
+    }
+
+    .about-copy h2 {
+      margin: 0 0 22px;
+
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+    }
+
+    .about-copy p {
+      margin: 0 0 18px;
+
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    .about-copy strong {
+      color: var(--text);
+    }
+
+    .about-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      margin-top: 25px;
+      margin-bottom: 30px;
+    }
+
+    .about-details span {
+      padding: 7px 12px;
+
+      border: 1px solid var(--border);
+      border-radius: 3px;
+
+      color: #c1cbc4;
+      font-size: 0.78rem;
+    }
+
+    /* =========================================
+       CONTACT CTA
+    ========================================= */
+
+    .contact-section {
+      padding-block: 85px;
+      background: #0d120f;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+
+    .contact-box h2 {
+      margin: 0 0 15px;
+
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.05em;
+    }
+
+    .contact-box p {
+      max-width: 600px;
+      margin: 0;
+
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* =========================================
+       FOOTER
+    ========================================= */
+
+    #footer {
+      padding: 28px 24px;
+
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-content {
+      width: min(100%, var(--max-width));
+      margin-inline: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-content p {
+      margin: 0;
+      color: #778079;
+      font-size: 0.8rem;
+    }
+
+    #social-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    #social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 32px;
+      height: 32px;
+
+      opacity: 0.65;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    #social-links a:hover {
+      opacity: 1;
+      transform: translateY(-3px);
+    }
+
+    #social-links img {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 850px) {
+      :root {
+        --section-space: 80px;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .projects-header {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .about-grid {
+        grid-template-columns: 0.75fr 1.25fr;
+        gap: 40px;
+      }
+
+      .design-pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .project-image {
+        height: 230px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 36px, var(--max-width));
+      }
+
+      #header {
+        min-height: 72px;
+        padding-inline: 18px;
+      }
+
+      #logo img {
+        width: 48px;
+        height: 48px;
+      }
+
+      #menuIcon {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+      }
+
+      #menuIcon div {
+        width: 25px;
+        height: 2px;
+        background: var(--text);
+      }
+
+      #navbar {
+        display: none;
+
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+
+        padding: 22px 24px;
+
+        background: #0b100d;
+        border-bottom: 1px solid var(--border);
+      }
+
+      #navbar.active {
+        display: block;
+      }
+
+      #navbar ul {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      #navbar a.sel::after {
+        display: none;
+      }
+
+      .hero {
+        min-height: 630px;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(
+            90deg,
+            rgba(8, 11, 9, 0.94),
+            rgba(8, 11, 9, 0.65)
+          ),
+          linear-gradient(
+            0deg,
+            var(--bg),
+            transparent 65%
+          ),
+          url("images/Portefolio/PND_Section/Village.jpg")
+          center / cover no-repeat;
+      }
+
+      .hero-content {
+        width: min(100% - 36px, var(--max-width));
+        padding-block: 80px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.8rem, 13vw, 4.8rem);
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        max-width: 340px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .proof-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .proof-item {
+        padding: 20px;
+      }
+
+      .proof-item + .proof-item {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        height: 240px;
+      }
+
+      .project-content {
+        padding: 22px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .about-image {
+        max-width: 300px;
+        margin-inline: auto;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      #social-links {
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- General Header aplied to all  -->
+
+  <!-- =========================================
+       HEADER
+  ========================================= -->
+
   <header id="header">
+
     <div id="logo">
-      <a href="index.html">
-        <img src="images/2_transparent.png" alt="logo">
+      <a href="index.html" aria-label="Francis Santos homepage">
+        <img src="images/2_transparent.png" alt="Francis Santos logo" />
       </a>
     </div>
-    <h1 id="site-title">Francisco Santos | Portfolio</h1>
-    <div id="menuIcon">
-      <div class="bar1"></div>
-      <div class="bar2"></div>
-      <div class="bar3"></div>
-    </div>
-    <nav id="navbar">
-      <ul>
-        <li><a href="index.html" id="nav-home" class="sel">Home</a></li>
-        <li><a href="Portfolio.html" id="nav-portfolio">Portfolio</a></li>
-        <li><a href="resumecv.html" id="nav-about">Resume/CV</a></li>
-        <li><a href="Devlogs.html" id="nav-devlog">Devlogs</a></li>
 
+    <button
+      id="menuIcon"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navbar"
+    >
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+
+    <nav id="navbar" aria-label="Main navigation">
+      <ul>
+        <li>
+          <a href="index.html" id="nav-home" class="sel" aria-current="page">
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="Portfolio.html" id="nav-portfolio">
+            Portfolio
+          </a>
+        </li>
+
+        <li>
+          <a href="resumecv.html" id="nav-about">
+            Resume / CV
+          </a>
+        </li>
+
+        <li>
+          <a href="Devlogs.html" id="nav-devlog">
+            Devlogs
+          </a>
+        </li>
       </ul>
     </nav>
+
   </header>
 
-  <!-- === About Section === -->
 
-  <section id="about-me">
-    <div class="about-container">
-      <div class="about-image">
-        <img src="images/profilePick.jpg" alt="Francis Santos Portrait">
-      </div>
+  <main>
 
-      <div class="about-text">
-        <h2>Who Am I?</h2>
-        <p>
-          Hey there! I'm <strong>Francis Santos</strong> a game developer and storyteller currently studying
-          <strong>Game Design in Leiria, Portugal</strong>.
-          My passion lies in crafting experiences that blend narrative depth, atmosphere, and a touch of the surreal.
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero" id="home">
+
+      <div class="hero-content">
+
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          Game Designer, Developer & 3D
+        </div>
+
+        <h1>
+          I design horror
+          <span>that makes you</span>
+          afraid of what
+          you can't control.
+        </h1>
+
+        <p class="hero-description">
+          I'm <strong>Francis Santos</strong>, a game designer and developer
+          focused on <strong>Horror Systems & Tension Design</strong>.
+
+          I build player experiences where uncertainty, environmental
+          storytelling, and meaningful mechanics turn the unknown into fear.
         </p>
 
-        <p>
-          My goal? To create interconnected worlds where games and stories echo each other
-          where what you play, read, and feel all contribute to a larger universe.
-          I focus on indie development, strong art direction, and experimental mechanics.
+        <div class="hero-actions">
+
+          <a href="#featured-work" class="btn btn-primary">
+            Explore My Work
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a href="resumecv.html" class="btn btn-secondary">
+            View Resume
+            <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+
+        <div class="hero-tags" aria-label="Areas of focus">
+          <span>Horror Design</span>
+          <span>Gameplay Systems</span>
+          <span>Player Experience</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CREDENTIAL STRIP
+    ========================================= -->
+
+    <section class="proof-strip" aria-label="Professional experience">
+
+      <div class="proof-item">
+        <strong>Shipped Steam Title</strong>
+        <span>Lead Programmer · Once Upon a Page</span>
+      </div>
+
+      <div class="proof-item">
+        <strong>Horror Game Development</strong>
+        <span>Design, mechanics & atmosphere</span>
+      </div>
+
+      <div class="proof-item">
+        <strong>Game Design & Development</strong>
+        <span>Leiria, Portugal</span>
+      </div>
+
+    </section>
+
+
+<!-- FEATURED WORK -->
+<style>
+  /* Scoped styles: only affect this section */
+  #work-showcase {
+    background: #080b0a;
+    color: #e8eeeb;
+    padding: 90px 0;
+    font-family: inherit;
+  }
+
+  #work-showcase *,
+  #work-showcase *::before,
+  #work-showcase *::after {
+    box-sizing: border-box;
+  }
+
+  #work-showcase .work-container {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+  }
+
+  #work-showcase .work-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 45px;
+  }
+
+  #work-showcase .work-eyebrow {
+    color: #00ff88;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  #work-showcase .work-title {
+    color: #f2f7f4;
+    font-size: clamp(32px, 5vw, 54px);
+    line-height: 1.08;
+    margin: 0 0 18px;
+  }
+
+  #work-showcase .work-title span {
+    color: #00ff88;
+  }
+
+  #work-showcase .work-intro {
+    color: #a4b0aa;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0;
+  }
+
+  #work-showcase .work-all-link {
+    flex-shrink: 0;
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: 700;
+    padding-bottom: 5px;
+  }
+
+  #work-showcase .work-all-link:hover {
+    color: #ffffff;
+  }
+
+  #work-showcase .work-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  #work-showcase .work-item {
+    display: grid;
+    grid-template-columns: minmax(220px, 36%) 1fr;
+    background: #101613;
+    border: 1px solid #25332b;
+    border-radius: 12px;
+    overflow: hidden;
+    min-width: 0;
+    transition: border-color 0.25s ease,
+                transform 0.25s ease;
+  }
+
+  #work-showcase .work-item:hover {
+    border-color: #00a95b;
+    transform: translateY(-3px);
+  }
+
+  #work-showcase .work-visual {
+    position: relative;
+    min-height: 240px;
+    background: #17231c;
+    overflow: hidden;
+  }
+
+  #work-showcase .work-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+    transition: transform 0.4s ease;
+  }
+
+  #work-showcase .work-item:hover .work-visual img {
+    transform: scale(1.04);
+  }
+
+  #work-showcase .work-number {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    background: #080b0a;
+    color: #00ff88;
+    border: 1px solid #00a95b;
+    border-radius: 4px;
+    padding: 7px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  #work-showcase .work-info {
+    padding: 28px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  #work-showcase .work-category {
+    color: #00ff88;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  #work-showcase .work-name {
+    color: #f2f7f4;
+    font-size: clamp(23px, 3vw, 30px);
+    line-height: 1.2;
+    margin: 0 0 12px;
+  }
+
+  #work-showcase .work-description {
+    color: #a4b0aa;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 20px;
+  }
+
+  #work-showcase .work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  #work-showcase .work-tags span {
+    color: #c6d2cb;
+    background: #19231d;
+    border: 1px solid #2b3b30;
+    border-radius: 4px;
+    padding: 6px 9px;
+    font-size: 12px;
+  }
+
+  #work-showcase .work-link {
+    color: #00ff88;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: auto;
+  }
+
+  #work-showcase .work-link:hover {
+    color: #ffffff;
+  }
+
+  #work-showcase .work-link span {
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.2s ease;
+  }
+
+  #work-showcase .work-link:hover span {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 700px) {
+    #work-showcase {
+      padding: 60px 0;
+    }
+
+    #work-showcase .work-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    #work-showcase .work-item {
+      grid-template-columns: 1fr;
+    }
+
+    #work-showcase .work-visual {
+      min-height: 220px;
+    }
+
+    #work-showcase .work-visual img {
+      min-height: 220px;
+    }
+
+    #work-showcase .work-info {
+      padding: 24px;
+    }
+  }
+</style>
+
+<section id="work-showcase">
+  <div class="work-container">
+
+    <!-- SECTION HEADER -->
+    <div class="work-top">
+      <div>
+        <div class="work-eyebrow">Selected Work</div>
+
+        <h2 class="work-title">
+          Design it.<br>
+          <span>Build it. Make it felt.</span>
+        </h2>
+
+        <p class="work-intro">
+          A selection of projects showcasing my work across horror design,
+          gameplay systems, programming, and interactive experiences.
         </p>
       </div>
-    </div>
-  </section>
 
-
-  <!-- === Hero Slideshow Section === -->
-  <section class="hero-slider">
-
-    <!-- === example of slide === -->
-    <div class="slide active" style="background-image: url('images/BTQ_LogoSoFar.png');">
-      <div class="slide-content">
-        <h2>Beneath the Questline</h2>
-        <p>Check out my Devlogs!</p>
-        <a href="Devlogs.html" class="view-btn">View Devlogs</a>
-      </div>
+      <a href="Portfolio.html" class="work-all-link">
+        View Full Portfolio ↗
+      </a>
     </div>
 
-    <div class="slide" style="background-image: url('images/Portefolio/PND_Section/Village.jpg');">
-      <div class="slide-content">
-        <h2>Quest Fantasy Design</h2>
-        <p>Crazy Adventures</p>
-        <a href="PagesInsideNarrativeDesign_Section/P_SS_ND_QuestDesignSick.html" class="view-btn">View</a>
-      </div>
-    </div>
+    <!-- PROJECT LIST -->
+    <div class="work-list">
 
-    <!-- === Once upon page  === -->
-    <div class="slide" style="background-image: url('images/Portefolio/PGD_Section/OnceUponPage/oup_thumbnail.png');">
-      <div class="slide-content">
-        <h2>Once Upon a Page</h2>
-        <p>
-            A shipped Steam title where I served as Lead Programmer, building the game's core
-            interaction systems and technical features for a seven-person international team.
-        </p>
-        <a href="PagesInsideGameplayDesign_Section/P_SS_GD_OnceUponAPage.html" class="view-btn">
-            View Project
+      <!-- PROJECT 01 -->
+      <article class="work-item">
+        <a
+          href="PagesInsideGameplayDesign_Section/P_SS_GD_OnceUponAPage.html"
+          class="work-visual"
+          aria-label="View Once Upon a Page project"
+        >
+          <img
+            src="images/Portefolio/PGD_Section/OnceUponPage/oup_thumbnail.png"
+            alt="Once Upon a Page"
+            loading="lazy"
+          >
+          <span class="work-number">PROJECT / 01</span>
         </a>
-      </div>
-    </div>
 
-    <!-- === Newest Game one last score === -->
-    <div class="slide" style="background-image: url('images/GT_OneLastScoreThubnail.png');">
-      <div class="slide-content">
-        <h2>Once Last Score</h2>
-        <p>
-            Solo Horror Game developed in Finland for class project
-        </p>
-        <a href="https://unifasdev.itch.io/one-last-score" class="view-btn">
-            View Project On Itch.io
+        <div class="work-info">
+          <div class="work-category">Gameplay Programming / Shipped Game</div>
+          <h3 class="work-name">Once Upon a Page</h3>
+
+          <p class="work-description">
+            A shipped Steam title where I served as Lead Programmer,
+            developing core interaction systems and technical features
+            alongside a seven-person international team.
+          </p>
+
+          <div class="work-tags">
+            <span>Lead Programmer</span>
+            <span>Steam Release</span>
+            <span>Team Development</span>
+          </div>
+
+          <a
+            href="PagesInsideGameplayDesign_Section/P_SS_GD_OnceUponAPage.html"
+            class="work-link"
+          >
+            Explore Project <span>→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- PROJECT 02 -->
+      <article class="work-item">
+        <a
+          href="https://unifasdev.itch.io/one-last-score"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="work-visual"
+          aria-label="Play One Last Score on itch.io"
+        >
+          <img
+            src="images/GT_OneLastScoreThubnail.png"
+            alt="One Last Score horror game"
+            loading="lazy"
+          >
+          <span class="work-number">PROJECT / 02</span>
         </a>
-      </div>
+
+        <div class="work-info">
+          <div class="work-category">Horror / Solo Development</div>
+          <h3 class="work-name">One Last Score</h3>
+
+          <p class="work-description">
+            A solo horror game developed in Finland as a class project.
+            An exploration of atmosphere, player experience, and horror
+            through an interactive game.
+          </p>
+
+          <div class="work-tags">
+            <span>Solo Project</span>
+            <span>Horror</span>
+            <span>Playable Game</span>
+          </div>
+
+          <a
+            href="https://unifasdev.itch.io/one-last-score"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="work-link"
+          >
+            Play on itch.io <span>↗</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- PROJECT 03 -->
+      <article class="work-item">
+        <a
+          href="PagesInsideNarrativeDesign_Section/P_SS_ND_QuestDesignSick.html"
+          class="work-visual"
+          aria-label="View Quest Fantasy Design project"
+        >
+          <img
+            src="images/Portefolio/PND_Section/Village.jpg"
+            alt="Fantasy village from a quest design project"
+            loading="lazy"
+          >
+          <span class="work-number">PROJECT / 03</span>
+        </a>
+
+        <div class="work-info">
+          <div class="work-category">Narrative Design / Quest Design</div>
+          <h3 class="work-name">Quest Fantasy Design</h3>
+
+          <p class="work-description">
+            A fantasy quest design project exploring how worldbuilding,
+            narrative structure, and player decisions come together
+            to create an engaging adventure.
+          </p>
+
+          <div class="work-tags">
+            <span>Quest Design</span>
+            <span>Worldbuilding</span>
+            <span>Narrative</span>
+          </div>
+
+          <a
+            href="PagesInsideNarrativeDesign_Section/P_SS_ND_QuestDesignSick.html"
+            class="work-link"
+          >
+            Explore Project <span>→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- PROJECT 04 -->
+      <article class="work-item">
+        <a
+          href="Portfolio.html"
+          class="work-visual"
+          aria-label="Explore Beneath the Questline in my portfolio"
+        >
+          <img
+            src="images/BTQ_LogoSoFar.png"
+            alt="Beneath the Questline"
+            loading="lazy"
+          >
+          <span class="work-number">PROJECT / 04</span>
+        </a>
+
+        <div class="work-info">
+          <div class="work-category">Horror / Gameplay Systems</div>
+          <h3 class="work-name">Beneath the Questline</h3>
+
+          <p class="work-description">
+            An ongoing dark fantasy game exploring survival mechanics,
+            interconnected gameplay systems, and psychological horror
+            through player vulnerability and uncertainty.
+          </p>
+
+          <div class="work-tags">
+            <span>Unreal Engine 5</span>
+            <span>Gameplay Systems</span>
+            <span>In Development</span>
+          </div>
+
+          <a href="Portfolio.html" class="work-link">
+            Explore Portfolio <span>→</span>
+          </a>
+        </div>
+      </article>
+
     </div>
+  </div>
+</section>
 
-    <!-- Optional navigation dots -->
-    <div class="slider-dots"></div>
-  </section>
+    <!-- =========================================
+         DESIGN PHILOSOPHY
+    ========================================= -->
 
-     <!-- Footer Section -->
+    <section class="section philosophy-section" id="design-approach">
+
+      <div class="container philosophy-content">
+
+        <div class="section-label">How I Design</div>
+
+        <p class="philosophy-quote">
+          Horror isn't just what the player sees.
+          It's <span>what the player believes might happen.</span>
+        </p>
+
+        <p class="philosophy-description">
+          I approach horror as a system of uncertainty, vulnerability,
+          and anticipation. Rather than relying on constant threats,
+          I explore how mechanics, environmental cues, and player decisions
+          can create tension, even when nothing is happening.
+        </p>
+
+
+        <div class="design-pillars">
+
+          <article class="pillar">
+
+            <span class="pillar-number">01 / CONTROL</span>
+
+            <h3>Player Vulnerability</h3>
+
+            <p>
+              How much control should the player have?
+              When should that control feel reliable, and when
+              should it become uncertain?
+            </p>
+
+          </article>
+
+
+          <article class="pillar">
+
+            <span class="pillar-number">02 / TENSION</span>
+
+            <h3>Anticipation & Release</h3>
+
+            <p>
+              Building tension through pacing, uncertainty,
+              and carefully designed moments where the player
+              can finally breathe.
+            </p>
+
+          </article>
+
+
+          <article class="pillar">
+
+            <span class="pillar-number">03 / PERCEPTION</span>
+
+            <h3>Environmental Storytelling</h3>
+
+            <p>
+              Using spaces, visual cues, and atmosphere to
+              encourage players to question what they see
+              and what they think they understand.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         ABOUT
+    ========================================= -->
+
+    <section class="section about-section" id="about-me">
+
+      <div class="container about-grid">
+
+        <div class="about-image">
+
+          <img
+            src="images/profilePick.jpg"
+            alt="Portrait of Francis Santos"
+            loading="lazy"
+          />
+
+        </div>
+
+
+        <div class="about-copy">
+
+          <div class="section-label">The Designer</div>
+
+          <h2>
+            I'm Francis.<br />
+            <span class="green">I make worlds feel alive.</span>
+          </h2>
+
+          <p>
+            I'm a game designer and developer currently studying
+            <strong>Game Design in Leiria, Portugal</strong>.
+            My work brings together gameplay systems, technical
+            implementation, and atmospheric storytelling.
+          </p>
+
+          <p>
+            I'm especially interested in horror experiences where
+            the mechanics themselves create emotion, where the
+            way a player moves, explores, and makes decisions
+            becomes part of the storytelling.
+          </p>
+
+          <p>
+            Alongside game design, I work across programming,
+            3D creation, and worldbuilding, allowing me to approach
+            projects from both creative and technical perspectives.
+          </p>
+
+          <div class="about-details">
+            <span>Game Design</span>
+            <span>Gameplay Programming</span>
+            <span>Horror Systems</span>
+            <span>3D Development</span>
+          </div>
+
+          <a href="resumecv.html" class="btn btn-secondary">
+            More About Me <span aria-hidden="true">→</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CONTACT
+    ========================================= -->
+
+    <section class="contact-section" id="contact">
+
+      <div class="container contact-box">
+
+        <div>
+
+          <div class="section-label">Let's Connect</div>
+
+          <h2>
+            Have a project<br />
+            <span class="green">worth getting lost in?</span>
+          </h2>
+
+          <p>
+            I'm interested in connecting with game developers,
+            designers, and studios working on memorable interactive
+            experiences.
+          </p>
+
+        </div>
+
+        <a
+          href="https://www.linkedin.com/in/francisasantos/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          Connect on LinkedIn <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+  ========================================= -->
+
   <footer id="footer">
+
     <div class="footer-content">
-      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <p>
+        &copy; <span id="year">2026</span> Francisco Santos.
+        All Rights Reserved.
+      </p>
 
       <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
+
+        <a
+          href="https://www.linkedin.com/in/francisasantos/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="LinkedIn"
+          aria-label="LinkedIn"
+        >
+          <img
+            src="images/socialmedia_linkedin_logo.png"
+            alt=""
+            loading="lazy"
+          />
         </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+
+        <a
+          href="https://www.indiedb.com/members/unifasdraws"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="IndieDB"
+          aria-label="IndieDB"
+        >
+          <img
+            src="images/socialmedia_indiedb_logo.png"
+            alt=""
+            loading="lazy"
+          />
         </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
+
+        <a
+          href="https://unifasdev.itch.io/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="itch.io"
+          aria-label="itch.io"
+        >
+          <img
+            src="images/socialmedia_itchio_logo.png"
+            alt=""
+            loading="lazy"
+          />
         </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+
+        <a
+          href="https://www.instagram.com/unifasdev/"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Instagram"
+          aria-label="Instagram"
+        >
+          <img
+            src="images/socialmedia_instagram_logo.png"
+            alt=""
+            loading="lazy"
+          />
         </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+
+        <a
+          href="https://www.artstation.com/francissantos_dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="ArtStation"
+          aria-label="ArtStation"
+        >
+          <img
+            src="images/socialmedia_artstation_logo.png"
+            alt=""
+            loading="lazy"
+          />
         </a>
+
       </div>
+
     </div>
+
   </footer>
 
 
-  <script>
-    // === Hero Slider Logic ===
-    const slides = document.querySelectorAll(".slide");
-    const dotsContainer = document.querySelector(".slider-dots");
-    let current = 0;
+  <!-- =========================================
+       SCRIPTS
+  ========================================= -->
 
-    // Create navigation dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement("span");
-      dot.classList.add("dot");
-      if (i === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => goToSlide(i));
-      dotsContainer.appendChild(dot);
+  <script>
+    // Mobile navigation
+    const menuIcon = document.getElementById("menuIcon");
+    const navbar = document.getElementById("navbar");
+
+    menuIcon.addEventListener("click", () => {
+      const isOpen = navbar.classList.toggle("active");
+
+      menuIcon.setAttribute("aria-expanded", isOpen);
+      menuIcon.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Toggle navigation"
+      );
     });
 
-    const dots = document.querySelectorAll(".dot");
+    // Close mobile menu after selecting a page
+    navbar.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navbar.classList.remove("active");
+        menuIcon.setAttribute("aria-expanded", "false");
+        menuIcon.setAttribute("aria-label", "Toggle navigation");
+      });
+    });
 
-    function goToSlide(index) {
-      slides[current].classList.remove("active");
-      dots[current].classList.remove("active");
-      current = index;
-      slides[current].classList.add("active");
-      dots[current].classList.add("active");
-    }
-
-    function nextSlide() {
-      goToSlide((current + 1) % slides.length);
-    }
-
-    setInterval(nextSlide, 6000); // Change every 6 seconds
+    // Automatic current year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
 
-
-
   <script src="js/menu.js"></script>
-</body>
 
+</body>
 </html>
