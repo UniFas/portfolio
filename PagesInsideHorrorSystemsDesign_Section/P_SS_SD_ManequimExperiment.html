@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horror Tension System – Francis Santos</title>
+  <link rel="shortcut icon" href="../images/2.png" type="../image/x-icon">
+  <link rel="stylesheet" href="../CssStuff/normalize.css" />
+  <link rel="stylesheet" href="../CssStuff/subsectionsBase.css" />
+  <link rel="stylesheet" href="../CssStuff/P_SS_SD_ManequimExperiment.css" />
+</head>
+
+<body>
+
+    <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="gd-back-btn">⟵ Back</a>
+
+<main class="exp-page">
+
+  <!-- HERO -->
+  <header class="exp-hero">
+    <span class="exp-eyebrow">Horror Systems · Tension Design</span>
+    <h1>The Things Left Behind</h1>
+    <p class="exp-lead">
+      Can a game create sustained tension by controlling what the player
+      knows, sees and expects, <b>without ever attacking them?</b>
+    </p>
+    <ul class="exp-meta">
+      <li><b>Type:</b> Design experiment / prototype</li>
+      <li><b>Runtime:</b> 5-10 min</li>
+      <li><b>Role:</b> Systems Designer, Prototyper</li>
+      <li><b>Engine:</b> (your engine here)</li>
+    </ul>
+    <!-- gameplay capture goes here -->
+    <div class="exp-media">
+      <img src="../images/Portefolio/PSD_Section/hero_capture.png" alt="Gameplay capture of the prototype">
+    </div>
+  </header>
+
+  <!-- 1. THE QUESTION -->
+  <section class="exp-section">
+    <h2>01 · The Question</h2>
+    <p>
+      This isn't meant to prove mannequins are scary. It tests whether
+      <b>controlled information and violated expectations</b> can change player
+      behaviour with no chase, no combat and no scripted jumpscares.
+    </p>
+    <blockquote class="exp-callout">
+      <b>Hypothesis:</b> give players a reliable baseline, then expose them to small,
+      deniable changes outside their observation, and they will start monitoring
+      the environment and anticipating threats that may never come.
+    </blockquote>
+  </section>
+
+  <!-- 2. RESEARCH (the 3-game study your card promises) -->
+  <section class="exp-section">
+    <h2>02 · Research: Three Games as Systems</h2>
+    <p>What each game controls, what it withholds, and what I took from it.</p>
+    <div class="exp-grid-3">
+      <article class="exp-card">
+        <h3>Game 1</h3>
+        <p><b>Information controlled:</b> …</p>
+        <p><b>Takeaway:</b> …</p>
+      </article>
+      <article class="exp-card">
+        <h3>Game 2</h3>
+        <p><b>Information controlled:</b> …</p>
+        <p><b>Takeaway:</b> …</p>
+      </article>
+      <article class="exp-card">
+        <h3>Game 3</h3>
+        <p><b>Information controlled:</b> …</p>
+        <p><b>Takeaway:</b> …</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3. THE OBSERVATION CONTRACT -->
+  <section class="exp-section">
+    <h2>03 · The Observation Contract</h2>
+    <blockquote class="exp-callout">
+      A mannequin's state can only change while it is outside the player's
+      direct field of view. If it is being watched, it is frozen. No exceptions.
+    </blockquote>
+    <p>
+      The rule is enforced by real camera/player visibility, not scripted timing.
+      A corner, a closing door or any blocking object counts as loss of observation.
+      That reliability is what lets the player discover the rule, test it, and
+      eventually fear it.
+    </p>
+    <p class="exp-chain">Memory → Evidence → Doubt</p>
+    <p>The camera preserves an earlier state of the room, so a photograph can contradict the player's memory.</p>
+  </section>
+
+  <!-- 4. THE SYSTEM -->
+  <section class="exp-section">
+    <h2>04 · The System</h2>
+    <h3>Tension model</h3>
+    <p>A hidden 0-100 value drives pacing across five stages:</p>
+    <ol class="exp-stages">
+      <li><b>Normality:</b> establish the baseline</li>
+      <li><b>Doubt:</b> small, deniable changes</li>
+      <li><b>Awareness:</b> pattern recognition</li>
+      <li><b>Encroachment:</b> changes in cleared spaces</li>
+      <li><b>Final uncertainty:</b> remove certainty instead of escalating</li>
+    </ol>
+
+    <h3>Event director</h3>
+    <p>
+      Events aren't random. The director reads the player's recent experience and
+      expectations. If the player has been fixated on mannequins, it deliberately
+      doesn't reward that, and shifts attention with an environmental anomaly first.
+    </p>
+    <div class="exp-media">
+      <img src="../images/Portefolio/PSD_Section/system_diagram.png" alt="System diagram: observation, expectation, event selection, tension">
+      <p class="exp-caption">System diagram: observation → expectation → event selection → tension</p>
+    </div>
+  </section>
+
+  <!-- 5. LEVEL & PACING -->
+  <section class="exp-section">
+    <h2>05 · Level &amp; Pacing</h2>
+    <div class="exp-media">
+      <img src="../images/Portefolio/PSD_Section/level_layout.png" alt="Level layout showing sightlines, loops and anomaly locations">
+    </div>
+    <table class="exp-table">
+      <tr><th>Time</th><th>Phase</th><th>Purpose</th></tr>
+      <tr><td>0:00-1:30</td><td>Baseline</td><td>Teach the space, establish normality</td></tr>
+      <tr><td>1:30-3:00</td><td>First anomaly</td><td>Doubt without proving a threat</td></tr>
+      <tr><td>3:00-5:00</td><td>Pattern formation</td><td>Player tests and forms a theory</td></tr>
+      <tr><td>5:00-7:00</td><td>Expectation violation</td><td>Challenge the learned rule</td></tr>
+      <tr><td>7:00-10:00</td><td>Final uncertainty</td><td>Finish without explaining the threat</td></tr>
+    </table>
+  </section>
+
+  <!-- 6. DEBUG VIEW -->
+  <section class="exp-section">
+    <h2>06 · Debug View</h2>
+    <p>
+      A designer-only overlay exposing the hidden rules: tension value and stage,
+      mannequin visibility state, last anomaly, expectation flag, next eligible
+      event and cooldown.
+    </p>
+    <div class="exp-media">
+      <img src="../images/Portefolio/PSD_Section/debug_view.png" alt="Debug view showing tension and observation state">
+    </div>
+  </section>
+
+  <!-- 7. PLAYTEST -->
+  <section class="exp-section">
+    <h2>07 · Playtest Results</h2>
+    <p>
+      Success metric: <b>does the system change behaviour because of uncertainty?</b>
+    </p>
+    <!-- fill with REAL data once you've tested -->
+    <ul>
+      <li>Testers: (n)</li>
+      <li>What they noticed and when: …</li>
+      <li>What they thought caused it: …</li>
+      <li>What I changed because of it: …</li>
+    </ul>
+  </section>
+
+  <!-- 8. TAKEAWAY -->
+  <section class="exp-section">
+    <h2>08 · What This Demonstrates</h2>
+    <p>
+      I can design and prototype horror systems that create tension through player
+      interpretation and controlled information, not pursuit or jumpscares.
+    </p>
+  </section>
+
+</main>
+
+  <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="gd-back-btn">⟵ Back</a>
+      <!-- Footer Section -->
+  <footer id="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <div id="social-links">
+        <!-- linkedin -->
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
+          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
+        </a>
+        <!-- IndieBD -->
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
+          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+        </a>
+        <!-- Ithchio -->
+        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
+          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
+        </a>
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
+          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+        </a>
+        <!-- Artstation -->
+        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
+          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
