@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Unreliable Reality – Francis Santos</title>
+
+  <link rel="shortcut icon" href="../images/2.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="../CssStuff/normalize.css" />
+  <link rel="stylesheet" href="../CssStuff/subsectionsBase.css" />
+  <link rel="stylesheet" href="../CssStuff/P_SS_SD_UnreliableReality.css" />
+</head>
+
+<body>
+
+  <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="gd-back-btn">
+    ⟵ Back
+  </a>
+
+  <main class="exp-page">
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <header class="exp-hero">
+
+      <span class="exp-eyebrow">
+        Horror Systems · Tension Design · Technical Design
+      </span>
+
+      <h1>Unreliable Reality</h1>
+
+      <p class="exp-lead">
+        What if horror events didn't simply happen randomly,
+        but <b>asked permission?</b>
+      </p>
+
+      <p class="exp-intro">
+        <b>Unreliable Reality</b> is a reusable horror system built around
+        tension, controlled unpredictability and environmental manipulation.
+        Individual objects can request permission to perform unsettling
+        actions, while a central Horror Director evaluates whether the
+        current moment is right.
+      </p>
+
+      <ul class="exp-meta">
+        <li><b>Type:</b> Horror systems experiment</li>
+        <li><b>Role:</b> Systems Designer · Technical Designer · Prototyper</li>
+        <li><b>Engine:</b> Unreal Engine</li>
+        <li><b>Status:</b> In development</li>
+      </ul>
+
+      <!-- Cover / Hero Image -->
+      <div class="exp-side-image">
+        <img
+          src="../images/Portefolio/PSD_Section/UnreliableObjectLogo.jpg"
+          alt="Anabelle-inspired cover image representing unreliable reality"
+        >
+      </div>
+
+      <p class="exp-caption">
+        The project explores the discomfort of objects that appear normal,
+        until the player can no longer be certain that they are.
+      </p>
+
+    </header>
+
+
+<!-- =====================================================
+     01 · THE QUESTION
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>01 · The Question</h2>
+
+      <p>
+        Horror often relies on carefully timed events:
+        a light turns off, an object moves, a sound plays,
+        or something appears where it shouldn't be.
+      </p>
+
+      <p>
+        But I wanted to explore what would happen if those events
+        were treated as <b>requests inside a larger system</b>,
+        rather than isolated scripted scares.
+      </p>
+
+      <blockquote class="exp-callout">
+        <b>Design Question:</b>
+        <br><br>
+        Can a reusable system create the feeling of an unpredictable
+        environment while still giving the designer control over
+        <b>when, why and how often</b> horror events occur?
+      </blockquote>
+
+    </div>
+
+    <div class="exp-side-image">
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/01_question.jpg"
+        alt="Unsettling object in a dark environment">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     02 · THE DESIGN PROBLEM
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>02 · The Design Problem</h2>
+
+      <p>
+        Pure randomness is easy to implement, but it does not necessarily
+        create good horror.
+      </p>
+
+      <p>
+        If something strange happens every few seconds, the player quickly
+        learns that the environment is simply performing random tricks.
+        The uncertainty disappears.
+      </p>
+
+      <div class="exp-mini-points">
+
+        <div>
+          <h3>Too Predictable</h3>
+          <p>
+            Events always happen at the same moments,
+            allowing the player to anticipate them.
+          </p>
+        </div>
+
+        <div>
+          <h3>Too Random</h3>
+          <p>
+            Events happen without considering what the player
+            has recently experienced.
+          </p>
+        </div>
+
+        <div>
+          <h3>The Goal</h3>
+          <p>
+            Events should feel unpredictable to the player,
+            while remaining controllable to the designer.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="exp-chain">
+        Predictable System → Unpredictable Experience
+      </p>
+
+    </div>
+
+    <div class="exp-side-image">
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/02_designporblem.jpg"
+        alt="Distorted environment representing uncertainty">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     03 · THE HORROR DIRECTOR
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>03 · The Horror Director</h2>
+
+      <p>
+        At the centre of the system is a <b>Horror Director</b>.
+        It acts as the mediator between the game world and individual
+        unreliable objects.
+      </p>
+
+      <p>
+        An object does not simply decide:
+        <i>"I am going to scare the player now."</i>
+      </p>
+
+      <p>
+        Instead, it submits a request.
+      </p>
+
+      <div class="exp-flow">
+
+        <div class="flow-box">
+          <span>01</span>
+          <b>Object detects opportunity</b>
+          <small>Player looks away, enters an area, interacts, etc.</small>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-box">
+          <span>02</span>
+          <b>Object requests an event</b>
+          <small>"Can I perform this anomaly?"</small>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-box flow-highlight">
+          <span>03</span>
+          <b>Horror Director evaluates</b>
+          <small>Tension · history · cooldowns · randomness · context</small>
+        </div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-box">
+          <span>04</span>
+          <b>Approved or denied</b>
+          <small>The player never sees the decision.</small>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="exp-side-image">
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/03_horrorDirector.jpg"
+        alt="Horror Director system concept">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     04 · TENSION MODEL
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>04 · Tension as a System</h2>
+
+      <p>
+        The Horror Director maintains a dynamic tension value that
+        changes as the player experiences the environment.
+      </p>
+
+      <p>
+        Events can increase or decrease tension, allowing the system
+        to create periods of pressure followed by moments of release.
+      </p>
+
+      <div class="tension-meter">
+
+        <div class="tension-labels">
+          <span>CALM</span>
+          <span>UNEASE</span>
+          <span>PRESSURE</span>
+          <span>FEAR</span>
+          <span>OVERLOAD</span>
+        </div>
+
+        <div class="tension-bar">
+          <div class="tension-marker"></div>
+        </div>
+
+        <div class="tension-numbers">
+          <span>0</span>
+          <span>25</span>
+          <span>50</span>
+          <span>75</span>
+          <span>100</span>
+        </div>
+
+      </div>
+
+      <p>
+        The value is not intended to represent a literal measurement
+        of how scared the player is. It is a <b>designer-facing control
+        signal</b> that helps determine how much pressure the system
+        should currently be applying.
+      </p>
+
+    </div>
+
+    <div class="exp-side-image">
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/04_tension.jpg"
+        alt="Tension system visualization">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     05 · EVENT REQUESTS
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>05 · Event Requests</h2>
+
+      <p>
+        Each unreliable object has its own possible behaviours,
+        but does not need to understand the entire horror system.
+      </p>
+
+      <p>
+        This separation allows the same director to control many
+        different types of environmental anomalies.
+      </p>
+
+      <div class="request-example">
+
+        <div class="request-header">
+          <span>UNRELIABLE OBJECT</span>
+          <span>EVENT REQUEST</span>
+        </div>
+
+        <div class="request-body">
+
+          <div>
+            <h3>Painting</h3>
+            <p>
+              Player leaves the room and the object becomes eligible
+              to request a visual alteration.
+            </p>
+          </div>
+
+          <div class="request-arrow">
+            →
+          </div>
+
+          <div>
+            <h3>Request</h3>
+            <p>
+              <code>CHANGE_APPEARANCE</code>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <blockquote class="exp-callout">
+
+        <b>The object owns the possibility.</b><br>
+        <b>The director owns the timing.</b>
+
+      </blockquote>
+
+    </div>
+
+    <div class="exp-side-image">
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/05_objects.png"
+        alt="Unreliable object concept">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     06 · APPROVED VS DENIED
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>06 · Approval &amp; Rejection</h2>
+
+      <p>
+        A request is evaluated against the current state of the game.
+        This prevents every eligible object from triggering simultaneously
+        and allows the system to maintain pacing.
+      </p>
+
+      <div class="decision-grid">
+
+        <article class="decision-card approved">
+
+          <span class="decision-status">
+            APPROVED
+          </span>
+
+          <h3>Event can occur</h3>
+
+          <p>
+            The current tension, timing and context allow the event
+            to contribute to the intended experience.
+          </p>
+
+        </article>
+
+        <article class="decision-card denied">
+
+          <span class="decision-status">
+            DENIED
+          </span>
+
+          <h3>Nothing happens</h3>
+
+          <p>
+            The request is rejected because the timing would create
+            too much pressure, repeat an event too quickly,
+            or simply be less effective.
+          </p>
+
+        </article>
+
+      </div>
+
+      <p>
+        Importantly, <b>denial is invisible to the player.</b>
+        They simply experience a world in which sometimes
+        nothing happens.
+      </p>
+
+      <p>
+        That absence is part of the system.
+      </p>
+
+    </div>
+
+    <div class="exp-side-image">
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/06_judge.jpg"
+        alt="Horror event approval and rejection">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     07 · UNRELIABLE OBJECTS
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>07 · Unreliable Objects</h2>
+
+      <p>
+        The system is designed so that new unreliable objects can
+        be created without rebuilding the underlying tension logic.
+      </p>
+
+      <div class="exp-mini-points">
+
+        <div>
+          <h3>Painting</h3>
+          <p>
+            Can change its appearance when the player isn't observing it.
+          </p>
+        </div>
+
+        <div>
+          <h3>Chair</h3>
+          <p>
+            Can request a change in position or orientation.
+          </p>
+        </div>
+
+        <div>
+          <h3>Light</h3>
+          <p>
+            Can request flickering, interruption or altered behaviour.
+          </p>
+        </div>
+
+        <div>
+          <h3>Door</h3>
+          <p>
+            Can request a state change when the player returns.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="exp-side-image">
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/07.jpg"
+        alt="Collection of unreliable environmental objects">
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     08 · SYSTEM ARCHITECTURE
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>08 · System Architecture</h2>
+
+      <p>
+        The goal is to keep individual horror behaviours decoupled
+        from the global tension logic.
+      </p>
+
+      <p>
+        New unreliable objects can therefore become clients of the
+        same system without requiring the Horror Director itself
+        to be rewritten.
+      </p>
+
+    </div>
+
+    <div class="exp-side-image">
+
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/08.jpg"
+        alt="Unreliable Reality system architecture diagram">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     09 · DEBUG VIEW
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>09 · Designer Debug View</h2>
+
+      <p>
+        A major part of the experiment is making the system observable
+        during development.
+      </p>
+
+      <p>
+        Horror systems can become difficult to tune when the designer
+        cannot understand <i>why</i> something happened.
+        The debug layer exposes the hidden decision-making process.
+      </p>
+
+      <div class="debug-grid">
+
+        <div>
+          <span>Current Tension</span>
+          <strong>67 / 100</strong>
+        </div>
+
+        <div>
+          <span>Horror State</span>
+          <strong>PRESSURE</strong>
+        </div>
+
+        <div>
+          <span>Pending Requests</span>
+          <strong>03</strong>
+        </div>
+
+        <div>
+          <span>Last Event</span>
+          <strong>OBJECT_CHANGE</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="exp-side-image">
+
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/09.png"
+        alt="Horror Director debug view">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     10 · WHY THIS MATTERS
+====================================================== -->
+
+<section class="exp-section">
+
+  <div class="exp-content-with-image">
+
+    <div class="exp-text">
+
+      <h2>10 · Why This Matters for Horror Design</h2>
+
+      <p>
+        The interesting part of the system isn't that an object can move
+        or change.
+      </p>
+
+      <p>
+        Those individual effects are relatively simple.
+      </p>
+
+      <blockquote class="exp-callout large-callout">
+
+        The difficult question is:
+
+        <br><br>
+
+        <b>
+          "When should the game allow the player to notice?"
+        </b>
+
+      </blockquote>
+
+      <p>
+        That question pushed the project beyond creating individual
+        scares and into designing the <b>rules governing when horror
+        is allowed to happen.</b>
+      </p>
+
+    </div>
+
+    <div class="exp-side-image">
+
+      <img
+        src="../images/Portefolio/PSD_Section/UnreliableObject/10.png"
+        alt="Atmospheric horror design">
+
+    </div>
+
+  </div>
+
+</section>
+
+  </main>
+
+
+
+
+  <!-- FOOTER -->
+
+  <footer id="footer">
+
+    <div class="footer-content">
+
+      <p>
+        &copy; 2025 Francisco Santos | All Rights Reserved
+      </p>
+
+      <div id="social-links">
+
+        <a href="https://www.linkedin.com/in/francisasantos/"
+           target="_blank"
+           title="LinkedIn">
+          <img src="../images/socialmedia_linkedin_logo.png" alt="LinkedIn">
+        </a>
+
+        <a href="https://www.indiedb.com/members/unifasdraws"
+           target="_blank"
+           title="IndieDB">
+          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+        </a>
+
+        <a href="https://unifasdev.itch.io/"
+           target="_blank"
+           title="Itch.io">
+          <img src="../images/socialmedia_itchio_logo.png" alt="Itch.io">
+        </a>
+
+        <a href="https://www.instagram.com/unifasdev/"
+           target="_blank"
+           title="Instagram">
+          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+        </a>
+
+        <a href="https://www.artstation.com/francissantos_dev"
+           target="_blank"
+           title="ArtStation">
+          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>

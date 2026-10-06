@@ -1,0 +1,464 @@
+/* =========================================================
+   UNRELIABLE REALITY – Horror Systems & Tension Design
+   Fix: the old side-image rules were nested inside the
+   max-width:500px media query (missing closing brace), so
+   they only applied on tiny screens. All rules are now top level.
+========================================================= */
+
+.exp-page {
+  --ur-accent: #b3261e;                      /* the one accent: dried blood */
+  --ur-line: rgba(128, 128, 128, 0.28);
+  --ur-tint: rgba(128, 128, 128, 0.06);
+  --ur-img: 260px;                           /* side-image column width */
+
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 80px 30px 120px;
+}
+
+.exp-page *,
+.exp-page *::before,
+.exp-page *::after { box-sizing: border-box; }
+
+
+/* ---------- HERO: text left, cover image right ---------- */
+
+.exp-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--ur-img);
+  column-gap: 60px;
+  align-items: start;
+  margin-bottom: 110px;
+}
+
+.exp-hero > * { grid-column: 1; }
+
+.exp-hero > .exp-side-image {
+  grid-column: 2;
+  grid-row: 1 / span 7;
+  align-self: stretch;
+}
+
+.exp-hero .exp-side-image img { aspect-ratio: 3 / 4; }
+
+.exp-eyebrow {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  opacity: 0.55;
+}
+
+.exp-hero h1 {
+  margin: 0 0 30px;
+  font-size: clamp(3rem, 7vw, 5.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.exp-lead {
+  max-width: 24em;
+  margin: 0 0 28px;
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  line-height: 1.3;
+}
+
+.exp-intro {
+  max-width: 62ch;
+  margin: 0 0 32px;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  opacity: 0.78;
+}
+
+.exp-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 30px;
+  margin: 0 0 32px;
+  padding: 18px 0 0;
+  list-style: none;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--ur-line);
+  opacity: 0.75;
+}
+
+.exp-caption {
+  max-width: 52ch;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.55;
+}
+
+
+/* ---------- SECTIONS: text + image side by side ---------- */
+
+.exp-section { margin-bottom: 130px; }
+
+.exp-content-with-image {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--ur-img);
+  gap: 60px;
+  align-items: start;
+}
+
+/* every second section flips, so the page zig-zags */
+.exp-section:nth-of-type(even) .exp-content-with-image {
+  grid-template-columns: var(--ur-img) minmax(0, 1fr);
+}
+.exp-section:nth-of-type(even) .exp-side-image { order: -1; }
+
+.exp-text { min-width: 0; }
+
+.exp-section h2 {
+  margin: 0 0 28px;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.exp-section h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+.exp-section p {
+  max-width: 68ch;
+  margin: 0 0 22px;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.exp-side-image {
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  margin: 0;
+}
+
+.exp-side-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 2px;
+  filter: grayscale(100%) contrast(1.05);
+  opacity: 0.8;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.exp-side-image img:hover {
+  opacity: 1;
+  filter: grayscale(40%) contrast(1.05);
+}
+
+
+/* ---------- CALLOUT ---------- */
+
+.exp-callout {
+  margin: 40px 0;
+  padding: 28px 32px;
+  border-left: 3px solid var(--ur-accent);
+  background: var(--ur-tint);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.exp-callout.large-callout {
+  padding: 40px;
+  font-size: 1.3rem;
+}
+
+
+/* ---------- MINI POINTS (was unstyled) ---------- */
+
+.exp-mini-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 16px;
+  margin: 36px 0;
+}
+
+.exp-mini-points > div {
+  padding: 24px;
+  border: 1px solid var(--ur-line);
+  background: var(--ur-tint);
+}
+
+.exp-mini-points p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+
+/* ---------- DESIGN CHAIN ---------- */
+
+.exp-section p.exp-chain {
+  max-width: none;
+  margin: 44px 0;
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+
+/* ---------- FLOW ---------- */
+
+.exp-flow { max-width: 640px; margin: 44px 0; }
+
+.flow-box {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 18px;
+  align-items: center;
+  padding: 22px 26px;
+  border: 1px solid var(--ur-line);
+  background: var(--ur-tint);
+}
+
+.flow-box span {
+  grid-row: span 2;
+  font-size: 1.3rem;
+  font-weight: 700;
+  opacity: 0.4;
+}
+
+.flow-box small {
+  margin-top: 4px;
+  line-height: 1.5;
+  opacity: 0.6;
+}
+
+.flow-box.flow-highlight {
+  border: 2px solid var(--ur-accent);
+  background: rgba(179, 38, 30, 0.08);
+}
+
+.flow-highlight span { color: var(--ur-accent); opacity: 1; }
+
+.flow-arrow {
+  padding: 8px;
+  text-align: center;
+  font-size: 1.3rem;
+  opacity: 0.4;
+}
+
+
+/* ---------- TENSION METER (the memorable element) ---------- */
+
+.tension-meter {
+  margin: 50px 0;
+  padding: 32px;
+  border: 1px solid var(--ur-line);
+  background: var(--ur-tint);
+}
+
+.tension-labels,
+.tension-numbers {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tension-labels {
+  margin-bottom: 16px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+
+.tension-bar {
+  position: relative;
+  height: 20px;
+  border: 1px solid var(--ur-line);
+  background: repeating-linear-gradient(
+    90deg, var(--ur-line) 0, var(--ur-line) 1px, transparent 1px, transparent 25%);
+}
+
+/* filled portion up to the marker */
+.tension-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0 33% 0 0;
+  background: linear-gradient(90deg, transparent, var(--ur-accent));
+  opacity: 0.55;
+}
+
+.tension-marker {
+  position: absolute;
+  left: 67%;
+  top: -10px;
+  width: 3px;
+  height: 40px;
+  background: var(--ur-accent);
+  box-shadow: 0 0 14px var(--ur-accent);
+  animation: ur-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes ur-pulse { 50% { opacity: 0.45; } }
+
+.tension-numbers {
+  margin-top: 14px;
+  font-size: 0.72rem;
+  opacity: 0.5;
+}
+
+
+/* ---------- REQUEST EXAMPLE ---------- */
+
+.request-example { margin: 44px 0; border: 1px solid var(--ur-line); }
+
+.request-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 14px 26px;
+  border-bottom: 1px solid var(--ur-line);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+}
+
+.request-body {
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 28px;
+}
+
+.request-body p { margin: 0; font-size: 0.95rem; }
+.request-arrow { text-align: center; font-size: 1.8rem; opacity: 0.4; }
+
+code {
+  padding: 5px 8px;
+  background: rgba(128, 128, 128, 0.18);
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.85rem;
+}
+
+
+/* ---------- DECISION CARDS ---------- */
+
+.decision-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 44px 0;
+}
+
+.decision-card { padding: 30px; border: 1px solid var(--ur-line); }
+.decision-card h3 { margin-top: 16px; }
+.decision-card p { margin: 0; font-size: 0.95rem; }
+
+.decision-status {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.decision-card.approved { border-left: 4px solid var(--ur-accent); }
+.decision-card.denied   { opacity: 0.65; border-style: dashed; }
+
+
+/* ---------- DEBUG VIEW ---------- */
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.debug-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--ur-line);
+  background: var(--ur-tint);
+}
+
+.debug-grid span { font-size: 0.72rem; opacity: 0.55; }
+.debug-grid strong { font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+
+
+/* ---------- CHECKLIST / FINAL ---------- */
+
+.exp-checklist { max-width: 700px; padding: 0; list-style: none; }
+
+.exp-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--ur-line);
+  opacity: 0.55;
+}
+.exp-checklist li.complete { opacity: 1; }
+.exp-checklist li b { width: 25px; }
+
+.exp-final { padding: 60px 0; border-top: 1px solid var(--ur-line); }
+
+.exp-section p.final-statement {
+  max-width: 28em;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.35;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 1000px) {
+  .exp-page { --ur-img: 220px; }
+  .exp-hero, .exp-content-with-image { column-gap: 36px; gap: 36px; }
+}
+
+@media (max-width: 800px) {
+  .exp-page { padding: 60px 20px 90px; }
+  .exp-section { margin-bottom: 90px; }
+
+  /* image stays visible, sits above its text as a wide banner */
+  .exp-hero,
+  .exp-content-with-image,
+  .exp-section:nth-of-type(even) .exp-content-with-image {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .exp-hero > .exp-side-image,
+  .exp-side-image {
+    grid-column: 1;
+    grid-row: auto;
+    position: static;
+    order: -1;
+  }
+
+  .exp-side-image img,
+  .exp-hero .exp-side-image img { aspect-ratio: 16 / 9; }
+
+  .decision-grid { grid-template-columns: 1fr; }
+
+  .request-body { grid-template-columns: 1fr; gap: 16px; }
+  .request-arrow { transform: rotate(90deg); }
+}
+
+@media (max-width: 500px) {
+  .exp-meta { flex-direction: column; gap: 8px; }
+  .tension-meter { padding: 22px; }
+  .tension-labels span { font-size: 0.5rem; }
+  .exp-callout { padding: 22px; }
+  .exp-callout.large-callout { padding: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tension-marker { animation: none; }
+  .exp-side-image img { transition: none; }
+}
