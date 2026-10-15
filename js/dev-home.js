@@ -80,6 +80,14 @@
     'player.control = uncertain'
   ];
 
+  // a page can set its own commands: <span id="promptText" data-commands='["a","b"]'>
+  if (promptEl && promptEl.getAttribute("data-commands")) {
+    try {
+      var custom = JSON.parse(promptEl.getAttribute("data-commands"));
+      if (Array.isArray(custom) && custom.length) COMMANDS = custom.map(String);
+    } catch (e) { /* bad JSON: keep the default commands */ }
+  }
+
   if (promptEl && !reduceMotion) {
     var cmdIndex = 0;
 

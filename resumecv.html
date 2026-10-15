@@ -2,282 +2,485 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francis Santos Portfolio</title>
-  <link rel="shortcut icon" href="images/2.png" type="image/x-icon">
-  <link rel="stylesheet" href="CssStuff/normalize.css">
-  <link rel="stylesheet" href="CssStuff/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Resume / CV | Francis Santos</title>
+  <meta
+    name="description"
+    content="Francis Santos' resume: career overview, skills, tools and education, from a first game jam in 2018 to an Erasmus placement in Finland. Download the CV as a PDF."
+  />
+  <meta name="theme-color" content="#060908" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Resume / CV | Francis Santos" />
+  <meta property="og:description" content="Game designer and gameplay programmer: overview, skills, education and a downloadable CV." />
+  <meta property="og:image" content="https://portfolio-gray-xi-aqmc84pa1m.vercel.app/images/Portefolio/PSD_Section/UnreliableObjectLogo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="shortcut icon" href="images/2.png" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- home.css = shared look (header, buttons, cards, footer). cv.css = this page only. -->
+  <link rel="stylesheet" href="CssStuff/home.css" />
+  <link rel="stylesheet" href="CssStuff/cv.css" />
+
+  <script>document.documentElement.classList.add("js");</script>
 </head>
+
 <body>
-      <!-- General Header aplied to all  -->
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-spot" aria-hidden="true"></div>
+
+  <!-- General header, same as the other pages -->
   <header id="header">
+
     <div id="logo">
-      <a href="index.html">
-        <img src="images/2_transparent.png" alt="logo">
+      <a href="index.html" aria-label="Francis Santos homepage">
+        <img src="images/2_transparent.png" alt="Francis Santos logo" />
       </a>
     </div>
-    <h1 id="site-title">Francisco Santos | Portfolio</h1>
 
-  <div id="menuIcon" >
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-  </div>
+    <button
+      id="menuIcon"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navbar"
+    >
+      <span></span><span></span><span></span>
+    </button>
 
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Main navigation">
       <ul>
-        <li><a href="index.html" id="nav-home">Home</a></li>
-        <li><a href="Portfolio.html" id="nav-portfolio">Portfolio</a></li>
-        <li><a href="resumecv.html" id="nav-about" class="sel">Resume/CV</a></li>
-        <li><a href="Devlogs.html" id="nav-devlog">Devlogs</a></li>
-
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="resumecv.html" class="sel" aria-current="page">Resume / CV</a></li>
+        <li><a href="Devlogs.html">Devlogs</a></li>
+        <li>
+          <a
+            href="https://3-d-portfolio-blush-rho.vercel.app/index.html"
+            class="nav-ext"
+            target="_blank"
+            rel="noopener noreferrer"
+          >3D Portfolio <span aria-hidden="true">↗</span></a>
+        </li>
       </ul>
     </nav>
+
   </header>
 
-      <!-- Career Overview Section -->
-<section id="career-overview">
-  <div class="overview-container">
 
-    <div class="overview-text">
-      <h2>Career Overview</h2>
-      <p>
-        I am a game designer driven by the craft of creating memorable player experiences.
-        Over the past years, I’ve studied and explored multiple areas of game design from
-        monetization models and gamification to data analysis, level design, combat systems,
-        and production documentation. My approach focuses on iteration, clarity, and delivering
-        meaningful interactions that respect the player's journey. I bring structured problem-solving,
-        strong communication, and a passion for turning ideas into playable, testable, and enjoyable systems.
-      </p>
-    </div>
+  <main id="main">
 
-    <div class="overview-button">
-      <a href="Documents/Cv_GameDesigner.pdf" download class="resume-btn">
-        📄 Download My CV
-      </a>
-    </div>
+    <!-- =========================================
+         HERO
+    ========================================= -->
 
-  </div>
-</section>
+    <section class="cv-hero">
+      <div class="container">
 
-<!-- Skills Section -->
-<section id="skills">
-  <h2>Skills</h2>
+        <p class="prompt" aria-hidden="true">
+          <span class="prompt-sign">&gt;</span>
+          <span
+            id="promptText"
+            data-commands='["cat resume.md","git log --career --oneline","ls ./skills --tools","open Cv_GameDesigner.pdf"]'
+          >cat resume.md</span><span class="caret"></span>
+        </p>
 
-  <div class="skills-grid">
+        <div class="section-label">Resume / CV</div>
 
-    <!-- Languages -->
-    <div class="skill-category">
-      <h3>Languages</h3>
-      <div class="skill-icons">
-        <img src="images/Skills/portugalFlag.png" alt="Portuguese">
-        <img src="images/Skills/americaflag.png" alt="English">
-        <img src="images/Skills/finnishFlag.png" alt="Finnish">
+        <h1>
+          From a first game jam
+          <span class="green">to shipping on Steam.</span>
+        </h1>
+
+        <p class="cv-lead">
+          Game designer and gameplay programmer, studying Games and Multimedia in Leiria, Portugal.
+          This page is the short version of my CV: who I am, what I use, and the road that got me here.
+        </p>
+
+        <div class="cv-actions">
+          <a href="Documents/Cv_GameDesigner.pdf" download class="btn btn-primary">
+            Download CV (PDF) <span aria-hidden="true">↓</span>
+          </a>
+          <a href="Portfolio.html" class="btn btn-secondary">
+            See the work <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <p class="cv-status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Looking for a game development internship: 640 hours, 15 Feb to 29 May 2027 (Erasmus+).
+        </p>
+
+        <div class="cv-stats" role="list" aria-label="At a glance">
+          <div class="cv-stat" role="listitem"><b data-since="2018">8</b><span>Years in game dev</span></div>
+          <div class="cv-stat" role="listitem"><b data-count="3">3</b><span>Languages spoken</span></div>
+          <div class="cv-stat" role="listitem"><b data-count="2">2</b><span>Game engines</span></div>
+          <div class="cv-stat" role="listitem"><b data-count="1">1</b><span>Global Game Jam first prize</span></div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <!-- Tools & Suites -->
-    <div class="skill-category">
-      <h3>Google / Microsoft Suite</h3>
-      <div class="skill-icons">
-        <img src="images/Skills/google_docs.png" alt="Google Docs">
-        <img src="images/Skills/google_sheets.png" alt="Google Sheets">
-        <img src="images/Skills/google_slides.png" alt="Google Slides">
+
+    <!-- =========================================
+         CAREER OVERVIEW
+    ========================================= -->
+
+    <section class="section cv-overview" id="overview">
+      <div class="container">
+        <div class="overview-grid">
+
+          <div class="reveal">
+            <div class="section-label">Career overview</div>
+            <h2 class="section-heading">
+              Memorable player experiences,
+              <span class="green">built to be tested.</span>
+            </h2>
+          </div>
+
+          <div class="overview-copy reveal">
+            <p>
+              I am a game designer driven by the craft of creating memorable player experiences.
+              Over the past years, I've studied and explored multiple areas of game design: monetization
+              models and gamification, data analysis, level design, combat systems, and production documentation.
+            </p>
+            <p>
+              My approach focuses on iteration, clarity, and delivering meaningful interactions that respect
+              the player's journey. I bring structured problem-solving, strong communication, and a passion
+              for turning ideas into playable, testable, and enjoyable systems.
+            </p>
+            <div class="chips chips-lg">
+              <span>Iteration</span>
+              <span>Clarity</span>
+              <span>Problem-solving</span>
+              <span>Communication</span>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Programming -->
-    <div class="skill-category">
-      <h3>Programming</h3>
-      <div class="skill-icons">
-        <img src="images/Skills/c++.png" alt="C++">
-        <img src="images/Skills/c_sharp.png" alt="C#">
+
+    <!-- =========================================
+         SKILLS
+    ========================================= -->
+
+    <section class="section cv-skills" id="skills">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">Skills</div>
+            <h2 class="section-heading">
+              The toolbox,
+              <span class="green">grouped by job.</span>
+            </h2>
+            <p class="section-description">What I work with day to day, from code to concept.</p>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="skill-card card-glow reveal">
+            <h3>Programming</h3>
+            <ul class="skill-list">
+              <li><img src="images/Skills/c++.png" alt="" loading="lazy" /><span>C++</span></li>
+              <li><img src="images/Skills/c_sharp.png" alt="" loading="lazy" /><span>C#</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-card card-glow reveal">
+            <h3>Game Engines</h3>
+            <ul class="skill-list">
+              <li><img src="images/Skills/ue5.png" alt="" loading="lazy" /><span>Unreal Engine 5</span></li>
+              <li><img src="images/Skills/uniy.png" alt="" loading="lazy" /><span>Unity</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-card card-glow reveal">
+            <h3>3D Tools</h3>
+            <ul class="skill-list">
+              <li><img src="images/Skills/blender.png" alt="" loading="lazy" /><span>Blender</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-card card-glow reveal">
+            <h3>Design &amp; Collaboration</h3>
+            <ul class="skill-list">
+              <li><img src="images/Skills/figma.png" alt="" loading="lazy" /><span>Figma</span></li>
+              <li><img src="images/Skills/trelo.png" alt="" loading="lazy" /><span>Trello</span></li>
+              <li><img src="images/Skills/obsidian.png" alt="" loading="lazy" /><span>Obsidian</span></li>
+              <li><img src="images/Skills/twine.png" alt="" loading="lazy" /><span>Twine</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-card card-glow reveal">
+            <h3>Adobe Suite</h3>
+            <ul class="skill-list">
+              <li><img src="images/Skills/adobe_ps.png" alt="" loading="lazy" /><span>Photoshop</span></li>
+              <li><img src="images/Skills/adobe_ae.png" alt="" loading="lazy" /><span>After Effects</span></li>
+              <li><img src="images/Skills/adobe_au.png" alt="" loading="lazy" /><span>Audition</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-card card-glow reveal">
+            <h3>Google / Microsoft Suite</h3>
+            <ul class="skill-list">
+              <li><img src="images/Skills/google_docs.png" alt="" loading="lazy" /><span>Docs</span></li>
+              <li><img src="images/Skills/google_sheets.png" alt="" loading="lazy" /><span>Sheets</span></li>
+              <li><img src="images/Skills/google_slides.png" alt="" loading="lazy" /><span>Slides</span></li>
+            </ul>
+          </article>
+
+          <article class="skill-card card-glow reveal">
+            <h3>Languages</h3>
+            <ul class="skill-list">
+              <li><img src="images/Skills/portugalFlag.png" alt="" loading="lazy" /><span>Portuguese</span></li>
+              <li><img src="images/Skills/americaflag.png" alt="" loading="lazy" /><span>English</span></li>
+              <li><img src="images/Skills/finnishFlag.png" alt="" loading="lazy" /><span>Finnish</span></li>
+            </ul>
+          </article>
+
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Game Engines -->
-    <div class="skill-category">
-      <h3>Game Engines</h3>
-      <div class="skill-icons">
-        <img src="images/Skills/ue5.png" alt="Unreal Engine 5">
-        <img src="images/Skills/uniy.png" alt="unity">
+
+    <!-- =========================================
+         EDUCATION / TIMELINE
+    ========================================= -->
+
+    <section class="section cv-timeline" id="education">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">Education &amp; milestones</div>
+            <h2 class="section-heading">
+              The road so far,
+              <span class="green">newest first.</span>
+            </h2>
+            <p class="section-description">Tap a picture to see it bigger.</p>
+          </div>
+        </div>
+
+        <ol class="tl">
+
+          <li class="tl-item reveal">
+            <span class="tl-year">2026</span>
+            <div class="tl-card">
+              <p>
+                In <strong>Finland</strong> through the <strong>Erasmus Program</strong> at
+                <strong>Kajaani University of Applied Sciences</strong>, expanding my international experience in
+                <strong>Games and Multimedia</strong>.
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/kamk.jpg" data-alt="Kajaani University of Applied Sciences" aria-label="Enlarge picture: Kajaani University of Applied Sciences">
+                <img src="images/kamk.jpg" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-year">2026</span>
+            <div class="tl-card">
+              <p>
+                Completed the <strong>COIL programme</strong>, <strong>Games that Can Be Heard with the Eyes:
+                Accessible and Intergenerational Design for Hearing Inclusion</strong>, jointly organised by the
+                <strong>University of Burgos</strong> (Spain) and the <strong>Polytechnic University of Leiria</strong> (Portugal).
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/coi-gamheard-01-thumbnail-627221990.jpg" data-alt="COIL Certificate of Participation" aria-label="Enlarge picture: COIL Certificate of Participation">
+                <img src="images/coi-gamheard-01-thumbnail-627221990.jpg" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-year">2025</span>
+            <div class="tl-card">
+              <p>
+                Entered full production on <strong>Beneath the Questline</strong> and began publishing developer logs on
+                <strong>IndieDB</strong>.
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/BTQ_LogoSoFar.png" data-alt="Beneath the Questline devlog" aria-label="Enlarge picture: Beneath the Questline devlog">
+                <img src="images/BTQ_LogoSoFar.png" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-year">2025</span>
+            <div class="tl-card">
+              <p>
+                Launched a major project <strong>19 weeks in the making</strong>:
+                <strong>Rhythms of Revolution</strong>, a musical 2D side-scroller set in 1950s Lisbon.
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/RR_TitleScreen.png" data-alt="Rhythms of Revolution title screen" aria-label="Enlarge picture: Rhythms of Revolution title screen">
+                <img src="images/RR_TitleScreen.png" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-year">2025</span>
+            <div class="tl-card">
+              <p>
+                Took part in <strong>Ubuntu Week</strong>, within the Ubuntu Leaders Academy,
+                focused on the development of leadership, citizenship,
+                collaboration, and humanistic values.
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/ubuntoPicture.png" data-alt="Ubuntu Week" aria-label="Enlarge picture: Ubuntu Week">
+                <img src="images/ubuntoPicture.png" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-year">2024</span>
+            <div class="tl-card">
+              <p>
+                Began a new chapter pursuing a <strong>Bachelor's in Games and Multimedia</strong> in Leiria, Portugal.
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/Bachelor_photo.jpg" data-alt="Bachelor's in Leiria" aria-label="Enlarge picture: Bachelor's in Leiria">
+                <img src="images/Bachelor_photo.jpg" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-year">2021</span>
+            <div class="tl-card">
+              <p>
+                Started pursuing knowledge at the <strong>Lisbon School of Design</strong>, completing my first
+                <strong>Game Design Course</strong>.
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/lsd_lisbon.png" data-alt="Lisbon School of Design" aria-label="Enlarge picture: Lisbon School of Design">
+                <img src="images/lsd_lisbon.png" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+          <li class="tl-item tl-win reveal">
+            <span class="tl-year">2020</span>
+            <div class="tl-card">
+              <p>
+                <span class="tl-flag">FIRST PRIZE</span>
+                Achieved <strong>First Prize</strong> in the <strong>Global Game Jam 2020</strong>, a defining experience
+                that solidified my path in game development.
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/FirstPriseGameJam.png" data-alt="Global Game Jam 2020 first prize" aria-label="Enlarge picture: Global Game Jam 2020 first prize">
+                <img src="images/FirstPriseGameJam.png" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+          <li class="tl-item reveal">
+            <span class="tl-year">2018</span>
+            <div class="tl-card">
+              <p>
+                My first taste of <strong>game development</strong>, my very first
+                <strong>Game Jam!</strong> The seed was planted.
+              </p>
+              <button type="button" class="tl-thumb" data-full="images/FirstGameJam.png" data-alt="My first game jam" aria-label="Enlarge picture: My first game jam">
+                <img src="images/FirstGameJam.png" alt="" loading="lazy" />
+              </button>
+            </div>
+          </li>
+
+        </ol>
+
       </div>
-    </div>
+    </section>
 
-    <!-- Adobe -->
-    <div class="skill-category">
-      <h3>Adobe Suite</h3>
-      <div class="skill-icons">
-        <img src="images/Skills/adobe_ps.png" alt="Photoshop">
-        <img src="images/Skills/adobe_ae.png" alt="After Effects">
-        <img src="images/Skills/adobe_au.png" alt="Audition">
+
+    <!-- =========================================
+         CLOSING CALL TO ACTION
+    ========================================= -->
+
+    <section class="section cv-cta">
+      <div class="container">
+        <div class="cta-box card-glow reveal">
+          <div>
+            <div class="section-label">Let's talk</div>
+            <h2 class="section-heading">Want the full picture?</h2>
+            <p class="section-description">The PDF has everything on one page, ready to forward.</p>
+          </div>
+          <div class="cv-actions">
+            <a href="Documents/Cv_GameDesigner.pdf" download class="btn btn-primary">
+              Download CV (PDF) <span aria-hidden="true">↓</span>
+            </a>
+            <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 3D Tools -->
-    <div class="skill-category">
-      <h3>3D Tools</h3>
-      <div class="skill-icons">
-        <img src="images/Skills/blender.png" alt="Blender">
-      </div>
-    </div>
-
-       <!-- Design & Collaboration -->
-    <div class="skill-category">
-      <h3>Design & Collaboration</h3>
-      <div class="skill-icons">
-        <img src="images/Skills/figma.png" alt="Figma">
-        <img src="images/Skills/trelo.png" alt="Trello">
-        <img src="images/Skills/obsidian.png" alt="Obsidian">
-        <img src="images/Skills/twine.png" alt="Twine">
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="about">
-  <h2>Education</h2>
-
-  <!-- Timeline -->
-  <div class="timeline">
-
-    <!-- 2026 -->
-    <div class="timeline-item">
-      <span class="year">2026</span>
-      <p>
-        In <strong>Finland</strong> through the <strong>Erasmus Program</strong> at
-        <strong>Kajaani University of Applied Sciences</strong>, expanding my international experience in
-        <strong>Games and Multimedia</strong>.
-      </p>
-      <img src="images/kamk.jpg" alt="Kajaani University of Applied Sciences" class="timeline-img">
-    </div>
-
-    <!-- 2025 -->
-    <div class="timeline-item">
-      <span class="year">2025</span>
-      <p>
-        Entered full production on <strong>Beneath the Questline</strong> and began publishing developer logs on
-        <strong>IndieDB</strong>.
-      </p>
-      <img src="images/BTQ_LogoSoFar.png" alt="Beneath the Questline Devlog" class="timeline-img">
-    </div>
-
-    <div class="timeline-item">
-      <span class="year">2025</span>
-      <p>
-        Launched a major project <strong>19 weeks in the making</strong>:
-        <strong>Rhythms of Revolution</strong>, a musical 2D side-scroller set in 1950s Lisbon.
-      </p>
-      <img src="images/RR_TitleScreen.png" alt="Rhythms of Revolution" class="timeline-img">
-    </div>
-
-        <div class="timeline-item">
-      <span class="year">2025</span>
-      <p>
-
-        Participation  <strong>Ubuntu Week</strong>, within the Ubuntu Leaders Academy, 
-        focused on the development of leadership, citizenship, 
-        collaboration, and humanistic values.
-      </p>
-      <img src="images/ubuntoPicture.png" alt="Ubuntu Week" class="timeline-img">
-    </div>
-
-    <!-- 2024 -->
-    <div class="timeline-item">
-      <span class="year">2024</span>
-      <p>
-        Began a new chapter pursuing a <strong>Bachelor’s in Games and Multimedia</strong> in Leiria, Portugal.
-      </p>
-      <img src="images/Bachelor_photo.jpg" alt="Bachelor's in Leiria" class="timeline-img">
-    </div>
-
-    <!-- 2021 -->
-    <div class="timeline-item">
-      <span class="year">2021</span>
-      <p>
-        Started pursuing knowledge at the <strong>Lisbon School of Design</strong>, completing my first
-        <strong>Game Design Course</strong>.
-      </p>
-      <img src="images/lsd_lisbon.png" alt="Lisbon School of Design" class="timeline-img">
-    </div>
-
-    <!-- 2020 -->
-    <div class="timeline-item">
-      <span class="year">2020</span>
-      <p>
-        Achieved <strong>First Prize</strong> in the <strong>Global Game Jam 2020</strong>, a defining experience
-        that solidified my path in game development.
-      </p>
-      <img src="images/FirstPriseGameJam.png" alt="Global Game Jam 2020" class="timeline-img">
-    </div>
-
-    <!-- 2018 -->
-    <div class="timeline-item">
-      <span class="year">2018</span>
-      <p>
-        My first taste of <strong>game development</strong>, my very first
-        <strong>Game Jam!</strong> The seed was planted.
-      </p>
-      <img src="images/FirstGameJam.png" alt="First Game Jam" class="timeline-img">
-    </div>
-
-  </div>
-
-  <div class="resume">
-    <a href="Documents/Cv_GameDesigner.pdf" download class="resume-btn">
-      📄 Download My CV
-    </a>
-  </div>
-
-</section>
+  </main>
 
 
-    <!-- Footer Section -->
+  <!-- Picture viewer (opened by the timeline thumbnails) -->
+  <dialog id="lightbox" class="lightbox" aria-label="Picture viewer">
+    <form method="dialog">
+      <button class="lightbox-close" aria-label="Close picture">✕</button>
+    </form>
+    <img id="lightboxImg" src="" alt="" />
+    <p id="lightboxCap"></p>
+  </dialog>
+
+
   <footer id="footer">
+
     <div class="footer-content">
-      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <p>
+        &copy; <span id="year">2026</span> Francisco Santos.
+        All Rights Reserved.
+      </p>
 
       <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
+
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+          <img src="images/socialmedia_linkedin_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" rel="noopener noreferrer" title="IndieDB" aria-label="IndieDB">
+          <img src="images/socialmedia_indiedb_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
+
+        <a href="https://unifasdev.itch.io/" target="_blank" rel="noopener noreferrer" title="itch.io" aria-label="itch.io">
+          <img src="images/socialmedia_itchio_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+
+        <a href="https://www.instagram.com/unifasdev/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+          <img src="images/socialmedia_instagram_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+
+        <a href="https://www.artstation.com/francissantos_dev" target="_blank" rel="noopener noreferrer" title="ArtStation" aria-label="ArtStation">
+          <img src="images/socialmedia_artstation_logo.png" alt="" loading="lazy" />
         </a>
+
       </div>
+
     </div>
+
   </footer>
 
 
-  <!-- Java Scripts -->
+  <!-- dev-home.js = menu, spotlight, typed prompt, reveal (shared with the other pages).
+       menu.js is not needed on this page any more. -->
+  <script src="js/dev-home.js" defer></script>
+  <script src="js/cv.js" defer></script>
 
-  <!-- Getting the images bigger Section -->
-  <script>
-    document.querySelectorAll('.timeline-img').forEach(img => {
-      img.addEventListener('click', () => {
-        img.classList.toggle('expanded');
-      });
-    });
-  </script>
-
-  <!-- Getting the code from JS Section -->
-  <script src="js/menu.js"></script>
-    
 </body>
 </html>

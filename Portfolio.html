@@ -2,342 +2,511 @@
 <html lang="en">
 
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francis Santos Portfolio</title>
-  <link rel="shortcut icon" href="images/2.png" type="image/x-icon">
-  <link rel="stylesheet" href="CssStuff/normalize.css">
-  <link rel="stylesheet" href="CssStuff/styles.css"> 
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Portfolio | Francis Santos</title>
+  <meta
+    name="description"
+    content="Francis Santos' portfolio: horror systems and tension design, gameplay design, narrative and quest design, plus shipped games and game jam prototypes."
+  />
+  <meta name="theme-color" content="#060908" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portfolio | Francis Santos" />
+  <meta property="og:description" content="Horror systems, gameplay and narrative design, with games, game jams and prototypes." />
+  <meta property="og:image" content="https://portfolio-gray-xi-aqmc84pa1m.vercel.app/images/Portefolio/PSD_Section/UnreliableObjectLogo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="shortcut icon" href="images/2.png" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- home.css = shared look (header, buttons, cards, footer). portfolio.css = this page only. -->
+  <link rel="stylesheet" href="CssStuff/home.css" />
+  <link rel="stylesheet" href="CssStuff/portfolio.css" />
+
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 
 <body>
-  <!-- General Header aplied to all  -->
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-spot" aria-hidden="true"></div>
+
+  <!-- General header, same as the homepage -->
   <header id="header">
+
     <div id="logo">
-      <a href="index.html">
-        <img src="images/2_transparent.png" alt="logo">
+      <a href="index.html" aria-label="Francis Santos homepage">
+        <img src="images/2_transparent.png" alt="Francis Santos logo" />
       </a>
     </div>
-    <h1 id="site-title">Francisco Santos | Portfolio</h1>
-     <div id="menuIcon">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-</div>
-    <nav id="navbar">
-      <ul>
-        <li><a href="index.html" id="nav-home">Home</a></li>
-        <li><a href="Portfolio.html" id="nav-portfolio" class="sel">Portfolio</a></li>
-        <li><a href="resumecv.html" id="nav-about">Resume/CV</a></li>
-        <li><a href="Devlogs.html" id="nav-devlog">Devlogs</a></li>
 
+    <button
+      id="menuIcon"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navbar"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="navbar" aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Portfolio.html" class="sel" aria-current="page">Portfolio</a></li>
+        <li><a href="resumecv.html">Resume / CV</a></li>
+        <li><a href="Devlogs.html">Devlogs</a></li>
+        <li>
+          <a
+            href="https://3-d-portfolio-blush-rho.vercel.app/index.html"
+            class="nav-ext"
+            target="_blank"
+            rel="noopener noreferrer"
+          >3D Portfolio <span aria-hidden="true">↗</span></a>
+        </li>
       </ul>
     </nav>
+
   </header>
 
-  <!-- Portefolio Core -->
-<section id="portfolio-core">
 
-  <h2>Portfolio</h2>
+  <main id="main">
 
-  <div class="pc-grid">
+    <!-- =========================================
+         HERO
+    ========================================= -->
 
-    <!-- Gameplay -->
-    <div class="pc-card">
-      <img src="images/Portefolio/pb_Controler.jpg" alt="Gameplay Icon">
-      <h3>Gameplay Design</h3>
-      <p>Mechanics, player interactions, systems, and gameplay loops that I’ve designed.</p>
-      <a class="pc-btn" href="Portefolio_SubSection/Port_SubSections_GD.html">View Work</a>
-    </div>
+    <section class="pf-hero">
+      <div class="container">
 
-    <!-- Systems -->
-    <div class="pc-card">
-      <img src="images/Portefolio/pb_Gears.jpg" alt="Systems Icon">
-      <h3>Horror Systems & Tension Design</h3>
-      <p>I know how to craft fear, pacing, tension, and player vulnerability.</p>
-      <a class="pc-btn" href="Portefolio_SubSection/Port_SubSections_SD.html">View Work</a>
-    </div>
+        <p class="prompt" aria-hidden="true">
+          <span class="prompt-sign">&gt;</span>
+          <span
+            id="promptText"
+            data-commands='["ls ./portfolio --cores","cat focus.txt   # horror systems first","git log --games --jams","open ./horror_systems"]'
+          >ls ./portfolio --cores</span><span class="caret"></span>
+        </p>
 
-    <!-- Narrative -->
-    <div class="pc-card">
-      <img src="images/Portefolio/pb_Quil.jpg" alt="Narrative Icon">
-      <h3>Narrative & Quest Design</h3>
-      <p>Quest flows, branching dialogue, narrative structures, and worldbuilding documents.</p>
-      <a class="pc-btn" href="Portefolio_SubSection/Port_SubSections_ND.html">View Work</a>
-    </div>
+        <div class="section-label">Portfolio</div>
 
-  </div>
+        <h1>
+          Where I train
+          <span class="green">to be better.</span>
+        </h1>
 
-</section>
+        <p class="pf-lead">
+          Three cores I keep sharpening, and the games and jams that came out of them.
+          <strong>Horror systems and tension design</strong> takes the biggest slice.
+        </p>
 
-    <!-- para fazzer slide show supostamente -->
-  <section id="portfolio" class="portfolio-section">
-
-    
-    <h2>Games Developed</h2>
-
-    <!-- Filter Bar -->
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ue5">Unreal Engine 5</button>
-      <button class="filter-btn" data-filter="unity">Unity</button>
-      <button class="filter-btn" data-filter="pixel">Pixel Art</button>
-      <button class="filter-btn" data-filter="cpp">C++</button>
-      <button class="filter-btn" data-filter="narrative">Narrative Design</button>
-      <button class="filter-btn" data-filter="level">Level Design</button>
-    </div>
-
-    <!-- Portfolio Grid -->
-    <div class="portfolio-grid">
-
-      <div class="project-card ue5">
-        <img src="images/GT_astralon_thubnail.png" alt="Astralon: Alien Assault">
-        <div class="overlay">
-          <h4>Astralon: Alien Assault</h4>
-          <!-- depois  para o site -->
-          <a href="https://unifasdev.itch.io/astralon-alien-assault" class="view-btn">View More</a>
+        <div class="pf-stats" role="list" aria-label="Portfolio at a glance">
+          <div class="pf-stat" role="listitem"><b data-stat="games">0</b><span>Games built</span></div>
+          <div class="pf-stat" role="listitem"><b data-stat="jams">0</b><span>Game jam prototypes</span></div>
+          <div class="pf-stat" role="listitem"><b data-stat="steam">0</b><span>Shipped on Steam</span></div>
+          <div class="pf-stat" role="listitem"><b data-stat="cores">3</b><span>Core disciplines</span></div>
         </div>
-      </div>
 
-      <div class="project-card unity level narrative">
-        <img src="images/GT_rr_thumbnail.png" alt="Rhythms of Revolution">
-        <div class="overlay">
-          <h4>Rhythms of Revolution</h4>
-          <!-- depois  para o site -->
-          <a href="https://unifasdev.itch.io/rhythms-of-revolution" class="view-btn">View More</a>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         THE THREE CORES
+    ========================================= -->
+
+    <section class="section pf-cores" id="cores">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">The three cores</div>
+            <h2 class="section-heading">
+              Who I am,<br />
+              <span class="green">and where I push myself.</span>
+            </h2>
+            <p class="section-description">
+              Each core has its own collection of work. Pick one to dive in.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="project-card ue5 level">
-        <img src="images/GT_dawnbreaker_thubnail.png" alt="Dawnbreaker">
-        <div class="overlay">
-          <h4>Dawnbreaker</h4>
-          <!-- depois  para o site -->
-          <a href="dawnbreaker.html" class="view-btn">View More</a>
-        </div>
-      </div>
+        <div class="cores-grid">
 
-      <div class="project-card level ue5 narrative">
-        <img src="images/GT_trappedwithit_thubnail.png" alt="Trapped With It">
-        <div class="overlay">
-          <h4>Trapped With It</h4>
-          <!-- depois  para o site -->
-          <a href="https://unifasdev.itch.io/trapped-with-it-bacon" class="view-btn">View More</a>
-        </div>
-      </div>
+          <!-- MAIN CORE -->
+          <article class="core core-main card-glow reveal">
 
-      <div class="project-card level ue5 narrative">
-        <img src="images/GT_TheThingsLeftBeindThubnail_Wip.png" alt="Trapped With It">
-        <div class="overlay">
-          <h4>WIP -> THE THINGS LEFT BEHIND</h4>
-          <!-- depois  para o site -->
-          <a href="https://unifasdev.itch.io/trapped-with-it-bacon" class="view-btn">View More</a>
-        </div>
-      </div>
+            <svg class="wave" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,100 40,96 80,92 120,70 150,84 190,60 230,74 270,38 300,62 340,24 370,50 410,12 440,44 480,70 520,52 560,84 600,76" />
+            </svg>
 
-      <div class="project-card level unity pixel narrative">
-        <img src="images/GT_poppy_thumbnail.png" alt="Poppy NOT the Popcorn">
-        <div class="overlay">
-          <h4>Poppy NOT The Popcorn!</h4>
-          <!-- depois  para o site -->
-          <a href="https://unifasdev.itch.io/poppy-not-the-popcorn" class="view-btn">View More</a>
-        </div>
-      </div>
-
-      <div class="project-card ue5">
-        <img src="images/GT_dawnofthedamned_thubnail.png" alt="Dawn of the Damned">
-        <div class="overlay">
-          <h4>Dawn of the Damned</h4>
-          <!-- depois  para o site -->
-          <a href="https://unifasdev.itch.io/dawn-damned" class="view-btn">View More</a>
-        </div>
-      </div>
-
-
-
-      <div class="project-card ue5">
-        <img src="images/GT_bombcase_thubnail.png" alt="Bomb Case!">
-        <div class="overlay">
-          <h4>Bomb Case!</h4>
-          <!-- depois  para o site -->
-          <a href="https://unifasdev.itch.io/bombcase" class="view-btn">View More</a>
-        </div>
-      </div>
-
-      <div class="project-card unity">
-        <img src="images/GT_ouap_thumbnail.png" alt="Once Upon a Page">
-        <div class="overlay">
-          <h4>Once Upon a Page</h4>
-          <!-- depois  para o site -->
-          <a href="https://store.steampowered.com/app/4379640/_Once_Upon_a_Page/" class="view-btn">View More</a>
-        </div>
-      </div>
-
-      <div class="project-card level ue5 narrative">
-        <img src="images/GT_OneLastScoreThubnail.png" alt="One Last Score">
-        <div class="overlay">
-          <h4>One Last Score</h4>
-          <!-- depois  para o site -->
-          <a href="https://unifasdev.itch.io/one-last-score" class="view-btn">View More</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-    <!-- ==========================================
-GAME JAMS
-========================================== -->
-
-<section class="gamejam-section">
-
-    <h2 class="gamejam-title">Game Jams</h2>
-    
-    <p class="gamejam-subtitle">
-    Rapid prototypes built under tight deadlines, exploring mechanics, storytelling and experimentation.
-</p>
-
-    <div class="gamejam-grid">
-
-        <!-- Game Jam Card example -->
-        <a href="https://v3.globalgamejam.org/2018/games/echo-spy" class="gamejam-card">
-
-            <img src="images/Portefolio/GameJams/GJ_ECHO_SPY.png" alt="ECHO SPY">
-
-            <div class="gamejam-overlay">
-                <h4>ECHO SPY</h4>
-                <span>Go to Page</span>
+            <div class="core-head">
+              <span class="core-tag main">MAIN FOCUS</span>
+              <span class="core-no">02 / 03</span>
             </div>
-        </a>
 
-            <!-- New addtions start here -->
-        
-          <a href="https://v3.globalgamejam.org/2020/games/repunck-7" class="gamejam-card">
+            <img class="core-icon" src="images/Portefolio/pb_Gears.jpg" alt="" />
 
-            <img src="images/Portefolio/GameJams/GJ_DOUCHE_PENGUINS.png" alt="DOUCHE PENGUINS">
+            <h3>Horror Systems &amp; Tension Design</h3>
+            <p>
+              I know how to craft fear, pacing, tension, and player vulnerability.
+              This is where I spend the most time: systems that decide <em>when</em>
+              something frightening happens, not just <em>what</em>.
+            </p>
 
-            <div class="gamejam-overlay">
-                <h4>DOUCHE PENGUINS</h4>
-                <span>Go to Page</span>
+            <div class="chips">
+              <span>Tension curves</span>
+              <span>Pacing</span>
+              <span>Player vulnerability</span>
+              <span>Event systems</span>
             </div>
-        </a>
 
-        <a href="https://unifasdev.itch.io/dont-crumble-me-step-bro" class="gamejam-card">
+            <a
+              class="core-feature"
+              href="PagesInsideHorrorSystemsDesign_Section/P_SS_SD_UnreliableReality.html"
+            >
+              <span class="core-feature-label">FEATURED</span>
+              <strong>Unreliable Reality</strong>
+              <span class="core-feature-text">A horror director where objects ask permission to scare you.</span>
+              <span class="core-feature-go" aria-hidden="true">→</span>
+            </a>
 
-            <img src="images/Portefolio/GameJams/GJ_DontCrumbleMeStepBro.png" alt="Don't Crumble Me Step Bro">
+            <a class="core-cta" href="Portefolio_SubSection/Port_SubSections_SD.html">
+              View Work <span aria-hidden="true">→</span>
+            </a>
 
-            <div class="gamejam-overlay">
-                <h4>Don't Crumble Me Step Bro</h4>
-                <span>Go to Page</span>
+          </article>
+
+          <!-- GAMEPLAY -->
+          <article class="core card-glow reveal">
+            <div class="core-head">
+              <span class="core-tag">CORE</span>
+              <span class="core-no">01 / 03</span>
             </div>
-        </a>
+            <img class="core-icon" src="images/Portefolio/pb_Controler.jpg" alt="" />
+            <h3>Gameplay Design</h3>
+            <p>Mechanics, player interactions, systems, and gameplay loops that I've designed.</p>
+            <a class="core-cta" href="Portefolio_SubSection/Port_SubSections_GD.html">
+              View Work <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-        <a href="https://unifasdev.itch.io/bloodforyouth" class="gamejam-card">
-
-            <img src="images/Portefolio/GameJams/GJ_Blood_for_youth.png" alt="Blood for Youth">
-
-            <div class="gamejam-overlay">
-                <h4>Blood for Youth</h4>
-                <span>Go to Page</span>
+          <!-- NARRATIVE -->
+          <article class="core card-glow reveal">
+            <div class="core-head">
+              <span class="core-tag">CORE</span>
+              <span class="core-no">03 / 03</span>
             </div>
+            <img class="core-icon" src="images/Portefolio/pb_Quil.jpg" alt="" />
+            <h3>Narrative &amp; Quest Design</h3>
+            <p>Quest flows, branching dialogue, narrative structures, and worldbuilding documents.</p>
+            <a class="core-cta" href="Portefolio_SubSection/Port_SubSections_ND.html">
+              View Work <span aria-hidden="true">→</span>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         GAMES DEVELOPED
+    ========================================= -->
+
+    <section class="section pf-games" id="games">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">Games developed</div>
+            <h2 class="section-heading">
+              Built, shipped,<br />
+              <span class="green">and still building.</span>
+            </h2>
+            <p class="section-description">
+              Filter by engine or discipline. Every card opens the game's page.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter bar. Counts are filled in by js/portfolio.js and a filter
+             with zero games is hidden automatically. -->
+        <div class="pf-filters reveal" role="group" aria-label="Filter games">
+          <button type="button" class="pf-filter" data-filter="all" aria-pressed="true">All<span class="n"></span></button>
+          <button type="button" class="pf-filter" data-filter="ue5" aria-pressed="false">Unreal Engine 5<span class="n"></span></button>
+          <button type="button" class="pf-filter" data-filter="unity" aria-pressed="false">Unity<span class="n"></span></button>
+          <button type="button" class="pf-filter" data-filter="pixel" aria-pressed="false">Pixel Art<span class="n"></span></button>
+          <button type="button" class="pf-filter" data-filter="cpp" aria-pressed="false">C++<span class="n"></span></button>
+          <button type="button" class="pf-filter" data-filter="narrative" aria-pressed="false">Narrative Design<span class="n"></span></button>
+          <button type="button" class="pf-filter" data-filter="level" aria-pressed="false">Level Design<span class="n"></span></button>
+        </div>
+        <p class="pf-status" id="gamesStatus" role="status" aria-live="polite"></p>
+
+        <!-- To add a game: copy one <article>, change data-tags (ue5 unity pixel cpp
+             narrative level), the image, title, link and chips. -->
+        <div class="games-grid" id="gamesGrid">
+
+          <article class="game card-glow" data-tags="ue5">
+            <div class="game-art">
+              <img src="images/GT_astralon_thubnail.png" alt="" loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h3><a href="https://unifasdev.itch.io/astralon-alien-assault" target="_blank" rel="noopener noreferrer">Astralon: Alien Assault</a></h3>
+              <div class="chips"><span>Unreal Engine 5</span></div>
+              <span class="game-go" aria-hidden="true">Play on itch.io ↗</span>
+            </div>
+          </article>
+
+          <article class="game card-glow" data-tags="unity level narrative">
+            <div class="game-art">
+              <img src="images/GT_rr_thumbnail.png" alt="" loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h3><a href="https://unifasdev.itch.io/rhythms-of-revolution" target="_blank" rel="noopener noreferrer">Rhythms of Revolution</a></h3>
+              <div class="chips"><span>Unity</span><span>Level Design</span><span>Narrative</span></div>
+              <span class="game-go" aria-hidden="true">Play on itch.io ↗</span>
+            </div>
+          </article>
+
+          <article class="game card-glow" data-tags="ue5 level">
+            <div class="game-art">
+              <img src="images/GT_dawnbreaker_thubnail.png" alt="" loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h3><a href="dawnbreaker.html">Dawnbreaker</a></h3>
+              <div class="chips"><span>Unreal Engine 5</span><span>Level Design</span></div>
+              <span class="game-go" aria-hidden="true">View project →</span>
+            </div>
+          </article>
+
+          <article class="game card-glow" data-tags="level ue5 narrative">
+            <div class="game-art">
+              <img src="images/GT_trappedwithit_thubnail.png" alt="" loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h3><a href="https://unifasdev.itch.io/trapped-with-it-bacon" target="_blank" rel="noopener noreferrer">Trapped With It</a></h3>
+              <div class="chips"><span>Unreal Engine 5</span><span>Level Design</span><span>Narrative</span></div>
+              <span class="game-go" aria-hidden="true">Play on itch.io ↗</span>
+            </div>
+          </article>
+
+          <!-- This card used to link to the Trapped With It page (copy-paste), so it now
+               points to your IndieDB post about the game. Change it when it has its own page. -->
+          <article class="game card-glow" data-tags="level ue5 narrative">
+            <div class="game-art">
+              <img src="images/GT_TheThingsLeftBeindThubnail_Wip.png" alt="" loading="lazy" />
+              <span class="game-badge wip">WORK IN PROGRESS</span>
+            </div>
+            <div class="game-body">
+              <h3><a href="https://www.indiedb.com/members/unifasdraws/blogs/the-things-left-behind-the-idea-i-cant-stop-thinking-about" target="_blank" rel="noopener noreferrer">The Things Left Behind</a></h3>
+              <p class="game-note">A building inspector documents a closed department store, where mannequins can only change while unobserved.</p>
+              <div class="chips"><span>Unreal Engine 5</span><span>Level Design</span><span>Narrative</span></div>
+              <span class="game-go" aria-hidden="true">Read the devlog ↗</span>
+            </div>
+          </article>
+
+          <article class="game card-glow" data-tags="level unity pixel narrative">
+            <div class="game-art">
+              <img src="images/GT_poppy_thumbnail.png" alt="" loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h3><a href="https://unifasdev.itch.io/poppy-not-the-popcorn" target="_blank" rel="noopener noreferrer">Poppy NOT The Popcorn!</a></h3>
+              <div class="chips"><span>Unity</span><span>Pixel Art</span><span>Level Design</span><span>Narrative</span></div>
+              <span class="game-go" aria-hidden="true">Play on itch.io ↗</span>
+            </div>
+          </article>
+
+          <article class="game card-glow" data-tags="ue5">
+            <div class="game-art">
+              <img src="images/GT_dawnofthedamned_thubnail.png" alt="" loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h3><a href="https://unifasdev.itch.io/dawn-damned" target="_blank" rel="noopener noreferrer">Dawn of the Damned</a></h3>
+              <div class="chips"><span>Unreal Engine 5</span></div>
+              <span class="game-go" aria-hidden="true">Play on itch.io ↗</span>
+            </div>
+          </article>
+
+          <article class="game card-glow" data-tags="ue5">
+            <div class="game-art">
+              <img src="images/GT_bombcase_thubnail.png" alt="" loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h3><a href="https://unifasdev.itch.io/bombcase" target="_blank" rel="noopener noreferrer">Bomb Case!</a></h3>
+              <div class="chips"><span>Unreal Engine 5</span></div>
+              <span class="game-go" aria-hidden="true">Play on itch.io ↗</span>
+            </div>
+          </article>
+
+          <article class="game card-glow" data-tags="unity" data-badge="steam">
+            <div class="game-art">
+              <img src="images/GT_ouap_thumbnail.png" alt="" loading="lazy" />
+              <span class="game-badge">SHIPPED ON STEAM</span>
+            </div>
+            <div class="game-body">
+              <h3><a href="https://store.steampowered.com/app/4379640/_Once_Upon_a_Page/" target="_blank" rel="noopener noreferrer">Once Upon a Page</a></h3>
+              <p class="game-note">Lead Programmer on a seven-person international team.</p>
+              <div class="chips"><span>Unity</span></div>
+              <span class="game-go" aria-hidden="true">View on Steam ↗</span>
+            </div>
+          </article>
+
+          <article class="game card-glow" data-tags="level ue5 narrative">
+            <div class="game-art">
+              <img src="images/GT_OneLastScoreThubnail.png" alt="" loading="lazy" />
+            </div>
+            <div class="game-body">
+              <h3><a href="https://unifasdev.itch.io/one-last-score" target="_blank" rel="noopener noreferrer">One Last Score</a></h3>
+              <p class="game-note">A solo horror game made in Finland as a class project.</p>
+              <div class="chips"><span>Unreal Engine 5</span><span>Level Design</span><span>Narrative</span></div>
+              <span class="game-go" aria-hidden="true">Play on itch.io ↗</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         GAME JAMS
+    ========================================= -->
+
+    <section class="section pf-jams" id="jams">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">Game jams</div>
+            <h2 class="section-heading">
+              Fast, rough,<br />
+              <span class="green">and full of ideas.</span>
+            </h2>
+            <p class="section-description">
+              Rapid prototypes built under tight deadlines, exploring mechanics,
+              storytelling and experimentation.
+            </p>
+          </div>
+        </div>
+
+        <div class="jams-grid">
+
+          <a href="https://v3.globalgamejam.org/2018/games/echo-spy" class="jam card-glow reveal" target="_blank" rel="noopener noreferrer">
+            <img src="images/Portefolio/GameJams/GJ_ECHO_SPY.png" alt="" loading="lazy" />
+            <span class="jam-cap"><small>Global Game Jam 2018</small><strong>ECHO SPY</strong></span>
+            <span class="jam-go" aria-hidden="true">↗</span>
+          </a>
+
+          <a href="https://v3.globalgamejam.org/2020/games/repunck-7" class="jam card-glow reveal" target="_blank" rel="noopener noreferrer">
+            <img src="images/Portefolio/GameJams/GJ_DOUCHE_PENGUINS.png" alt="" loading="lazy" />
+            <span class="jam-cap"><small>Global Game Jam 2020</small><strong>DOUCHE PENGUINS</strong></span>
+            <span class="jam-go" aria-hidden="true">↗</span>
+          </a>
+
+          <a href="https://unifasdev.itch.io/dont-crumble-me-step-bro" class="jam card-glow reveal" target="_blank" rel="noopener noreferrer">
+            <img src="images/Portefolio/GameJams/GJ_DontCrumbleMeStepBro.png" alt="" loading="lazy" />
+            <span class="jam-cap"><small>itch.io</small><strong>Don't Crumble Me Step Bro</strong></span>
+            <span class="jam-go" aria-hidden="true">↗</span>
+          </a>
+
+          <a href="https://unifasdev.itch.io/bloodforyouth" class="jam card-glow reveal" target="_blank" rel="noopener noreferrer">
+            <img src="images/Portefolio/GameJams/GJ_Blood_for_youth.png" alt="" loading="lazy" />
+            <span class="jam-cap"><small>itch.io</small><strong>Blood for Youth</strong></span>
+            <span class="jam-go" aria-hidden="true">↗</span>
+          </a>
+
+          <!-- New jam: copy one <a class="jam ..."> block above and change the link, image and text -->
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         3D PORTFOLIO BANNER
+    ========================================= -->
+
+    <section class="pf-banner reveal" aria-label="3D portfolio">
+      <div class="container">
+        <a
+          href="https://3-d-portfolio-blush-rho.vercel.app/index.html"
+          class="banner3d"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Check my 3D art and game development portfolio"
+        >
+          <span class="banner3d-logo">
+            <img src="images/logo_v4.png" alt="" />
+          </span>
+
+          <span class="banner3d-copy">
+            <span class="banner3d-eyebrow">Francis Santos, 3D art &amp; game dev</span>
+            <span class="banner3d-title">View 3D Portfolio</span>
+          </span>
+
+          <span class="banner3d-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
         </a>
+      </div>
+    </section>
+
+  </main>
 
 
-
-    </div>
-
-</section>
-
-<br>
-
- <!-- ---------- 3D Portfolio Banner ---------- -->
-
-<section class="portfolio-banner">
-  <a href="https://3-d-portfolio-blush-rho.vercel.app/index.html"
-     class="portfolio-banner__link"
-     target="_blank"
-     rel="noopener"
-     aria-label="Check my 3D art and game development portfolio">
-
-    <span class="portfolio-banner__logo-wrap">
-      <img src="images/logo_v4.png" alt="" class="portfolio-banner__logo">
-    </span>
-
-    <span class="portfolio-banner__content">
-      <span class="portfolio-banner__eyebrow">Francis Santos, 3D art &amp; game dev</span>
-      <span class="portfolio-banner__text">View 3D Portfolio</span>
-    </span>
-
-    <span class="portfolio-banner__arrow" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </span>
-  </a>
-</section>
-
-  <!-- Script of the grid flitering -->
-  <script>
-    // Filtering Logic
-    const buttons = document.querySelectorAll('.filter-btn');
-    const projects = document.querySelectorAll('.project-card');
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filter = btn.dataset.filter;
-        projects.forEach(project => {
-          if (filter === 'all' || project.classList.contains(filter)) {
-            project.style.display = 'block';
-            setTimeout(() => project.classList.add('visible'), 10);
-          } else {
-            project.classList.remove('visible');
-            setTimeout(() => project.style.display = 'none', 300);
-          }
-        });
-      });
-    });
-    buttons[0].click();
-  </script>
-
-      <!-- Footer Section -->
   <footer id="footer">
+
     <div class="footer-content">
-      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <p>
+        &copy; <span id="year">2026</span> Francisco Santos.
+        All Rights Reserved.
+      </p>
 
       <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
+
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+          <img src="images/socialmedia_linkedin_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" rel="noopener noreferrer" title="IndieDB" aria-label="IndieDB">
+          <img src="images/socialmedia_indiedb_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
+
+        <a href="https://unifasdev.itch.io/" target="_blank" rel="noopener noreferrer" title="itch.io" aria-label="itch.io">
+          <img src="images/socialmedia_itchio_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+
+        <a href="https://www.instagram.com/unifasdev/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+          <img src="images/socialmedia_instagram_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+
+        <a href="https://www.artstation.com/francissantos_dev" target="_blank" rel="noopener noreferrer" title="ArtStation" aria-label="ArtStation">
+          <img src="images/socialmedia_artstation_logo.png" alt="" loading="lazy" />
         </a>
+
       </div>
+
     </div>
+
   </footer>
 
 
-  <script src="js/menu.js"></script>
-</body>
+  <!-- dev-home.js = menu, spotlight, typed prompt, reveal (shared with the homepage).
+       menu.js is not needed on this page any more. -->
+  <script src="js/dev-home.js" defer></script>
+  <script src="js/portfolio.js" defer></script>
 
+</body>
 </html>

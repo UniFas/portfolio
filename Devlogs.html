@@ -2,270 +2,400 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francis Santos Portfolio</title>
-  <link rel="shortcut icon" href="images/2.png" type="image/x-icon">
-  <link rel="stylesheet" href="CssStuff/normalize.css">
-  <link rel="stylesheet" href="CssStuff/styles.css"> <!-- Add this -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Devlogs: Beneath the Questline | Francis Santos</title>
+  <meta
+    name="description"
+    content="Beneath the Questline: a horror game where the player accepts quests that are never what they seem. Over 91 pages of design documentation, a quest design showcase, and the devlogs."
+  />
+  <meta name="theme-color" content="#060908" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Devlogs: Beneath the Questline | Francis Santos" />
+  <meta property="og:description" content="A horror game about quests that are never what they seem, with 91+ pages of design documentation." />
+  <meta property="og:image" content="https://portfolio-gray-xi-aqmc84pa1m.vercel.app/images/BTQ_LogoSoFar.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="shortcut icon" href="images/2.png" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- home.css = shared look (header, buttons, cards, devlog cards, footer). devlogs.css = this page only. -->
+  <link rel="stylesheet" href="CssStuff/home.css" />
+  <link rel="stylesheet" href="CssStuff/devlogs.css" />
+
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 
 <body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-spot" aria-hidden="true"></div>
+
+  <!-- General header, same as the other pages -->
   <header id="header">
+
     <div id="logo">
-      <a href="index.html">
-        <img src="images/2_transparent.png" alt="logo">
+      <a href="index.html" aria-label="Francis Santos homepage">
+        <img src="images/2_transparent.png" alt="Francis Santos logo" />
       </a>
     </div>
-    <h1 id="site-title">Francisco Santos | Portfolio</h1>
 
-    <div id="menuIcon">
-  <div class="bar1"></div>
-  <div class="bar2"></div>
-  <div class="bar3"></div>
-</div>
+    <button
+      id="menuIcon"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-expanded="false"
+      aria-controls="navbar"
+    >
+      <span></span><span></span><span></span>
+    </button>
 
-    <nav id="navbar">
+    <nav id="navbar" aria-label="Main navigation">
       <ul>
-        <li><a href="index.html" id="nav-home">Home</a></li>
-        <li><a href="Portfolio.html" id="nav-portfolio">Portfolio</a></li>
-        <li><a href="resumecv.html" id="nav-about">Resume/CV</a></li>
-        <li><a href="Devlogs.html" id="nav-devlog" class="sel">Devlogs</a></li>
-
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="resumecv.html">Resume / CV</a></li>
+        <li><a href="Devlogs.html" class="sel" aria-current="page">Devlogs</a></li>
+        <li>
+          <a
+            href="https://3-d-portfolio-blush-rho.vercel.app/index.html"
+            class="nav-ext"
+            target="_blank"
+            rel="noopener noreferrer"
+          >3D Portfolio <span aria-hidden="true">↗</span></a>
+        </li>
       </ul>
     </nav>
+
   </header>
 
-<a href="https://www.indiedb.com/games/beneath-the-questline" 
-   class="indiedb-rank-showcase" 
-   target="_blank">
 
-    <!-- LEFT: INDIEDB RANK IMAGE -->
-    <img class="rank-img-big" 
-         src="https://button.indiedb.com/popularity/medium/games/88043.png" 
-         alt="BTQ IndieDB Rank">
+  <main id="main">
 
-    <!-- MIDDLE: TEXT BLOCK -->
-    <div class="rank-info">
-        <h2>IndieDB Popularity Ranking</h2>
-        <p class="desc">
-            <strong>Beneath the Questline</strong> is currently rising in the IndieDB popularity charts!  
-            Click to follow the game, track ranking updates, and see posts from development.
-        </p>
-    </div>
+    <!-- =========================================
+         HERO: the game
+    ========================================= -->
 
-    <!-- RIGHT: GAME LOGO -->
-    <img class="btq-logo" 
-         src="images/BTQ_LogoSoFar.png" 
-         alt="Beneath the Questline Logo">
-</a>
+    <section class="dv-hero">
+      <div class="container">
+        <div class="hero-split">
 
-  <main id="devlogs-page">
-    <section id="devlogs-intro">
-      <h2>Devlogs</h2>
-      <p>
-        Follow my latest development updates directly from
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank">IndieDB</a>.
-        These are my three most recent posts:
-      </p>
+          <div>
+            <p class="prompt" aria-hidden="true">
+              <span class="prompt-sign">&gt;</span>
+              <span
+                id="promptText"
+                data-commands='["open ./beneath_the_questline","cat gdd.pdf   # 91+ pages","quest.accept()   // it is never what it seems","git commit -m \"coming back\""]'
+              >open ./beneath_the_questline</span><span class="caret"></span>
+            </p>
+
+            <div class="section-label">Devlogs</div>
+
+            <h1>
+              One game I won't
+              <span class="green">give up on.</span>
+            </h1>
+
+            <p class="dv-lead">
+              <strong>Beneath the Questline</strong> is a horror game where the player accepts quests
+              that are never what they seem. It is my own take on the kind of game that
+              <em>Bendy and the Ink Machine</em> and <em>Poppy Playtime</em> are, and it is the project
+              closest to my heart.
+            </p>
+
+            <div class="dv-actions">
+              <a href="https://www.indiedb.com/games/beneath-the-questline" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Follow on IndieDB <span aria-hidden="true">↗</span>
+              </a>
+              <a href="PagesInsideNarrativeDesign_Section/P_SS_ND_HorrorQuests.html" class="btn btn-secondary">
+                Read the quests <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- game card: logo + live IndieDB ranking badge -->
+          <a
+            class="btq-card card-glow"
+            href="https://www.indiedb.com/games/beneath-the-questline"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Beneath the Questline on IndieDB"
+          >
+            <img class="btq-logo" src="images/BTQ_LogoSoFar.png" alt="Beneath the Questline logo" />
+            <span class="btq-meta">
+              <span class="btq-status"><span class="status-dot" aria-hidden="true"></span> In development, on pause</span>
+              <img
+                id="rankBadge"
+                class="btq-rank"
+                src="https://button.indiedb.com/popularity/medium/games/88043.png"
+                alt="Beneath the Questline IndieDB popularity ranking"
+                loading="lazy"
+              />
+              <span class="btq-go">Follow the game, ranking and posts ↗</span>
+            </span>
+          </a>
+
+        </div>
+      </div>
     </section>
 
-    <section id="devlogs-feed">
-      <p>Loading latest devlogs...</p>
+
+    <!-- =========================================
+         THE NUMBERS / WHY IT MATTERS
+    ========================================= -->
+
+    <section class="section dv-pitch" id="pitch">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">The project</div>
+            <h2 class="section-heading">
+              A lot of design already exists,
+              <span class="green">and it is detailed.</span>
+            </h2>
+            <p class="section-description">
+              Before the first line of final code, I wanted the game on paper, properly.
+            </p>
+          </div>
+        </div>
+
+        <div class="pitch-grid">
+
+          <article class="pitch-card pitch-big card-glow reveal">
+            <b class="big-num">91<span>+</span></b>
+            <h3>pages of game design document</h3>
+            <p>
+              The GDD for Beneath the Questline runs past 91 pages. It is the backbone I keep coming back to,
+              and there is still a lot in it left to implement.
+            </p>
+          </article>
+
+          <article class="pitch-card card-glow reveal">
+            <div class="pitch-tag">QUEST DESIGN</div>
+            <h3>3 quests, written in great detail</h3>
+            <p>
+              Three of the game's quests are laid out in full on my narrative design showcase,
+              so you can see how a quest that looks innocent turns on the player.
+            </p>
+            <a class="text-link" href="PagesInsideNarrativeDesign_Section/P_SS_ND_HorrorQuests.html">Open the quest showcase →</a>
+          </article>
+
+          <article class="pitch-card card-glow reveal">
+            <div class="pitch-tag">THE HOOK</div>
+            <h3>Accept the quest. It is never what it seems.</h3>
+            <p>
+              The core idea is trust: the player says yes to a request, and the game spends the rest of its time
+              making them regret how easily they did.
+            </p>
+          </article>
+
+        </div>
+      </div>
     </section>
+
+
+    <!-- =========================================
+         STATUS: honest, paused not dropped
+    ========================================= -->
+
+    <section class="section dv-status" id="status">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">Where it stands</div>
+            <h2 class="section-heading">
+              Paused, not dropped.
+            </h2>
+            <p class="section-description">
+              I have not posted or worked on it much lately. Coursework, reading for my internship and
+              getting faster at closing work took the time. This is not a project I plan to give up on.
+            </p>
+          </div>
+        </div>
+
+        <ol class="dv-steps">
+
+          <li class="dv-step dv-step-done reveal">
+            <span class="dv-step-dot" aria-hidden="true"></span>
+            <div class="dv-step-head"><span class="dv-step-state">DONE</span><h3>Full production and the first devlogs</h3></div>
+            <p>Beneath the Questline entered full production in 2025, and I started publishing developer logs on IndieDB.</p>
+          </li>
+
+          <li class="dv-step dv-step-pause reveal">
+            <span class="dv-step-dot" aria-hidden="true"></span>
+            <div class="dv-step-head"><span class="dv-step-state">NOW</span><h3>On pause, and still improving</h3></div>
+            <p>
+              The hurdles were real, but the time is not wasted. Everything I am building elsewhere feeds back
+              into this game (see below).
+            </p>
+          </li>
+
+          <li class="dv-step dv-step-next reveal">
+            <span class="dv-step-dot" aria-hidden="true"></span>
+            <div class="dv-step-head"><span class="dv-step-state">NEXT</span><h3>Back on the horse</h3></div>
+            <p>As soon as I can, I return to the GDD and keep implementing it, with new devlogs along the way.</p>
+          </li>
+
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         WHAT COMES BACK INTO THE GAME
+    ========================================= -->
+
+    <section class="section dv-plan" id="plan">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">What I am bringing back</div>
+            <h2 class="section-heading">
+              What I learn elsewhere,
+              <span class="green">this game gets.</span>
+            </h2>
+            <p class="section-description">
+              Even while I am away from it, I am sharpening the skills it needs.
+            </p>
+          </div>
+        </div>
+
+        <div class="plan-grid">
+
+          <a class="plan-card card-glow reveal" href="PagesInsideHorrorSystemsDesign_Section/P_SS_SD_UnreliableReality.html">
+            <span class="pitch-tag">PLANNED</span>
+            <h3>The Horror Director goes in</h3>
+            <p>
+              I plan to use my Horror Director from Unreliable Reality inside Beneath the Questline, so objects
+              ask permission to scare the player and the game decides when the moment is right.
+            </p>
+            <span class="text-link">See Unreliable Reality →</span>
+          </a>
+
+          <div class="plan-card card-glow reveal">
+            <span class="pitch-tag">PLANNED</span>
+            <h3>Implement the rest of the GDD</h3>
+            <p>
+              Much of the 91+ pages is still waiting to be built. The plan is to work through it system by system
+              and show the progress in the devlogs.
+            </p>
+          </div>
+
+          <a class="plan-card card-glow reveal" href="Portfolio.html#games">
+            <span class="pitch-tag">MEANWHILE</span>
+            <h3>Shipping and learning elsewhere</h3>
+            <p>
+              Once Upon a Page shipped on Steam, I spent time on Erasmus in Finland, and I keep growing as a
+              designer and programmer, so I come back stronger.
+            </p>
+            <span class="text-link">See the games →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =========================================
+         LATEST POSTS (live from IndieDB)
+    ========================================= -->
+
+    <section class="section devlog" id="devlog">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">Latest posts</div>
+            <h2 class="section-heading">
+              From my IndieDB blog,
+              <span class="green">newest first.</span>
+            </h2>
+            <p class="section-description">
+              Live from IndieDB. The blog covers all my projects, so not every post is about this game.
+            </p>
+          </div>
+          <a
+            class="text-link"
+            href="https://www.indiedb.com/members/unifasdraws/blogs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >All posts on IndieDB ↗</a>
+        </div>
+
+        <div class="devlog-grid" id="devlogGrid" data-limit="6" aria-live="polite" aria-busy="true">
+          <!-- skeletons are replaced by js/indiedb-widget.js -->
+          <div class="dl-card skeleton" aria-hidden="true"><div class="dl-thumb"></div><div class="dl-body"><i></i><i></i><i></i></div></div>
+          <div class="dl-card skeleton" aria-hidden="true"><div class="dl-thumb"></div><div class="dl-body"><i></i><i></i><i></i></div></div>
+          <div class="dl-card skeleton" aria-hidden="true"><div class="dl-thumb"></div><div class="dl-body"><i></i><i></i><i></i></div></div>
+        </div>
+
+        <noscript>
+          <p class="noscript-note">
+            Enable JavaScript to see the latest posts, or read them directly on
+            <a href="https://www.indiedb.com/members/unifasdraws/blogs">IndieDB</a>.
+          </p>
+        </noscript>
+
+      </div>
+    </section>
+
   </main>
 
-     <!-- Footer Section -->
+
   <footer id="footer">
+
     <div class="footer-content">
-      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+
+      <p>
+        &copy; <span id="year">2026</span> Francisco Santos.
+        All Rights Reserved.
+      </p>
 
       <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
+
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+          <img src="images/socialmedia_linkedin_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" rel="noopener noreferrer" title="IndieDB" aria-label="IndieDB">
+          <img src="images/socialmedia_indiedb_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
+
+        <a href="https://unifasdev.itch.io/" target="_blank" rel="noopener noreferrer" title="itch.io" aria-label="itch.io">
+          <img src="images/socialmedia_itchio_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+
+        <a href="https://www.instagram.com/unifasdev/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+          <img src="images/socialmedia_instagram_logo.png" alt="" loading="lazy" />
         </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+
+        <a href="https://www.artstation.com/francissantos_dev" target="_blank" rel="noopener noreferrer" title="ArtStation" aria-label="ArtStation">
+          <img src="images/socialmedia_artstation_logo.png" alt="" loading="lazy" />
         </a>
+
       </div>
+
     </div>
+
   </footer>
 
 
-  <script>
-    /*
-      Robust IndieDB RSS loader with multiple proxy fallbacks.
-      Paste this at the bottom of your Devlogs page (before </body>).
-    */
+  <!-- dev-home.js = menu, spotlight, typed prompt, reveal (shared with the other pages).
+       indiedb-widget.js = fills the post grid (also used on the homepage).
+       menu.js is not needed on this page any more. -->
+  <script src="js/dev-home.js" defer></script>
+  <script src="js/indiedb-widget.js" defer></script>
+  <script src="js/devlogs.js" defer></script>
 
-    (async function loadIndieDBDevlogs() {
-      const feedUrl = "https://www.indiedb.com/members/unifasdraws/articles/feed";
-      const feedContainer = document.getElementById("devlogs-feed");
-
-      // List of CORS proxies to try (ordered). If one fails, we try the next.
-      const proxies = [
-        (u) => `https://api.allorigins.win/get?url=${encodeURIComponent(u)}`,
-        (u) => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`, // alt endpoint
-        (u) => `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(u)}`, // rss2json (works often)
-        (u) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}` // codetabs proxy (last resort)
-      ];
-
-      function showError(msg) {
-        feedContainer.innerHTML = `<p style="color:#ff8b8b">⚠️ ${msg}</p>`;
-        console.warn("Devlogs feed error:", msg);
-      }
-
-      // Try each proxy until one returns usable content
-      let xmlString = null;
-      for (const proxy of proxies) {
-        try {
-          const url = proxy(feedUrl);
-          const res = await fetch(url);
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-          // Some proxies return JSON with payload in a field (AllOrigins / rss2json), others return raw XML
-          const ct = res.headers.get("content-type") || "";
-          if (ct.includes("application/json") || ct.includes("text/plain")) {
-            const json = await res.json().catch(() => null);
-            // AllOrigins: { contents: "<rss>..." }
-            if (json && json.contents) {
-              xmlString = json.contents;
-            } else if (json && json.items && Array.isArray(json.items)) {
-              // rss2json response (already JSON): synthesize xml-like structure below
-              // We'll convert items into simple objects for rendering below
-              xmlString = null; // signal we have JSON form
-              // Inject a helper object for rss2json path:
-              window.__rss2json_items = json.items;
-            } else {
-              // fallback - try to read as text
-              const txt = await res.text().catch(() => null);
-              if (txt && txt.trim().startsWith("<")) xmlString = txt;
-            }
-          } else {
-            // raw XML
-            xmlString = await res.text();
-          }
-
-          // if we have xmlString or rss2json items, break and process
-          if (xmlString || window.__rss2json_items) {
-            break;
-          }
-        } catch (err) {
-          console.warn("Proxy failed:", err);
-          // try next proxy
-        }
-      }
-
-      if (!xmlString && !window.__rss2json_items) {
-        showError("Could not load IndieDB feed. Try again later or open the page through an HTTP server (not file://).");
-        return;
-      }
-
-      // Helper: sanitize HTML -> text (strip tags)
-      function stripHtml(html) {
-        const tmp = document.createElement("div");
-        tmp.innerHTML = html || "";
-        return tmp.textContent || tmp.innerText || "";
-      }
-
-      // Build cards
-      feedContainer.innerHTML = "";
-      try {
-        // are we calling the item localy ?
-        let items = [];
-
-        if (window.__rss2json_items) {
-          // rss2json path: already JSON items
-          items = window.__rss2json_items;
-        } else {
-          // Parse XML string
-          const parser = new DOMParser();
-          const xml = parser.parseFromString(xmlString, "text/xml");
-          // get items (rss) ver com a stora este codigo:
-          const xmlItems = xml.querySelectorAll("item");
-          // ver se é o "push" que esta a dar problemas
-          xmlItems.forEach(x => items.push(x));
-        }
-
-        if (!items.length) {
-          showError("No posts found in the IndieDB feed.");
-          return;
-        }
-
-        // Render up to 6 items (3 by default — change limit variable if you want more)
-        const limit = 6;
-        for (let i = 0; i < Math.min(limit, items.length); i++) {
-          const it = items[i];
-
-          // For rss2json items (JSON) the fields are different
-          let title, link, description, pubDate, imageUrl;
-          if (typeof it === "object" && it.title && (it.link || it.url)) {
-            // rss2json item object
-            title = it.title;
-            link = it.link || it.url;
-            description = it.description || it.content || it.content_snippet || "";
-            pubDate = it.pubDate || it.pubDate || "";
-            // try enclosure or thumbnail fields
-            imageUrl = it.thumbnail || (it.enclosure && it.enclosure.link) || null;
-          } else {
-            // XML item
-            title = it.querySelector("title") ? it.querySelector("title").textContent : "Untitled";
-            link = it.querySelector("link") ? it.querySelector("link").textContent : "#";
-            description = it.querySelector("description") ? it.querySelector("description").textContent : "";
-            pubDate = it.querySelector("pubDate") ? it.querySelector("pubDate").textContent : "";
-            // extract img src from description HTML
-            const m = description.match(/<img[^>]+src=["']([^"']+)["']/i);
-            imageUrl = m ? m[1] : null;
-          }
-
-          // fallback placeholder image if no thumbnail
-          if (!imageUrl) {
-            imageUrl = "images/placeholder.png";
-          }
-
-          const cleanDesc = stripHtml(description).trim();
-          const shortDesc = cleanDesc.length > 220 ? cleanDesc.slice(0, 220) + "…" : cleanDesc;
-
-          const card = document.createElement("div");
-          card.className = "devlog-card";
-          card.innerHTML = `
-        <a href="${link}" target="_blank" rel="noopener noreferrer">
-          <img src="${imageUrl}" alt="${title} thumbnail" class="devlog-thumb">
-          <div class="devlog-content">
-            <h3>${title}</h3>
-            <p>${shortDesc}</p>
-            <span class="read-more">Read More →</span>
-          </div>
-        </a>
-      `;
-
-          feedContainer.appendChild(card);
-        }
-      } catch (err) {
-        console.error("Failed to build devlog cards:", err);
-        showError("Error parsing IndieDB feed. Check browser console for details.");
-      } finally {
-        // cleanup temporary helper
-        delete window.__rss2json_items;
-      }
-    })();
-  </script>
-
-  <script src="js/menu.js"></script>
 </body>
-
 </html>

@@ -119,7 +119,10 @@
 
     grid.textContent = "";
 
-    posts.slice(0, 3).forEach(function (post) {
+    // homepage shows 3; a page can ask for more with data-limit="6" on the grid
+    var limit = parseInt(grid.getAttribute("data-limit"), 10) || 3;
+
+    posts.slice(0, limit).forEach(function (post) {
       var card = make("article", "dl-card");
 
       var thumb = make("a", "dl-thumb");
