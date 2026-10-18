@@ -1,231 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Horror Tension System – Francis Santos</title>
-  <link rel="shortcut icon" href="../images/2.png" type="../image/x-icon">
-  <link rel="stylesheet" href="../CssStuff/normalize.css" />
-  <link rel="stylesheet" href="../CssStuff/subsectionsBase.css" />
-  <link rel="stylesheet" href="../CssStuff/horrorSDpagesDesign.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horror Tension System: The Fear Index | Francis Santos</title>
+  <meta name="description" content="The Fear Index: a tension system for Zinnia, the enemy of Beneath the Questline's first quest, with a live simulator and what three kinds of horror players taught me.">
+  <meta name="theme-color" content="#0a0710">
+  <link rel="shortcut icon" href="../images/2.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CssStuff/normalize.css">
+  <link rel="stylesheet" href="../CssStuff/tension.css">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
-
 <body>
-  <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="gd-back-btn">⟵ Back</a>
+<div class="dither" aria-hidden="true"></div>
+<a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="back-btn">⟵ Back</a>
+<nav class="qnav" aria-label="On this page">
+  <a href="#zinnia">Zinnia</a><a href="#system">The System</a><a href="#sim">Simulator</a><a href="#players">Players</a><a href="#gates">Gates</a><a href="#pacing">Pacing</a><a href="#doc">Document</a>
+</nav>
 
-  <div class="hsd-container">
-    <h1 class="glitch" data-text="Horror Tension System">Horror Tension System</h1>
-    <p class="subtitle vhs-effect">Designing adaptive fear, dynamic tension, and psychological horror systems.</p>
+<main class="page">
 
-    <br>
-    <!-- FEATURED CARDS -->
-    <div class="example-grid">
-      <a class="example-card" href="#fi-overview">
-        <img src="../images/Portefolio/PSD_Section/icon_fear.png" class="icon" />
-        <h3>Fear Escalation System</h3>
-        <p>How BTQ tracks & evolves tension dynamically.</p>
-      </a>
-      <a class="example-card" href="#action-values">
-        <img src="../images/Portefolio/PSD_Section/icon_graph.png" class="icon" />
-        <h3>Player-Driven Tension</h3>
-        <p>Fear values tied to movement, light, noise & gaze.</p>
-      </a>
-      <a class="example-card" href="#flowchart">
-        <img src="../images/Portefolio/PSD_Section/icon_flowchart.png" class="icon" />
-        <h3>System Flowchart</h3>
-        <p>AAA-style tension orchestration logic.</p>
-      </a>
-    </div>
-
-    <!-- FEAR INDEX OVERVIEW -->
-    <section class="fear-section">
-      <section class="fear-section">
-        <h2 id="fi-overview" class="section-title glitch-sm" data-text="Fear Index Overview">Fear Index Overview</h2>
-        <p class="fade-in">The Fear Index (0–100) dynamically represents perceived threat. It grows based on light
-          exposure, noise, movement intensity, and gaze-based attention.</p>
-
-        <!-- CENTERED FEAR INDEX GRAPH -->
-        <div class="center" style="margin:20px 0;">
-          <img src="../images/Portefolio/PSD_Section/Fear Index Table .png"
-            style="max-width:600px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
-        </div>
-
-        <!-- MONSTER STATES IMAGE -->
-        <div class="center" style="margin:20px 0;">
-          <img src="../images/Portefolio/PSD_Section/BTQ_monsterFlowCharts.png"
-            style="max-width:600px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
-        </div>
-
-
-        <!-- ACTION VALUES -->
-        <h2 id="action-values" class="section-title glitch-sm" data-text="Player Action Values">Player Action Values
-        </h2>
-        <table class="vhs-scan">
-          <tr>
-            <th>Action</th>
-            <th>Fear +</th>
-            <th>Duration</th>
-            <th>Notes</th>
-          </tr>
-          <tr>
-            <td>Walk</td>
-            <td>0</td>
-            <td>-</td>
-            <td>Safe state</td>
-          </tr>
-          <tr>
-            <td>Run</td>
-            <td>+2/sec</td>
-            <td>Active</td>
-            <td>Tension ramps gradually</td>
-          </tr>
-          <tr>
-            <td>Use Light</td>
-            <td>+1/sec</td>
-            <td>Active</td>
-            <td>Attracts monster</td>
-          </tr>
-          <tr>
-            <td>Stay in Dark</td>
-            <td>+3/5 sec</td>
-            <td>Passive</td>
-            <td>Fear of unknown</td>
-          </tr>
-          <tr>
-            <td>Look at Monster</td>
-            <td>+15</td>
-            <td>3 sec</td>
-            <td>High intensity</td>
-          </tr>
-          <tr>
-            <td>Make Noise</td>
-            <td>+20</td>
-            <td>Instant</td>
-            <td>Trigger moment</td>
-          </tr>
-        </table>
-
-        <!-- SCENARIO EXAMPLE WITH SPACE FOR MONSTER IMAGE -->
-        <h2 class="section-title glitch-sm" data-text="Scenario Example">Scenario Example</h2>
-
-        <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin-top:10px;">
-          <div style="flex:1;min-width:260px;">
-            <p class="fade-in">Player runs → Fear reaches 60 → Monster blocks corridor → Player hides → Fear drops →
-              Monster retreats.
-              This creates peaks followed by controlled relief.
-            </p>
-          </div>
-
-          <div style="flex:1;min-width:260px;">
-            <img src="../images/Portefolio/PSD_Section/1stQ_M_v3_v4.png"
-              style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
-          </div>
-        </div>
-
-        <!-- PLAYER TYPE GRAPHS -->
-        <h2 class="section-title glitch-sm" data-text="Player Tension Profiles">Player Tension Profiles</h2>
-
-        <div class="curve-gallery">
-          <div class="curve-card"><img src="../images/Portefolio/PSD_Section/FI_p_graph_Average.png" />
-            <p>Average Player</p>
-          </div>
-          <div class="curve-card"><img src="../images/Portefolio/PSD_Section/FI_p_graph_careful.png" />
-            <p>Careful Player</p>
-          </div>
-          <div class="curve-card"><img src="../images/Portefolio/PSD_Section/FI_p_graph_recklesse.png" />
-            <p>Reckless Player</p>
-          </div>
-        </div>
-
-        <!-- FEAR RECOVERY -->
-        <h2 class="section-title glitch-sm" data-text="Fear Recovery">Fear Recovery</h2>
-        <table class="vhs-scan">
-          <tr>
-            <th>Condition</th>
-            <th>FI Change</th>
-            <th>Type</th>
-            <th>Notes</th>
-          </tr>
-          <tr>
-            <td>Safe Light</td>
-            <td>-1/sec</td>
-            <td>Passive</td>
-            <td>Calming effect</td>
-          </tr>
-          <tr>
-            <td>Hiding</td>
-            <td>-15</td>
-            <td>Instant</td>
-            <td>Reset mechanic</td>
-          </tr>
-          <tr>
-            <td>Silence</td>
-            <td>-5/10 sec</td>
-            <td>Passive</td>
-            <td>Requires stillness</td>
-          </tr>
-          <tr>
-            <td>Safe Zones</td>
-            <td>-3/sec</td>
-            <td>Area-based</td>
-            <td>Monster can't follow</td>
-          </tr>
-        </table>
-
-        <div class="center" style="margin:20px 0;">
-          <img src="../images/Portefolio/PSD_Section/Fear Index Table (Before vs After Recovery System).png"
-            style="max-width:600px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
-        </div>
-
-        <!-- FLOWCHART -->
-        <h2 id="flowchart" class="section-title glitch-sm" data-text="System Flowchart">System Flowchart</h2>
-        <img src="../images/Portefolio/PSD_Section/BTQ_FE_FlowChart.png" class="flowchart-img fade-in" />
-
-        <!-- BUTTON WITH MONSTER IMAGE SPACE -->
-        <div style="display:flex;justify-content:center;gap:20px;margin-top:60px;flex-wrap:wrap;">
-
-          <img src="../images/Portefolio/PSD_Section/1stQ_M_v1_v2.png"
-            style="max-width:220px;width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.05);" />
-
-          <a href="../Documents/Horror Tension System.pdf" class="example-card" target="_blank"
-            rel="noopener noreferrer" style="padding:18px 30px;font-size:1.1rem;max-width:260px;">
-            Horror Tension Systems →
-          </a>
-        </div>
-
-  </div>
-
-    <!-- Footer Section -->
-  <footer id="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
-
-      <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
-        </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
-        </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
-        </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
-        </a>
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="hero-copy">
+      <p class="kicker">HORROR SYSTEMS DESIGN <span>//</span> BENEATH THE QUESTLINE · QUEST 1</p>
+      <h1 class="jitter">The <em>Fear</em> Index</h1>
+      <p class="tag">Tension design for a monster you are not supposed to fight.</p>
+      <p class="lead">
+        Zinnia never kills you. She hunts through a number from 0 to 100 that rises with how you play:
+        how fast you move, how loud you are, how long you stand in the dark, and whether you look at her.
+        This page is the system, the enemy it was built for, and what I learned from watching three kinds of horror players.
+      </p>
+      <div class="stats">
+        <div><b>0–100</b><span>Fear Index, updated every 0.2 s</span></div>
+        <div><b>4</b><span>states, Calm to Panic</span></div>
+        <div><b>3</b><span>player archetypes studied</span></div>
+        <div><b>0</b><span>health bars</span></div>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="#sim">Try the simulator</a>
+        <a class="btn btn-ghost" href="#doc">Read the design document</a>
       </div>
     </div>
-  </footer>
+    <div class="hero-model">
+      <div class="embed">
+        <iframe title="Zinnia – Creature (Low-Poly / PS1 Style)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/313f0e274bb447259483af85cf370e15/embed" loading="lazy"></iframe>
+      </div>
+      <p class="cap">Zinnia, modelled and textured by me in a low-poly PS1 style.
+        <a href="https://sketchfab.com/3d-models/zinnia-creature-low-poly-ps1-style-313f0e274bb447259483af85cf370e15" target="_blank" rel="noopener">View on Sketchfab ↗</a></p>
+    </div>
+  </header>
 
+  <!-- ============ ZINNIA ============ -->
+  <section class="block" id="zinnia">
+    <div class="split">
+      <div class="reveal">
+        <p class="label">The enemy</p>
+        <h2>Zinnia: <span class="acc">small, fast and frightened.</span></h2>
+        <p>A dog-sized creature with a pink crystalline body, long fins and tendrils, and teal eyes. Fast, agile, and clearly not from this world.</p>
+        <p>
+          She is not purely hostile. She saw an opportunity to leave her dimension in a rupture and escaped through with the wizard.
+          She hunts the royal guard, the adventurers, or anything that might disturb him, because she is grateful to be here.
+        </p>
+        <p>
+          <strong>She never kills you directly.</strong> A capture ends in a short stagger and a reset to the last safe point, not a game over.
+          Her threat is lost progress and lost time, which is exactly what the knights in the story complained about.
+          But she can use traps and open dimension rifts to make you lose track.
+        </p>
+        <ul class="ticks">
+          <li><b>Level 2:</b> a sound, a shadow, a gate that was open now closed.</li>
+          <li><b>Level 3:</b> first full silhouette at a distance. She flinches away when you lift the artifact.</li>
+          <li><b>Levels 4 to 5:</b> close encounters. She is clearly frightened, not furious.</li>
+          <li><b>Level 6:</b> she does not attack at the ring. She stops and looks at the artifact.</li>
+        </ul>
+      </div>
+      <div class="reveal sketches">
+        <figure class="frame"><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/zinnia_concept_1.jpg" alt="First concept line work of Zinnia" loading="lazy"><figcaption>First concepts: line work</figcaption></figure>
+        <figure class="frame"><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/zinnia_concept_2.jpg" alt="Second concept line work of Zinnia" loading="lazy"><figcaption>Second concepts</figcaption></figure>
+        <figure class="frame"><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/zinnia_ps1.jpg" alt="Zinnia low-poly PS1 render" loading="lazy"><figcaption>PS1 style render</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE SYSTEM ============ -->
+  <section class="block" id="system">
+    <div class="reveal">
+      <p class="label">The Fear Index</p>
+      <h2>A number that <span class="acc">watches how you play.</span></h2>
+      <p class="sub">The Fear Index (FI) runs from 0 to 100 and updates every 0.2 seconds. Player actions push it up, recovery pulls it down, and its value decides what Zinnia, the lights and the audio do. Inspiration: Alien: Isolation's tracked detection risk.</p>
+    </div>
+
+    <div class="tables">
+      <div class="win reveal">
+        <h3>Escalation</h3>
+        <div class="tbl-wrap"><table class="tbl" id="fiTable">
+          <thead><tr><th>FI</th><th>State</th><th>Zinnia</th><th>Environment</th><th>Audio</th></tr></thead>
+          <tbody>
+            <tr><td>0–25</td><td>Calm</td><td>Observes from afar, hides and peeks</td><td>Normal lighting</td><td>Soft ambience</td></tr>
+            <tr><td>25–50</td><td>Suspicion</td><td>Brief appearances, partial silhouettes</td><td>Slight flickers</td><td>Distant footsteps, skittering</td></tr>
+            <tr><td>50–75</td><td>Agitated</td><td>Blocks paths, glowing eyes</td><td>Shadow movement</td><td>Whispering, chiming</td></tr>
+            <tr><td>75–100</td><td>Panic</td><td>Rushes the player (non-lethal)</td><td>Major flickers</td><td>Loud spike</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div class="two">
+        <div class="win reveal">
+          <h3>Player actions <small>raise fear</small></h3>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>Action</th><th>FI added</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Walk</td><td>0</td><td>Safe movement</td></tr>
+              <tr><td>Run</td><td>+2 / sec</td><td>Tension ramps while running</td></tr>
+              <tr><td>Use a light source</td><td>+1 / sec</td><td>Attracts monster interest</td></tr>
+              <tr><td>Stay in the dark</td><td>+3 every 5 s</td><td>Fear of the unknown</td></tr>
+              <tr><td>Look at Zinnia</td><td>+15 every 3 s</td><td>Very effective</td></tr>
+              <tr><td>Make a loud noise</td><td>+20</td><td>One-time jump</td></tr>
+              <tr><td>Rotate the artifact</td><td>+5</td><td>She hears it</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="win reveal">
+          <h3>Recovery <small>lowers fear</small></h3>
+          <div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>Condition</th><th>FI change</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Safe light (bright area)</td><td>−1 / sec</td><td>Only if walking or standing still</td></tr>
+              <tr><td>Hide successfully</td><td>−15</td><td>Reset mechanic</td></tr>
+              <tr><td>Stay silent</td><td>−5 every 10 s</td><td>No running, no noise</td></tr>
+              <tr><td>Safe zone</td><td>−3 / sec</td><td>Zinnia cannot enter</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rules reveal">
+      <p class="label">How Zinnia reacts</p>
+      <div class="rule-grid">
+        <div><h4>Adaptive</h4><p>She picks a strategy from what you do, which is what makes each run feel different.</p></div>
+        <div><h4>Gate pursuit</h4><p>She follows through gates with a 3 to 5 second delay. Taking several gates quickly buys distance.</p></div>
+        <div><h4>Gate blocking</h4><p>At 50+ FI she can sit in front of a gate, forcing you to find another route or flip it to its second colour.</p></div>
+        <div><h4>Artifact attraction</h4><p>She hears the artifact. Using it repeatedly is a controlled risk.</p></div>
+        <div><h4>Safe zones</h4><p>She cannot enter. She stares in from the arch, and the glow in her eyes dims.</p></div>
+        <div><h4>Retreat</h4><p>After a Panic rush she retreats for 20 to 30 seconds and the FI drops slowly. That is where the peaks and valleys come from.</p></div>
+      </div>
+      <p class="scenario"><b>Example:</b> player runs in darkness → Fear rises to 60 → Zinnia blocks the corridor → player hides in a crate → Fear drops → Zinnia retreats.</p>
+    </div>
+
+    <div class="flows">
+      <figure class="win reveal"><h3>System flowchart</h3><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/fi_flowchart.png" alt="Fear Index simulation flowchart" loading="lazy"></figure>
+      <figure class="win reveal"><h3>Monster behaviour</h3><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/monster_flow.png" alt="Monster behaviour flowchart" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ============ SIMULATOR ============ -->
+  <section class="block" id="sim">
+    <div class="reveal">
+      <p class="label">Interactive</p>
+      <h2>Play with <span class="acc">the Fear Index.</span></h2>
+      <p class="sub">A small web simulator that uses the rules above. Toggle actions and watch Zinnia and the Fear Index react. Or run one of the three player archetypes.</p>
+    </div>
+
+    <div class="win sim reveal" id="fiSim" data-state="0">
+      <div class="sim-top">
+        <div class="stage-wrap">
+          <canvas id="fiStage" width="320" height="190" aria-label="Zinnia in a gate corridor, reacting to the Fear Index"></canvas>
+          <div class="readout">
+            <div class="big"><b id="fiNum">10</b><span>/100</span><em id="fiState">CALM</em></div>
+            <div class="gauge" aria-hidden="true"><i class="z z0"></i><i class="z z1"></i><i class="z z2"></i><i class="z z3"></i><span id="fiMarker"></span></div>
+            <dl class="react"><div><dt>Zinnia</dt><dd id="fiZ"></dd></div><div><dt>Environment</dt><dd id="fiEnv"></dd></div><div><dt>Audio</dt><dd id="fiAud"></dd></div></dl>
+          </div>
+        </div>
+
+        <div class="controls">
+          <p class="mini">Hold-style actions (click to toggle)</p>
+          <div class="btnrow">
+            <button type="button" class="tgl up" data-flag="run">Run <small>+2/s</small></button>
+            <button type="button" class="tgl up" data-flag="light">Use light <small>+1/s</small></button>
+            <button type="button" class="tgl up" data-flag="dark">Stay in dark <small>+3/5s</small></button>
+            <button type="button" class="tgl up" data-flag="look">Stare at Zinnia <small>+15/3s</small></button>
+          </div>
+          <div class="btnrow">
+            <button type="button" class="tgl down" data-flag="safeLight">Safe light <small>−1/s</small></button>
+            <button type="button" class="tgl down" data-flag="silence">Stay silent <small>−5/10s</small></button>
+            <button type="button" class="tgl down" data-flag="safe">Safe zone <small>−3/s</small></button>
+          </div>
+          <p class="mini">One-time actions</p>
+          <div class="btnrow">
+            <button type="button" class="tgl up" data-inst="noise">Loud noise <small>+20</small></button>
+            <button type="button" class="tgl up" data-inst="artifact">Rotate artifact <small>+5</small></button>
+            <button type="button" class="tgl down" data-inst="hide">Hide <small>−15</small></button>
+          </div>
+          <p class="mini">Or watch a player archetype (120 s at 8x)</p>
+          <div class="btnrow">
+            <button type="button" class="tgl" data-preset="careful">Careful</button>
+            <button type="button" class="tgl" data-preset="between">In-between</button>
+            <button type="button" class="tgl" data-preset="reckless">Reckless</button>
+            <button type="button" class="tgl" id="fiAll">Compare all</button>
+            <button type="button" class="tgl" id="fiReset">Reset</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sim-bottom">
+        <div class="chart"><canvas id="fiChart" width="560" height="200" aria-label="Fear Index over time"></canvas><div class="legend" id="fiLegend"></div></div>
+        <ul class="log" id="fiLog" aria-live="off"></ul>
+      </div>
+      <p class="note" id="fiNote">Zinnia rushes you at Panic and retreats for about 25 seconds. The archetype runs are scripted behaviour, simulated with these rules.</p>
+    </div>
+  </section>
+
+  <!-- ============ PLAYERS ============ -->
+  <section class="block" id="players">
+    <div class="reveal">
+      <p class="label">Player research</p>
+      <h2>Three players. <span class="acc">Three curves.</span></h2>
+      <p class="sub">Horror players don't all play the same game. I looked at three archetypes and how their actions gather tension through the Fear Index.</p>
+    </div>
+
+    <div class="arch">
+      <article class="win reveal careful"><span class="dot"></span><h3>The Careful</h3>
+        <p class="what">Moves slowly, listens, hides early, uses little light and little noise.</p>
+        <p><b>Curve:</b> a slow burn. Almost flat for the first stretch, then a steady climb, never a spike.</p>
+        <p><b>Conclusion:</b> careful play delays fear but cannot skip it. Time spent in the dark keeps adding tension even when the player does everything right.</p>
+      </article>
+      <article class="win reveal between"><span class="dot"></span><h3>The In-Between</h3>
+        <p class="what">Runs when pressured, uses the light, and hides when things get bad.</p>
+        <p><b>Curve:</b> a steady rise to one big peak near the top of the range, then a sharp relief when they find a hiding spot.</p>
+        <p><b>Conclusion:</b> this is the arc the system is designed around: build, near-panic, release. It is the one most players get.</p>
+      </article>
+      <article class="win reveal reckless"><span class="dot"></span><h3>The Reckless</h3>
+        <p class="what">Runs, makes noise, stares at the monster, ignores safe spots.</p>
+        <p><b>Curve:</b> the fastest climb, a hit at 100, then a crash after Zinnia rushes and retreats, then a second climb.</p>
+        <p><b>Conclusion:</b> reckless players burn through the whole range quickly. The rush-and-retreat rule turns that into a second wave instead of a dead end.</p>
+      </article>
+    </div>
+
+    <div class="flows two-up">
+      <figure class="win reveal"><h3>Fear Index by player type</h3><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/fi_curves.png" alt="Fear Index curves for the casual, speedrunner and careful player" loading="lazy"><figcaption>Casual (in-between), speedrunner (reckless) and careful.</figcaption></figure>
+      <figure class="win reveal"><h3>Before vs after the recovery system</h3><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/fi_recovery_before_after.png" alt="Fear Index curves before and after adding the recovery system" loading="lazy"><figcaption>Adding recovery turns one-way climbs into peaks and valleys.</figcaption></figure>
+    </div>
+
+    <div class="takeaway reveal">
+      <p class="label">What I took from it</p>
+      <ul class="ticks">
+        <li>Each playstyle produces its own curve, so the monster feels adaptive instead of scripted.</li>
+        <li>Peaks need valleys. Recovery (safe zones, hiding, silence) is what keeps tension from becoming exhaustion.</li>
+        <li>Instead of linear pacing, the game breathes: building suspense, releasing pressure, and tightening again.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ GATES ============ -->
+  <section class="block" id="gates">
+    <div class="split">
+      <div class="reveal">
+        <p class="label">The core mechanic</p>
+        <h2>The tower is a puzzle <span class="acc">you read.</span></h2>
+        <p>There are no stairs. Every room connects to the next through spatially altered gates, so progress means reading gate numbers and colours and choosing the right exit. Disorientation is the tension source: the knights gave up from exhaustion, not from wounds.</p>
+        <ol class="rules-list">
+          <li>Every gate has a number (and a colour on the last level). Entering gate N places you in the room paired with N.</li>
+          <li>Most gates have a second colour: a second destination. Without the artifact, only the first state is active.</li>
+          <li>Rotating the artifact flips only the gate you are facing.</li>
+          <li>Safe Zones are the only places where the Fear Index drops reliably.</li>
+          <li>Zinnia can follow through gates, with a short delay.</li>
+          <li>Gate states reset when you leave the room, so the tower can't be permanently rewritten.</li>
+        </ol>
+      </div>
+      <div class="reveal">
+        <div class="embed video"><iframe id="gateVideo" src="https://www.youtube.com/embed/Ee-gn7syQFM" title="Gate mechanic prototype" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe></div>
+        <p class="cap">The gate mechanic working in the prototype.</p>
+      </div>
+    </div>
+
+    <div class="split gate2">
+      <div class="reveal">
+        <h3 class="h3">The artifact is a tension tool</h3>
+        <p>A ritual blade used as a dimensional key. It is not a weapon. Using it has a cost, which is exactly what makes it interesting in a stealth horror game:</p>
+        <ul class="ticks">
+          <li>The ~1.5 s use animation <b>cannot be cancelled</b>, so using it near Zinnia is a risk.</li>
+          <li>It makes a small sound (+5 Fear Index), competing with your need to stay quiet.</li>
+          <li>It glows, which counts as a light source.</li>
+        </ul>
+        <h3 class="h3">Anti-frustration rules</h3>
+        <ul class="ticks">
+          <li>Dead ends always contain a clue, a note or a hiding spot, never nothing.</li>
+          <li>If you loop the same room three times, a subtle chalk mark points toward the right exit.</li>
+        </ul>
+      </div>
+      <figure class="frame reveal"><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/artifact_concepts.jpg" alt="Ten artifact dagger concepts with a rotating part" loading="lazy"><figcaption>Artifact concepts: which part rotates, and how readable is it at a glance?</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ PACING ============ -->
+  <section class="block" id="pacing">
+    <div class="reveal">
+      <p class="label">Pacing &amp; tension curve</p>
+      <h2>Five acts, <span class="acc">one rising fear.</span></h2>
+    </div>
+    <div class="acts">
+      <article class="win reveal"><span class="n">ACT 1</span><h3>The Road &amp; the First Gate</h3><p class="fi">Level 1</p><p>Dry, bureaucratic, mildly comedic. The player thinks this is an escort job.</p><p class="goal">Goal: curiosity and a small laugh.</p><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/level1.png" alt="Level 1 gate layout" loading="lazy"></article>
+      <article class="win reveal"><span class="n">ACT 2</span><h3>Learning the Gates</h3><p class="fi">Levels 1–2 · FI Calm 0–25</p><p>Puzzled, then uneasy. Zinnia is only a sound or a shape at the edge of vision.</p><p class="goal">Goal: the first real fear of being lost.</p><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/level2.png" alt="Level 2 gate layout" loading="lazy"></article>
+      <article class="win reveal"><span class="n">ACT 3</span><h3>Safe Zone &amp; the Artifact</h3><p class="fi">Level 3 · Point of no return</p><p>Relief, then wonder. The player gets the artifact, and then it is taken away: from here Zinnia hunts actively.</p><p class="goal">Goal: reward, right before the threat.</p><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/level3.png" alt="Level 3 gate layout" loading="lazy"></article>
+      <article class="win reveal"><span class="n">ACT 4</span><h3>Being Hunted</h3><p class="fi">Levels 4–5 · FI passes 25 and 50</p><p>Pressure and dread. Denser rooms, more wrong exits. Zinnia moves from observing to stalking. Safe Zone 2 needs the artifact.</p><p class="goal">Goal: fear turns into active danger.</p><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/level4.png" alt="Level 4 gate layout" loading="lazy"><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/level5.png" alt="Level 5 gate layout" loading="lazy"></article>
+      <article class="win reveal"><span class="n">ACT 5</span><h3>The Ring &amp; the Office</h3><p class="fi">Level 6 · Climax</p><p>Twelve two-coloured gates in a ring, only one correct. Zinnia is at her most aggressive, then she just stops and looks.</p><p class="goal">Goal: high panic, then a sudden emotional drop.</p><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/ring_chamber.jpg" alt="The ring chamber with twelve gates" loading="lazy"></article>
+    </div>
+
+    <div class="split under reveal">
+      <div>
+        <p class="label">The story under the tension</p>
+        <h3 class="h3">The quest brief is a lie the player slowly unlearns.</h3>
+        <p>The contract is marked low risk, and the Ministry is wrong about that. The wizard is not a lazy recluse, the tower is not a maze built for fun, and Zinnia is not a simple monster. The player learns it in layers: <b>the absent wizard</b>, <b>the failed experiment</b>, then <b>the thing that came back</b>.</p>
+        <p>At the end the player chooses: persuade and escort him, force him, or take the bargain and help with one final experiment. Each path closes some doors and opens others, including what happens to Zinnia.</p>
+      </div>
+      <figure class="frame"><img class="zoomable" src="../images/Portefolio/PSD_Section/FI_Q1/wizard_office.jpg" alt="Prototype of the wizard's office" loading="lazy"><figcaption>Prototype of the Wizard's Office, also on <a href="https://sketchfab.com/unifasDev" target="_blank" rel="noopener">Sketchfab ↗</a></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ============ DOCUMENT ============ -->
+  <section class="block" id="doc">
+    <div class="reveal">
+      <p class="label">The full document</p>
+      <h2>Quest 1: <span class="acc">“Get the Wizard Back to Work!”</span></h2>
+      <p class="sub">The revised design document, including the updated Fear Index and the Horror Director tension logic.</p>
+    </div>
+    <div class="win pdf reveal">
+      <iframe id="pdf-frame" src="../Documents/Beneath the Questline - Quest 1 Get the Wizard Back to Work! .pdf" title="Quest 1 design document and Fear Index"></iframe>
+    </div>
+    <p class="pdf-actions reveal"><a class="btn btn-ghost" href="../Documents/Beneath the Questline - Quest 1 Get the Wizard Back to Work! .pdf" target="_blank" rel="noopener">Open the PDF in a new tab ↗</a></p>
+  </section>
+
+  <!-- ============ MORE ============ -->
+  <section class="block" id="more">
+    <div class="reveal"><p class="label">Want to see more?</p><h2>Keep <span class="acc">exploring.</span></h2></div>
+    <div class="cta">
+      <a class="win cta-card reveal" href="https://3-d-portfolio-blush-rho.vercel.app/index.html" target="_blank" rel="noopener"><span class="n">3D ART</span><h3>Check out my 3D portfolio</h3><p>Zinnia, the wizard's office and more. Everything modelled, rigged and animated in Blender.</p><span class="go">Open ↗</span></a>
+      <a class="win cta-card reveal" href="../Devlogs.html"><span class="n">DEVLOGS</span><h3>Learn more about Beneath the Questline</h3><p>The game this system was built for: quests that are never what they seem.</p><span class="go">Open →</span></a>
+      <a class="win cta-card reveal" href="../PagesInsideNarrativeDesign_Section/P_SS_ND_HorrorQuests.html"><span class="n">QUESTS</span><h3>Curious about more quests?</h3><p>Three more horror quests, with the guild hall, the PS1 look and two playable mechanics.</p><span class="go">Open →</span></a>
+    </div>
+  </section>
+</main>
+
+<footer id="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Francisco Santos | All Rights Reserved</p>
+    <div id="social-links">
+      <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener" title="LinkedIn"><img src="../images/socialmedia_linkedin_logo.png" alt="LinkedIn"></a>
+      <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" rel="noopener" title="IndieDB"><img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB"></a>
+      <a href="https://unifasdev.itch.io/" target="_blank" rel="noopener" title="itch.io"><img src="../images/socialmedia_itchio_logo.png" alt="itch.io"></a>
+      <a href="https://www.instagram.com/unifasdev/" target="_blank" rel="noopener" title="Instagram"><img src="../images/socialmedia_instagram_logo.png" alt="Instagram"></a>
+      <a href="https://www.artstation.com/francissantos_dev" target="_blank" rel="noopener" title="ArtStation"><img src="../images/socialmedia_artstation_logo.png" alt="ArtStation"></a>
+    </div>
+  </div>
+</footer>
+<div class="lightbox" id="lightbox" hidden><img alt=""><button type="button" aria-label="Close">×</button></div>
+<script src="../js/tension.js" defer></script>
 </body>
-
 </html>

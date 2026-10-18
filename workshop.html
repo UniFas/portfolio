@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THE INTERVIEW — UNI FAS Workshop</title>
+<meta name="description" content="A first-person horror portfolio. Explore the UNI FAS workshop, read the terminals, and try not to get caught.">
+<link rel="stylesheet" href="CssStuff/workshop.css">
+</head>
+<body>
+<div id="app">
+  <canvas id="game"></canvas>
+  <canvas id="noise" width="96" height="54"></canvas>
+  <div id="vig"></div><div id="hideov" hidden></div><div id="flash"></div><div id="fade"></div>
+
+  <div id="hud" hidden>
+    <div id="cross"></div>
+    <div id="obj"></div><div id="count"></div>
+    <div id="prompt"></div><div id="subs"></div><div id="toast"></div>
+    <div id="hint">WASD move · SHIFT run · E interact · F light · TAB map · Q quick links</div>
+    <pre id="debug" hidden></pre>
+  </div>
+  <div id="mapov" hidden><canvas id="mapc" width="340" height="560"></canvas></div>
+
+  <div id="menu" class="screen">
+    <div class="menu-inner">
+      <p class="kicker">UNI FAS DEV // INTERACTIVE PORTFOLIO</p>
+      <h1>THE INTERVIEW</h1>
+      <p class="lead">You are the recruiter. The Developer wants a job. This workshop is his portfolio, and every time he catches you he drags a piece of it to your face.</p>
+      <div class="menu-grid">
+        <img src="img/workshop-blueprint.webp" alt="Level blueprint of the UNI FAS workshop" class="bp">
+        <div>
+          <button id="play" class="big-btn">ENTER THE WORKSHOP</button>
+          <button id="calm" class="alt-btn">CALM TOUR <small>monster off</small></button>
+          <button id="quicklinks" class="alt-btn">QUICK LINKS <small>CV · Portfolio · Contact</small></button>
+          <ul class="controls"><li><b>WASD</b> move</li><li><b>MOUSE</b> look (click the game first)</li><li><b>SHIFT</b> run (he hears you)</li><li><b>E</b> interact · <b>F</b> light · <b>TAB</b> map · <b>Q</b> links</li><li>Hide in <b>lockers</b>. The <b>SAFE ROOM</b> is the one place he cannot enter.</li></ul>
+          <label class="opt"><input type="checkbox" id="opt-sound" checked> Sound</label>
+          <label class="opt"><input type="checkbox" id="opt-voice" checked> His voice</label>
+          <label class="opt"><input type="checkbox" id="opt-reduce"> Reduce effects</label>
+          <p class="tiny">Best on a desktop with headphones. Keyboard and mouse required.</p>
+        </div>
+      </div>
+      <p class="tiny"><a href="index.html">← Back to the portfolio</a></p>
+    </div>
+  </div>
+
+  <div id="pause" class="screen" hidden><div class="box"><h2>PAUSED</h2><p>The Developer is waiting.</p><button id="resume" class="big-btn">RESUME</button></div></div>
+
+  <div id="panel" class="screen" hidden><div class="box" id="pbox"><h2 id="ptitle"></h2><div id="pbody"></div><button id="pclose" class="big-btn">Close</button></div></div>
+
+  <div id="struggle" hidden>
+    <h2 id="sttitle"></h2>
+    <p id="sthelp"></p>
+    <div class="track" id="stwin" hidden><div class="zone"></div><div id="stmark"></div></div>
+    <div class="meter"><div id="stbar"></div></div>
+    <div class="meter small"><div id="sttime"></div></div>
+    <button id="stskip" class="tiny-btn">skip struggle (accessibility)</button>
+  </div>
+
+  <div id="end" class="screen" hidden><div class="box"><h2 id="endt"></h2><div id="endb"></div><p><button id="replay" class="big-btn">PLAY AGAIN</button> <button id="reconsider" class="alt-btn">RECONSIDER</button></p></div></div>
+</div>
+<script src="js/workshop.js"></script>
+</body>
+</html>

@@ -1,326 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francis Santos Portfolio</title>
-  <link rel="shortcut icon" href="../images/2.png" type="../image/x-icon">
+  <title>Horror Quests | Beneath the Questline | Francis Santos</title>
+  <meta name="description" content="Three horror quests written for Beneath the Questline, a PS1-inspired dark fantasy game where the quest on the paper is never the quest you get.">
+  <meta name="theme-color" content="#0b0a08">
+  <link rel="shortcut icon" href="../images/2.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../CssStuff/normalize.css">
-  <link rel="stylesheet" href="../CssStuff/subsectionsBase.css">
+  <link rel="stylesheet" href="../CssStuff/quests.css">
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 
 <body>
-<section class="gd-project-page">
+<div class="fog" aria-hidden="true"></div>
+<div class="dither" aria-hidden="true"></div>
 
-    <!-- Back Button -->
-    <a href="../Portefolio_SubSection/Port_SubSections_ND.html" class="gd-back-btn">⟵ Back</a>
+<a href="../Portefolio_SubSection/Port_SubSections_ND.html" class="back-btn">⟵ Back</a>
 
-    <!-- Quick Facts -->
-    <aside class="quick-facts">
-        <div class="section">
-            <h2 class="section-title">Quick facts</h2>
-            <div class="meta chips-row">
-                <div class="chip">Tools: Excalidraw, Figma</div>
-                <div class="chip">Genre: Survival Horror RPG</div>
-                <div class="chip">Scope: 3-Quest Expansion</div>
-                <div class="chip">Systems: Sanity, Breath-Hold, Lantern Oil, Entity AI</div>
-            </div>
-        </div>
-    </aside>
+<nav class="qnav" aria-label="On this page">
+  <a href="#concept">Concept</a>
+  <a href="#board">Quest Board</a>
+  <a href="#retro">PS1 Look</a>
+  <a href="#mechanics">Mechanics</a>
+  <a href="#flow">Flowcharts</a>
+  <a href="#doc">Document</a>
+</nav>
 
-    <!-- Quest Fantasy Summary -->
-    <div class="section quest-fantasy">
-        <h2 class="section-title">Quest Fantasy</h2>
-        <p class="quest-tagline"><em>"Nothing here hunts you outright. It only waits for you to make a sound, take what isn't yours, or look."</em></p>
-    </div>
+<main class="page">
 
-    <!-- Design Pillars -->
-    <div class="section design-pillars">
-        <h2 class="section-title">Design Pillars</h2>
-        <ul class="pillar-list">
-            <li><strong>Dread Through Restraint</strong> > entities rarely attack outright; presence, implication, and sound design carry the fear instead of jump scares.</li>
-            <li><strong>Consequences That Follow</strong> > every ending leaves a mechanical or psychological mark that carries forward into later quests.</li>
-            <li><strong>The Player as Complicit</strong> > horror emerges from what the player does, theft, greed, curiosity, not only from what hunts them.</li>
-        </ul>
-    </div>
-
-  <!-- Target Emotions -->
-<div class="section target-emotions">
-    <h2 class="section-title">Target Emotions</h2>
-
-    <div class="emotion-grid">
-
-        <div class="emotion-card">
-            <img src="../images/Portefolio/PND_Section/NA_Horro3Quests/dread.jpg" alt="Dread emotion visual">
-            <h3>Dread</h3>
-            <p>Quiet environmental wrongness builds long before anything shows itself.</p>
-        </div>
-
-        <div class="emotion-card">
-            <img src="../images/Portefolio/PND_Section/NA_Horro3Quests/isolation.jpg" alt="Isolation emotion visual">
-            <h3>Isolation</h3>
-            <p>Manors, fog roads, and empty lecture halls strip away any sense of help.</p>
-        </div>
-
-        <div class="emotion-card">
-            <img src="../images/Portefolio/PND_Section/NA_Horro3Quests/guilt.jpg" alt="Guilt emotion visual">
-            <h3>Guilt</h3>
-            <p>Theft, greed, and being used by an NPC turn the player into part of the problem.</p>
-        </div>
-
-        <div class="emotion-card">
-            <img src="../images/Portefolio/PND_Section/NA_Horro3Quests/paranoia.jpg" alt="Paranoia emotion visual">
-            <h3>Paranoia</h3>
-            <p>Something is always just outside the light, the fog, or the corner of the eye.</p>
-        </div>
-
-    </div>
-</div>
-
-    <!-- Quests Overview -->
-    <div class="section characters">
-        <h2 class="section-title">Quests Overview</h2>
-        <div class="character-list">
-            <div class="char">
-                <strong>Quest 1: Final Will Delivery</strong><br>
-                <span class="char-desc">Sauvelen Arial Manor > retrieve a sealed heirloom, wake the Arial Guardian.</span>
-            </div>
-
-            <div class="char">
-                <strong>Quest 2: The Long Road Back</strong><br>
-                <span class="char-desc">The Old Supply Road > a simple errand becomes a fog-bound loop lit only by a dying lantern.</span>
-            </div>
-
-            <div class="char">
-                <strong>Quest 3: Watch Rotation</strong><br>
-                <span class="char-desc">Voss Academic Hall > observe a presence that feeds on being noticed, without ever turning around.</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Core Mechanics -->
-    <div class="section systemic-hooks">
-        <h2 class="section-title">Core Mechanics</h2>
-        <ul class="hooks-list">
-            <li><strong>The Lantern (Quest 2)</strong> > a visibly shrinking flame is the player's only light and only countdown; burn bright to see more, dim to survive longer.</li>
-            <li><strong>Holding Breath (Quest 3)</strong> > suppress all sound to avoid an entity that tracks noise, but breath can't be held forever, and holding it means moving slowly.</li>
-            <li>Both mechanics turn tension into something the player physically manages, not just something they watch happen to a character.</li>
-        </ul>
-    </div>
-
-    <!-- Characters -->
-    <div class="section characters">
-        <h2 class="section-title">Questgivers</h2>
-        <div class="character-list">
-            <div class="char">
-                <strong>Rovel Arial Bello</strong><br>
-                <span class="char-desc">Claims distant blood to a dead noble house</span>
-            </div>
-
-            <div class="char">
-                <strong>Flominnal Watchtower Guard</strong><br>
-                <span class="char-desc">Pays far too much for a simple oil run</span>
-            </div>
-
-            <div class="char">
-                <strong>Scholar Aldren Voss</strong><br>
-                <span class="char-desc">Sleepless, precise, hiding what he already knows</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Systemic Hooks -->
-    <div class="section systemic-hooks">
-        <h2 class="section-title">Systemic Hooks</h2>
-        <ul class="hooks-list">
-            <li>Entity behavior built in escalating phases, from passive presence to active pursuit.</li>
-            <li>Sanity and screen-edge distortion accumulate visibly and can carry permanent effects into future quests.</li>
-            <li>Environmental manipulation (looping roads, shifting manors) replaces scripted chases.</li>
-            <li>Every ending is a trade-off: a struggle mechanic, a resource choice, or a permanent psychological cost, never a clean win.</li>
-        </ul>
-    </div>
-
-    <!-- Flowchart -->
-    <div class="section flowchart-section">
-        <h2 class="section-title">Quest Flowcharts (preview)</h2>
-        <div class="flowchart-preview">
-            <h3>Quest 1 Flowchart</h3>
-            <img
-                src="../images/Portefolio/PND_Section/NA_Horro3Quests/Quest1_Flowchart.png"
-                alt="Quest 1 Flowchart Preview"
-                class="flowchart-img"
-            >
-        </div>
-        <br>
-        <div class="flowchart-preview">
-            <h3>Quest 2 Flowchart</h3>
-            <img
-                src="../images/Portefolio/PND_Section/NA_Horro3Quests/Quest2_Flowchart.png"
-                alt="Quest 2 Flowchart Preview"
-                class="flowchart-img"
-            >
-        </div>
-        <br>
-        <div class="flowchart-preview">
-            <h3>Quest 3 Flowchart</h3>
-            <img
-                src="../images/Portefolio/PND_Section/NA_Horro3Quests/Quest3_Flowchart.png"
-                alt="Quest 3 Flowchart Preview"
-                class="flowchart-img"
-            >
-        </div>
-    </div>
-
-<div class="gd-text-image-block">
-
-       <!-- Horror Context -->
-    <div class="gd-text-side">
-        <h3>Why These Quests Work in a Horror Context</h3>
-        <ul class="horror-points">
-            <li>Entities that test and wait instead of chasing on sight.</li>
-            <br>
-            <li>Tension built through a resource the player can watch run out.</li>
-            <br>
-            <li>A mechanic (breath, light) that makes the player complicit in their own survival.</li>
-            <br>
-            <li>Twists that recontextualize everything the player already did.</li>
-            <br>
-            <li>Consequences that quietly follow the player into later quests.</li>
-        </ul>
-    </div>
-
-    <div class="gd-image-side">
-        <img src="../images/Portefolio/PND_Section/NA_Horro3Quests/whyitwork.jpg" alt="Example Preview">
-    </div>
-
-</div>
-
-    <!-- PDF Viewer -->
-<div class="pdf-viewer">
-    <h2 class="section-title">Quest Design Document (PDF Preview)</h2>
-    <iframe
-        id="pdf-frame"
-        src="../Documents/ND_HorrorQuestlineDesign.pdf"
-        title="Horror Questline Design PDF"
-        frameborder="0">
-    </iframe>
-</div>
-
-   <!-- Endings -->
-<div class="section endings">
-    <h2 class="section-title">Outcomes Overview</h2>
-    <img src="../images/Portefolio/PND_Section/NA_Horro3Quests/Note_OutcomesOverview.png" alt="Outcomes Overview Illustration" class="section-image-right">
-    <ul class="ending-list">
-        <li><strong>Legacy Corrupted</strong> > the ring is delivered; a greedy claimant inherits a bloodline he doesn't understand.</li>
-        <li><strong>Guardian Calmed</strong> > the ring is returned; the manor and its guardian go quiet.</li>
-        <li><strong>Bloodline Severed</strong> > the ring is destroyed; the guardian is freed from purpose and turns fully hostile.</li>
-        <li><strong>Entity Destroyed, Player Marked</strong> > direct confrontation in Quest 3 ends the threat at a permanent psychological cost.</li>
-        <li><strong>Entity Carried or Contained</strong> > avoidance or partial observation lets the player walk away, but not always alone.</li>
-    </ul>
-</div>
-
-<!-- Implementation Notes -->
-<div class="section implementation-notes">
-    <h2 class="section-title">Implementation Notes</h2>
-    <img src="../images/Portefolio/PND_Section/NA_Horro3Quests/Note_ImplementationsNotes.png" alt="Implementation Notes Illustration" class="section-image-right">
-    <ul class="notes-list">
-        <li>Entity state machines handle phase transitions (passive, testing, active pursuit) independently per quest.</li>
-        <li>Lantern oil and breath-hold meters drive pacing without relying on scripted enemy encounters.</li>
-        <li>Sanity and screen distortion tracked as a persistent value that can carry between quests.</li>
-        <li>Branching outcomes use Boolean flags so later quests can react to earlier player decisions.</li>
-        <li>Blueprint scripting recommended for real-time environmental manipulation (shifting corridors, looping roads).</li>
-    </ul>
-</div>
-
-<!-- Takeaways -->
-<div class="section design-takeaways">
-    <h2 class="section-title">Design Takeaways</h2>
-    <img src="../images/Portefolio/PND_Section/NA_Horro3Quests/Note_Designtakeways.png" alt="Design Takeaways Illustration" class="section-image-right">
-    <ul class="takeaway-list">
-        <li>Restraint reads scarier than reveal; entities are stronger as an implication than as a model on screen.</li>
-        <li>A visible countdown resource (light, breath) builds tension without needing a chase.</li>
-        <li>Consequences that follow the player between quests make single-quest choices feel weighty.</li>
-        <li>Twists land harder when the mechanic the player has been using turns out to mean something else.</li>
-        <li>Clear per-quest documentation keeps three very different horror hooks consistent as a set.</li>
-    </ul>
-</div>
-
-<br>
-
-<!-- Devlogs Callout -->
-<div class="section devlogs-callout">
-    <h2 class="section-title">Follow the Development</h2>
-    <p>These 3 quests are being built as new additions to <strong>Beneath the Quest Line</strong>, bringing the game to 5 complete quests.</p>
-    <p>
-        &nbsp;and keep an eye out on the development!
-    </p>
-
-    <br>
-
-    <a href="https://portfolio-gray-xi-aqmc84pa1m.vercel.app/Devlogs.html" target="_blank" class="btn btn-primary">
-            View Devlogs
-        </a>
-</div>
-
-</section>
-
-    <!-- Footer Section -->
-  <footer id="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
-
-      <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
-        </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
-        </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
-        </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
-        </a>
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="hero-copy">
+      <p class="kicker">BENEATH THE QUESTLINE <span>//</span> QUEST DESIGN</p>
+      <h1 class="jitter">The paper never<br>tells the <em>whole</em> story.</h1>
+      <p class="lead">
+        In the guild hall everything is warm, safe and well lit. Then you take a quest, and the quest
+        turns out to be so much worse than what was written on the paper.
+        These are three of them.
+      </p>
+      <div class="chips" aria-label="Quick facts">
+        <span class="chip"><b>Tools</b> Excalidraw, Figma</span>
+        <span class="chip"><b>Genre</b> Survival Horror RPG</span>
+        <span class="chip"><b>Scope</b> 3-Quest Expansion</span>
+        <span class="chip"><b>Systems</b> Sanity, Breath-Hold, Lantern Oil, Entity AI</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="#board">Read the quests</a>
+        <a class="btn btn-ghost" href="https://portfolio-gray-xi-aqmc84pa1m.vercel.app/Devlogs.html" target="_blank" rel="noopener">Follow the development ↗</a>
       </div>
     </div>
-  </footer>
 
+    <figure class="hero-shot" id="heroShot" data-mode="hall">
+      <div class="screen">
+        <img class="ps1" id="heroImg" src="../images/Portefolio/PND_Section/NA_Horro3Quests/guildhall_welcome.jpg"
+             alt="The guild receptionist welcoming you into the warm guild hall" width="1400" height="933">
+        <div class="screen-fx" aria-hidden="true"></div>
+        <span class="hud tl">GUILD HALL</span>
+        <span class="hud tr" id="heroHud">SAFE</span>
+      </div>
+      <figcaption>
+        <span id="heroCap">The guild hall. Warm. Safe. She is smiling, and the board is full of work.</span>
+        <span class="toggles">
+          <button type="button" class="tgl" id="heroToggle" aria-pressed="false">Embark on the quest ▸</button>
+          <button type="button" class="tgl" id="resToggle" aria-pressed="true" title="Switch between the low-res PS1 look and the original image">PS1 look: ON</button>
+        </span>
+      </figcaption>
+    </figure>
+  </header>
 
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const frame = document.getElementById("pdf-frame");
+  <!-- ================= CONCEPT ================= -->
+  <section class="block" id="concept">
+    <div class="split">
+      <div class="reveal">
+        <p class="label">The concept</p>
+        <h2>Warm on the board.<br><span class="acc">Worse in the field.</span></h2>
+        <p>
+          <strong>Beneath the Questline</strong> is built on one idea: the guild hall is where you feel
+          safe. It's warm, it's lit, the guild ladies know your name. When the player actually
+          <em>embarks</em> on a quest, things become real, and what looked straightforward on a piece of
+          paper is often far worse than it was ever described.
+        </p>
+        <p>
+          The paper is a promise. The quest is the truth. Every quest on this page is designed around that gap.
+        </p>
+        <blockquote class="tagline">"Nothing here hunts you outright. It only waits for you to make a sound, take what isn't yours, or look."</blockquote>
+      </div>
+      <figure class="reveal frame">
+        <img class="ps1 zoomable" src="../images/Portefolio/PND_Section/NA_Horro3Quests/questboard_paper.jpg"
+             alt="A guild lady tearing a quest notice, 'Clear out Goblin Den', off the quest board" loading="lazy">
+        <figcaption>The quest board. Every notice is a small lie.</figcaption>
+      </figure>
+    </div>
 
-    // If PDF fails to load, show a simple fallback
-    frame.onerror = () => {
-        frame.outerHTML = `
-            <div class="pdf-fallback">
-                <p>⚠️ Couldn't load the PDF. You can still download it:</p>
-                <a class="btn btn-primary" href="../Documents/Horror_Questline_Design.pdf" download>
-                    Download PDF
-                </a>
-            </div>
-        `;
-    };
-});
-</script>
+    <div class="why-box reveal">
+      <p class="label">Why I made these</p>
+      <p>
+        I wanted a game where I could write as many quests as I like, to exercise my creative and design
+        muscles. So I created these three and listed them here. Once I finish developing them, I can start
+        writing more.
+      </p>
+    </div>
+  </section>
 
-  <!-- Getting the images bigger Section need to fix this -->
-<script>
-  document.querySelectorAll('.Screenshot-img').forEach(img => {
-    img.addEventListener('click', () => {
-      img.classList.toggle('expanded');
-    });
-  });
-</script>
+  <!-- ================= QUEST BOARD ================= -->
+  <section class="block" id="board">
+    <div class="reveal">
+      <p class="label">The quest board</p>
+      <h2>Three notices. <span class="acc">Flip them.</span></h2>
+      <p class="sub">Each card shows what the paper says and what the quest really is. Click or press Enter on a card to see the truth.</p>
+    </div>
 
+    <div class="posters">
+
+      <article class="poster reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Quest 1, Final Will Delivery. Press to reveal what really happens.">
+        <div class="face front">
+          <span class="pin" aria-hidden="true"></span>
+          <p class="stamp">QUEST 1 · EASY</p>
+          <h3>Final Will Delivery</h3>
+          <p class="paper">Seeking a courier. Retrieve a sealed heirloom from Sauvelen Arial Manor and bring it to the family's heir. Reward: generous.</p>
+          <p class="giver"><b>Posted by</b> Rovel Arial Bello<br><i>Claims distant blood to a dead noble house</i></p>
+          <span class="hint">▸ read the small print</span>
+        </div>
+        <div class="face back">
+          <p class="stamp bad">THE TRUTH</p>
+          <h3>Sauvelen Arial Manor</h3>
+          <p>The heirloom was sealed for a reason. Taking it wakes the <strong>Arial Guardian</strong>.</p>
+          <ul>
+            <li>Setting: a manor that shifts around you</li>
+            <li>Outcomes: delivered, returned or destroyed. Each leaves a mark.</li>
+          </ul>
+          <span class="hint">◂ back to the paper</span>
+        </div>
+      </article>
+
+      <article class="poster reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Quest 2, The Long Road Back. Press to reveal what really happens.">
+        <div class="face front">
+          <span class="pin" aria-hidden="true"></span>
+          <p class="stamp">QUEST 2 · ROUTINE</p>
+          <h3>The Long Road Back</h3>
+          <p class="paper">Carry lantern oil along the Old Supply Road to the watchtower. A simple errand. Pays far more than it is worth.</p>
+          <p class="giver"><b>Posted by</b> Flominnal Watchtower Guard<br><i>Pays far too much for a simple oil run</i></p>
+          <span class="hint">▸ read the small print</span>
+        </div>
+        <div class="face back">
+          <p class="stamp bad">THE TRUTH</p>
+          <h3>The Old Supply Road</h3>
+          <p>A fog-bound loop. Your lantern is the <strong>only light and the only clock</strong>.</p>
+          <ul>
+            <li>Mechanic: a visibly shrinking flame</li>
+            <li>Burn bright to see more. Dim to survive longer.</li>
+          </ul>
+          <span class="hint">◂ back to the paper</span>
+        </div>
+      </article>
+
+      <article class="poster reveal" tabindex="0" role="button" aria-pressed="false" aria-label="Quest 3, Watch Rotation. Press to reveal what really happens.">
+        <div class="face front">
+          <span class="pin" aria-hidden="true"></span>
+          <p class="stamp">QUEST 3 · QUIET WORK</p>
+          <h3>Watch Rotation</h3>
+          <p class="paper">Observer needed at Voss Academic Hall. Sit, watch, take notes. No heavy lifting.</p>
+          <p class="giver"><b>Posted by</b> Scholar Aldren Voss<br><i>Sleepless, precise, hiding what he already knows</i></p>
+          <span class="hint">▸ read the small print</span>
+        </div>
+        <div class="face back">
+          <p class="stamp bad">THE TRUTH</p>
+          <h3>Voss Academic Hall</h3>
+          <p>A presence that <strong>feeds on being noticed</strong>. Whatever you do, don't turn around.</p>
+          <ul>
+            <li>Mechanic: holding your breath</li>
+            <li>Silence keeps you safe, but you can't hold it forever.</li>
+          </ul>
+          <span class="hint">◂ back to the paper</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= PS1 LOOK ================= -->
+  <section class="block retro" id="retro">
+    <div class="split">
+      <div class="reveal">
+        <p class="label">The look</p>
+        <h2>Made to feel like <span class="acc">an old PS1 game.</span></h2>
+        <p>
+          <strong>Beneath the Questline</strong> is meant to be a stylised retro game, and I took a lot of
+          inspiration from older games. That's why this page looks the way it does: chunky windows,
+          dithering, low resolution and fog.
+        </p>
+        <p>
+          The retro look does design work, too. Low resolution hides detail, and what the player can't see
+          clearly, the player imagines. For a game about quests that are worse than they sound,
+          that's the right tool.
+        </p>
+      </div>
+      <ul class="traits reveal" aria-label="PS1 visual language">
+        <li><b>Low-poly models</b><span>Simple shapes that read from far away.</span></li>
+        <li><b>Low-res textures</b><span>Crunchy pixels, nothing too clean.</span></li>
+        <li><b>Fog &amp; draw distance</b><span>The world ends where the fog begins.</span></li>
+        <li><b>Limited, warm-to-cold palette</b><span>Amber in the hall, sickly green in the field.</span></li>
+        <li><b>Dithered shadows</b><span>Gradients broken into patterns.</span></li>
+      </ul>
+    </div>
+    <p class="note reveal">Try it: use the <b>PS1 look</b> and <b>Embark on the quest</b> buttons on the first image at the top of this page.</p>
+  </section>
+
+  <!-- ================= PILLARS & EMOTIONS ================= -->
+  <section class="block" id="pillars">
+    <div class="reveal">
+      <p class="label">Design pillars</p>
+      <h2>What every quest <span class="acc">has to do.</span></h2>
+    </div>
+    <div class="pillars">
+      <article class="win reveal"><span class="num">01</span><h3>Dread Through Restraint</h3><p>Entities rarely attack outright. Presence, implication and sound design carry the fear instead of jump scares.</p></article>
+      <article class="win reveal"><span class="num">02</span><h3>Consequences That Follow</h3><p>Every ending leaves a mechanical or psychological mark that carries forward into later quests.</p></article>
+      <article class="win reveal"><span class="num">03</span><h3>The Player as Complicit</h3><p>Horror emerges from what the player does (theft, greed, curiosity), not only from what hunts them.</p></article>
+    </div>
+
+    <div class="reveal" style="margin-top:56px">
+      <p class="label">Target emotions</p>
+    </div>
+    <div class="emotions">
+      <figure class="emo reveal"><img class="ps1" src="../images/Portefolio/PND_Section/NA_Horro3Quests/dread.jpg" alt="Dread emotion visual" loading="lazy"><figcaption><h3>Dread</h3><p>Quiet environmental wrongness builds long before anything shows itself.</p></figcaption></figure>
+      <figure class="emo reveal"><img class="ps1" src="../images/Portefolio/PND_Section/NA_Horro3Quests/isolation.jpg" alt="Isolation emotion visual" loading="lazy"><figcaption><h3>Isolation</h3><p>Manors, fog roads and empty lecture halls strip away any sense of help.</p></figcaption></figure>
+      <figure class="emo reveal"><img class="ps1" src="../images/Portefolio/PND_Section/NA_Horro3Quests/guilt.jpg" alt="Guilt emotion visual" loading="lazy"><figcaption><h3>Guilt</h3><p>Theft, greed and being used by an NPC turn the player into part of the problem.</p></figcaption></figure>
+      <figure class="emo reveal"><img class="ps1" src="../images/Portefolio/PND_Section/NA_Horro3Quests/paranoia.jpg" alt="Paranoia emotion visual" loading="lazy"><figcaption><h3>Paranoia</h3><p>Something is always just outside the light, the fog or the corner of the eye.</p></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ================= MECHANICS (interactive) ================= -->
+  <section class="block" id="mechanics">
+    <div class="reveal">
+      <p class="label">Core mechanics</p>
+      <h2>Tension you can <span class="acc">manage with your hands.</span></h2>
+      <p class="sub">Both mechanics turn tension into something the player physically manages, not just something they watch happen to a character. Small web versions of them, to try.</p>
+    </div>
+
+    <div class="demos">
+      <div class="win demo reveal" id="lanternDemo">
+        <h3>The Lantern <small>Quest 2</small></h3>
+        <p class="dim">A visibly shrinking flame is the player's only light and only countdown.</p>
+        <div class="stage"><canvas id="lanternCanvas" width="320" height="190" aria-label="Lantern demo: a flame lights a foggy road"></canvas><div class="over" id="lanternOver" hidden>THE LANTERN DIES</div></div>
+        <div class="bar"><span>OIL</span><div class="meterbar"><i id="oilFill"></i></div><b id="oilTxt">100%</b></div>
+        <div class="row">
+          <button type="button" class="tgl" data-flame="1">Dim</button>
+          <button type="button" class="tgl is-on" data-flame="2">Normal</button>
+          <button type="button" class="tgl" data-flame="3">Bright</button>
+          <button type="button" class="tgl" id="oilReset">Refill</button>
+        </div>
+        <p class="read" id="lanternRead">Burn bright to see more. Dim to survive longer.</p>
+      </div>
+
+      <div class="win demo reveal" id="breathDemo">
+        <h3>Holding Breath <small>Quest 3</small></h3>
+        <p class="dim">Suppress all sound to avoid an entity that tracks noise, but breath can't be held forever.</p>
+        <div class="stage breath-stage">
+          <div class="ring" id="noiseRing"></div>
+          <div class="you" aria-hidden="true">YOU</div>
+          <div class="it" id="itEye" aria-hidden="true">◉</div>
+        </div>
+        <div class="bar"><span>BREATH</span><div class="meterbar"><i id="breathFill"></i></div><b id="breathTxt">100%</b></div>
+        <div class="bar"><span>IT HEARS</span><div class="meterbar bad"><i id="hearFill"></i></div><b id="hearTxt">0%</b></div>
+        <div class="row">
+          <button type="button" class="tgl big" id="holdBtn">Hold to hold your breath</button>
+        </div>
+        <p class="read" id="breathRead">Press and hold the button (or Space). Let go, and you'll breathe loudly.</p>
+      </div>
+    </div>
+
+    <div class="hooks reveal">
+      <p class="label">Systemic hooks</p>
+      <ul>
+        <li>Entity behaviour built in escalating phases, from passive presence to active pursuit.</li>
+        <li>Sanity and screen-edge distortion accumulate visibly and can carry permanent effects into future quests.</li>
+        <li>Environmental manipulation (looping roads, shifting manors) replaces scripted chases.</li>
+        <li>Every ending is a trade-off: a struggle mechanic, a resource choice or a permanent psychological cost. Never a clean win.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= FLOWCHARTS ================= -->
+  <section class="block" id="flow">
+    <div class="reveal">
+      <p class="label">Quest flowcharts</p>
+      <h2>How each quest <span class="acc">branches.</span></h2>
+      <p class="sub">Click a flowchart to enlarge it.</p>
+    </div>
+    <div class="flows">
+      <figure class="win reveal"><h3>Quest 1 Flowchart</h3><img class="zoomable" src="../images/Portefolio/PND_Section/NA_Horro3Quests/Quest1_Flowchart.png" alt="Quest 1 Flowchart Preview" loading="lazy"></figure>
+      <figure class="win reveal"><h3>Quest 2 Flowchart</h3><img class="zoomable" src="../images/Portefolio/PND_Section/NA_Horro3Quests/Quest2_Flowchart.png" alt="Quest 2 Flowchart Preview" loading="lazy"></figure>
+      <figure class="win reveal"><h3>Quest 3 Flowchart</h3><img class="zoomable" src="../images/Portefolio/PND_Section/NA_Horro3Quests/Quest3_Flowchart.png" alt="Quest 3 Flowchart Preview" loading="lazy"></figure>
+    </div>
+
+    <div class="split why reveal">
+      <div>
+        <p class="label">In a horror context</p>
+        <h3 class="h3">Why these quests work</h3>
+        <ul class="ticks">
+          <li>Entities that test and wait instead of chasing on sight.</li>
+          <li>Tension built through a resource the player can watch run out.</li>
+          <li>A mechanic (breath, light) that makes the player complicit in their own survival.</li>
+          <li>Twists that recontextualise everything the player already did.</li>
+          <li>Consequences that quietly follow the player into later quests.</li>
+        </ul>
+      </div>
+      <figure class="frame"><img class="ps1 zoomable" src="../images/Portefolio/PND_Section/NA_Horro3Quests/whyitwork.jpg" alt="Why the quests work in a horror context" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ================= DOCUMENT ================= -->
+  <section class="block" id="doc">
+    <div class="reveal">
+      <p class="label">The document</p>
+      <h2>Quest Design Document <span class="acc">(PDF preview)</span></h2>
+    </div>
+    <div class="win pdf reveal">
+      <iframe id="pdf-frame" src="../Documents/ND_HorrorQuestlineDesign.pdf" title="Horror Questline Design PDF"></iframe>
+    </div>
+  </section>
+
+  <!-- ================= OUTCOMES / NOTES / TAKEAWAYS ================= -->
+  <section class="block" id="outcomes">
+    <div class="trio">
+      <article class="win reveal">
+        <img class="note-img" src="../images/Portefolio/PND_Section/NA_Horro3Quests/Note_OutcomesOverview.png" alt="Outcomes Overview Illustration" loading="lazy">
+        <h3>Outcomes Overview</h3>
+        <ul>
+          <li><strong>Legacy Corrupted</strong>: the ring is delivered; a greedy claimant inherits a bloodline he doesn't understand.</li>
+          <li><strong>Guardian Calmed</strong>: the ring is returned; the manor and its guardian go quiet.</li>
+          <li><strong>Bloodline Severed</strong>: the ring is destroyed; the guardian is freed from purpose and turns fully hostile.</li>
+          <li><strong>Entity Destroyed, Player Marked</strong>: direct confrontation in Quest 3 ends the threat at a permanent psychological cost.</li>
+          <li><strong>Entity Carried or Contained</strong>: avoidance or partial observation lets the player walk away, but not always alone.</li>
+        </ul>
+      </article>
+
+      <article class="win reveal">
+        <img class="note-img" src="../images/Portefolio/PND_Section/NA_Horro3Quests/Note_ImplementationsNotes.png" alt="Implementation Notes Illustration" loading="lazy">
+        <h3>Implementation Notes</h3>
+        <ul>
+          <li>Entity state machines handle phase transitions (passive, testing, active pursuit) independently per quest.</li>
+          <li>Lantern oil and breath-hold meters drive pacing without relying on scripted enemy encounters.</li>
+          <li>Sanity and screen distortion tracked as a persistent value that can carry between quests.</li>
+          <li>Branching outcomes use Boolean flags so later quests can react to earlier player decisions.</li>
+          <li>Blueprint scripting recommended for real-time environmental manipulation (shifting corridors, looping roads).</li>
+        </ul>
+      </article>
+
+      <article class="win reveal">
+        <img class="note-img" src="../images/Portefolio/PND_Section/NA_Horro3Quests/Note_Designtakeways.png" alt="Design Takeaways Illustration" loading="lazy">
+        <h3>Design Takeaways</h3>
+        <ul>
+          <li>Restraint reads scarier than reveal; entities are stronger as an implication than as a model on screen.</li>
+          <li>A visible countdown resource (light, breath) builds tension without needing a chase.</li>
+          <li>Consequences that follow the player between quests make single-quest choices feel weighty.</li>
+          <li>Twists land harder when the mechanic the player has been using turns out to mean something else.</li>
+          <li>Clear per-quest documentation keeps three very different horror hooks consistent as a set.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CALLOUT ================= -->
+  <section class="block callout reveal" id="follow">
+    <p class="label">Follow the development</p>
+    <h2>Five quests, <span class="acc">and counting.</span></h2>
+    <p>These 3 quests are being built as new additions to <strong>Beneath the Questline</strong>, bringing the game to 5 complete quests. Keep an eye on the development.</p>
+    <a class="btn btn-primary" href="https://portfolio-gray-xi-aqmc84pa1m.vercel.app/Devlogs.html" target="_blank" rel="noopener">View Devlogs ↗</a>
+  </section>
+
+</main>
+
+<footer id="footer">
+  <div class="footer-content">
+    <p>&copy; 2026 Francisco Santos | All Rights Reserved</p>
+    <div id="social-links">
+      <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener" title="LinkedIn"><img src="../images/socialmedia_linkedin_logo.png" alt="LinkedIn"></a>
+      <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" rel="noopener" title="IndieDB"><img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB"></a>
+      <a href="https://unifasdev.itch.io/" target="_blank" rel="noopener" title="itch.io"><img src="../images/socialmedia_itchio_logo.png" alt="itch.io"></a>
+      <a href="https://www.instagram.com/unifasdev/" target="_blank" rel="noopener" title="Instagram"><img src="../images/socialmedia_instagram_logo.png" alt="Instagram"></a>
+      <a href="https://www.artstation.com/francissantos_dev" target="_blank" rel="noopener" title="ArtStation"><img src="../images/socialmedia_artstation_logo.png" alt="ArtStation"></a>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden><img alt=""><button type="button" aria-label="Close">×</button></div>
+
+<script src="../js/quests.js" defer></script>
 </body>
 </html>
