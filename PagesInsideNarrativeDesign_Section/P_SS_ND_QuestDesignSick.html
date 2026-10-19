@@ -1,264 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francis Santos Portfolio</title>
-  <link rel="shortcut icon" href="../images/2.png" type="../image/x-icon">
+  <title>Basinwick Shire: Cure of the Dying Village | Francisco Santos Portfolio</title>
+  <link rel="shortcut icon" href="../images/2.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
   <link rel="stylesheet" href="../CssStuff/normalize.css">
-  <link rel="stylesheet" href="../CssStuff/subsectionsBase.css">
+  <link rel="stylesheet" href="../CssStuff/basinwick.css">
 </head>
+<body class="bw">
 
-<body>
-<section class="gd-project-page">
+  <canvas id="ash" aria-hidden="true"></canvas>
+  <div class="fx-inf" aria-hidden="true"></div>
+  <div class="fx-veins" aria-hidden="true"></div>
+
+  <div class="inf-hud" role="status">
+    <div class="row"><span>Infection</span><b><span id="infVal">0%</span> &middot; <span id="infState">Healthy</span></b></div>
+    <div class="inf-bar"><i></i></div>
+    <button type="button" id="calmBtn">Effects: on</button>
+  </div>
+
+  <main class="wrap">
 
     <!-- Back Button -->
-    <a href="../Portefolio_SubSection/Port_SubSections_ND.html" class="gd-back-btn">⟵ Back</a>
+    <a href="../Portefolio_SubSection/Port_SubSections_ND.html" class="back gd-back-btn">&#10188; Back</a>
 
-    <!-- Quick Facts -->
-    <aside class="quick-facts">
-        <div class="section">
-            <h2 class="section-title">Quick facts</h2>
-            <div class="meta chips-row">
-                <div class="chip">Tools: Excalidraw, Figma</div>
-                <div class="chip">Genre: Fantasy RPG</div>
-                <div class="chip">Scope: Mid-level quest</div>
-                <div class="chip">Systems: Inventory, HP, Hostility</div>
-            </div>
-        </div>
-    </aside>
+    <header class="hero">
+      <p class="kicker">Narrative Design &bull; Quest Design &bull; Branching Dialogue &bull; RPG Systems</p>
+      <h1>Basinwick Shire <em>Cure of the Dying Village</em></h1>
+      <p class="quote">Become the reluctant savior of a dying village or the catalyst of its downfall.</p>
 
-    <!-- Quest Fantasy Summary -->
-    <div class="section quest-fantasy">
-        <h2 class="section-title">Quest Fantasy</h2>
-        <p class="quest-tagline"><em>"Become the reluctant savior of a dying village or the catalyst of its downfall."</em></p>
-    </div>
+      <!-- Quick Facts -->
+      <ul class="chips" aria-label="Quick facts">
+        <li><b>Tools</b> Excalidraw, Figma</li>
+        <li><b>Genre</b> Fantasy RPG</li>
+        <li><b>Scope</b> Mid-level quest</li>
+        <li><b>Systems</b> Inventory, HP, Hostility</li>
+      </ul>
+      <p class="scroll-note">&#9660; keep scrolling &middot; the plague follows you &#9660;</p>
+    </header>
 
     <!-- Design Pillars -->
-    <div class="section design-pillars">
-        <h2 class="section-title">Design Pillars</h2>
-        <ul class="pillar-list">
-            <li><strong>Consequences That Echo</strong> > every choice returns later in emotional or mechanical form.</li>
-            <li><strong>Fear Through Uncertainty</strong> > infection, distrust, and ambiguity build tension.</li>
-            <li><strong>Moral Pressure</strong> > push the player into uncomfortable decisions without forcing a “good path.”</li>
-        </ul>
-    </div>
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">I</span><h2>Design Pillars</h2></div>
+      <ul class="pillars">
+        <li class="rv"><span class="n">1</span><strong>Consequences That Echo</strong><span>Every choice returns later in emotional or mechanical form.</span></li>
+        <li class="rv"><span class="n">2</span><strong>Fear Through Uncertainty</strong><span>Infection, distrust, and ambiguity build tension.</span></li>
+        <li class="rv"><span class="n">3</span><strong>Moral Pressure</strong><span>Push the player into uncomfortable decisions without forcing a &ldquo;good path.&rdquo;</span></li>
+      </ul>
+    </section>
 
-  <!-- Target Emotions -->
-<div class="section target-emotions">
-    <h2 class="section-title">Target Emotions</h2>
-
-    <div class="emotion-grid">
-
-        <div class="emotion-card">
-            <img src="../images/Portefolio/PND_Section/qds_narrative_te_urgency.jpg" alt="Urgency emotion visual">
-            <h3>Urgency</h3>
-            <p>Villagers are dying as time passes.</p>
+    <!-- Target Emotions -->
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">II</span><h2>Target Emotions</h2></div>
+      <div class="emos">
+        <div class="emo rv">
+          <img src="../images/Portefolio/PND_Section/qds_narrative_te_urgency.jpg" alt="Urgency emotion visual">
+          <div><h3>Urgency</h3><p>Villagers are dying as time passes.</p></div>
         </div>
-
-        <div class="emotion-card">
-            <img src="../images/Portefolio/PND_Section/qds_narrative_te_dread.jpg" alt="Dread emotion visual">
-            <h3>Dread</h3>
-            <p>Environmental cues and unpredictable NPC reactions.</p>
+        <div class="emo rv">
+          <img src="../images/Portefolio/PND_Section/qds_narrative_te_dread.jpg" alt="Dread emotion visual">
+          <div><h3>Dread</h3><p>Environmental cues and unpredictable NPC reactions.</p></div>
         </div>
-
-        <div class="emotion-card">
-            <img src="../images/Portefolio/PND_Section/qds_narrative_te_responsibility.jpg" alt="Responsibility emotion visual">
-            <h3>Responsibility</h3>
-            <p>The cure depends entirely on player action.</p>
+        <div class="emo rv">
+          <img src="../images/Portefolio/PND_Section/qds_narrative_te_responsibility.jpg" alt="Responsibility emotion visual">
+          <div><h3>Responsibility</h3><p>The cure depends entirely on player action.</p></div>
         </div>
-
-        <div class="emotion-card">
-            <img src="../images/Portefolio/PND_Section/qds_narrative_te_paranoia.jpg" alt="Paranoia emotion visual">
-            <h3>Paranoia</h3>
-            <p>Hostility shifts based on past choices.</p>
+        <div class="emo rv">
+          <img src="../images/Portefolio/PND_Section/qds_narrative_te_paranoia.jpg" alt="Paranoia emotion visual">
+          <div><h3>Paranoia</h3><p>Hostility shifts based on past choices.</p></div>
         </div>
-
-    </div>
-</div>
+      </div>
+    </section>
 
     <!-- Characters -->
-    <div class="section characters">
-        <h2 class="section-title">Characters</h2>
-        <div class="character-list">
-            <div class="char">
-                <strong>Village Chief</strong><br>
-                <span class="char-desc">Desperate authority</span>
-            </div>
-
-            <div class="char">
-                <strong>Village Elder</strong><br>
-                <span class="char-desc">Cynical, pragmatic</span>
-            </div>
-
-            <div class="char">
-                <strong>Alchemist</strong><br>
-                <span class="char-desc">Knowledge-focused, anxious</span>
-            </div>
-
-            <div class="char">
-                <strong>Professor</strong><br>
-                <span class="char-desc">Comic relief, lab scenes</span>
-            </div>
-        </div>
-    </div>
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">III</span><h2>Characters</h2></div>
+      <ul class="cast">
+        <li class="paper rv"><div class="sealc">C</div><strong>Village Chief</strong><span>Desperate authority</span></li>
+        <li class="paper rv"><div class="sealc">E</div><strong>Village Elder</strong><span>Cynical, pragmatic</span></li>
+        <li class="paper rv"><div class="sealc">A</div><strong>Alchemist</strong><span>Knowledge-focused, anxious</span></li>
+        <li class="paper rv"><div class="sealc">P</div><strong>Professor</strong><span>Comic relief, lab scenes</span></li>
+      </ul>
+    </section>
 
     <!-- Systemic Hooks -->
-    <div class="section systemic-hooks">
-        <h2 class="section-title">Systemic Hooks</h2>
-        <ul class="hooks-list">
-            <li>Infection debuff modifies screen effects + animations.</li>
-            <li>Village hostility changes based on player dialogue history.</li>
-            <li>Inventory puzzle linked to herbs, feathers, and cure materials.</li>
-            <li>Escape sequence uses area hazards and collapsing cave triggers.</li>
-        </ul>
-    </div>
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">IV</span><h2>Systemic Hooks</h2></div>
+      <ul class="hooks">
+        <li class="rv"><div class="g">&#9763;</div><div><small>Infection</small>Infection debuff modifies screen effects + animations.</div></li>
+        <li class="rv"><div class="g">&#9876;</div><div><small>Hostility</small>Village hostility changes based on player dialogue history.</div></li>
+        <li class="rv"><div class="g">&#9879;</div><div><small>Inventory</small>Inventory puzzle linked to herbs, feathers, and cure materials.</div></li>
+        <li class="rv"><div class="g">&#9968;</div><div><small>Escape</small>Escape sequence uses area hazards and collapsing cave triggers.</div></li>
+      </ul>
+    </section>
 
     <!-- Flowchart -->
-    <div class="section flowchart-section">
-        <h2 class="section-title">Flowchart (preview)</h2>
-        <div class="flowchart-preview">
-            <img 
-                src="../images/Portefolio/PND_Section/01_QuestFantasy_QD_flowChart.png"
-                alt="Quest Flowchart Preview"
-                class="flowchart-img"
-            >
-        </div>
-    </div>
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">V</span><h2>Flowchart</h2></div>
+      <div class="flow rv" tabindex="0" role="button" aria-label="Open the quest flowchart full size">
+        <img src="../images/Portefolio/PND_Section/01_QuestFantasy_QD_flowChart.png" alt="Quest Flowchart Preview">
+        <span class="hint">Click to enlarge</span>
+      </div>
+    </section>
 
-<div class="gd-text-image-block">
-
-       <!-- Horror Context -->
-    <div class="gd-text-side">
-        <h3>Why This Quest Works in a Horror Context</h3>
-        <ul class="horror-points">
-            <li>Uses moral dilemmas instead of cheap jump scares.</li>
-            <br>
-            <li>Hostile villagers become unpredictable human threats.</li>
-            <br>
-            <li>Resource tension through infection + cure crafting.</li>
-            <br>
-            <li>Environmental hazards reinforcing vulnerability.</li>
-            <br>
-            <li>Emotional stakes increase dread organically.</li>
+    <!-- Horror Context -->
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">VI</span><h2>Why This Quest Works in a Horror Context</h2></div>
+      <div class="split">
+        <ul class="rv">
+          <li>Uses moral dilemmas instead of cheap jump scares.</li>
+          <li>Hostile villagers become unpredictable human threats.</li>
+          <li>Resource tension through infection + cure crafting.</li>
+          <li>Environmental hazards reinforcing vulnerability.</li>
+          <li>Emotional stakes increase dread organically.</li>
         </ul>
-    </div>
+        <div class="frame rv"><img src="../images/Portefolio/PND_Section/PlaugueTimes.jpg" alt="Example Preview"></div>
+      </div>
+    </section>
 
-    <div class="gd-image-side">
-        <img src="../images/Portefolio/PND_Section/PlaugueTimes.jpg" alt="Example Preview">
-    </div>
-
-</div>
+    <!-- Play the state machine -->
+    <section class="sec" id="play">
+      <div class="sec-h rv"><span class="no">VII</span><h2>Play the Quest State</h2></div>
+      <div class="sim rv">
+        <p class="sim-intro">A tiny, playable model of the quest state machine described below: infection, hostility, herbs, feathers and cure progress. Try for the best ending, or just see how the village remembers you. <em>(A simplified demo, not the full quest.)</em></p>
+        <div class="sim-grid">
+          <div>
+            <div class="meter inf"><div class="lab"><span>Infection</span><b id="mInf">5</b></div><div class="tr"><i id="mInfB"></i></div></div>
+            <div class="meter host"><div class="lab"><span>Village hostility <small>(combat at 70)</small></span><b id="mHost">20</b></div><div class="tr"><i id="mHostB"></i></div></div>
+            <div class="inv"><div><b id="iHerbs">0</b>Herbs</div><div><b id="iFeathers">0</b>Feathers</div><div><b id="iDay">1</b>Day</div></div>
+            <div class="acts">
+              <button type="button" data-act="herbs">Forage herbs</button>
+              <button type="button" data-act="feathers">Gather feathers</button>
+              <button type="button" data-act="comfort">Comfort villagers</button>
+              <button type="button" data-act="accuse" class="danger">Accuse someone</button>
+              <button type="button" data-act="brew" class="wide">Brew the cure</button>
+              <button type="button" data-act="abandon" class="wide danger">Abandon the quest</button>
+            </div>
+          </div>
+          <div>
+            <div class="log" id="simLog" aria-live="polite"></div>
+            <p class="sim-result" id="simRes"></p>
+            <button type="button" class="btn sim-reset" id="simReset">Start over</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- PDF Viewer -->
-<div class="pdf-viewer">
-    <h2 class="section-title">Quest Design Document (PDF Preview)</h2>
-    <iframe 
-        id="pdf-frame"
-        src="../Documents/ND_village_QuestDesignsRPG.pdf"
-        title="Quest Design PDF"
-        frameborder="0">
-    </iframe>
-</div>
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">VIII</span><h2>Quest Design Document</h2></div>
+      <div class="pdf rv">
+        <iframe id="pdf-frame" src="../Documents/ND_village_QuestDesignsRPG.pdf" title="Quest Design PDF"></iframe>
+      </div>
+      <p class="pdf-bar rv"><span>Quest Design Document (PDF preview)</span><a class="btn" href="../Documents/ND_village_QuestDesignsRPG.pdf" target="_blank" rel="noopener">Open full PDF</a></p>
+    </section>
 
-   <!-- Endings -->
-<div class="section endings">
-    <h2 class="section-title">Endings Overview</h2>
-    <img src="../images/Portefolio/PND_Section/qds_narrative_end_happyvilage.jpg" alt="Endings Overview Illustration" class="section-image-right">
-    <ul class="ending-list">
-        <li><strong>Village Saved</strong> > cure succeeds; villagers remember your choices.</li>
-        <li><strong>Bittersweet Survival</strong> > incomplete cure; several villagers die.</li>
-        <li><strong>Village Collapse</strong> > cure abandoned or misused; total failure.</li>
-        <li><strong>Player Death</strong> > infection overtakes the player.</li>
-    </ul>
-</div>
+    <!-- Endings -->
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">IX</span><h2>Endings Overview</h2></div>
+      <div class="endings">
+        <ul>
+          <li class="rv"><strong>Village Saved</strong>Cure succeeds; villagers remember your choices.</li>
+          <li class="rv"><strong>Bittersweet Survival</strong>Incomplete cure; several villagers die.</li>
+          <li class="rv"><strong>Village Collapse</strong>Cure abandoned or misused; total failure.</li>
+          <li class="rv"><strong>Player Death</strong>Infection overtakes the player.</li>
+        </ul>
+        <div class="frame rv"><img src="../images/Portefolio/PND_Section/qds_narrative_end_happyvilage.jpg" alt="Endings Overview Illustration"></div>
+      </div>
+    </section>
 
-<!-- Implementation Notes -->
-<div class="section implementation-notes">
-    <h2 class="section-title">Implementation Notes</h2>
-    <img src="../images/Portefolio/PND_Section/qds_narrative_end_right.jpg" alt="Implementation Notes Illustration" class="section-image-right">
-    <ul class="notes-list">
-        <li>Quest state machine handles infection, hostility, and cure progression.</li>
-        <li>Branching dialogue uses Boolean flags for major player decisions.</li>
-        <li>Combat triggers only after hostility threshold is reached.</li>
-        <li>Environmental hazards controlled through collision volumes.</li>
-        <li>Blueprint scripting recommended for real-time village state updates.</li>
-    </ul>
-</div>
+    <!-- Implementation Notes -->
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">X</span><h2>Implementation Notes</h2></div>
+      <div class="two">
+        <ul class="list notes rv">
+          <li>Quest state machine handles infection, hostility, and cure progression.</li>
+          <li>Branching dialogue uses Boolean flags for major player decisions.</li>
+          <li>Combat triggers only after hostility threshold is reached.</li>
+          <li>Environmental hazards controlled through collision volumes.</li>
+          <li>Blueprint scripting recommended for real-time village state updates.</li>
+        </ul>
+        <div class="frame rv"><img src="../images/Portefolio/PND_Section/qds_narrative_end_right.jpg" alt="Implementation Notes Illustration"></div>
+      </div>
+    </section>
 
-<!-- Takeaways -->
-<div class="section design-takeaways">
-    <h2 class="section-title">Design Takeaways</h2>
-    <img src="../images/Portefolio/PND_Section/qds_narrative_end_takeaway.jpg" alt="Design Takeaways Illustration" class="section-image-right">
-    <ul class="takeaway-list">
-        <li>Branching must remain tightly scoped to avoid narrative overload.</li>
-        <li>NPC morality works best when directly reflecting player choice.</li>
-        <li>Infection mechanics enhance tension when tied to pacing.</li>
-        <li>Refusal paths must remain engaging to preserve agency.</li>
-        <li>Clear documentation ensures smooth team integration.</li>
-    </ul>
-</div>
+    <!-- Takeaways -->
+    <section class="sec">
+      <div class="sec-h rv"><span class="no">XI</span><h2>Design Takeaways</h2></div>
+      <div class="two flip">
+        <ul class="list rv">
+          <li>Branching must remain tightly scoped to avoid narrative overload.</li>
+          <li>NPC morality works best when directly reflecting player choice.</li>
+          <li>Infection mechanics enhance tension when tied to pacing.</li>
+          <li>Refusal paths must remain engaging to preserve agency.</li>
+          <li>Clear documentation ensures smooth team integration.</li>
+        </ul>
+        <div class="frame rv"><img src="../images/Portefolio/PND_Section/qds_narrative_end_takeaway.jpg" alt="Design Takeaways Illustration"></div>
+      </div>
+    </section>
 
+    <section class="next rv">
+      <h2>The quest board has more</h2>
+      <p>Warm guild hall, worse quest. Read the horror questline next, or head back to the board.</p>
+      <div class="btns">
+        <a class="btn" href="P_SS_ND_HorrorQuests.html">Horror Questline Design &#9656;</a>
+        <a class="btn" href="../Portefolio_SubSection/Port_SubSections_ND.html">Back to the quest board</a>
+      </div>
+    </section>
+  </main>
 
-</section>
+  <div class="lb" id="lb" aria-hidden="true"><small>click or Esc to close</small><img alt="Quest flowchart, full size"></div>
 
-    <!-- Footer Section -->
-  <footer id="footer">
+  <!-- Footer Section -->
+  <footer id="footer" class="foot">
     <div class="footer-content">
       <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
-
       <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
-        </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
-        </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
-        </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
-        </a>
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener" title="linkedin"><img src="../images/socialmedia_linkedin_logo.png" alt="linkedin"></a>
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" rel="noopener" title="IndieDB"><img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB"></a>
+        <a href="https://unifasdev.itch.io/" target="_blank" rel="noopener" title="Itchio"><img src="../images/socialmedia_itchio_logo.png" alt="Itchio"></a>
+        <a href="https://www.instagram.com/unifasdev/" target="_blank" rel="noopener" title="Instagram"><img src="../images/socialmedia_instagram_logo.png" alt="Instagram"></a>
+        <a href="https://www.artstation.com/francissantos_dev" target="_blank" rel="noopener" title="ArtStation"><img src="../images/socialmedia_artstation_logo.png" alt="ArtStation"></a>
       </div>
     </div>
   </footer>
 
-
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const frame = document.getElementById("pdf-frame");
-
-    // If PDF fails to load, show a simple fallback
-    frame.onerror = () => {
-        frame.outerHTML = `
-            <div class="pdf-fallback">
-                <p>⚠️ Couldn't load the PDF. You can still download it:</p>
-                <a class="btn btn-primary" href="../pdf/QuestFantasy_QuestDesign.pdf" download>
-                    Download PDF
-                </a>
-            </div>
-        `;
-    };
-});
-</script>
-
-  <!-- Getting the images bigger Section need to fix this -->
-<script>
-  document.querySelectorAll('.Screenshot-img').forEach(img => {
-    img.addEventListener('click', () => {
-      img.classList.toggle('expanded');
-    });
-  });
-</script>
-
+  <script src="../js/basinwick.js"></script>
 </body>
 </html>

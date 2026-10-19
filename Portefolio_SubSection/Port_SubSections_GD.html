@@ -1,100 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Francis Santos Portfolio</title>
+  <title>Gameplay Design | Francisco Santos Portfolio</title>
   <link rel="shortcut icon" href="../images/2.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500&family=Chakra+Petch:wght@600;700&family=Share+Tech+Mono&display=swap">
   <link rel="stylesheet" href="../CssStuff/normalize.css">
-  <link rel="stylesheet" href="../CssStuff/styles.css"> <!-- Add this -->
+  <link rel="stylesheet" href="../CssStuff/hubs.css">
 </head>
 
-<body>
+<body class="hub hub-gd">
+  <div class="fx-vig"></div><div class="fx-scan"></div>
 
-  <section class="portfolio-core">
+  <main class="portfolio-core hub-wrap">
+    <a href="../Portfolio.html" class="hub-back gd-back-btn">⟵ Back</a>
 
-        <!-- a square -->
-    <a href="../Portfolio.html" class="gd-back-btn">⟵ Back</a>
+    <div class="hud-bar" aria-hidden="true"><span>Player 1: <b>Francisco</b></span><span>Section: <b>Gameplay Design</b></span><span>Systems: <b>3</b></span><span class="blink">&#9608;</span></div>
 
-    <a href="../PagesInsideGameplayDesign_Section/P_SS_GD_ShadowMarket.html">
-    <div class="core-panel">
-        <div class="core-img-wrapper">
-            <img src="../images/Portefolio/PGD_Section/ShadowMarket/Shadow Market_banner.png" alt="Project Thumbnail">
-        </div>
-
-        <h3 class="core-title">Shadow Market - Gameplay Design Project</h3>
-        <p class="core-hook">
-            A mobile-first, atmospheric horror experience where players run a mysterious night market for altered customers.
-            Designed core systems, player loop, cosmetic economy, progression structure, and tension mechanics without relying on jumpscares.
-        </p>
-    </div>
-    </a>
-
-    <a href="../PagesInsideGameplayDesign_Section/P_SS_GD_EchoSystem.html">
-    <div class="core-panel">
-        <div class="core-img-wrapper">
-            <img src="../images/Portefolio/PGD_Section/echo_Banner.png" alt="Project Thumbnail">
-        </div>
-
-        <h3 class="core-title">Echolocation System</h3>
-        <p class="core-hook">
-            A sound-driven mechanic that shapes the entire experience.
-Click to see how player, enemy, and environmental pulses redefine navigation, tension, and discovery.
-        </p>
-    </div>
-    </a>
-
-
-    <a href="../PagesInsideGameplayDesign_Section/P_SS_GD_OnceUponAPage.html">
-      <div class="core-panel">
-        <div class="core-img-wrapper">
-            <img src="../images/Portefolio/PGD_Section/OnceUponPage/once_upon_a_page_banner.png" alt="Once Upon a Page Banner">
-        </div>
-
-        <h3 class="core-title">Once Upon a Page</h3>
-
-        <p class="core-hook">
-            Shipped on Steam. As Lead Programmer, I designed the game's core interaction systems,
-            led the transition from Unreal Engine 5 to Unity, and implemented the technical
-            foundations behind an imaginative educational puzzle experience.
-        </p>
+    <header class="hub-hero">
+      <div>
+        <p class="eyebrow">Select a stage</p>
+        <h1>Gameplay Design</h1>
+        <p class="lede">Mechanics, player interactions, systems, and gameplay loops that I've designed.</p>
+        <ul class="stats">
+          <li><b>3</b>Systems</li>
+          <li><b>1</b>Shipped on Steam</li>
+          <li><b>UE5 &rarr; Unity</b>Engines</li>
+        </ul>
       </div>
-    </a>
+      <div class="loop" aria-hidden="true">
+        <svg viewBox="0 0 260 260">
+          <circle class="ring2" cx="130" cy="130" r="122"/>
+          <circle class="ring" cx="130" cy="130" r="100"/>
+          <text class="core" x="130" y="128">CORE LOOP</text>
+          <text class="sub" x="130" y="148">player acts</text>
+          <g class="node"><circle cx="130" cy="30" r="14"/><text x="130" y="8">INPUT</text></g>
+          <g class="node"><circle cx="230" cy="130" r="14"/><text x="230" y="164">SYSTEM</text></g>
+          <g class="node"><circle cx="130" cy="230" r="14"/><text x="130" y="262">FEEDBACK</text></g>
+          <g class="node"><circle cx="30" cy="130" r="14"/><text x="30" y="164">REWARD</text></g>
+          <circle class="dot" cx="130" cy="30" r="6"/>
+        </svg>
+      </div>
+    </header>
 
-</section>
+    <section class="hub-grid">
+      <a href="../PagesInsideGameplayDesign_Section/P_SS_GD_ShadowMarket.html" class="hub-card rv" data-node="3">
+        <div class="stage"><span>STAGE 01</span><span>REWARD</span></div>
+        <div class="card-img"><img src="../images/Portefolio/PGD_Section/ShadowMarket/Shadow Market_banner.png" alt="Project Thumbnail"></div>
+        <div class="card-body">
+          <h3 class="core-title">Shadow Market - Gameplay Design Project</h3>
+          <p class="core-hook">A mobile-first, atmospheric horror experience where players run a mysterious night market for altered customers. Designed core systems, player loop, cosmetic economy, progression structure, and tension mechanics without relying on jumpscares.</p>
+          <ul class="chips"><li>Core loop</li><li>Economy</li><li>Progression</li><li>Tension</li></ul>
+          <span class="card-cta"><i>&#9654;</i>Press start</span>
+        </div>
+      </a>
+      <a href="../PagesInsideGameplayDesign_Section/P_SS_GD_EchoSystem.html" class="hub-card rv" data-node="2">
+        <div class="stage"><span>STAGE 02</span><span>FEEDBACK</span></div>
+        <div class="card-img"><img src="../images/Portefolio/PGD_Section/echo_Banner.png" alt="Project Thumbnail"></div>
+        <div class="card-body">
+          <h3 class="core-title">Echolocation System</h3>
+          <p class="core-hook">A sound-driven mechanic that shapes the entire experience. Click to see how player, enemy, and environmental pulses redefine navigation, tension, and discovery.</p>
+          <ul class="chips"><li>Sound</li><li>Navigation</li><li>Discovery</li></ul>
+          <span class="card-cta"><i>&#9654;</i>Press start</span>
+        </div>
+      </a>
+      <a href="../PagesInsideGameplayDesign_Section/P_SS_GD_OnceUponAPage.html" class="hub-card rv" data-node="0">
+        <div class="stage"><span>STAGE 03</span><span>INPUT</span></div>
+        <div class="card-img"><img src="../images/Portefolio/PGD_Section/OnceUponPage/once_upon_a_page_banner.png" alt="Once Upon a Page Banner"><span class="badge">Shipped on Steam</span></div>
+        <div class="card-body">
+          <h3 class="core-title">Once Upon a Page</h3>
+          <p class="core-hook">Shipped on Steam. As Lead Programmer, I designed the game's core interaction systems, led the transition from Unreal Engine 5 to Unity, and implemented the technical foundations behind an imaginative educational puzzle experience.</p>
+          <ul class="chips"><li>Lead Programmer</li><li>Interaction</li><li>UE5 &rarr; Unity</li></ul>
+          <span class="card-cta"><i>&#9654;</i>Press start</span>
+        </div>
+      </a>
+    </section>
 
-    <!-- Footer Section -->
-  <footer id="footer">
+    <nav class="hub-others rv" aria-label="Other sections">
+      <h2>Keep exploring</h2>
+      <ul><li><a href="Port_SubSections_SD.html"><b>Horror Systems &amp; Tension Design</b><span>Systems that decide when the fear happens</span></a></li><li><a href="Port_SubSections_ND.html"><b>Narrative &amp; Quest Design</b><span>Quest flows, branching dialogue, worldbuilding</span></a></li></ul>
+    </nav>
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="footer" class="hub-foot">
     <div class="footer-content">
       <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
-
       <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
-        </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
-        </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
-        </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
-        </a>
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener" title="linkedin"><img src="../images/socialmedia_linkedin_logo.png" alt="linkedin"></a>
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" rel="noopener" title="IndieDB"><img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB"></a>
+        <a href="https://unifasdev.itch.io/" target="_blank" rel="noopener" title="Itchio"><img src="../images/socialmedia_itchio_logo.png" alt="Itchio"></a>
+        <a href="https://www.instagram.com/unifasdev/" target="_blank" rel="noopener" title="Instagram"><img src="../images/socialmedia_instagram_logo.png" alt="Instagram"></a>
+        <a href="https://www.artstation.com/francissantos_dev" target="_blank" rel="noopener" title="ArtStation"><img src="../images/socialmedia_artstation_logo.png" alt="ArtStation"></a>
       </div>
     </div>
   </footer>
 
-
+  <script src="../js/hubs.js"></script>
   <script src="../js/menu.js"></script>
-    
 </body>
 </html>
