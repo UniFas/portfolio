@@ -1,139 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francis Santos Portfolio</title>
-    <link rel="shortcut icon" href="../images/2.png" type="../image/x-icon">
-    <link rel="stylesheet" href="../CssStuff/normalize.css">
-    <link rel="stylesheet" href="../CssStuff/subsectionsBase.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10120f">
+  <meta name="description" content="Shadow Market a quiet horror merchant simulation about symbolic objects, uncanny customers, and the consequences that follow every sale.">
+  <title>Shadow Market, Design Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CssStuff/ShadowMarket.css">
 </head>
-
 <body>
-    <a href="../Portefolio_SubSection/Port_SubSections_GD.html" class="gd-back-btn">⟵ Back</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="wordmark" href="#top" aria-label="Shadow Market home"><span class="wordmark-dot"></span> SHADOW MARKET <span class="wordmark-divider">/</span> DESIGN FILE 001</a>
+    <nav aria-label="Main navigation"><a href="#experience">Experience</a><a href="#systems">Systems</a><a href="#arc">Story arc</a><a href="#production">Production</a></nav>
+    <a class="top-cta" href="#night-desk">Enter the market <span>↗</span></a>
+  </header>
 
-    <section class="project-hero sm-hero">
-        <div class="project-hero-content">
-            <h1>Moblie Project Design</h1>
-            <p>A slow-burn horror merchant-sim where tension grows from small choices and shifting worlds.</p>
-
-        </div>
-
-
-        <img src="../images/Portefolio/PGD_Section/ShadowMarket/ShadowMarket.png" alt="Shadow Market Logo"
-            class="project-hero-img">
+  <main id="top">
+    <section class="hero">
+      <a href="../Portefolio_SubSection/Port_SubSections_GD.html" class="back gd-back-btn">&#10188; Back</a>
+      <div class="hero-image" role="img" aria-label="A lantern-lit market stall and an uncanny visitor"></div>
+      <div class="hero-vignette"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-line"></span> A GAME DESIGN CASE STUDY <span class="eyebrow-index">NO. 001 2025</span></div>
+        <img class="hero-mark" src="../images/Portefolio/PGD_Section/ShadowMarket/ShadowMarket.png" alt="Shadow Market">
+        <h1>Some things are<br><em>better left unsold.</em></h1>
+        <p class="hero-copy">A quiet horror merchant sim about reading between a customer’s words, and living with what you choose to sell.</p>
+        <div class="hero-actions"><a class="button button-gold" href="#experience">Explore the design <span>↓</span></a><a class="text-link" href="#night-desk">Try a night at the stall <span>↗</span></a></div>
+      </div>
+      <div class="hero-side-note">THE MARKET APPEARS<br>AFTER THE LAST LIGHT</div>
+      <div class="hero-bottom"><span>ATMOSPHERIC HORROR <b>•</b> MERCHANT SIMULATION</span><span>MOBILE FIRST <b>·</b> PC</span><span class="scroll-cue">SCROLL TO DESCEND <i>↓</i></span></div>
     </section>
 
+    <section class="thesis section-pad" id="experience">
+      <div class="section-kicker"><span>01</span> THE EXPERIENCE</div>
+      <div class="thesis-grid"><h2>A shop that sells<br><em>what people can’t name.</em></h2><div class="thesis-copy"><p class="lead">Each night, strangers find your lantern. They bring a request that sounds almost ordinary. Your shelves hold objects that might help, or make the ache worse.</p><p>There is no combat. No chase. Just a small stall, a handful of choices, and a world that remembers every transaction. The horror gathers slowly in the details: a light gone dim, a reflection that lingers, a familiar face returning with something changed.</p><div class="signature"><span class="signature-mark">SM</span><span><b>Designed by Francisco Santos</b><small>Gameplay systems · emotional pacing · narrative support</small></span></div></div></div>
+      <div class="pillars"><article><span class="pillar-no">01 / NOTICE</span><h3>Read the person</h3><p>Posture, pauses, repeated phrases. The customer is the clue.</p></article><article><span class="pillar-no">02 / INTERPRET</span><h3>Choose the meaning</h3><p>Objects carry symbolism, not stats. The player makes the connection.</p></article><article><span class="pillar-no">03 / LIVE WITH IT</span><h3>Watch the market change</h3><p>Every exchange leaves a trace in the light, the stall, or the next visitor.</p></article></div>
+    </section>
 
-
-    <!-- ========================= -->
-    <!--     MAIN PROJECT BODY     -->
-    <!-- ========================= -->
-    <main class="project-content">
-
-        <!-- ROLE + GENRE -->
-        <section class="project-section">
-            <h2 class="section-title">Project Overview</h2>
-
-            <p><strong>Role:</strong> Gameplay Designer • Systems Designer • Narrative Support</p>
-            <p><strong>Genre:</strong> Slow-Burn Horror • Merchant Simulation • Mobile & PC</p>
-
-            <p>
-                <strong>Shadow Market</strong> is a 3D atmospheric horror merchant-sim built around subtle tension,
-                symbolic
-                objects, and systemic consequences, a horror experience without jumpscares.
-            </p>
-
-            <p>
-                This project demonstrates my ability to design core gameplay systems, player progression, and
-                emotion-driven
-                mechanics inside a tight, mobile-friendly loop.
-            </p>
-        </section>
-
-
-
-        <!-- CORE LOOP -->
-        <section class="project-section">
-            <h2 class="section-title">Core Gameplay Loop</h2>
-
-            <p>
-                Designed a night-based market cycle centered on:
-            </p>
-
-            <img src="../images/Portefolio/PGD_Section/ShadowMarket/P2_loop.png" alt="Shadow Market Core Loop"
-                class="coreloop-img">
-        </section>
-
-        <!-- DESIGN GOALS -->
-        <section class="project-section">
-            <h2 class="section-title">Design Goals</h2>
-
-            <ul class="neon-list">
-                <li>Deliver horror without jumpscares</li>
-                <li>Keep the entire loop mobile-friendly</li>
-                <li>Make every decision meaningful</li>
-                <li>Build tension through subtle environmental changes</li>
-                <li>Maintain a fair and non-predatory economy</li>
-                <li>Ensure evergreen content and replay value</li>
-            </ul>
-        </section>
-
-        <!-- WHAT THIS SHOWS -->
-        <section class="project-section">
-            <h2 class="section-title">What This Project Shows About Me</h2>
-
-            <ul class="neon-list">
-                <li>Gameplay & Systems Design Mastery</li>
-                <li>Horror Tension Crafting</li>
-                <li>Narrative Support & Micro-Storytelling</li>
-                <li>Mobile UX & Economy Balancing</li>
-                <li>Production-Aware Approach</li>
-            </ul>
-        </section>
-
-        <div class="button-container">
-            <a href="../Documents/ShadowMarketGDD.pdf" target="_blank" class="gdd-button">
-                View Full GDD →
-            </a>
+    <section class="night-section" id="night-desk">
+      <div class="night-backdrop"></div>
+      <div class="section-pad night-inner">
+        <div class="section-kicker light"><span>02</span> A NIGHT AT THE STALL <span class="live-label"><i></i> INTERACTIVE DESIGN STUDY</span></div>
+        <div class="night-heading"><div><h2>The request is<br><em>never the whole story.</em></h2><p>Listen. Choose an object. See what the market keeps.</p></div><div class="night-counter"><small>MARKET LEDGER</small><b id="night-number">NIGHT 04</b><span id="night-time">LATE, THE FOG IS LOW</span></div></div>
+        <div class="market-ui" id="market-ui">
+          <div class="market-topline"><span><i class="lantern-status"></i> STALL OPEN</span><span>VISITOR <b id="visitor-count">01 / 03</b></span><span class="market-weather">✦ &nbsp; FOG DRIFTING EAST</span></div>
+          <div class="market-body">
+            <div class="visitor-panel"><div class="visitor-art" id="visitor-art"><div class="visitor-halo"></div><div class="visitor-silhouette"><span class="visitor-head"></span><span class="visitor-body"></span></div><span class="visitor-shadow"></span><span class="visitor-type" id="visitor-type">THE LOST</span></div><div class="visitor-dialogue"><span class="dialogue-label">THE VISITOR SAYS</span><blockquote id="visitor-request">“Do you have something to quiet my shadow?”</blockquote><span class="visitor-read" id="visitor-read">A glance that keeps falling to the floor.</span></div></div>
+            <div class="offer-panel"><div class="offer-heading"><span>CHOOSE WHAT TO OFFER</span><span class="offer-hint">An interpretation, not a right answer</span></div><div class="item-options" id="item-options"></div><button class="refuse-button" id="refuse-button">Refuse the sale <span>↗</span></button><div class="outcome" id="outcome" aria-live="polite"><span class="outcome-icon">✳</span><span id="outcome-text">The lantern waits for your hand.</span></div></div>
+          </div>
+          <div class="market-footer"><div class="meter"><span>STABILITY</span><div class="meter-track"><i id="stability-bar"></i></div><b id="stability-value">72</b></div><div class="meter distortion"><span>DISTORTION</span><div class="meter-track"><i id="distortion-bar"></i></div><b id="distortion-value">18</b></div><button class="next-night" id="next-button" hidden>Continue the night <span>→</span></button><span class="market-note">A small study of meaning & consequence</span></div>
         </div>
-
-    </main>
-
-
-
-    <!-- Footer Section -->
-  <footer id="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
-
-      <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
-        </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
-        </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
-        </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
-        </a>
+        <p class="interaction-note"><span>↳</span> Choose whichever object you think fits. The study responds to your interpretation; it won’t mark you right or wrong.</p>
       </div>
-    </div>
-  </footer>
+    </section>
 
+    <section class="cabinet section-pad" id="systems">
+      <div class="section-kicker"><span>03</span> THE OBJECT CABINET</div>
+      <div class="cabinet-heading"><div><h2>Small things.<br><em>Heavy meanings.</em></h2></div><p>Objects are visual metaphors first. Each one has a meaning, a world effect, a customer affinity, and a place in the story. Pick one to turn it in the light.</p></div>
+      <div class="object-grid" id="object-grid">
+        <button class="object-card" data-item="musicbox"><span class="object-id">01 SOUND</span><span class="object-illustration musicbox-art"><i></i><b>♪</b></span><span class="object-name">Locked Music Box</span><span class="object-whisper">“A song with no beginning.”</span><span class="object-affinity">ECHOES · LOST</span><span class="inspect-label">INSPECT OBJECT ↗</span></button>
+        <button class="object-card" data-item="memory"><span class="object-id">02 MEMORY</span><span class="object-illustration bottle-art"><i></i><b></b></span><span class="object-name">Bottle of Memory</span><span class="object-whisper">“The label is in your handwriting.”</span><span class="object-affinity">LOST · BORROWERS</span><span class="inspect-label">INSPECT OBJECT ↗</span></button>
+        <button class="object-card" data-item="lens"><span class="object-id">03 REFLECTION</span><span class="object-illustration lens-art"><i></i><b></b></span><span class="object-name">Cracked Lens</span><span class="object-whisper">“It shows the room as it was.”</span><span class="object-affinity">COLLECTORS · ECHOES</span><span class="inspect-label">INSPECT OBJECT ↗</span></button>
+        <button class="object-card" data-item="flower"><span class="object-id">04 REGROWTH</span><span class="object-illustration flower-art"><i></i><b></b></span><span class="object-name">Withered Flower</span><span class="object-whisper">“Still warm, somehow.”</span><span class="object-affinity">LOST · THE QUIET ONES</span><span class="inspect-label">INSPECT OBJECT ↗</span></button>
+      </div>
+      <div class="object-detail" id="object-detail" aria-live="polite"><span class="detail-seal">✳</span><span class="detail-label">FROM THE LEDGER</span><p id="detail-text">Select an object to uncover its ledger note.</p><button id="close-detail" aria-label="Close object note">×</button></div>
+    </section>
 
+    <section class="loop-section section-pad">
+      <div class="section-kicker"><span>04</span> THE NIGHT CYCLE</div><div class="loop-heading"><h2>A gentle loop.<br><em>A longer shadow.</em></h2><p>Short sessions. Long consequences.<br>Five to eight minutes per night.</p></div>
+      <div class="loop-track"><div class="loop-line"></div><article><span class="loop-number">01</span><span class="loop-glyph">⌂</span><h3>Prepare</h3><p>Arrange the shelf. Read the ledger. Choose three featured objects.</p><small>THE STALL IS STILL YOURS</small></article><article><span class="loop-number">02</span><span class="loop-glyph">◉</span><h3>Meet</h3><p>Six to eight visitors approach with requests they can barely explain.</p><small>LOOK CLOSER</small></article><article><span class="loop-number">03</span><span class="loop-glyph">✳</span><h3>Exchange</h3><p>Offer an object, or decline. The visitor leaves a mark either way.</p><small>THE MARKET REMEMBERS</small></article><article><span class="loop-number">04</span><span class="loop-glyph">☾</span><h3>Return</h3><p>See what shifted. Carry the change into the next night.</p><small>NOTHING RESETS CLEANLY</small></article></div>
+      <div class="design-rule"><span class="rule-symbol">“</span><p>Horror comes from accumulating distortions, uncanny behaviour, and consequences.<br><em>Never from a sudden scare.</em></p><span class="rule-source">DESIGN RULE 01</span></div>
+    </section>
+
+    <section class="arc-section" id="arc"><div class="section-pad">
+      <div class="section-kicker light"><span>05</span> TWENTY NIGHTS, ONE REVELATION</div><div class="arc-heading"><h2>The world changes<br><em>by degrees.</em></h2><p>Four acts trace a soft rise from curiosity to intimate dread. The truth arrives quietly, like someone who has been standing there all along.</p></div>
+      <div class="arc-timeline"><div class="arc-progress"></div><article><span class="arc-nights">NIGHTS 01 to 05</span><span class="arc-marker"></span><h3>Orientation</h3><p>Learn the objects. Meet the Lost. The first small wrongness.</p><span class="arc-mood">CURIOUS UNEASE</span></article><article><span class="arc-nights">NIGHTS 06 to 12</span><span class="arc-marker"></span><h3>Revelation</h3><p>Borrowers return. Echoes repeat what they never said.</p><span class="arc-mood">UNEASY RECOGNITION</span></article><article><span class="arc-nights">NIGHTS 13 to 18</span><span class="arc-marker"></span><h3>Consequence</h3><p>Distortion crosses the threshold. The market knows your name.</p><span class="arc-mood">QUIET DREAD</span></article><article><span class="arc-nights">NIGHTS 19, 20</span><span class="arc-marker"></span><h3>The Market’s Truth</h3><p>The market is choosing a successor. Your choices shape who you become.</p><span class="arc-mood">INTIMATE HORROR</span></article></div>
+      <div class="ending-note"><span>THREE POSSIBLE SELVES</span><b>GUIDE <i>·</i> COLLECTOR <i>·</i> ECHO</b><small>Endings emerge from Stability and Distortion, not a final morality quiz.</small></div>
+    </div></section>
+
+    <section class="craft-section section-pad" id="production">
+      <div class="section-kicker"><span>06</span> DESIGNING FOR FEELING</div><div class="craft-heading"><div><h2>Systems in service<br><em>of the feeling.</em></h2></div><p>The mechanical layer stays legible and restrained, so the emotional layer can remain uncertain.</p></div>
+      <div class="craft-grid"><article class="craft-card"><span class="craft-label">01 / STATE</span><h3>The market has a pulse.</h3><p>Stability and Distortion replace combat stats. They shape lighting, visitors, item unlocks, and how far the world bends.</p><div class="state-bars"><span>STABILITY <i><b style="width:68%"></b></i></span><span>DISTORTION <i class="warm"><b style="width:32%"></b></i></span></div></article><article class="craft-card"><span class="craft-label">02 / OBSERVATION</span><h3>People are the puzzle.</h3><p>Four customer types speak and behave differently. The design asks players to notice patterns, not hunt for a glowing answer.</p><div class="type-chips"><i>LOST</i><i>ECHOES</i><i>COLLECTORS</i><i>BORROWERS</i></div></article><article class="craft-card"><span class="craft-label">03 / ACCESS</span><h3>Quiet should be inclusive.</h3><p>Big touch targets, readable dialogue, visual equivalents for audio cues, adjustable text, and restrained camera motion.</p><div class="access-stamps"><span>TOUCH FIRST</span><span>LOW MOTION</span><span>VISUAL CUES</span></div></article></div>
+      <div class="production-band"><div><span class="section-kicker"><span>07</span> A BUILDABLE SCOPE</span><h3>One small map.<br><em>Twenty nights to get lost in.</em></h3></div><div class="roadmap"><div><span>01</span><b>Prototype</b><small>Core loop · 5 items · 4 visitors</small></div><div><span>02</span><b>Vertical slice</b><small>One full night · lighting · ledger</small></div><div><span>03</span><b>Early access</b><small>20+ items · first story arc</small></div><div><span>04</span><b>Full release</b><small>20 nights · multiple endings</small></div></div></div>
+      <aside class="open-question"><span>DESIGN QUESTION / STILL OPEN</span><p>The GDD explores both an ad-supported mobile model and a premium, cosmetic-led approach. The core promise is consistent: <em>no paywalled story, no gameplay advantage for sale.</em> The business model needs one clear direction before production.</p></aside>
+    </section>
+
+    <section class="closing"><div class="closing-glow"></div><div class="section-pad closing-inner"><span class="section-kicker light"><span>THE LEDGER CLOSES</span></span><h2>When the lantern<br>goes out, <em>what follows you?</em></h2><p>Shadow Market is a study in quiet consequence: small choices that keep echoing after the customer has gone.</p><a class="button button-gold" href="#top">Return to the first night <span>↑</span></a><div class="closing-mark">✳</div></div></section>
+  </main>
+  <footer><a class="wordmark" href="#top"><span class="wordmark-dot"></span> SHADOW MARKET</a><span>DESIGN CASE STUDY · FRANCISCO SANTOS</span><a href="#top">BACK TO THE LANTERN ↑</a></footer>
+  <script src="../js/ShadowMarket.js"></script>
 </body>
-
 </html>

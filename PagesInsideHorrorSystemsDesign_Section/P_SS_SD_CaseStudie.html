@@ -4,145 +4,321 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Horror Case Study – Francis Santos</title>
-    <link rel="shortcut icon" href="../images/2.png" type="../image/x-icon">
+    <title>Horror Study Notes | Francisco Santos</title>
+    <meta name="description" content="Horror design case studies, a fear-without-showing-the-threat exercise, and the designer writing I studied. Notes from full playthroughs of Layers of Fear, SOMA, Lucius, Resident Evil 2 and No, I'm Not a Human.">
+    <link rel="shortcut icon" href="../images/2.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../CssStuff/normalize.css" />
-    <link rel="stylesheet" href="../CssStuff/subsectionsBase.css" />
-    <link rel="stylesheet" href="../CssStuff/horrorSDpagesDesign.css" />
+    <link rel="stylesheet" href="../CssStuff/studies.css" />
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 
-<body>
-    <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="gd-back-btn">⟵ Back</a>
+<body class="st-page">
+    <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="st-back">⟵ Back</a>
 
-    <div class="hsd-container">
+    <nav class="st-nav" id="stNav" aria-label="Page sections">
+        <a href="#cases" data-s="cases">Case studies</a>
+        <a href="#exercise" data-s="exercise">Week 1 exercise</a>
+        <a href="#reading" data-s="reading">Reading list</a>
+    </nav>
 
-        <h1 class="glitch" data-text="Horror Design Case Studies">Horror Design Case Studies</h1>
-        <p class="subtitle vhs-effect">Analyzing iconic horror games through a system-design viewpoint.</p>
+    <!-- ================= HERO ================= -->
+    <header class="hero" id="top">
+        <div class="scan" aria-hidden="true"></div>
+        <div class="hero-inner">
+            <p class="eyebrow">Horror Systems &amp; Tension Design · Study notes</p>
+            <h1 class="glitch" data-text="Horror Design Case Studies">Horror Design Case Studies</h1>
+            <p class="subtitle vhs-effect">Analyzing iconic horror games through a system-design viewpoint.</p>
+            <p class="intro">
+                Horror games I studied in depth, with notes from full playthroughs, one weekly exercise on fear without showing the threat,
+                and the designer writing I read along the way.
+            </p>
+            <dl class="stats">
+                <div><dt>4</dt><dd>game case studies</dd></div>
+                <div><dt>1</dt><dd>scene analysis</dd></div>
+                <div><dt>3</dt><dd>designer reads</dd></div>
+            </dl>
+        </div>
+    </header>
 
+    <main>
+        <!-- ================= CASE STUDIES ================= -->
+        <section class="sec" id="cases">
+            <div class="wrap">
+                <header class="sec-head rv">
+                    <p class="kicker">File 01 · Case studies</p>
+                    <h2>Four games, taken apart.</h2>
+                    <p class="lede">Tap a technique to see which games lean on it.</p>
+                </header>
 
-        <!-- ====== Case 1: Layers of Fear ====== -->
-        <section class="case-card">
+                <div class="lens rv" id="lens" role="group" aria-label="Filter case studies by technique">
+                    <button type="button" class="chip" data-k="env" aria-pressed="false">Environmental storytelling &amp; manipulation</button>
+                    <button type="button" class="chip" data-k="pace" aria-pressed="false">Misdirection &amp; pacing</button>
+                    <button type="button" class="chip" data-k="interp" aria-pressed="false">Player-driven interpretation</button>
+                    <button type="button" class="chip" data-k="mech" aria-pressed="false">Mechanics that carry the theme</button>
+                    <button type="button" class="chip" data-k="ai" aria-pressed="false">Monster AI that serves the story</button>
+                    <button type="button" class="chip" data-k="player" aria-pressed="false">Player as the threat</button>
+                    <button type="button" class="chip" data-k="nocombat" aria-pressed="false">Dread without combat</button>
+                    <button type="button" class="chip chip-clear" id="lensClear" hidden>Clear</button>
+                </div>
+                <p class="lens-out" id="lensOut" aria-live="polite"></p>
 
-            <!-- Left side: analysis text -->
-            <div class="case-left">
-                <h2 class="case-title glitch-sm" data-text="Layers of Fear (2016)">Layers of Fear (2016)</h2>
+                <div class="cases" id="cases-grid">
+                    <!-- ====== Case 1: Layers of Fear ====== -->
+                    <article class="case rv" data-tags="env pace interp nocombat">
+                        <span class="tape">2016</span>
+                        <h3 class="case-title glitch-sm" data-text="Layers of Fear (2016)">Layers of Fear (2016)</h3>
+                        <p class="case-text">
+                            Layers of Fear taught me how environmental manipulation can replace enemy encounters.
+                            Its “designer controlled movement window” offered maximum tension without combat, and its
+                            psychological horror loop relies on misdirection, controlled pacing, and player-driven
+                            interpretation.
+                        </p>
+                        <p class="case-text">
+                            Key insights included perspective based scares, non-linear spatial loops, and mood-driven setpieces.
+                            These systems inspired how BTQ handles dread without revealing the monster too early.
+                        </p>
+                        <ul class="tags"><li>Environment</li><li>Misdirection &amp; pacing</li><li>Interpretation</li><li>No combat</li></ul>
+                        <a href="../Documents/Case Studie Layers of Fear 2016 Breakdown .pdf" target="_blank" rel="noopener" class="pdf-button">Open PDF →</a>
+                    </article>
 
-                <p class="case-text">
-                    Layers of Fear taught me how environmental manipulation can replace enemy encounters.
-                    Its “designer controlled movement window” offered maximum tension without combat, and its
-                    psychological horror loop relies on misdirection, controlled pacing, and player-driven
-                    interpretation.
-                </p>
+                    <!-- ====== Case 2: SOMA ====== -->
+                    <article class="case rv" data-tags="mech ai nocombat">
+                        <span class="tape">2015</span>
+                        <h3 class="case-title glitch-sm" data-text="SOMA (2015)">SOMA (2015)</h3>
+                        <p class="case-text">
+                            SOMA showed me the power of narrative-driven horror systems.
+                            The game uses “existential friction” instead of jumpscares, letting mechanics reinforce
+                            philosophical themes.
+                        </p>
+                        <p class="case-text">
+                            Its monster AI supports the narrative rather than dominating it, perfect inspiration for
+                            BTQ's psychological tension loops and non-combat fear-driven progression.
+                        </p>
+                        <ul class="tags"><li>Narrative systems</li><li>Monster AI</li><li>No combat</li></ul>
+                        <a href="../Documents/Case Studie Soma 2015 Breakdown .pdf" target="_blank" rel="noopener" class="pdf-button">Open PDF →</a>
+                    </article>
 
-                <p class="case-text">
-                    Key insights included perspective based scares, non-linear spatial loops, and mood-driven setpieces.
-                    These systems inspired how BTQ handles dread without revealing the monster too early.
-                </p>
+                    <!-- ====== Case 3: Lucius ====== -->
+                    <article class="case rv" data-tags="env mech player nocombat">
+                        <span class="tape">2012</span>
+                        <h3 class="case-title glitch-sm" data-text="Lucius (2012)">Lucius (2012)</h3>
+                        <p class="case-text">
+                            Lucius explores systemic mischief, where the player manipulates NPCs through item based chains.
+                            Studying it taught me how systems can reinforce theme even when the player is the threat.
+                        </p>
+                        <p class="case-text">
+                            I drew inspiration for BTQ’s environmental storytelling and “fear escalation” through logical events
+                            instead of combat.
+                        </p>
+                        <ul class="tags"><li>Systemic mischief</li><li>Player as threat</li><li>Environmental storytelling</li></ul>
+                        <a href="../Documents/Case Studie Lucius 2012 Breakdown .pdf" target="_blank" rel="noopener" class="pdf-button">Open PDF →</a>
+                    </article>
 
-                <a href="../Documents/Case Studie Layers of Fear 2016 Breakdown .pdf" target="_blank" class="pdf-button">Open PDF →</a>
+                    <!-- ====== Case 4: Resident Evil 2 (Remake) ====== -->
+                    <!-- EDIT ME: add Francisco's own notes for this case study here, plus a PDF button like the three above, e.g.
+                         <a href="../Documents/<your RE2 pdf>.pdf" target="_blank" rel="noopener" class="pdf-button">Open PDF →</a>
+                         and a data-tags="..." list (keys: env pace interp mech ai player nocombat) so the technique filter can include it. -->
+                    <article class="case case-pending rv" data-tags="" data-pending="true">
+                        <span class="tape">2019</span>
+                        <h3 class="case-title glitch-sm" data-text="Resident Evil 2 (Remake)">Resident Evil 2 (Remake)</h3>
+                        <p class="case-text">A case study on the 2019 remake of the survival-horror classic.</p>
+                        <ul class="tags"><li>Survival horror</li></ul>
+                    </article>
+                </div>
             </div>
-
-            <!-- Right side: puzzle/game space -->
-            <div class="game-frame" #game-frame>
-                <iframe src="../SlidingPuzzleGame_LayersOfFear/index.html" width="100%" height="100%" class="puzzle-embed"></iframe>
-                <p class="game-label">Interactive Puzzle</p>
-            </div>
-
         </section>
 
+        <!-- ================= WEEK 1 EXERCISE ================= -->
+        <section class="sec sec-alt" id="exercise">
+            <div class="wrap">
+                <header class="sec-head rv">
+                    <p class="kicker">File 02 · Week 1 exercise</p>
+                    <h2>Fear without showing the threat.</h2>
+                    <p class="lede"><b>Brief:</b> choose a horror scene and identify three clues that make the player anticipate danger before seeing it. <b>Deliverable:</b> three clues + the intended player reaction.</p>
+                </header>
 
+                <div class="analysis rv">
+                    <h3>Horror scene analysis: <em>No, I’m Not a Human</em></h3>
+                    <p>
+                        My first playthrough of No, I'm Not a Human was different from what I expected. What stood out to me was how the game uses a relatively simple
+                        environment to create desperation and uncertainty. Rather than relying exclusively on visible threats, it encourages the player to gather
+                        information, interpret clues, and make decisions without knowing whether they are correct.
+                    </p>
+                </div>
 
-        <!-- ====== Case 2: SOMA ====== -->
-        <section class="case-card">
+                <div class="ex-grid rv">
+                    <div class="scene" id="scene" aria-label="Interactive room. Inspect three things to read the clues.">
+                        <div class="wall" aria-hidden="true"></div>
+                        <div class="floor" aria-hidden="true"></div>
 
-            <div class="case-left">
-                <h2 class="case-title glitch-sm" data-text="SOMA (2015)">SOMA (2015)</h2>
+                        <div class="win" aria-hidden="true">
+                            <canvas id="noise" width="96" height="72"></canvas>
+                            <i class="bar v"></i><i class="bar h"></i>
+                            <span class="curtain l"></span><span class="curtain r"></span>
+                        </div>
 
-                <p class="case-text">
-                    SOMA showed me the power of narrative-driven horror systems.
-                    The game uses “existential friction” instead of jumpscares, letting mechanics reinforce
-                    philosophical themes.
-                </p>
+                        <div class="tv" aria-hidden="true"><div class="tv-screen"></div><span class="tv-base"></span></div>
+                        <div class="radio" aria-hidden="true"><i class="dial"></i><i class="dial d2"></i><span class="ant"></span></div>
+                        <div class="table t1" aria-hidden="true"></div>
 
-                <p class="case-text">
-                    Its monster AI supports the narrative rather than dominating it perfect inspiration for
-                    BTQ's psychological tension loops and non-combat fear-driven progression.
-                </p>
+                        <div class="phone" aria-hidden="true">
+                            <svg viewBox="0 0 80 60"><path d="M10 22c8-8 52-8 60 0l-6 8c-4-3-8-3-12-1v6H28v-6c-4-2-8-2-12 1z" /><rect x="22" y="36" width="36" height="12" rx="4" /><path d="M14 50c-8 4-8 8 2 8" fill="none" /></svg>
+                        </div>
+                        <div class="table t2" aria-hidden="true"></div>
 
-                <a href="../Documents/Case Studie Soma 2015 Breakdown .pdf" target="_blank" class="pdf-button">Open PDF →</a>
+                        <button type="button" class="hot h-radio" data-c="0" aria-label="Inspect the radio and television"><span></span></button>
+                        <button type="button" class="hot h-window" data-c="1" aria-label="Inspect the window"><span></span></button>
+                        <button type="button" class="hot h-phone" data-c="2" aria-label="Inspect the telephone"><span></span></button>
+
+                        <p class="scene-cap">Inspect the room. The threat is never shown.</p>
+                    </div>
+
+                    <div class="clues" id="clues">
+                        <div class="dread" aria-live="polite">
+                            <div class="dread-h"><span>Anticipation</span><b id="dreadVal">0 / 3 clues</b></div>
+                            <div class="dread-bar" role="meter" aria-label="Clues inspected" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><i id="dreadFill"></i></div>
+                            <p class="dread-note" id="dreadNote">Illustration, not a measurement.</p>
+                        </div>
+
+                        <p class="clue-empty" id="clueEmpty">Tap the glowing spots in the room to read what each one tells the player.</p>
+
+                        <article class="clue" data-c="0">
+                            <span class="n">Clue 1</span>
+                            <h4>Radio and television broadcasts</h4>
+                            <p>The radio and television communicate information about the danger outside. These broadcasts allow the player to understand that something is wrong without necessarily seeing the threat directly.</p>
+                            <p class="react"><span>Intended player reaction</span>Concern, curiosity, and anticipation of danger beyond the immediate environment.</p>
+                        </article>
+                        <article class="clue" data-c="1">
+                            <span class="n">Clue 2</span>
+                            <h4>Windows and the outside world</h4>
+                            <p>The windows establish a boundary between the apparent safety of the house and the unknown outside. They remind the player that danger might exist beyond their immediate surroundings, even when nothing threatening is visible.</p>
+                            <p class="react"><span>Intended player reaction</span>Suspicion, apprehension, and a desire to check what might be outside.</p>
+                        </article>
+                        <article class="clue" data-c="2">
+                            <span class="n">Clue 3</span>
+                            <h4>Telephone interactions and limited information</h4>
+                            <p>The telephone provides another way to gather information. However, the player must interpret what they learn alongside other clues and make decisions without complete certainty. When interactions are constrained by limited resources, obtaining more information also becomes a decision in itself.</p>
+                            <p class="react"><span>Intended player reaction</span>Curiosity mixed with anxiety about whether the information is sufficient to make the right decision.</p>
+                        </article>
+                    </div>
+                </div>
+
+                <blockquote class="takeaway rv">
+                    <span>My main takeaway</span>
+                    <p>
+                        What I found particularly effective was the uncertainty surrounding the people the player allows into the house. I was left wondering whether the
+                        people I had saved were actually human and whether I could trust my own judgement.
+                    </p>
+                    <p>
+                        For me, the fear came not only from the possibility of danger, but from the responsibility of making decisions without knowing the truth. The game
+                        demonstrates how information, environmental boundaries, and uncertainty can create dread before a threat is directly revealed.
+                    </p>
+                </blockquote>
             </div>
-
-
-              <!-- Right side: puzzle/game space -->
-            <div class="game-frame" #game-frame>
-                <iframe src="../SlidingPuzzleGame_Soma/index.html" width="100%" height="100%" class="puzzle-embed"></iframe>
-                <p class="game-label">Interactive Puzzle</p>
-            </div>
-
         </section>
 
+        <!-- ================= READING LIST ================= -->
+        <section class="sec" id="reading">
+            <div class="wrap">
+                <header class="sec-head rv">
+                    <p class="kicker">File 03 · Reading list</p>
+                    <h2>The designers I studied.</h2>
+                    <p class="lede">Writing from the team behind Amnesia and SOMA, plus a Game Developer feature on how they approach horror.</p>
+                </header>
 
+                <div class="reads">
+                    <article class="read rv">
+                        <p class="src">Frictional Games · Thomas Grip · 15 Oct 2019</p>
+                        <h3>9 Years, 9 Lessons on Horror</h3>
+                        <p>Nine lessons learned from building horror games, from why fear is not “fun” to why agency and vagueness matter.</p>
+                        <details>
+                            <summary>The nine lessons</summary>
+                            <ol>
+                                <li>Horror is not enjoyable</li>
+                                <li>Players are working against you</li>
+                                <li>Scares alone won’t make a horror game</li>
+                                <li>Fun gameplay is just too… fun</li>
+                                <li>Narrative is a core element in good horror</li>
+                                <li>The world must feel real</li>
+                                <li>Keep it vague</li>
+                                <li>Players need a role</li>
+                                <li>Agency is crucial</li>
+                            </ol>
+                        </details>
+                        <a class="ext" href="https://frictionalgames.com/2019-10-9-years-9-lessons-on-horror/" target="_blank" rel="noopener">Read the article ↗</a>
+                    </article>
 
-        <!-- ====== Case 3: Lucius ====== -->
-        <section class="case-card">
+                    <article class="read rv">
+                        <p class="src">Frictional Games · Thomas Grip · 12 Dec 2013</p>
+                        <h3>The Five Foundational Design Pillars of SOMA</h3>
+                        <p>The principles that shaped SOMA, and how they tie the story, the world and the player’s choices together.</p>
+                        <details>
+                            <summary>The five pillars</summary>
+                            <ol>
+                                <li>Everything is story</li>
+                                <li>Take the world seriously</li>
+                                <li>The player is in charge</li>
+                                <li>Trust the player</li>
+                                <li>Thematics emerge through play</li>
+                            </ol>
+                        </details>
+                        <a class="ext" href="https://frictionalgames.com/2013-12-the-five-foundational-design-pillars-of-soma/" target="_blank" rel="noopener">Read the article ↗</a>
+                    </article>
 
-            <div class="case-left">
-                <h2 class="case-title glitch-sm" data-text="Lucius (2012)">Lucius (2012)</h2>
-
-                <p class="case-text">
-                    Lucius explores systemic mischief, where the player manipulates NPCs through item based chains.
-                    Studying it taught me how systems can reinforce theme even when the player is the threat.
-                </p>
-
-                <p class="case-text">
-                    I drew inspiration for BTQ’s environmental storytelling and “fear escalation” through logical events
-                    instead of combat.
-                </p>
-
-                <a href="../Documents/Case Studie Lucius 2012 Breakdown .pdf" target="_blank" class="pdf-button">Open PDF →</a>
+                    <article class="read rv">
+                        <p class="src">Game Developer · Kris Graft · 8 May 2014</p>
+                        <h3>Four ways to design for horror, from the Amnesia dev</h3>
+                        <p>How Frictional starts from the kind of horror it wants to create, and keeps every part of the game tied to it.</p>
+                        <details>
+                            <summary>The four ways</summary>
+                            <ol>
+                                <li>Start with the type of horror you want, not prototyped mechanics</li>
+                                <li>Iterate on scares through your own playthroughs</li>
+                                <li>Let players scare themselves with their imagination</li>
+                                <li>Keep every part of the game tied to horror</li>
+                            </ol>
+                        </details>
+                        <a class="ext" href="https://www.gamedeveloper.com/design/four-ways-to-design-for-horror-from-i-amnesia-i-dev-frictional-games" target="_blank" rel="noopener">Read the article ↗</a>
+                    </article>
+                </div>
             </div>
-
-              <!-- Right side: puzzle/game space -->
-            <div class="game-frame" #game-frame>
-                <iframe src="../SlidingPuzzleGame_Lucius/index.html" width="100%" height="100%" class="puzzle-embed"></iframe>
-                <p class="game-label">Interactive Puzzle</p>
-            </div>
-
         </section>
-
-    </div>
+    </main>
 
     <!-- Footer Section -->
-  <footer id="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
+    <footer id="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
 
-      <div id="social-links">
-        <!-- linkedin -->
-        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
-        </a>
-        <!-- IndieBD -->
-        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
-        </a>
-        <!-- Ithchio -->
-        <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
-        </a>
-        <!-- Instagram -->
-        <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
-        </a>
-        <!-- Artstation -->
-        <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
-        </a>
-      </div>
-    </div>
-  </footer>
+            <div id="social-links">
+                <!-- linkedin -->
+                <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" title="linkedin">
+                    <img src="../images/socialmedia_linkedin_logo.png" alt="linkedin">
+                </a>
+                <!-- IndieBD -->
+                <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" title="IndieDB">
+                    <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
+                </a>
+                <!-- Ithchio -->
+                <a href="https://unifasdev.itch.io/" target="_blank" title="Itchio">
+                    <img src="../images/socialmedia_itchio_logo.png" alt="Itchio">
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/unifasdev/" target="_blank" title="Instagram">
+                    <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
+                </a>
+                <!-- Artstation -->
+                <a href="https://www.artstation.com/francissantos_dev" target="_blank" title="ArtStation">
+                    <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
+                </a>
+            </div>
+        </div>
+    </footer>
 
-
+    <script src="../js/studies.js"></script>
 </body>
 
 </html>
