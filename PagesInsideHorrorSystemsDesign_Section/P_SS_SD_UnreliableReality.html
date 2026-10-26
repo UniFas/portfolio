@@ -4,742 +4,646 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Unreliable Reality – Francis Santos</title>
-
-  <link rel="shortcut icon" href="../images/2.png" type="image/x-icon">
-
-  <link rel="stylesheet" href="../CssStuff/normalize.css" />
-  <link rel="stylesheet" href="../CssStuff/subsectionsBase.css" />
-  <link rel="stylesheet" href="../CssStuff/P_SS_SD_UnreliableReality.css" />
+  <title>The Tension Laboratory – Francis Santos</title>
+  <meta name="description" content="The Tension Laboratory (formerly Unreliable Reality): a measurable, designer-facing horror pacing system in Unreal Engine 5.6. Work in progress, with an interactive Director simulator.">
+  <link rel="shortcut icon" href="../images/2.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CssStuff/tension-lab.css" />
+  <script>document.documentElement.className += ' js';</script>
 </head>
 
-<body>
+<body class="tl-page">
 
-  <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="gd-back-btn">
-    ⟵ Back
-  </a>
+  <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="tl-back">⟵ Back</a>
 
-  <main class="exp-page">
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <header class="exp-hero">
-
-      <span class="exp-eyebrow">
-        Horror Systems · Tension Design · Technical Design
-      </span>
-
-      <h1>Unreliable Reality</h1>
-
-      <p class="exp-lead">
-        What if horror events didn't simply happen randomly,
-        but <b>asked permission?</b>
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <canvas id="heroTrace" aria-hidden="true"></canvas>
+    <div class="hero-in">
+      <p class="eyebrow">Horror Systems · Tension Design · Technical Design</p>
+      <h1>The Tension<br>Laboratory</h1>
+      <p class="aka">Formerly <i>Unreliable Reality</i>. The prototype grew into a lab.</p>
+      <p class="hero-lead">
+        A measurable, designer-facing horror pacing system. Horror events don't
+        just happen. They <b>ask permission</b>, and a Director decides, and
+        <b>writes down why.</b>
       </p>
-
-      <p class="exp-intro">
-        <b>Unreliable Reality</b> is a reusable horror system built around
-        tension, controlled unpredictability and environmental manipulation.
-        Individual objects can request permission to perform unsettling
-        actions, while a central Horror Director evaluates whether the
-        current moment is right.
-      </p>
-
-      <ul class="exp-meta">
-        <li><b>Type:</b> Horror systems experiment</li>
-        <li><b>Role:</b> Systems Designer · Technical Designer · Prototyper</li>
-        <li><b>Engine:</b> Unreal Engine</li>
-        <li><b>Status:</b> In development</li>
+      <ul class="facts">
+        <li><span>Engine</span>Unreal Engine 5.6 · Blueprints</li>
+        <li><span>Role</span>Systems Designer · Technical Designer · Prototyper</li>
+        <li><span>Dossier</span>v0.2 · 19 October 2026</li>
+        <li><span>Status</span><em class="st st-wip">In development</em></li>
       </ul>
+      <figure class="hero-plate">
+        <img src="../images/Portefolio/PSD_Section/UnreliableObject/UnreliableObjectLogo.png" alt="Anabelle-inspired cover image representing unreliable reality" onerror="this.parentNode.hidden=true">
+        <figcaption>The project explores the discomfort of objects that appear normal, until the player can no longer be certain that they are.</figcaption>
+      </figure>
+    </div>
+  </header>
 
-      <!-- Cover / Hero Image -->
-      <div class="exp-side-image">
-        <img
-          src="../images/Portefolio/PSD_Section/UnreliableObject/UnreliableObjectLogo.png"
-          alt="Anabelle-inspired cover image representing unreliable reality"
-        >
-      </div>
+  <nav class="lnav" id="lnav" aria-label="Sections">
+    <a href="#origin">Origin</a>
+    <a href="#problem">Problem</a>
+    <a href="#built">Built</a>
+    <a href="#arch">Architecture</a>
+    <a href="#rules">Rules</a>
+    <a href="#tension">Tension</a>
+    <a href="#bench">Lab bench</a>
+    <a href="#debug">Debug</a>
+    <a href="#tests">Tests</a>
+    <a href="#roadmap">Roadmap</a>
+  </nav>
 
-      <p class="exp-caption">
-        The project explores the discomfort of objects that appear normal,
-        until the player can no longer be certain that they are.
-      </p>
+  <main class="wrap">
 
-    </header>
+    <!-- honest status board -->
+    <section class="board" aria-label="Where the project stands">
+      <h2 class="sr">Where the project stands</h2>
+      <div class="bcol"><h3><em class="st st-built">Built</em></h3>
+        <p>Director actor, tension clamp, approval gate, observation by line of sight, unseen timer, Move event.</p></div>
+      <div class="bcol"><h3><em class="st st-retest">Re-testing</em></h3>
+        <p>Disappear / Reappear: collision while hidden, reset logic.</p></div>
+      <div class="bcol"><h3><em class="st st-next">Next</em></h3>
+        <p>Milestone 0: audit the real graphs against the dossier.</p></div>
+      <div class="bcol"><h3><em class="st st-plan">Planned</em></h3>
+        <p>Central selection, pacing rules, debug overlay, playtests, a portfolio slice.</p></div>
+    </section>
 
-
-<!-- =====================================================
-     01 · THE QUESTION
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>01 · The Question</h2>
-
+    <!-- ===================== 01 ORIGIN ===================== -->
+    <section class="sec" id="origin">
+      <header class="sh"><span class="no">01</span><h2>Where this started</h2></header>
       <p>
-        Horror often relies on carefully timed events:
-        a light turns off, an object moves, a sound plays,
-        or something appears where it shouldn't be.
+        This project started with a short video. It showed a mechanic I loved:
+        objects in a horror space that change when you stop looking at them.
+        The creator was selling it as an asset for €11.
       </p>
-
+      <p>My reaction was simple: <b>I can do better.</b></p>
       <p>
-        But I wanted to explore what would happen if those events
-        were treated as <b>requests inside a larger system</b>,
-        rather than isolated scripted scares.
+        I don't mean cheaper or flashier. I mean a different kind of thing. A pack
+        gives you an object that moves when you look away. I wanted a <b>system</b>
+        that decides <i>when</i> an anomaly is worth triggering, <i>why</i> it was
+        chosen, and <i>what the player gets back afterwards</i> (relief). One
+        designer can open, tune, test and understand it.
       </p>
-
-      <blockquote class="exp-callout">
-        <b>Design Question:</b>
-        <br><br>
-        Can a reusable system create the feeling of an unpredictable
-        environment while still giving the designer control over
-        <b>when, why and how often</b> horror events occur?
+      <blockquote class="north">
+        <span class="tag">North star</span>
+        Create deliberate rhythms of anticipation, pressure, uncertainty and relief.
+        The system chooses meaningful events, respects pacing constraints, and
+        explains every decision to the designer. It does not scare the player as
+        often as possible.
       </blockquote>
+    </section>
 
-    </div>
-
-    <div class="exp-side-image">
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/01_question.jpg"
-        alt="Unsettling object in a dark environment">
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     02 · THE DESIGN PROBLEM
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>02 · The Design Problem</h2>
-
-      <p>
-        Pure randomness is easy to implement, but it does not necessarily
-        create good horror.
-      </p>
-
-      <p>
-        If something strange happens every few seconds, the player quickly
-        learns that the environment is simply performing random tricks.
-        The uncertainty disappears.
-      </p>
-
-      <div class="exp-mini-points">
-
+    <!-- ===================== 02 PROBLEM ===================== -->
+    <section class="sec" id="problem">
+      <header class="sh"><span class="no">02</span><h2>The problem I'm solving</h2></header>
+      <div class="split">
         <div>
-          <h3>Too Predictable</h3>
           <p>
-            Events always happen at the same moments,
-            allowing the player to anticipate them.
+            Most horror triggers are timers with a dice roll attached. When the timer
+            expires, something happens. That makes scares predictable, noisy and
+            sometimes unfair: an event lands right after a high-pressure moment, or
+            while the player can see exactly how the trick works.
           </p>
-        </div>
-
-        <div>
-          <h3>Too Random</h3>
-          <p>
-            Events happen without considering what the player
-            has recently experienced.
-          </p>
-        </div>
-
-        <div>
-          <h3>The Goal</h3>
-          <p>
-            Events should feel unpredictable to the player,
-            while remaining controllable to the designer.
-          </p>
-        </div>
-
-      </div>
-
-      <p class="exp-chain">
-        Predictable System → Unpredictable Experience
-      </p>
-
-    </div>
-
-    <div class="exp-side-image">
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/02_designporblem.jpg"
-        alt="Distorted environment representing uncertainty">
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     03 · THE HORROR DIRECTOR
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>03 · The Horror Director</h2>
-
-      <p>
-        At the centre of the system is a <b>Horror Director</b>.
-        It acts as the mediator between the game world and individual
-        unreliable objects.
-      </p>
-
-      <p>
-        An object does not simply decide:
-        <i>"I am going to scare the player now."</i>
-      </p>
-
-      <p>
-        Instead, it submits a request.
-      </p>
-
-      <div class="exp-flow">
-
-        <div class="flow-box">
-          <span>01</span>
-          <b>Object detects opportunity</b>
-          <small>Player looks away, enters an area, interacts, etc.</small>
-        </div>
-
-        <div class="flow-arrow">↓</div>
-
-        <div class="flow-box">
-          <span>02</span>
-          <b>Object requests an event</b>
-          <small>"Can I perform this anomaly?"</small>
-        </div>
-
-        <div class="flow-arrow">↓</div>
-
-        <div class="flow-box flow-highlight">
-          <span>03</span>
-          <b>Horror Director evaluates</b>
-          <small>Tension · history · cooldowns · randomness · context</small>
-        </div>
-
-        <div class="flow-arrow">↓</div>
-
-        <div class="flow-box">
-          <span>04</span>
-          <b>Approved or denied</b>
-          <small>The player never sees the decision.</small>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="exp-side-image">
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/03_horrorDirector.jpg"
-        alt="Horror Director system concept">
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     04 · TENSION MODEL
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>04 · Tension as a System</h2>
-
-      <p>
-        The Horror Director maintains a dynamic tension value that
-        changes as the player experiences the environment.
-      </p>
-
-      <p>
-        Events can increase or decrease tension, allowing the system
-        to create periods of pressure followed by moments of release.
-      </p>
-
-      <div class="tension-meter">
-
-        <div class="tension-labels">
-          <span>CALM</span>
-          <span>UNEASE</span>
-          <span>PRESSURE</span>
-          <span>FEAR</span>
-          <span>OVERLOAD</span>
-        </div>
-
-        <div class="tension-bar">
-          <div class="tension-marker"></div>
-        </div>
-
-        <div class="tension-numbers">
-          <span>0</span>
-          <span>25</span>
-          <span>50</span>
-          <span>75</span>
-          <span>100</span>
-        </div>
-
-      </div>
-
-      <p>
-        The value is not intended to represent a literal measurement
-        of how scared the player is. It is a <b>designer-facing control
-        signal</b> that helps determine how much pressure the system
-        should currently be applying.
-      </p>
-
-    </div>
-
-    <div class="exp-side-image">
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/04_tension.jpg"
-        alt="Tension system visualization">
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     05 · EVENT REQUESTS
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>05 · Event Requests</h2>
-
-      <p>
-        Each unreliable object has its own possible behaviours,
-        but does not need to understand the entire horror system.
-      </p>
-
-      <p>
-        This separation allows the same director to control many
-        different types of environmental anomalies.
-      </p>
-
-      <div class="request-example">
-
-        <div class="request-header">
-          <span>UNRELIABLE OBJECT</span>
-          <span>EVENT REQUEST</span>
-        </div>
-
-        <div class="request-body">
-
-          <div>
-            <h3>Painting</h3>
-            <p>
-              Player leaves the room and the object becomes eligible
-              to request a visual alteration.
-            </p>
+          <div class="trio">
+            <div><h3>Too predictable</h3><p>Events always happen at the same moments, so the player anticipates them.</p></div>
+            <div><h3>Too random</h3><p>Events ignore what the player has recently experienced.</p></div>
+            <div class="goal"><h3>The goal</h3><p>Unpredictable to the player, controllable to the designer.</p></div>
           </div>
-
-          <div class="request-arrow">
-            →
-          </div>
-
-          <div>
-            <h3>Request</h3>
-            <p>
-              <code>CHANGE_APPEARANCE</code>
-            </p>
-          </div>
-
+          <p class="chain">Predictable System <span>→</span> Unpredictable Experience</p>
         </div>
-
+        <figure class="plate">
+          <img src="../images/Portefolio/PSD_Section/UnreliableObject/02_designporblem.jpg" alt="Distorted environment representing uncertainty" onerror="this.parentNode.hidden=true">
+        </figure>
       </div>
 
-      <blockquote class="exp-callout">
+      <div class="callout">
+        <span class="tag">Design question</span>
+        <b>How can a horror game build a deliberate rhythm of anticipation, pressure and relief, while keeping the player's trust and making the director's decisions understandable to the designer?</b>
+      </div>
+      <div class="callout hyp">
+        <span class="tag">Hypothesis (not a result)</span>
+        If the system weighs observation, uncertainty, exposure, recent pressure and
+        recovery, and enforces prerequisites, cooldowns and exclusions, then events
+        will feel more intentional and less repetitive than those driven by a timer
+        or flat probability.
+        <small>That is a hypothesis. I will validate it with playtests rather than assume it.</small>
+      </div>
 
-        <b>The object owns the possibility.</b><br>
-        <b>The director owns the timing.</b>
+      <h3 class="h3">Design principles</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Principle</th><th>What it means in practice</th></tr></thead>
+        <tbody>
+          <tr><td>Unreliable, not constantly active</td><td>Objects can change while unseen, but an eligible moment does not have to produce an event.</td></tr>
+          <tr><td>Pacing over volume</td><td>After heavy pressure, prefer a quieter anomaly or a recovery window over automatic escalation.</td></tr>
+          <tr><td>Fairness through consistency</td><td>Events follow stable rules. They can surprise, but the system never ignores its own constraints.</td></tr>
+          <tr><td>Designer visibility</td><td>Debug tools show eligibility, selection, approval and rejection reasons.</td></tr>
+          <tr><td>Proxies, not mind-reading</td><td>Tension variables are game-state signals. I test the player's actual response separately.</td></tr>
+        </tbody>
+      </table></div>
 
-      </blockquote>
+      <h3 class="h3">What the player should feel</h3>
+      <ul class="feel">
+        <li><b>Anticipation</b><q>Something might have changed while I was looking away.</q></li>
+        <li><b>Uncertainty</b><q>I'm not sure this space is reliable.</q></li>
+        <li><b>Agency</b><q>I can inspect, track and avoid, but I can't fully control the room.</q></li>
+        <li><b>Relief</b><q>The game lets the pressure settle. It isn't constantly punishing me.</q></li>
+      </ul>
+    </section>
 
-    </div>
+    <!-- ===================== 03 BUILT ===================== -->
+    <section class="sec" id="built">
+      <header class="sh"><span class="no">03</span><h2>What's already built</h2></header>
+      <p>The core loop works: detect whether an object is in view, accumulate unseen time, ask a director for permission, and trigger an environmental anomaly.</p>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>System</th><th>State</th><th class="c">Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>BP_HorrorDirector</code></td><td>Placed actor tracking CurrentTension, MaxTension, a minimum event threshold, a global enable switch, a debug flag and an event probability.</td><td class="c"><em class="st st-built">Built</em></td></tr>
+          <tr><td>Tension control</td><td>AddTension and ReduceTension clamp to 0–MaxTension. Tested: 30 then 80 caps at 100; reducing by 25 lands on 75.</td><td class="c"><em class="st st-built">Built · tested</em></td></tr>
+          <tr><td>Approval gate</td><td>CanTriggerHorrorEvent checks the enable flag and tension range. RequestHorrorEvent adds the probability roll. Tested at probability 1.0 (passes) and 0.0 (denies).</td><td class="c"><em class="st st-built">Built · tested</em></td></tr>
+          <tr><td>Observation</td><td>Camera direction, distance and line of sight decide whether an object is observed.</td><td class="c"><em class="st st-built">Built</em></td></tr>
+          <tr><td>Unobserved timing</td><td>TimeUnobserved accumulates while unseen and resets on observation. A retry cooldown blocks immediate repeat requests.</td><td class="c"><em class="st st-built">Built</em></td></tr>
+          <tr><td>Move event</td><td>Instant relocation via MoveOffset, working.</td><td class="c"><em class="st st-built">Built</em></td></tr>
+          <tr><td>Disappear / Reappear</td><td>Built. The graph needs a fresh re-test (collision while hidden, reset logic) before I mark it complete.</td><td class="c"><em class="st st-retest">Re-test</em></td></tr>
+        </tbody>
+      </table></div>
 
-    <div class="exp-side-image">
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/05_objects.png"
-        alt="Unreliable object concept">
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     06 · APPROVED VS DENIED
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>06 · Approval &amp; Rejection</h2>
-
-      <p>
-        A request is evaluated against the current state of the game.
-        This prevents every eligible object from triggering simultaneously
-        and allows the system to maintain pacing.
-      </p>
-
-      <div class="decision-grid">
-
-        <article class="decision-card approved">
-
-          <span class="decision-status">
-            APPROVED
-          </span>
-
-          <h3>Event can occur</h3>
-
-          <p>
-            The current tension, timing and context allow the event
-            to contribute to the intended experience.
-          </p>
-
+      <h3 class="h3">Two bugs worth documenting</h3>
+      <div class="bugs">
+        <article>
+          <h4>The line trace that couldn't see its own target</h4>
+          <p>The visibility trace had <i>Ignore Self</i> enabled, so it skipped the very object it was trying to detect. Unchecking it fixed observation. It is a small bug, but exactly the kind a case study should record.</p>
         </article>
-
-        <article class="decision-card denied">
-
-          <span class="decision-status">
-            DENIED
-          </span>
-
-          <h3>Nothing happens</h3>
-
-          <p>
-            The request is rejected because the timing would create
-            too much pressure, repeat an event too quickly,
-            or simply be less effective.
-          </p>
-
+        <article>
+          <h4>The Director reference was None</h4>
+          <p>GetActorOfClass returned nothing usable in this setup, which caused a runtime error. The fix: expose HorrorDirector as Instance Editable, assign the level instance to each object, and validate before use. Automatic registration comes later.</p>
         </article>
+      </div>
+    </section>
 
+    <!-- ===================== 04 ARCHITECTURE ===================== -->
+    <section class="sec" id="arch">
+      <header class="sh"><span class="no">04</span><h2>The architectural leap: the Director decides</h2></header>
+      <p>
+        Right now, each object asks the Director for permission. That is the
+        prototype. The real system flips it: <b>objects report their state, and the
+        Director chooses one eligible object and one allowed event.</b> That ends the
+        competition between objects and puts every pacing rule in one place.
+      </p>
+
+      <div class="toggle" role="group" aria-label="Architecture version">
+        <button type="button" id="aV1" aria-pressed="true">Prototype: objects ask</button>
+        <button type="button" id="aV2" aria-pressed="false">Target: Director decides</button>
       </div>
 
-      <p>
-        Importantly, <b>denial is invisible to the player.</b>
-        They simply experience a world in which sometimes
-        nothing happens.
-      </p>
-
-      <p>
-        That absence is part of the system.
-      </p>
-
-    </div>
-
-    <div class="exp-side-image">
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/06_judge.jpg"
-        alt="Horror event approval and rejection">
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     07 · UNRELIABLE OBJECTS
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>07 · Unreliable Objects</h2>
-
-      <p>
-        The system is designed so that new unreliable objects can
-        be created without rebuilding the underlying tension logic.
-      </p>
-
-      <div class="exp-mini-points">
-
-        <div>
-          <h3>Painting</h3>
-          <p>
-            Can change its appearance when the player isn't observing it.
-          </p>
-        </div>
-
-        <div>
-          <h3>Chair</h3>
-          <p>
-            Can request a change in position or orientation.
-          </p>
-        </div>
-
-        <div>
-          <h3>Light</h3>
-          <p>
-            Can request flickering, interruption or altered behaviour.
-          </p>
-        </div>
-
-        <div>
-          <h3>Door</h3>
-          <p>
-            Can request a state change when the player returns.
-          </p>
-        </div>
-
+      <div class="arch" id="archV1">
+        <ol class="flow">
+          <li><span>01</span><b>Object detects opportunity</b><small>Player looks away, enters an area, interacts, etc.</small></li>
+          <li><span>02</span><b>Object requests an event</b><small>"Can I perform this anomaly?"</small></li>
+          <li class="hl"><span>03</span><b>Horror Director evaluates</b><small>Tension · cooldowns · randomness</small></li>
+          <li><span>04</span><b>Approved or denied</b><small>The player never sees the decision.</small></li>
+        </ol>
+        <p class="note">Every object competes. Pacing rules would have to be repeated or scattered.</p>
       </div>
 
-    </div>
-
-    <div class="exp-side-image">
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/07.jpg"
-        alt="Collection of unreliable environmental objects">
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     08 · SYSTEM ARCHITECTURE
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>08 · System Architecture</h2>
-
-      <p>
-        The goal is to keep individual horror behaviours decoupled
-        from the global tension logic.
-      </p>
-
-      <p>
-        New unreliable objects can therefore become clients of the
-        same system without requiring the Horror Director itself
-        to be rewritten.
-      </p>
-
-    </div>
-
-    <div class="exp-side-image">
-
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/08.jpg"
-        alt="Unreliable Reality system architecture diagram">
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =====================================================
-     09 · DEBUG VIEW
-====================================================== -->
-
-<section class="exp-section">
-
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>09 · Designer Debug View</h2>
-
-      <p>
-        A major part of the experiment is making the system observable
-        during development.
-      </p>
-
-      <p>
-        Horror systems can become difficult to tune when the designer
-        cannot understand <i>why</i> something happened.
-        The debug layer exposes the hidden decision-making process.
-      </p>
-
-      <div class="debug-grid">
-
-        <div>
-          <span>Current Tension</span>
-          <strong>67 / 100</strong>
-        </div>
-
-        <div>
-          <span>Horror State</span>
-          <strong>PRESSURE</strong>
-        </div>
-
-        <div>
-          <span>Pending Requests</span>
-          <strong>03</strong>
-        </div>
-
-        <div>
-          <span>Last Event</span>
-          <strong>OBJECT_CHANGE</strong>
-        </div>
-
+      <div class="arch" id="archV2" hidden>
+        <pre class="diagram" aria-label="Target architecture diagram">PLAYER + WORLD STATE
+        |
+        v
+OBSERVATION INPUTS (per object)
+  observed? | unseen time | line of sight | object state
+        |
+        v
+<b>BP_HORRORDIRECTOR</b>
+  1. Receive candidate states
+  2. Check tension and global rules
+  3. Build the eligible object list
+  4. Apply weights and event constraints
+  5. Select one event and record why
+        |
+        v
+SELECTED BP_UNRELIABLEOBJECT executes the action
+        |
+        v
+COOLDOWN + RECOVERY + DEBUG HISTORY</pre>
+        <p class="note">One decision point. Every pacing rule lives in one place, and every decision is recorded.</p>
       </div>
 
-    </div>
+      <div class="split rev">
+        <figure class="plate">
+          <img src="../images/Portefolio/PSD_Section/UnreliableObject/08.jpg" alt="Unreliable Reality system architecture diagram" onerror="this.parentNode.hidden=true">
+        </figure>
+        <div>
+          <blockquote class="callout slim"><b>The object owns the possibility.</b><br><b>The director owns the timing.</b></blockquote>
+          <p>
+            An object does not simply decide <i>"I am going to scare the player now."</i>
+            It reports what it could do. Keeping horror behaviours decoupled from the
+            global tension logic means new objects become clients of the same system
+            without rewriting the Director.
+          </p>
+        </div>
+      </div>
 
-    <div class="exp-side-image">
+      <h3 class="h3">Who owns what</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>System</th><th>Owns</th><th>Never owns</th></tr></thead>
+        <tbody>
+          <tr><td><code>BP_HorrorDirector</code></td><td>Global enable, tension, probability, pacing, candidate selection, exclusions, debug history.</td><td>Mesh-level visual details for every object.</td></tr>
+          <tr><td><code>BP_UnreliableObject</code></td><td>Its own observation state, local settings, supported events, and event execution.</td><td>Competing with every other object indefinitely.</td></tr>
+          <tr><td><code>E_HorrorEventType</code></td><td>The physical actions: Move, DisappearReappear, Rotate, Scale.</td><td>Pacing roles or eligibility rules.</td></tr>
+          <tr><td>Debug UI</td><td>Displaying system state and decision history.</td><td>Deciding gameplay outcomes.</td></tr>
+        </tbody>
+      </table></div>
 
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/09.png"
-        alt="Horror Director debug view">
+      <h3 class="h3">Objects that can be unreliable</h3>
+      <div class="quad">
+        <div><h4>Painting</h4><p>Can change its appearance when the player isn't observing it.</p></div>
+        <div><h4>Chair</h4><p>Can request a change in position or orientation.</p></div>
+        <div><h4>Light</h4><p>Can request flickering, interruption or altered behaviour.</p></div>
+        <div><h4>Door</h4><p>Can request a state change when the player returns.</p></div>
+      </div>
+      <div class="split">
+        <figure class="plate"><img src="../images/Portefolio/PSD_Section/UnreliableObject/05_objects.png" alt="Unreliable object concept" onerror="this.parentNode.hidden=true"></figure>
+        <figure class="plate"><img src="../images/Portefolio/PSD_Section/UnreliableObject/07.jpg" alt="Collection of unreliable environmental objects" onerror="this.parentNode.hidden=true"></figure>
+      </div>
+    </section>
 
-    </div>
+    <!-- ===================== 05 RULES ===================== -->
+    <section class="sec" id="rules">
+      <header class="sh"><span class="no">05</span><h2>Rules, states and exclusions</h2></header>
 
-  </div>
+      <h3 class="h3">Object states</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>State</th><th>Meaning</th><th>Moves on when</th></tr></thead>
+        <tbody>
+          <tr><td>Observed</td><td>In the player's view cone and range, with clear line of sight.</td><td>Player looks away.</td></tr>
+          <tr><td>Unobserved Tracking</td><td>Unseen timer is accumulating.</td><td>Delay and cooldown are satisfied.</td></tr>
+          <tr><td>Eligible</td><td>Object and global requirements all pass.</td><td>Director selects it, or it keeps waiting.</td></tr>
+          <tr><td>Event Pending</td><td>Request approved; duplicates blocked.</td><td>Event begins.</td></tr>
+          <tr><td>Executing</td><td>The event is in progress.</td><td>Event completes or cancels.</td></tr>
+          <tr><td>Cooldown / Recovery</td><td>Object and/or system rests.</td><td>Cooldown ends and other rules pass.</td></tr>
+          <tr><td>Disabled / Invalid</td><td>Not permitted, or reference lost.</td><td>Re-enabled or re-registered.</td></tr>
+        </tbody>
+      </table></div>
 
-</section>
+      <h3 class="h3">Approval layers</h3>
+      <p>Probability is evaluated only <b>after</b> all mandatory checks pass.</p>
+      <ol class="layers">
+        <li><b>Global gates</b><span>events enabled, tension in range, Director state valid.</span></li>
+        <li><b>Object gates</b><span>registered, valid, selectable, unobserved, delay met, cooldown passed, not executing.</span></li>
+        <li><b>Event prerequisites</b><span>object supports the event, destination is usable, no incompatible event active.</span></li>
+        <li><b>Pacing constraints</b><span>not right after an intense threat, no active recovery window, not too many recent anomalies.</span></li>
+        <li><b>Safety constraints</b><span>not in a protected safe zone, not during a scripted sequence, not into a blocked destination.</span></li>
+      </ol>
 
+      <div class="decide">
+        <article class="ok"><span class="tag">Approved</span><h4>Event can occur</h4><p>The current tension, timing and context allow the event to contribute to the intended experience.</p></article>
+        <article class="no"><span class="tag">Denied</span><h4>Nothing happens</h4><p>The request is rejected because the timing would create too much pressure, repeat an event too quickly, or simply be less effective.</p></article>
+      </div>
+      <p><b>Denial is invisible to the player.</b> They simply experience a world in which sometimes nothing happens. That absence is part of the system.</p>
+      <figure class="plate wide"><img src="../images/Portefolio/PSD_Section/UnreliableObject/06_judge.jpg" alt="Horror event approval and rejection" onerror="this.parentNode.hidden=true"></figure>
 
-<!-- =====================================================
-     10 · WHY THIS MATTERS
-====================================================== -->
+      <h3 class="h3">Action versus dramatic role</h3>
+      <p>I keep two separate labels. <b>What the object does</b> (Move, DisappearReappear, Rotate, Scale) is different from <b>what the moment is for</b> in the pacing.</p>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Dramatic category</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Anticipation</td><td>Suggest danger without a major payoff, such as a distant shift or a light change.</td></tr>
+          <tr><td>Anomaly</td><td>Undermine confidence in the environment: disappear, rotate, scale, relocate.</td></tr>
+          <tr><td>Direct Threat</td><td>Immediate danger. Only after anomaly pacing is stable.</td></tr>
+          <tr><td>Recovery</td><td>A quiet window, reduced probability, a neutral environment.</td></tr>
+        </tbody>
+      </table></div>
+      <h3 class="h3">Anti-repetition</h3>
+      <ul class="plain">
+        <li>Avoid selecting the same object repeatedly when other suitable candidates exist.</li>
+        <li>Track recent categories and avoid repeating one too often.</li>
+        <li>Enforce a maximum consecutive-pressure rule, so a direct threat is followed by a recovery opportunity.</li>
+        <li>Show every exclusion in debug output. Nothing is bypassed silently.</li>
+      </ul>
+      <h3 class="h3">First selection rules</h3>
+      <ol class="plain num">
+        <li>Discard invalid references.</li>
+        <li>Reject objects that are not selectable, already executing, or currently observed.</li>
+        <li>Reject objects that haven't met their unseen-time and cooldown requirements.</li>
+        <li>Build the list of event types both the object and the Director allow.</li>
+        <li>If nothing is eligible, do nothing and log <code>NO_CANDIDATES</code>.</li>
+        <li>Pick one candidate uniformly at random. Add ObjectWeight only after uniform selection is solid.</li>
+        <li>Execute the event, then record object, event and timestamp.</li>
+      </ol>
+      <p class="note">I'm keeping this deliberately small: registry first, then print the count, then select one object, then trigger its existing disappear/reappear. Weighted selection and advanced tension logic come only after that slice passes.</p>
+    </section>
 
-<section class="exp-section">
+    <!-- ===================== 06 TENSION ===================== -->
+    <section class="sec" id="tension">
+      <header class="sh"><span class="no">06</span><h2>The tension model</h2></header>
+      <div class="split">
+        <div>
+          <p>
+            CurrentTension is currently a controllable value. The next step is deriving it
+            from game conditions. These signals are <b>gameplay proxies, not a
+            measurement of the player's emotions.</b> It is a designer-facing control
+            signal that says how much pressure the system should be applying.
+          </p>
+        </div>
+        <figure class="plate"><img src="../images/Portefolio/PSD_Section/UnreliableObject/04_tension.jpg" alt="Tension system visualization" onerror="this.parentNode.hidden=true"></figure>
+      </div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Signal</th><th>Question it answers</th><th>Example inputs</th></tr></thead>
+        <tbody>
+          <tr><td>Exposure</td><td>How vulnerable is the player right now?</td><td>Dangerous area, no cover, threat nearby.</td></tr>
+          <tr><td>Uncertainty</td><td>How incomplete or unreliable is the information?</td><td>Threat not visible, contradictory clues, displaced familiar object.</td></tr>
+          <tr><td>Recent Pressure</td><td>How intense has the last stretch been?</td><td>Recent chase or close call, short time since a high-intensity event.</td></tr>
+          <tr><td>Recovery</td><td>Has the player had room to settle?</td><td>Time since pressure, safe area access, low recent event count.</td></tr>
+        </tbody>
+      </table></div>
+      <h3 class="h3">First scoring model</h3>
+      <pre class="code">BasePressure = (Exposure * ExposureWeight)
+             + (Uncertainty * UncertaintyWeight)
+             + (RecentPressure * RecentPressureWeight)
 
-  <div class="exp-content-with-image">
-
-    <div class="exp-text">
-
-      <h2>10 · Why This Matters for Horror Design</h2>
-
+TensionTarget = Clamp(BasePressure - RecoveryRelief, 0, 1) * 100
+CurrentTension moves gradually toward TensionTarget</pre>
       <p>
-        The interesting part of the system isn't that an object can move
-        or change.
+        This is a starting point. I'll display the raw inputs first, tune the weights by
+        hand, and smooth the movement so no single signal causes a jarring swing.
+      </p>
+      <h3 class="h3">Tuning bands (proposed)</h3>
+      <div class="bands" aria-label="Tension bands">
+        <div class="b b1"><b>Calm</b><i>0–24</i><span>Rare or no anomalies. Exploration and relief.</span></div>
+        <div class="b b2"><b>Building</b><i>25–49</i><span>Anticipation and low-intensity anomalies.</span></div>
+        <div class="b b3"><b>High</b><i>50–74</i><span>Stronger anomalies eligible, subject to cooldowns.</span></div>
+        <div class="b b4"><b>Critical</b><i>75–100</i><span>Don't auto-maximise. Withhold, or deliver a meaningful payoff, then recover.</span></div>
+      </div>
+      <p class="note">Only the minimum threshold and the maximum bound are implemented today. The bands are the plan.</p>
+      <blockquote class="callout slim"><b>Recovery is a rule, not just a subtraction.</b> After a chase, the Director can choose silence or a quiet anomaly over another attack. That is what makes the pacing deliberate.</blockquote>
+    </section>
+
+    <!-- ===================== 07 LAB BENCH ===================== -->
+    <section class="sec bench" id="bench">
+      <header class="sh"><span class="no">07</span><h2>The lab bench</h2><em class="st st-sim">Simulation</em></header>
+      <p>
+        A small model of the design above, running in your browser. It follows the
+        selection rules and rejection codes from the dossier, so you can see
+        <i>why nothing happened.</i> <b>It is not a capture of the Unreal build.</b>
+        The five objects, their allowed events and the default weights are
+        placeholders for this demo.
       </p>
 
+      <noscript><p class="note">The bench needs JavaScript. The rules it follows are written out above.</p></noscript>
+
+      <div class="rig" id="rig" hidden>
+        <div class="rig-top">
+          <button type="button" id="bRun" class="btn pri">Pause</button>
+          <button type="button" id="bReset" class="btn">Reset</button>
+          <button type="button" id="bAuto" class="btn" aria-pressed="false">Simulated player: off</button>
+          <label class="sel">Speed
+            <select id="bSpeed"><option value="1">1×</option><option value="3" selected>3×</option><option value="8">8×</option></select>
+          </label>
+          <span class="presets">Preset
+            <button type="button" class="btn sm" data-preset="A">A · frequent</button>
+            <button type="button" class="btn sm" data-preset="B">B · deliberate</button>
+          </span>
+        </div>
+
+        <div class="rig-grid">
+          <div class="room" aria-label="Sample room">
+            <p class="lbl">Where is the player looking?</p>
+            <div id="tiles" class="tiles"></div>
+            <button type="button" id="bWall" class="btn sm wall" aria-pressed="false">Look at the wall (nothing observed)</button>
+          </div>
+
+          <div class="gauge-col">
+            <div class="gauge" aria-label="Current tension">
+              <div class="g-head"><span>Tension</span><b id="gVal">0</b><em id="gBand">CALM</em></div>
+              <div class="g-bar"><i class="z z1"></i><i class="z z2"></i><i class="z z3"></i><i class="z z4"></i><span id="gMark"></span></div>
+              <canvas id="hist" width="520" height="90" aria-label="Tension history, with approved events marked"></canvas>
+            </div>
+            <pre class="dbgout" id="dbg" aria-live="off">…</pre>
+          </div>
+        </div>
+
+        <div class="rig-grid two">
+          <div class="ctl">
+            <p class="lbl">Signals (proxies)</p>
+            <div id="sigs"></div>
+            <p class="lbl">Director rules</p>
+            <div id="rules"></div>
+            <p class="lbl">Events the Director allows</p>
+            <div id="allow" class="allow"></div>
+          </div>
+          <div class="logcol">
+            <p class="lbl">Decision log <small>(repeats collapsed)</small></p>
+            <ol id="log" class="log"></ol>
+            <p class="lbl">Why nothing happened (counts)</p>
+            <div id="counts" class="counts"></div>
+          </div>
+        </div>
+
+        <div class="cmp">
+          <div class="cmp-h">
+            <p class="lbl">Compare two pacing configurations <small>(like my player-test protocol, but with a toy player)</small></p>
+            <button type="button" id="bCmp" class="btn pri">Run 3 simulated minutes each</button>
+          </div>
+          <div class="tbl-wrap"><table id="cmpTbl">
+            <thead><tr><th>Measured in the sim</th><th>A · frequent</th><th>B · deliberate</th></tr></thead>
+            <tbody><tr><td colspan="3" class="muted">Press the button.</td></tr></tbody>
+          </table></div>
+          <p class="note">Numbers come from this toy simulation with a scripted looker. They are <b>not</b> player data and say nothing about how scary either setup is.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 08 DEBUG ===================== -->
+    <section class="sec" id="debug">
+      <header class="sh"><span class="no">08</span><h2>Designer tools and debugging</h2></header>
+      <div class="split">
+        <div>
+          <p>
+            A designer should be able to answer <i>"why did nothing happen?"</i> without
+            opening five graphs. Horror systems get hard to tune when you can't see
+            why something happened, so the debug layer exposes the hidden
+            decision-making.
+          </p>
+          <p class="note">I start with Print String and on-screen text, and build a UMG overlay only once the data is reliable.</p>
+        </div>
+        <figure class="plate"><img src="../images/Portefolio/PSD_Section/UnreliableObject/09.png" alt="Horror Director debug view" onerror="this.parentNode.hidden=true"></figure>
+      </div>
+
+      <h3 class="h3">Target debug view</h3>
+      <pre class="code term">TENSION LABORATORY — DIRECTOR DEBUG
+Tension: 42 / 100      Band: BUILDING
+Events enabled: YES    Recovery window: NO
+Registered objects: 5  Eligible objects: 2
+Selected object: Chair_A
+Selected action: DisappearReappear
+Decision: APPROVED
+Recent event: Lamp_B / Anomaly / 18s ago</pre>
+
+      <h3 class="h3">Per-object controls</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Setting</th><th>Purpose</th><th class="c">Status</th></tr></thead>
+        <tbody>
+          <tr><td><code>UnobservedDelay</code></td><td>How long it must be unseen.</td><td class="c"><em class="st st-built">Built</em></td></tr>
+          <tr><td><code>EventRetryCooldown</code></td><td>Minimum time between attempts.</td><td class="c"><em class="st st-built">Built</em></td></tr>
+          <tr><td><code>MoveOffset / ReappearOffset</code></td><td>Per-instance movement and relocation.</td><td class="c"><em class="st st-retest">Built, config to verify</em></td></tr>
+          <tr><td><code>bCanBeSelected</code></td><td>Opt in or out of Director selection.</td><td class="c"><em class="st st-plan">Planned</em></td></tr>
+          <tr><td><code>AllowedEventTypes</code></td><td>Which actions this object supports.</td><td class="c"><em class="st st-plan">Planned</em></td></tr>
+          <tr><td><code>ObjectWeight</code></td><td>Relative selection chance.</td><td class="c"><em class="st st-plan">Planned</em></td></tr>
+        </tbody>
+      </table></div>
+
+      <h3 class="h3">Rejection reason codes</h3>
+      <div class="codes">
+        <div><code>DISABLED</code><span>Global events are off.</span></div>
+        <div><code>TENSION_TOO_LOW</code><span>Below the minimum.</span></div>
+        <div><code>RECOVERY_ACTIVE</code><span>A recovery constraint is suppressing the event.</span></div>
+        <div><code>OBJECT_OBSERVED</code><span>The candidate is visible to the player.</span></div>
+        <div><code>UNSEEN_DELAY</code><span>Not unseen long enough.</span></div>
+        <div><code>OBJECT_COOLDOWN</code><span>Object can't attempt another event yet.</span></div>
+        <div><code>EVENT_UNSUPPORTED</code><span>The object doesn't allow this action.</span></div>
+        <div><code>NO_CANDIDATES</code><span>Nothing satisfies every requirement.</span></div>
+        <div><code>PROBABILITY_ROLL_FAILED</code><span>Passed hard gates, lost the chance roll.</span></div>
+      </div>
+    </section>
+
+    <!-- ===================== 09 TESTS ===================== -->
+    <section class="sec" id="tests">
+      <header class="sh"><span class="no">09</span><h2>Testing</h2><em class="st st-plan">Results pending</em></header>
+      <p>Every player-experience claim stays a hypothesis until it's been tested and recorded. I only add a result here once I've written it down.</p>
+      <h3 class="h3">Technical test matrix</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Test</th><th>Setup</th><th>Expected</th></tr></thead>
+        <tbody>
+          <tr><td>Visible</td><td>In range, in view, unobstructed.</td><td>Observed true; timer resets.</td></tr>
+          <tr><td>Outside view</td><td>Turn away, stay near.</td><td>Observed false; timer grows.</td></tr>
+          <tr><td>Blocked</td><td>Wall between camera and object.</td><td>Not reported as observed.</td></tr>
+          <tr><td>Distance limit</td><td>Move past ObservationDistance.</td><td>Not observed.</td></tr>
+          <tr><td>Probability bounds</td><td>Test 0 and 1 repeatedly.</td><td>0 never approves; 1 always passes the roll.</td></tr>
+          <tr><td>Missing Director</td><td>Clear the reference.</td><td>No crash; clear warning.</td></tr>
+          <tr><td>Reappearance</td><td>Trigger unseen, look back at different points.</td><td>Object relocates and returns; no visible teleport under intended conditions.</td></tr>
+          <tr><td>Multiple objects</td><td>Three or more candidates, debug on.</td><td>One event at a time; selection explainable in the log.</td></tr>
+        </tbody>
+      </table></div>
+      <h3 class="h3">Player test protocol</h3>
+      <ol class="plain num">
+        <li>Run a short, unannounced exploration with a few unreliable objects.</li>
+        <li>Afterwards, ask what they noticed, when, and what they thought caused it.</li>
+        <li>Collect 1 to 7 ratings for tension, predictability, fairness and recovery. These are subjective reports, not fear measurements.</li>
+        <li>Repeat with a second configuration: frequent events versus longer recovery and stronger exclusions.</li>
+        <li>Compare across participants. Never conclude from one.</li>
+      </ol>
+      <p class="note">Key questions: did an event feel earned, random, repetitive or unfair? Was there enough quiet after tension? When did you stop trusting the environment?</p>
+    </section>
+
+    <!-- ===================== 10 ROADMAP ===================== -->
+    <section class="sec" id="roadmap">
+      <header class="sh"><span class="no">10</span><h2>Roadmap</h2></header>
+      <p>Each milestone is small. I don't start the next until the current one passes in PIE and the result is written down. <small>(Statuses as of dossier v0.2. The audit may move some to Built.)</small></p>
+      <ol class="road">
+        <li class="next"><b>0 · Audit</b><span>Reconcile this document with the real graphs.</span><i>Built and unbuilt lists are accurate.</i><em class="st st-next">Next</em></li>
+        <li><b>1 · Enum</b><span>E_HorrorEventType: Move, DisappearReappear, Rotate, Scale.</span><i>Compiles and saves.</i></li>
+        <li><b>2 · Per-object settings</b><span>AllowedEventTypes, bCanBeSelected, ObjectWeight.</span><i>Placed objects expose different settings.</i></li>
+        <li><b>3 · Registry</b><span>RegisteredObjects, RegisterObject, UnregisterObject.</span><i>Three objects register; count is 3; no duplicates.</i></li>
+        <li><b>4 · Eligibility</b><span>Director returns the eligible list.</span><i>Observed, disabled and cooling-down objects are excluded.</i></li>
+        <li><b>5 · Single selection</b><span>Uniform random pick.</span><i>One object per request; name printed.</i></li>
+        <li><b>6 · Execute</b><span>Selected object runs DisappearReappear.</span><i>Only that object acts, then resets.</i></li>
+        <li><b>7 · Event choice</b><span>Pick from AllowedEventTypes only.</span><i>Unsupported actions are never requested.</i></li>
+        <li><b>8 · Rotate / Scale</b><span>Add each in isolation.</span><i>Each has parameters, reset rules and a test.</i></li>
+        <li><b>9 · Pacing</b><span>Recent-pressure and recovery rules.</span><i>A recovery window rejects a high-intensity event with a reason.</i></li>
+        <li><b>10 · Debug view</b><span>Full decision trail, then optional UMG.</span><i>A designer can explain any outcome.</i></li>
+        <li><b>11 · Playtest</b><span>Run the protocol and record.</span><i>Real observations and one documented change.</i></li>
+        <li><b>12 · Portfolio slice</b><span>One room, tuning guide, diagram, test report.</span><i>An outsider can play it and understand it.</i></li>
+      </ol>
+
+      <h3 class="h3">Risks I'm planning for</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          <tr><td>Too many per-frame line traces</td><td>Profile first, then throttle or stagger observation checks.</td></tr>
+          <tr><td>Actor reference is None</td><td>Instance Editable plus IsValid checks now; central registration later.</td></tr>
+          <tr><td>Hidden actor still collides</td><td>Test it; deliberately disable and restore collision where needed.</td></tr>
+          <tr><td>Reappearance inside geometry</td><td>Designer-set offsets first; trace and floor validation or authored targets later.</td></tr>
+          <tr><td>Player looks back mid-event</td><td>Define the policy explicitly: cancel, reverse, finish, or complete hidden.</td></tr>
+          <tr><td>Simultaneous triggers</td><td>Central selection, bEventPending, a global event lock, cooldowns.</td></tr>
+          <tr><td>Zero-probability edge case</td><td>Use a strict comparison or explicit 0/1 handling, then retest.</td></tr>
+          <tr><td>Noisy debug logs</td><td>DebugMode toggle, reason codes, short recent-event history.</td></tr>
+          <tr><td>Tension mistaken for fear</td><td>Call the signals proxies and validate with player feedback.</td></tr>
+        </tbody>
+      </table></div>
+      <h3 class="h3">Non-goals for the first slice</h3>
+      <ul class="plain">
+        <li>No full adaptive AI director before central selection works.</li>
+        <li>No building all four actions at once. One reliable action first.</li>
+        <li>No claim that the system detects fear.</li>
+        <li>No premature optimisation. Baseline first, then profile.</li>
+      </ul>
+    </section>
+
+    <!-- ===================== 11 WHY ===================== -->
+    <section class="sec fin" id="why">
+      <header class="sh"><span class="no">11</span><h2>Why this matters for horror design</h2></header>
+      <p>The interesting part isn't that an object can move or change. Those effects are relatively simple.</p>
+      <blockquote class="big">The difficult question is:<br><b>"When should the game allow the player to notice?"</b></blockquote>
       <p>
-        Those individual effects are relatively simple.
+        That question pushed the project beyond individual scares and into designing
+        <b>the rules governing when horror is allowed to happen.</b>
       </p>
 
-      <blockquote class="exp-callout large-callout">
-
-        The difficult question is:
-
-        <br><br>
-
-        <b>
-          "When should the game allow the player to notice?"
-        </b>
-
+      <h3 class="h3">What I'll show a studio</h3>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Evidence</th><th>What it proves</th><th class="c">Status</th></tr></thead>
+        <tbody>
+          <tr><td>Playable vertical slice</td><td>It works in a real environment, not just in isolated graphs.</td><td class="c"><em class="st st-plan">Planned</em></td></tr>
+          <tr><td>Architecture diagram</td><td>Responsibilities and data flow are clear.</td><td class="c"><em class="st st-wip">Drafted above</em></td></tr>
+          <tr><td>Designer tuning guide</td><td>A designer can safely adjust weights, thresholds, cooldowns and rules.</td><td class="c"><em class="st st-plan">Planned</em></td></tr>
+          <tr><td>Debug capture</td><td>The Director shows what it chose and why it rejected the alternatives.</td><td class="c"><em class="st st-plan">Planned</em></td></tr>
+          <tr><td>Test protocol and results</td><td>Decisions come from observed player behaviour.</td><td class="c"><em class="st st-plan">Protocol written, results pending</em></td></tr>
+          <tr><td>Before / After comparison</td><td>Each iteration had a stated reason and a measured goal.</td><td class="c"><em class="st st-plan">Planned</em></td></tr>
+          <tr><td>Known limitations</td><td>I acknowledge trade-offs rather than hide them.</td><td class="c"><em class="st st-built">Listed on this page</em></td></tr>
+        </tbody>
+      </table></div>
+      <h3 class="h3">First vertical slice: success criteria</h3>
+      <ul class="check">
+        <li>At least three registered objects with distinct per-instance settings.</li>
+        <li>At least two reliable actions: Move and Disappear/Reappear.</li>
+        <li>The Director selects one eligible object and never requests an unsupported event.</li>
+        <li>Cooldown and recovery constraints are observable and testable.</li>
+        <li>Debug output explains each major selection or rejection.</li>
+        <li>A small playtest compares two pacing configurations and records the results.</li>
+      </ul>
+      <blockquote class="north">
+        <span class="tag">Portfolio story</span>
+        I built a director that makes environmental horror deliberate and tuneable. It began as an observation-gated object anomaly and is becoming a centralised event selector with pacing constraints and designer-facing diagnostics.
       </blockquote>
-
-      <p>
-        That question pushed the project beyond creating individual
-        scares and into designing the <b>rules governing when horror
-        is allowed to happen.</b>
+      <p class="final">
+        The goal isn't to make objects behave strangely. Anyone can do that for €11.
+        The goal is a horror pacing system a designer can understand, tune, test and
+        improve, with the evidence to show every decision made the experience better.
       </p>
-
-    </div>
-
-    <div class="exp-side-image">
-
-      <img
-        src="../images/Portefolio/PSD_Section/UnreliableObject/10.png"
-        alt="Atmospheric horror design">
-
-    </div>
-
-  </div>
-
-</section>
+      <figure class="plate wide"><img src="../images/Portefolio/PSD_Section/UnreliableObject/10.png" alt="Atmospheric horror design" onerror="this.parentNode.hidden=true"></figure>
+    </section>
 
   </main>
 
-
-
+  <a href="../Portefolio_SubSection/Port_SubSections_SD.html" class="tl-back tl-back-b">⟵ Back</a>
 
   <!-- FOOTER -->
-
-  <footer id="footer">
-
+  <footer id="footer" class="tl-footer">
     <div class="footer-content">
-
-      <p>
-        &copy; 2025 Francisco Santos | All Rights Reserved
-      </p>
-
+      <p>&copy; 2025 Francisco Santos | All Rights Reserved</p>
       <div id="social-links">
-
-        <a href="https://www.linkedin.com/in/francisasantos/"
-           target="_blank"
-           title="LinkedIn">
-          <img src="../images/socialmedia_linkedin_logo.png" alt="LinkedIn">
-        </a>
-
-        <a href="https://www.indiedb.com/members/unifasdraws"
-           target="_blank"
-           title="IndieDB">
-          <img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB">
-        </a>
-
-        <a href="https://unifasdev.itch.io/"
-           target="_blank"
-           title="Itch.io">
-          <img src="../images/socialmedia_itchio_logo.png" alt="Itch.io">
-        </a>
-
-        <a href="https://www.instagram.com/unifasdev/"
-           target="_blank"
-           title="Instagram">
-          <img src="../images/socialmedia_instagram_logo.png" alt="Instagram">
-        </a>
-
-        <a href="https://www.artstation.com/francissantos_dev"
-           target="_blank"
-           title="ArtStation">
-          <img src="../images/socialmedia_artstation_logo.png" alt="ArtStation">
-        </a>
-
+        <a href="https://www.linkedin.com/in/francisasantos/" target="_blank" rel="noopener" title="LinkedIn"><img src="../images/socialmedia_linkedin_logo.png" alt="LinkedIn"></a>
+        <a href="https://www.indiedb.com/members/unifasdraws" target="_blank" rel="noopener" title="IndieDB"><img src="../images/socialmedia_indiedb_logo.png" alt="IndieDB"></a>
+        <a href="https://unifasdev.itch.io/" target="_blank" rel="noopener" title="Itch.io"><img src="../images/socialmedia_itchio_logo.png" alt="Itch.io"></a>
+        <a href="https://www.instagram.com/unifasdev/" target="_blank" rel="noopener" title="Instagram"><img src="../images/socialmedia_instagram_logo.png" alt="Instagram"></a>
+        <a href="https://www.artstation.com/francissantos_dev" target="_blank" rel="noopener" title="ArtStation"><img src="../images/socialmedia_artstation_logo.png" alt="ArtStation"></a>
       </div>
-
     </div>
-
   </footer>
 
+  <script src="../js/tension-lab.js" defer></script>
 </body>
 </html>

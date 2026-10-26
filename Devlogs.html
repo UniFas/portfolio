@@ -27,6 +27,7 @@
   <!-- home.css = shared look (header, buttons, cards, devlog cards, footer). devlogs.css = this page only. -->
   <link rel="stylesheet" href="CssStuff/home.css" />
   <link rel="stylesheet" href="CssStuff/devlogs.css" />
+  <link rel="stylesheet" href="CssStuff/btq-articles.css" />
 
   <script>document.documentElement.classList.add("js");</script>
 </head>
@@ -309,6 +310,223 @@
 
 
     <!-- =========================================
+         BENEATH THE QUESTLINE: DEVLOG ARCHIVE (scroll sideways)
+         Cards are plain HTML so they work without JavaScript.
+         js/btq-articles.js adds the arrows, drag-to-scroll, and pulls in
+         any newer article from the IndieDB feed (when /api/indiedb?feed=game exists).
+    ========================================= -->
+
+    <section class="section arc-row" id="btq-articles">
+      <div class="container">
+
+        <div class="work-top reveal">
+          <div>
+            <div class="section-label">The devlog archive</div>
+            <h2 class="section-heading">
+              <span id="btqCount">14</span> devlogs for one game,
+              <span class="green">all still online.</span>
+            </h2>
+            <p class="section-description">
+              Scroll sideways. Every card is a real post on the game's IndieDB page, from the first devlog
+              to the latest, newest first.
+            </p>
+          </div>
+          <a
+            class="text-link"
+            href="https://www.indiedb.com/games/beneath-the-questline/articles"
+            target="_blank"
+            rel="noopener noreferrer"
+          >All game articles ↗</a>
+        </div>
+
+        <div class="arc-bar reveal">
+          <p class="arc-range" id="btqRange" aria-live="polite">Jun 2025 – Jan 2026</p>
+          <div class="arc-arrows" id="btqArrows" hidden>
+            <button type="button" id="btqPrev" aria-label="Scroll devlogs left">←</button>
+            <button type="button" id="btqNext" aria-label="Scroll devlogs right">→</button>
+          </div>
+        </div>
+
+        <div class="arc-wrap" id="btqWrap">
+          <div class="arc-track" id="btqTrack" tabindex="0" role="region" aria-label="Beneath the Questline devlogs. Scroll sideways.">
+          <article class="dl-card arc-card" data-date="2026-01-12">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-14-welcome-to-kajaani" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #14 – Welcome to Kajaani 🇫🇮 on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/343/342973/thumb_620x2000/thumbnail_14.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/343/342973/crop_120x90/thumbnail_14.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#14</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">12 Jan 2026</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-14-welcome-to-kajaani" target="_blank" rel="noopener noreferrer">Welcome to Kajaani 🇫🇮</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-14-welcome-to-kajaani" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2026-01-04">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-13-new-year-new-country-same-chaos" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #13 – New Year, New Country, Same Chaos on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/343/342766/thumb_620x2000/thumbnail_13.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/343/342766/crop_120x90/thumbnail_13.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#13</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">4 Jan 2026</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-13-new-year-new-country-same-chaos" target="_blank" rel="noopener noreferrer">New Year, New Country, Same Chaos</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-13-new-year-new-country-same-chaos" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-12-28">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-12-back-to-the-workshop-environment-progress-holidays" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #12 – Back to the Workshop (Environment Progress &amp; Holidays) on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/343/342526/thumb_620x2000/thumbnail_12.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/343/342526/crop_120x90/thumbnail_12.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#12</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">28 Dec 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-12-back-to-the-workshop-environment-progress-holidays" target="_blank" rel="noopener noreferrer">Back to the Workshop (Environment Progress &amp; Holidays)</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-12-back-to-the-workshop-environment-progress-holidays" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-12-21">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-11-zinnia-takes-shape-3d-modeling-texturing-world-standards" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #11 – Zinnia Takes Shape (3D Modeling, Texturing &amp; World Standards) on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/343/342299/thumb_620x2000/thumbnail_11.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/343/342299/crop_120x90/thumbnail_11.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#11</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">21 Dec 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-11-zinnia-takes-shape-3d-modeling-texturing-world-standards" target="_blank" rel="noopener noreferrer">Zinnia Takes Shape (3D Modeling, Texturing &amp; World Standards)</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-11-zinnia-takes-shape-3d-modeling-texturing-world-standards" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-12-14">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-10-building-the-wizards-workshop-3d-space-level-planning" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #10 – Building the Wizard&#x27;s Workshop (3D Space &amp; Level Planning) on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/343/342051/thumb_620x2000/thumbnail_10.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/343/342051/crop_120x90/thumbnail_10.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#10</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">14 Dec 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-10-building-the-wizards-workshop-3d-space-level-planning" target="_blank" rel="noopener noreferrer">Building the Wizard&#x27;s Workshop (3D Space &amp; Level Planning)</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-10-building-the-wizards-workshop-3d-space-level-planning" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-12-07">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-9-designing-fear-modeling-monsters-and-diving-into-ps1-style" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #9 Designing Fear, Modeling Monsters, and Diving Into PS1 Style on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/342/341783/thumb_620x2000/thumbnail_9.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/342/341783/crop_120x90/thumbnail_9.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#9</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">7 Dec 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-9-designing-fear-modeling-monsters-and-diving-into-ps1-style" target="_blank" rel="noopener noreferrer">Designing Fear, Modeling Monsters, and Diving Into PS1 Style</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-9-designing-fear-modeling-monsters-and-diving-into-ps1-style" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-11-30">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-8-hunger-sanity-fear-and-a-very-busy-week" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #8 – Hunger, Sanity, Fear… and a Very Busy Week on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/342/341560/thumb_620x2000/thumbnail_8.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/342/341560/crop_120x90/thumbnail_8.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#8</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">30 Nov 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-8-hunger-sanity-fear-and-a-very-busy-week" target="_blank" rel="noopener noreferrer">Hunger, Sanity, Fear… and a Very Busy Week</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-8-hunger-sanity-fear-and-a-very-busy-week" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-11-23">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/post-7-portals-tools-monsters-pure-dev-chaos" target="_blank" rel="noopener noreferrer" aria-label="Read Post 7 – Portals, Tools, Monsters &amp; Pure Dev Chaos on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/342/341328/thumb_620x2000/thumbnail_7.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/342/341328/crop_120x90/thumbnail_7.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#7</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">23 Nov 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/post-7-portals-tools-monsters-pure-dev-chaos" target="_blank" rel="noopener noreferrer">Portals, Tools, Monsters &amp; Pure Dev Chaos</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/post-7-portals-tools-monsters-pure-dev-chaos" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-11-16">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-6-the-wizard-sanity-the-alpha-tool-bunny-hunting" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #6 – The Wizard, Sanity, the Alpha Tool &amp;… Bunny Hunting?? on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/341/341079/thumb_620x2000/thumbnail_6.jpg" data-fallback="https://media.indiedb.com/cache/images/articles/1/341/341079/crop_120x90/thumbnail_6.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#6</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">16 Nov 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-6-the-wizard-sanity-the-alpha-tool-bunny-hunting" target="_blank" rel="noopener noreferrer">The Wizard, Sanity, the Alpha Tool &amp;… Bunny Hunting??</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-6-the-wizard-sanity-the-alpha-tool-bunny-hunting" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-11-09">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-5-the-hunter-arrives-and-the-gates-evolve" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #5 – The Hunter Arrives and the Gates Evolve! on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/341/340835/thumb_620x2000/Dev_Updates_5.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/341/340835/crop_120x90/Dev_Updates_5.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#5</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">9 Nov 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-5-the-hunter-arrives-and-the-gates-evolve" target="_blank" rel="noopener noreferrer">The Hunter Arrives and the Gates Evolve!</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-5-the-hunter-arrives-and-the-gates-evolve" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-11-02">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-4-back-beneath-the-questline" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #4 – Back Beneath the Questline! on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/341/340606/thumb_620x2000/Dev_Updates_4.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/341/340606/crop_120x90/Dev_Updates_4.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#4</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">2 Nov 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-4-back-beneath-the-questline" target="_blank" rel="noopener noreferrer">Back Beneath the Questline!</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-4-back-beneath-the-questline" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-06-19">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-3-code-classes-a-bit-of-rider" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #3 – Code, Classes &amp; A Bit of Rider on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/337/336695/thumb_620x2000/b3.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/337/336695/crop_120x90/b3.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#3</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">19 Jun 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-3-code-classes-a-bit-of-rider" target="_blank" rel="noopener noreferrer">Code, Classes &amp; A Bit of Rider</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-3-code-classes-a-bit-of-rider" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-06-12">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-2-bugs-crosshairs-and-clues" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #2 – Bugs, Crosshairs, and Clues on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/337/336488/thumb_620x2000/b2.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/337/336488/crop_120x90/b2.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#2</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">12 Jun 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-2-bugs-crosshairs-and-clues" target="_blank" rel="noopener noreferrer">Bugs, Crosshairs, and Clues</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-2-bugs-crosshairs-and-clues" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          <article class="dl-card arc-card" data-date="2025-06-05">
+            <a class="dl-thumb" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-1-somethings-off-with-the-smiles" target="_blank" rel="noopener noreferrer" aria-label="Read Devlog #1 – Something&#x27;s Off with the Smiles… on IndieDB">
+              <div class="dl-ph" aria-hidden="true">&lt;/&gt;</div>
+              <img src="https://media.indiedb.com/cache/images/articles/1/337/336307/thumb_620x2000/Dev_Updates.png" data-fallback="https://media.indiedb.com/cache/images/articles/1/337/336307/crop_120x90/Dev_Updates.png" alt="" loading="lazy" referrerpolicy="no-referrer" />
+              <span class="arc-no">#1</span>
+            </a>
+            <div class="dl-body">
+              <div class="dl-date">5 Jun 2025</div>
+              <h3><a href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-1-somethings-off-with-the-smiles" target="_blank" rel="noopener noreferrer">Something&#x27;s Off with the Smiles…</a></h3>
+              <a class="dl-more" href="https://www.indiedb.com/games/beneath-the-questline/news/devlog-1-somethings-off-with-the-smiles" target="_blank" rel="noopener noreferrer">Read on IndieDB ↗</a>
+            </div>
+          </article>
+          </div>
+        </div>
+        <div class="arc-prog" aria-hidden="true"><i id="btqProg"></i></div>
+        <p class="arc-hint" id="btqHint">Swipe or drag sideways for older devlogs →</p>
+
+      </div>
+    </section>
+
+
+    <!-- =========================================
          LATEST POSTS (live from IndieDB)
     ========================================= -->
 
@@ -398,6 +616,7 @@
   <script src="js/dev-home.js" defer></script>
   <script src="js/indiedb-widget.js" defer></script>
   <script src="js/devlogs.js" defer></script>
+  <script src="js/btq-articles.js" defer></script>
 
 </body>
 </html>
