@@ -28,6 +28,7 @@
     return new Date(iso).toLocaleDateString("en-GB", { month: "short", year: "numeric", timeZone: "UTC" });
   }
   function isIndieDb(u) { return typeof u === "string" && u.indexOf("https://www.indiedb.com/") === 0; }
+  function isGame(u) { return typeof u === "string" && u.indexOf("https://www.indiedb.com/games/beneath-the-questline/") === 0; }
   function isMedia(u) { return typeof u === "string" && u.indexOf("https://media.indiedb.com/") === 0; }
 
   /* ---------- images ---------- */
@@ -123,7 +124,8 @@
     cards().forEach(function (c) { var a = c.querySelector("a.dl-thumb"); if (a) have[a.href] = c; });
     var fresh = [];
     posts.forEach(function (p) {
-      if (!p || typeof p.title !== "string" || !isIndieDb(p.link) || isNaN(new Date(p.date).getTime())) return;
+      /* only this game's articles: an older /api/indiedb ignores ?feed=game and sends the personal blog */
+      if (!p || typeof p.title !== "string" || !isGame(p.link) || isNaN(new Date(p.date).getTime())) return;
       var existing = have[p.link];
       if (existing) {
         /* the feed knows the real image address: prefer it over my guess */
